@@ -10,31 +10,36 @@ Welcome to Research Computing at Mines documentation!
    :caption: General Information
 
    pages/overview.md
-   pages/systems.md
    pages/policies.md
    pages/computing_options.md
    pages/consultations.md
-   pages/module_system.md
    pages/faq.md
    pages/workshops.md
    pages/publications.rst
 
 .. toctree::
-   :caption: User Guides
+   :caption: High Performance Computing (HPC)
 
+   pages/systems.md
+   pages/module_system.md
    pages/user_guides/new_user_guide.md
    pages/user_guides/connecting_to_systems.md
    pages/user_guides/python_environments.md
    pages/user_guides/matlab.md
-   pages/user_guides/job_specific_examples.md
    pages/user_guides/advanced_slurm_guide.md
    pages/user_guides/job_efficiency_xdmod.md
    pages/user_guides/Parallel_Scaling_Guide.ipynb
    pages/user_guides/archived_guides.md
-   
+
+.. toctree::
+   :caption: Research Data Storage & Management
+
+.. toctree::
+   :caption: Scientific Visualization
+
 .. toctree::
    :maxdepth: 1
-   :caption: Budget Guidance
+   :caption: Research Computing Budget Guidance
    
    pages/budget_guidance/research_computing_resource_guidance.md
    pages/budget_guidance/guidance-case-study-fenics.md
