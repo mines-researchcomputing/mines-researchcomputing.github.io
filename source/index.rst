@@ -32,14 +32,14 @@ Welcome to Research Computing at Mines documentation!
    pages/user_guides/archived_guides.md
 
 .. toctree::
-   :caption: Research Data Storage & Management
+   :caption: Data Storage & Management
 
 .. toctree::
    :caption: Scientific Visualization
 
 .. toctree::
    :maxdepth: 1
-   :caption: Research Computing Budget Guidance
+   :caption: Budget Guidance
    
    pages/budget_guidance/research_computing_resource_guidance.md
    pages/budget_guidance/guidance-case-study-fenics.md
