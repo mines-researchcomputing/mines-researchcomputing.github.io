@@ -6,10 +6,10 @@
 
 | **Node Type** | **Rate per hour [USD]** | **CPU core** | **Memory per CPU core [GB]** | **GPU** |
 |---------------|-------------------------|--------------|------------------------------|---------|
-| CPU           | $0.02                   | 1            | 5 or 10*                     | NA      |
-| GPU enabled   | $0.12**                 | 6            | 48                           | 1 x NVIDIA V100  |
+| CPU           | $0.005                   | 1            | 5 or 10*                     | NA      |
+| GPU enabled   | $0.03**                 | 6            | 48                           | 1 x NVIDIA V100  |
 
-*Last updated: 3/31/2023*
+*Last updated: 8/14/2024*
 
 *There are two types of CPU nodes on Wendian: (1) a "low" memory node of 192 GB, and (2) a "high" memory node of 384 GB node. Jobs will be routed to each of these nodes depending on requested resources.
 
@@ -49,11 +49,12 @@ If you find that you are poorly utilizing CPU or memory resources, feel free to 
 
 The current storage rate policy is below:
 
-| Storage | Rate [USD/TB] |
+| Storage | Rate [USD/Terabyte/Month] |
 |-----------|------------|
-| Orebits, redundant | $2.00 |
+| Orebits, backed-up | $1.75 |
+| Orebits, no back-up | $1.00 |
 
-*Last updated: 03/31/2023*
+*Last updated: 08/14/2024*
 
  
 
