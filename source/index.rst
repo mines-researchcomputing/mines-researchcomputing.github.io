@@ -18,6 +18,14 @@ Welcome to Research Computing at Mines documentation!
    pages/publications.rst
 
 .. toctree::
+   :caption: Data Storage & Management
+
+   pages/data_management/orebits.md   
+   pages/data_management/globus.md   
+   pages/data_management/file_management.md 
+   pages/data_management/institutional_repository.md
+
+.. toctree::
    :caption: High Performance Computing (HPC)
 
    pages/systems.md
@@ -32,10 +40,20 @@ Welcome to Research Computing at Mines documentation!
    pages/user_guides/archived_guides.md
 
 .. toctree::
-   :caption: Data Storage & Management
+   :caption: Scientific Visualization
+
+   pages/visualization/2D_plots.md
+   pages/visualization/3D_plots.md
+   pages/visualization/animations.md
+   pages/visualization/paraview.md 
+   pages/visualization/workflows.md
+   pages/visualization/ansys.md 
+   pages/visualization/open_ondemand_applications.md
 
 .. toctree::
-   :caption: Scientific Visualization
+   :caption: Cloud Computing
+
+   pages/
 
 .. toctree::
    :maxdepth: 1
