@@ -53,7 +53,7 @@ Welcome to Research Computing at Mines documentation!
 .. toctree::
    :caption: Cloud Computing
 
-   pages/
+   pages/cloud/general_information.md
 
 .. toctree::
    :maxdepth: 1
