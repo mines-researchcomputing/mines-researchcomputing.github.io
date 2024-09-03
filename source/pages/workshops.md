@@ -1,5 +1,21 @@
 # Workshops
 
+## Fall 2024
+
+### Intro to Research Computing at Mines
+
+Date(s): September 3-5, 2024, 4:30-6:30pm
+
+Presented by: Nicholas A. Danes
+
+#### Workshop Materials
+
+* Day 1: Overview of Research Computing & Cyberinfrastructure, Intro to Linux/Bash and Slurm/Job Schedulers
+  
+  * [Slides (PDF)]()
+  
+  * Lab #1: [Intro to Linux & Bash](./workshops/fall2024/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.md)
+
 ## Spring 2024
 
 ### Intro to MPI using Python 
