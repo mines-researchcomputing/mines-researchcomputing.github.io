@@ -11,10 +11,9 @@ Presented by: Nicholas A. Danes
 #### Workshop Materials
 
 * Day 1: Overview of Research Computing & Cyberinfrastructure, Intro to Linux/Bash and Slurm/Job Schedulers
-  
-  * [Slides (PDF)]()
-  
-  * Lab #1: [Intro to Linux & Bash](./workshops/fall2024/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.md)
+  * [Slides (PDF)](/_static/workshop_files/HPC-Workshop-PartI-Fall2024.pdf)
+  * Lab #1: [Intro to Linux and Bash](./workshops/fall2024/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.md)
+  * Lab #2: [Intro to Slurm, Modules, and Python Environments](./workshops/fall2024/Intro_to_Slurm_and_Python_Lab.md)
 
 ## Spring 2024
 
@@ -57,8 +56,6 @@ Presented by: Nicholas A. Danes & Richard Gilmore
   * [Slides on HPC Data Management (PDF)](https://wpfiles.mines.edu/wp-content/uploads/ciarc/workshop_files/Spring2024/HPC-Workshop-PartIII-Spring2024.pdf)
   
   * Lab #1: [Data Management on HPC Lab](https://wpfiles.mines.edu/wp-content/uploads/ciarc/workshop_files/Spring2024/Data%20Management%20on%20HPC%20Lab%20Handout.html)
-
-**Video recordings from workshop slide presentation coming soon!**
 
 ## Past Workshops
 
