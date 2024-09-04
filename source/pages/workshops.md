@@ -10,6 +10,11 @@ Presented by: Nicholas A. Danes
 
 #### Workshop Materials
 
+* Day 2: Intro to Serial and Parallel Computing Concepts, Running GROMACS on HPC
+  * [Slides (PDF)](/_static/workshop_files/HPC-Workshop-PartII-Fall2024.pdf)
+  * Lab #1: Instructions available on Slides (Wendian users only)
+  * Lab #2: [Intro to Parallel Processing on HPC using GROMACS](./workshops/fall2024/Intro_to_Parallel_Processing_on_HPC_-_GROMACS.md)
+
 * Day 1: Overview of Research Computing & Cyberinfrastructure, Intro to Linux/Bash and Slurm/Job Schedulers
   * [Slides (PDF)](/_static/workshop_files/HPC-Workshop-PartI-Fall2024.pdf)
   * Lab #1: [Intro to Linux and Bash](./workshops/fall2024/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.md)
