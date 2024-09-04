@@ -176,7 +176,7 @@ A sample job script (which we will call run.slurm) to use the executable will lo
 
 	echo "Job has started!"
 	srun hello_world.exe
-	echo "Job has finished!
+	echo "Job has finished!"
 As with the last example, we can send the job to the scheduler using the command:
 
 	$ sbatch run.slurm
@@ -411,7 +411,7 @@ Next, we need to setup a SLURM script, which we call run.sh:
 
 	echo "Job has started!"
 	srun python my_petsc4py.py
-	echo "Job has finished!
+	echo "Job has finished!"
 Similiar to before, we can submit this to the SLURM scheduler by using the command:
 
 	$ sbatch run.sh 
