@@ -148,7 +148,7 @@ echo $PATH
 
 On Wendian:
 
-	$ module load compilers/gcc mpi/openmpi/gcc
+	$ module load compilers/gcc mpi/openmpi/gcc-cuda
 This will load a newer GCC compiler that is required for our OpenMPI library we're going to use with the code. After loading the modules, print out the PATH variable to see what has changed:
 
 ```
@@ -172,11 +172,11 @@ A sample job script (which we will call run.slurm) to use the executable will lo
 	#SBATCH --error error.%j  # standard print error  labeled with SLURM job id %j
 
 	# Load the modules used to compile the code in the job script
-	module load compilers/gcc mpi/openmpi/gcc
+	module load compilers/gcc mpi/openmpi/gcc-cuda
 
 	echo "Job has started!"
 	srun hello_world.exe
-	echo "Job has finished!
+	echo "Job has finished!"
 As with the last example, we can send the job to the scheduler using the command:
 
 	$ sbatch run.slurm
@@ -411,7 +411,7 @@ Next, we need to setup a SLURM script, which we call run.sh:
 
 	echo "Job has started!"
 	srun python my_petsc4py.py
-	echo "Job has finished!
+	echo "Job has finished!"
 Similiar to before, we can submit this to the SLURM scheduler by using the command:
 
 	$ sbatch run.sh 
