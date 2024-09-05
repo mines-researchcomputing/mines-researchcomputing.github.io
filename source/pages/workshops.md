@@ -10,6 +10,10 @@ Presented by: Nicholas A. Danes
 
 #### Workshop Materials
 
+* Day 3: Intro to Data Management on HPC, Monitoring Performance & Budget Guidance for HPC Researchers
+  * [Slides for Data Management (PDF)](/_static/workshop_files/HPC-Workshop-PartIII-Fall2024.pdf)
+  * [Slides for Monitoring Performance & Budget Guidance for HPC Researchers (PDF)](/_static/workshop_files/2024-RC-HPC-Systems-and-Guidance-student.pdf)
+  * Lab #1: [Data Management on HPC](./workshops/fall2024/Data_Management_on_HPC_Lab_Handout.md)
 * Day 2: Intro to Serial and Parallel Computing Concepts, Running GROMACS on HPC
   * [Slides (PDF)](/_static/workshop_files/HPC-Workshop-PartII-Fall2024.pdf)
   * Lab #1: Instructions available on Slides (Wendian users only)
