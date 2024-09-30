@@ -11,7 +11,7 @@ For all environments listed below, we will need to setup a base environment. The
  
 #### Wendian and Mio
 ```
-module load apps/python3/2022.10       
+module load apps/python3      
 ``` 
  
 ### Creating  and activating a conda environment under your home directory
