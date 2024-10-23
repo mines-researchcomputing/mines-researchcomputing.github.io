@@ -235,10 +235,10 @@ To compile this code, we need to load modules from the module system.
 
 On Wendian:
 
-	$ module load compilers/gcc/9.3.1 mpi/openmpi/gcc-cuda/4.1.4
+	$ module load compilers/gcc mpi/openmpi/gcc
 On Mio:
 
-	$ module load compilers/gcc/9 mpi/openmpi/gcc/4.1.1
+	$ module load compilers/gcc mpi/openmpi/gcc
 This will load a newer GCC compiler that is required for our OpenMPI library we’re going to use with the code. To compile the code, we will use the MPI-wrapped C++ compiler mpicxx:
 
 	$ mpicxx  hello_world.cpp -o hello_world.exe
