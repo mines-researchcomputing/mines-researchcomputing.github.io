@@ -253,9 +253,9 @@ A sample job script (which we will call run.slurm) to use the executable will lo
 	#SBATCH -e error.%j  # standard print error  labeled with SLURM job id %j
 
 	# If on Wendian, uncomment the line below
-	module load compilers/gcc/9.3.1 mpi/openmpi/gcc-cuda/4.1.4
+	module load compilers/gcc mpi/openmpi/gcc
 	# If on Mio, uncomment the line below
-	# module load compilers/gcc/9 mpi/openmpi/gcc/4.1.1
+	# module load compilers/gcc mpi/openmpi/gcc
 
 	echo "Job has started!"
 	srun hello_world.exe
@@ -291,7 +291,7 @@ First step is to load the desired version Python version. We will show examples 
 
 On Wendian and Mio
 
-	$ module load apps/python3/2022.10
+	$ module load apps/python3
 
 Then create your own python environment using the following command:
 
@@ -484,10 +484,10 @@ Next, we need to setup a SLURM script, which we call run.sh:
 	#SBATCH -e error.%j  # standard print error  labeled with SLURM job id %j
 
 	# load python module
-	module load apps/python3/2020.02
+	module load apps/python3
 
 	# activate conda environment required to run code
-	source activate my_env
+	conda activate my_env
 
 	echo "Job has started!"
 	srun python my_petsc4py.py
