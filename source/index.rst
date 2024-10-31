@@ -45,9 +45,11 @@ Welcome to Research Computing at Mines documentation!
    pages/budget_guidance/guidance-case-study-fenics.md
 
 .. toctree::
+   :maxdepth: 3
    :caption: Cloud Resources
 
-   pages/Cloud/AWS/AWS.md
+   pages/Cloud/AWS.rst
+   pages/Cloud/GCP.rst
 
 Indices and tables
 ==================
