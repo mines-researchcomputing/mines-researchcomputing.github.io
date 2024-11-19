@@ -2,12 +2,18 @@
 
 ## Fall 2024
 
-### Intro to Research Computing at Mines
+### Intro to MPI using Python 
 
-Date(s): September 3-5, 2024, 4:30-6:30pm
 
+#### Workshop Materials
+Date(s): November 19+21, 2024, 4:30-6:30pm
 Presented by: Nicholas A. Danes
 
+* Day 1: Intro to Serial and Parallel Computing Concepts, Computing Parallel Efficiency, Amdhal's + Gustavson's Laws
+  * [Slides (PDF)](/_static/workshop_files/MPI-Python-Workshop-Day1-Fall2024.pdf)
+  * Lab #1+2: Instructions available on Slides (Wendian users only)
+
+### Intro to Research Computing at Mines
 #### Workshop Materials
 
 * Day 3: Intro to Data Management on HPC, Monitoring Performance & Budget Guidance for HPC Researchers
