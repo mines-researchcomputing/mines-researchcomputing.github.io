@@ -9,6 +9,10 @@
 Date(s): November 19+21, 2024, 4:30-6:30pm
 Presented by: Nicholas A. Danes
 
+* Day 2: A (Semi-) Deep Dive into mpi4py
+  * [Slides (PDF)](/_static/workshop_files/MPI-Python-Workshop-Day2-Fall2024.pdf)
+  * Lab #1+2: Instructions available on Slides (Wendian users only)
+
 * Day 1: Intro to Serial and Parallel Computing Concepts, Computing Parallel Efficiency, Amdhal's + Gustavson's Laws
   * [Slides (PDF)](/_static/workshop_files/MPI-Python-Workshop-Day1-Fall2024.pdf)
   * Lab #1+2: Instructions available on Slides (Wendian users only)
