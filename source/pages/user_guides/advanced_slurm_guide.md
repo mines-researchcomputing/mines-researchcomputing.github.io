@@ -128,9 +128,18 @@ There are variety of configuration options for choosing finer details on what co
 
 
 
+## Job Arrays
+
+Slurm job arrays are a way to submit multiple jobs to the Slurm scheduler all at once. It uses an indexing "array" that tracks each of the jobs. 
+
+### A simple example
+
+### Using Job Array Index to setup parameter search
+
+
+
 ## Dependencies
 
 
-## Job Arrays
 
 
