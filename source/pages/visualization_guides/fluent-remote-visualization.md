@@ -43,9 +43,9 @@ Now, submit this to the SLURM scheduler
 [joeuser@wendian001.mines.edu]$ sbatch flremote-svr-start.submit
 Submitted batch job 6033061
 ```
-Once the Fluent job starts the file with the SLURM_JOBID_fluent_server_info.txt is created with the connection information, 
-the Fluent cleanup script (can be run by executing ‘sh FILENAME’ at the command prompt), a transcript files, and the 
-slurm-SLURM_JOBID output file. The connection information file identifies the IP address and password needed to 
+Once the Fluent job starts the file with the `SLURM_JOBID_fluent_server_info.txt` is created with the connection information, 
+the Fluent cleanup script (can be run by executing `sh FILENAME` at the command prompt), a transcript files, and the 
+`slurm-SLURM_JOBID` output file. The connection information file identifies the IP address and password needed to 
 create the network port tunnel from the client machine to this node.
 
 For example, this job now has the follow files in the working directory.
@@ -73,7 +73,7 @@ velocity, turbulent parameters, temperature, species, etc.
 The a simple journal file may contain a read case, initialize or read data, iterate, save case and data, and exit. 
 However, for our purposes here starting a visualization client server and reading a case is sufficient. 
 
-The file “read_case.jou” contains these two lines:
+The file `read_case.jou` contains these two lines:
 ```
 ;Journal file to start the visualization client server and read a case
 server/start-client
@@ -81,7 +81,7 @@ file/read-case myFluentCase.cas
 ```
 
 Then the command in the batch script to start fluent changes to call this journal file. Using multiple 
-processors and nodes the variables $cpus and $SLURM_JOB_ID.nodes are created in the script 
+processors and nodes the variables `$cpus` and `$SLURM_JOB_ID.nodes` are created in the script 
 See [Fluent using Multiple Nodes](./fluentstartup.md#fluent-using-multiple-nodes). So the last line becomes:
 ```
 fluent 3ddp -t$cpus -cnf=$SLURM_JOB_ID.nodes -gu -i read_case.jou
@@ -89,7 +89,7 @@ fluent 3ddp -t$cpus -cnf=$SLURM_JOB_ID.nodes -gu -i read_case.jou
 
 ### Step 2: Get the connection infomation and start a tunnel
 
-Output the contents of the fluent server file: SLURM_JOBID_fluent_server_info.txt or use the Ondemand "Files" tab to view the text file.
+Output the contents of the fluent server file: `SLURM_JOBID_fluent_server_info.txt` or use the Ondemand "Files" tab to view the text file.
 
 ```
 [joeuser@wendian001.mines.edu]$ cat 6033061_fluent_server_info.txt
@@ -107,7 +107,7 @@ localhost:2678
 
 #### Starting a Tunnel to the compute node host
 
-Opening a Terminal (Linux) or Windows PowerShell and run the ssh command with the flag -L with the connection information.
+Opening a Terminal (Linux) or Windows PowerShell and run the ssh command with the flag `-L` with the connection information.
 
 ```
 Windows PowerShell
@@ -117,7 +117,7 @@ Install the latest PowerShell for new features and improvements! https://aka.ms/
 
 PS Z:\> ssh -L 8001:c078:2678 joeuser@wendian.mines.edu
 ```
-The first number '8001' is your choice, the compute host name is c078, and the second number '2678' is the port number gave in the submit script.
+The first number `8001'`is your choice, the compute host name is `c078`, and the second number `2678` is the port number gave in the submit script.
 
 ### Step 3: Start your local client and connect
 
