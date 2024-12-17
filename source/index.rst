@@ -37,12 +37,11 @@ Welcome to Research Computing at Mines documentation!
 .. toctree::
    :caption: Scientific Visualization
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Budget Guidance
-   
-   pages/budget_guidance/research_computing_resource_guidance.md
-   pages/budget_guidance/guidance-case-study-fenics.md
+   pages/visualization_guides/paraview-server-startup.md
+   pages/visualization_guides/fluent-remote-visualization.md
+   pages/visualization_guides/jupyter-lab-startup.md
+   pages/visualization_guides/using-vnc-connection-for-fluent-gui-access.md
+
 
 .. toctree::
    :maxdepth: 3
@@ -50,6 +49,14 @@ Welcome to Research Computing at Mines documentation!
 
    pages/Cloud/AWS.rst
    pages/Cloud/GCP.rst
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Budget Guidance
+   
+   pages/budget_guidance/research_computing_resource_guidance.md
+   pages/budget_guidance/guidance-case-study-fenics.md
+
 
 Indices and tables
 ==================
