@@ -37,11 +37,11 @@ Welcome to Research Computing at Mines documentation!
 .. toctree::
    :caption: Scientific Visualization
 
+   pages/visualization_guides/2d-prime-plots.ipynb
    pages/visualization_guides/paraview-server-startup.md
    pages/visualization_guides/fluent-remote-visualization.md
    pages/visualization_guides/jupyter-lab-startup.md
    pages/visualization_guides/using-vnc-connection-for-fluent-gui-access.md
-
 
 .. toctree::
    :maxdepth: 3
