@@ -117,7 +117,7 @@ Install the latest PowerShell for new features and improvements! https://aka.ms/
 
 PS Z:\> ssh -L 8001:c078:2678 joeuser@wendian.mines.edu
 ```
-The first number `8001'`is your choice, the compute host name is `c078`, and the second number `2678` is the port number gave in the submit script.
+The first number `8001`is your choice, the compute host name is `c078`, and the second number `2678` is the port number gave in the submit script.
 
 ### Step 3: Start your local client and connect
 
