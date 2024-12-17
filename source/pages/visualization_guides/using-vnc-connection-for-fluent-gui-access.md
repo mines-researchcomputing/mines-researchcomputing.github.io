@@ -52,8 +52,10 @@ salloc: Nodes compute031 are ready for job
 ### Step 2: Start a VNCserver:
 Load the TurboVNC module and the application module of the HPC platform.
 
-```module load apps/ansys/242
-module load utility/standard/turbovnc```
+```
+module load apps/ansys/242
+module load utility/standard/turbovnc
+```
 
 Then start a vncserver on this compute node. The first time you start the vncserver 
 you will be prompted to create a password for when you connect with the VNC viewer.
@@ -61,6 +63,7 @@ Enter a password and re-enter to verify.
 
 
 [joeuser@c078 ~]$ `vncserver`
+
 ```
 perl: warning: Setting locale failed.
 perl: warning: Please check that your locale settings:
@@ -99,9 +102,9 @@ the SSH protocol to the remote compute node on the Mines' HPC platform. From you
 machine using Linux, MacOS, or Windows PowerShell use this terminal command.
 
 From a new terminal session from your computer (if you’re using Linux pick a different 
-number for the first port as 5901 is reserved for your current running X-session). 
+number for the first port as `5901` is reserved for your current running X-session). 
 The first number is your local machine port number the second number is the remote compute node 
-port number 5900 plus the screen number (a value of 1 in this case).
+port number `5900` plus the screen number (a value of 1 in this case).
 
 [username@MyComputer ~] % `ssh -L 5901:c078:5901 username@wendian.mines.edu`
 
@@ -112,7 +115,7 @@ viewer of your choice. You only need to install the "Viewer" part of the softwar
 
 For MacOS you can use “Screen Sharing” which is a VNC client installed with MacOS 
 (Use Command+Space to use spotlight to search). You can also use the native Mac VNC 
-Viewer found in “/System/Library/CoreServices/Applications/Screen Sharing.app”.
+Viewer found in `/System/Library/CoreServices/Applications/Screen Sharing.app`.
 
 Windows: Start the Client VNC that you download and installed.
 
