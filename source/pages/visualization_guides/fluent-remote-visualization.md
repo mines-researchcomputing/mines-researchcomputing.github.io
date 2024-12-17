@@ -19,7 +19,7 @@ to the TUI on the running Fluent (meshing or solver) server.
 ### Step 1: Submit a Slurm Job
 
 To get started create a SLURM submit script with the following in a directory with a Fluent case file.
-$HOME/scratch/$USER/fluent-cases/flremote-svr-start.submit
+`$HOME/scratch/$USER/fluent-cases/flremote-svr-start.submit`
 ```
 #!/bin/bash
 #SLURM submit script filename: flremote-svr-start.submit
