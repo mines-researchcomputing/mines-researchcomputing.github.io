@@ -42,7 +42,7 @@ Submit your job to the Slurm scheduler using sbatch.
 
 ### Step 2: What node is ParaView running on and setting up your tunnel
 
-Once your job has started the file slurm-JOBID.out will contain the following lines:
+Once your job has started the file `slurm-JOBID.out` will contain the following lines:
 
 ```
 Waiting for client...
@@ -55,9 +55,9 @@ Or check your SLURM queue for compute node hostnames with `squeue -u $USER`, and
 ### Step 2: Create a secure tunnel to the host from your client machine
 
 Start a terminal (Linux or MacOS) or Windows PowerShell and run the following command. The first number of the SSH tunnel is  
-a port number on your local machine, such as 5555. Followed by the hostname, here we have c078, and the final number is port 
+a port number on your local machine, such as `5555`. Followed by the hostname, here we have `c078`, and the final number is port 
 number on the HPC node as stated “Accepting connections(s):” line from your slurm-JOBID.out containing the node and port number
-(c078:11111). End the command with your username and the Mines HPC platform.
+(`c078:11111`). End the command with your username and the Mines HPC platform.
 
 ```
 Windows PowerShell
