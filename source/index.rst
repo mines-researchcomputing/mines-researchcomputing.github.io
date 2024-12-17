@@ -42,12 +42,6 @@ Welcome to Research Computing at Mines documentation!
    pages/visualization_guides/jupyter-lab-startup.md
    pages/visualization_guides/using-vnc-connection-for-fluent-gui-access.md
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Budget Guidance
-   
-   pages/budget_guidance/research_computing_resource_guidance.md
-   pages/budget_guidance/guidance-case-study-fenics.md
 
 .. toctree::
    :maxdepth: 3
@@ -55,6 +49,14 @@ Welcome to Research Computing at Mines documentation!
 
    pages/Cloud/AWS.rst
    pages/Cloud/GCP.rst
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Budget Guidance
+   
+   pages/budget_guidance/research_computing_resource_guidance.md
+   pages/budget_guidance/guidance-case-study-fenics.md
+
 
 Indices and tables
 ==================
