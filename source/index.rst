@@ -6,16 +6,20 @@
 Welcome to Research Computing at Mines documentation!
 =======================================================
 .. toctree::
-   :maxdepth: 2
-   :caption: General Information
+   :caption: Scientific Visualization
 
-   pages/overview.md
-   pages/policies.md
-   pages/computing_options.md
-   pages/consultations.md
-   pages/faq.md
-   pages/workshops.md
-   pages/publications.rst
+   pages/visualization_guides/2d-prime-plots.ipynb
+   pages/visualization_guides/paraview-server-startup.md
+   pages/visualization_guides/fluent-remote-visualization.md
+   pages/visualization_guides/jupyter-lab-startup.md
+   pages/visualization_guides/using-vnc-connection-for-fluent-gui-access.md
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Cloud Resources
+
+   pages/Cloud/AWS.rst
+   pages/Cloud/GCP.rst
 
 .. toctree::
    :caption: High Performance Computing (HPC)
@@ -35,28 +39,23 @@ Welcome to Research Computing at Mines documentation!
    :caption: Data Storage & Management
 
 .. toctree::
-   :caption: Scientific Visualization
-
-   pages/visualization_guides/2d-prime-plots.ipynb
-   pages/visualization_guides/paraview-server-startup.md
-   pages/visualization_guides/fluent-remote-visualization.md
-   pages/visualization_guides/jupyter-lab-startup.md
-   pages/visualization_guides/using-vnc-connection-for-fluent-gui-access.md
-
-.. toctree::
-   :maxdepth: 3
-   :caption: Cloud Resources
-
-   pages/Cloud/AWS.rst
-   pages/Cloud/GCP.rst
-
-.. toctree::
    :maxdepth: 1
    :caption: Budget Guidance
    
    pages/budget_guidance/research_computing_resource_guidance.md
    pages/budget_guidance/guidance-case-study-fenics.md
 
+.. toctree::
+   :maxdepth: 2
+   :caption: General Information
+
+   pages/overview.md
+   pages/policies.md
+   pages/computing_options.md
+   pages/consultations.md
+   pages/faq.md
+   pages/workshops.md
+   pages/publications.rst
 
 Indices and tables
 ==================
