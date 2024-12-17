@@ -2,17 +2,17 @@
 The following is only for advanced users needing a special environment using your own Jupyter lab version, 
 custom build widgets, etc.
 
-## **IMPORTANT**: Most functionality that users will ever need from Jupyter Lab is immediately available 
+> **IMPORTANT**: Most functionality that users will ever need from Jupyter Lab is immediately available 
 Go to [wendian-ondemand.mines.edu](https://wendian-ondemand.mines.edu) and [mio-ondemand.mines.edu](https://mio-ondemand.mines.edu)
 under “Interactive Apps.”
 
-## DO NOT follow this guide unless you have tried using the above links, and have opened a ticket for help!
+> DO NOT follow this guide unless you have tried using the above links, and have opened a ticket for help!
 
 Starting a Jupyter Lab server for your personal use during simple development or editing is acceptable when CPU core 
 use and memory usage is low.
 
-Log in to the server with a SSH terminal session by making a tunnel from port 8788 open on your machine to the servers 
-localhost and port 8888 on Mines' HPC Login node. These port numbers can be identical, for illustration purposes here they are
+Log in to the server with a SSH terminal session by making a tunnel from port `8788` open on your machine to the servers 
+localhost and port `8888` on Mines' HPC Login node. These port numbers can be identical, for illustration purposes here they are
 different and show clearly which computer host they belong too.
 
 Connecting to a Jupyter Lab server running on a computer node requires starting an interactive job and a tunnel to the 
@@ -32,8 +32,8 @@ shared node resource as it is requesting only a single core.
 
 [joeuser@wendian001 ~]$ `salloc -n1`
 
-Start the Jupyter Lab with no browser and looking for a connection on port 8888, and broadcast the ip hostname 
-of the node name. Here, this is “c078”
+Start the Jupyter Lab with no browser and looking for a connection on port `8888`, and broadcast the ip hostname 
+of the node name. Here, this is `c078`
 
 [joeuser@c078 ~]$ `jupyter-lab --no-browser --port=8888 --ip=$(hostname)`
 
@@ -97,7 +97,7 @@ Shutdown this lab server (y/[n])? y
 Or by selecting “Quit” or "Shutdown Server" in the directory tree tab in the upper right.
 
 ### Advanced Stopping a Jupyter Lab
-If you have a Jupyter lab running either started with a “nohup” or running in the background of a terminal sometime 
+If you have a Jupyter lab running either started with a `nohup` or running in the background of a terminal sometime 
 you may have to investigate where it’s running. If you have the Module loaded you can try listing the notebooks running.
 
 [joeuser@HPCsystem ~$] `jupyter server list`
@@ -130,5 +130,5 @@ process IDs (Second number). To kill the second process listed:
 ## Advanced Startup of a Jupyter Lab Server
 
 Starting a Jupyter Lab and leave it running to connect to later or in case you lose connection. 
-Requires using the “nohup” command when starting the Jupyter Lab Server, and will need to be monitored 
+Requires using the `nohup` command when starting the Jupyter Lab Server, and will need to be monitored 
 to not accidentally leave jobs running.
