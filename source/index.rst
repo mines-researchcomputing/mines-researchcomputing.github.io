@@ -6,6 +6,19 @@
 Welcome to Research Computing at Mines documentation!
 =======================================================
 .. toctree::
+   :maxdepth: 2
+   :caption: General Information
+
+   pages/overview.md
+   pages/policies.md
+   pages/computing_options.md
+   pages/consultations.md
+   pages/faq.md
+   pages/workshops.md
+   pages/publications.rst
+
+
+.. toctree::
    :caption: Scientific Visualization
 
    pages/visualization_guides/2d-prime-plots.ipynb
@@ -45,17 +58,6 @@ Welcome to Research Computing at Mines documentation!
    pages/budget_guidance/research_computing_resource_guidance.md
    pages/budget_guidance/guidance-case-study-fenics.md
 
-.. toctree::
-   :maxdepth: 2
-   :caption: General Information
-
-   pages/overview.md
-   pages/policies.md
-   pages/computing_options.md
-   pages/consultations.md
-   pages/faq.md
-   pages/workshops.md
-   pages/publications.rst
 
 Indices and tables
 ==================
