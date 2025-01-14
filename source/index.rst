@@ -21,6 +21,7 @@ Welcome to Research Computing at Mines documentation!
 .. toctree::
    :caption: Scientific Visualization
 
+   pages/visualization_guides/cloud-compare.md
    pages/visualization_guides/2d-prime-plots.ipynb
    pages/visualization_guides/paraview-server-startup.md
    pages/visualization_guides/fluent-remote-visualization.md
