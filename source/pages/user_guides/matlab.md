@@ -4,8 +4,13 @@ Before you can use MATLAB, you must get approval from your PI to load the matlab
 
 To get started with MATLAB on {Mio, Wendian}, you will need to load the Matlab module from the module system either:
 
-1. An interactive job – requesting a node in order to run Matlab in the command line
-2. Within a job script – submitting a Matlab script to Mio’s job queuing system (called Slurm)
+1. Launch a GUI MATLAB interface through Open Ondemand for [Mio](https://mio-ondemand.mines.edu) or [Wendian](https://wendian-ondemand.mines.edu)
+2. An interactive job – requesting a node in order to run Matlab in the command line
+3. Within a job script – submitting a Matlab script to Mio’s job queuing system (called Slurm)
+
+## Starting MATLAB with a web interface
+
+From the "Interactive Apps" select MATLAB and fill out the job parameters in the form. You can select to launch MATLAB asa "Web Server interface" with the checkbox marked or without to use a Linux Desktop.
 
 ## Running an interactive job
 Type the following into the command line to initiate an interactive job:

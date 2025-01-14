@@ -12,4 +12,3 @@ Go to our Open Ondemand web portal [wendian-ondemand.mines.edu](https://wendian-
 
 NOTE: This doesn't not run on a compute node, but rather the login node. So please ensure your server is stopped.
 
-[//]: # "ADD to Running Matlab page add OOD"
