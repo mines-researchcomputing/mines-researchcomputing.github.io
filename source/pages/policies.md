@@ -17,7 +17,7 @@
 
 ### Checking HPC usage
 
-If you would like to check your usage for a given month, we have provided some convenient commands on Wendian.
+If you would like to check your usage for a given month, we have provided some convenient commands on Wendian, or use our [Open Ondemand portal](https://wendian-ondemand.mines.edu) under "Jobs" and click "get Utilization By User"
 
 To check usage as a user, use the command `getUtilizationByUser`:
 
@@ -82,7 +82,7 @@ The table below breaks down the purge policy and associated costs of each the da
 | Wendian Long-Term Storage (`/sets`) | None | Free | No |
 | Orebits | None | $2/TB/month | Yes |
 
-> Your account privileges may be suspended if we detect any attempt to evade the data purge policies (i.e. scripting the touching of files to keep them current)
+To monitor your usage use our [Check File Age and Size](user_guides/agedu.md) web interface on our Open Ondemand portal [wendian-ondemand.mines.edu](https://wendian-ondemand.mines.edu)
 
 *Last updated: 11/09/2023*
 
@@ -94,6 +94,9 @@ The table below breaks down the purge policy and associated costs of each the da
 When you login one of our HPC systems, you login what is known as the "management" node. This node allows one to login to HPC systems and interface with the job scheduler SLURM. Additionally, the management node can also be used to edit files, create environment and compile codes. However as a general rule, **running simulation software on the management node is prohibited.** On both HPC systems, a software called `arbiter` monitors system resources used on the login node. If you are using too many CPU resources, an automated email will be sent to you Mines E-Mail, warning you and throttling your CPU usage. Once a cooldown period ends, your CPU allotment will return to normal. 
 
 ## Scratch vs Home Directory
+
+To monitor your usage use our [Check File Age and Size](user_guides/agedu.md) web interface on our Open Ondemand portal [
+wendian-ondemand.mines.edu](https://wendian-ondemand.mines.edu)
 
 ## Home Directory Policy
 
