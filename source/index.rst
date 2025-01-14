@@ -38,6 +38,7 @@ Welcome to Research Computing at Mines documentation!
 .. toctree::
    :caption: High Performance Computing (HPC)
 
+   pages/user_guides/agedu.md
    pages/systems.md
    pages/module_system.md
    pages/user_guides/new_user_guide.md
