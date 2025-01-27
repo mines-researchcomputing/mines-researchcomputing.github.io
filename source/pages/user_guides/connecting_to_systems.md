@@ -26,26 +26,26 @@ The first step is to generate an ssh key pair:
 ```
 Generate your key pair (do not use an empty passphrase):
 
-osage:~ username$ ssh-keygen -f $HOME/.ssh/forhpc -tdsa
-Generating public/private dsa key pair.
+osage:~ username$  ssh-keygen -f $HOME/.ssh/forhpc
+Generating public/private ed25519 key pair.
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
-Your identification has been saved in /Users/username/.ssh/forhpc.
-Your public key has been saved in /Users/username/.ssh/forhpc.pub.
+Your identification has been saved in /Users/username/.ssh/forhpc
+Your public key has been saved in /Users/username/.ssh/forhpc.pub
 The key fingerprint is:
-67:60:3c:5e:42:64:23:c5:79:70:62:d1:da:74:97:45 username@wendian.mines.edu
+SHA256:mCvTpd7lwcQcupXCXm67xpCGeFfygoVN5O0EFG5bHjI username@osage
 The key's randomart image is:
-+--[ DSA 1024]----+
-|      .+@=.    +E|
-|       *o++ . o  |
-|        *=.. .   |
-|       o.=.      |
-|        S o      |
-|         o       |
-|                 |
-|                 |
-|                 |
-+-----------------+
++--[ED25519 256]--+
+|       o=.       |
+|       o.o       |
+|       +E *      |
+|      .=+%.+     |
+|     .o+S=X      |
+|    ..+=*O.      |
+|    o.+oo+*      |
+|     + . +oo     |
+|      . ..+.     |
++----[SHA256]-----+
 ```
 
 
