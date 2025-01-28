@@ -1,9 +1,16 @@
 # Workshops
 
-## Fall 2024
+## Spring 2025
+### Intro to Research Computing at Mines
+
+#### Workshop Materials
 
 ### Intro to MPI using Python 
+  * [Slides (Google Slides, Mines Users Only)](https://docs.google.com/presentation/d/1pep-QNpw4_pG3A8KBBz1ptqUSjnowIuo/edit?usp=sharing&ouid=115016039895124004295&rtpof=true&sd=true)
+  * Lab #1: [Intro to Linux and Bash](./workshops/spring2025/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.md)
+  * Lab #2: [Intro to Slurm, Modules, and Python Environments](./workshops/spring2025/Intro_to_Slurm_and_Python_Lab.md)
 
+## Fall 2024
 
 #### Workshop Materials
 Date(s): November 19+21, 2024, 4:30-6:30pm

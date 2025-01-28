@@ -196,40 +196,21 @@ Command | Description |
     
 **Exercise 2: Transfer a file to HPC**
 
-On your local machine, create a text file with random text in it.
+On your local machine, create a text file and type of bunch of random text in it.
 
 
 On Mac/Linux/WSL:
 
 ```bash
 cd $HOME
-cat /usr/share/dict/words | sort -R | head -1024 > random.txt
+nano random.txt
 ```
 
-On Windows Powershell:
-
-```powershell
-$random = New-Object System.Random
-$text = ""
-for($i = 0; $i -lt 100; $i++) {
-  $text += $random.Next(0, 255).ToString("X")
-}
-
-$file = "random.txt"
-$handle = New-Object System.IO.StreamWriter($file)
-$handle.Write($text)
-$handle.Close()
-```
 
 Now transfer the file to your home directory on Wendian:
 ```bash
 scp random.txt <username>@wendian.mines.edu:~
 ```
-
-
-
-
-
 
 ## Lab #2: Introduction to Bash Scripting Lab
 

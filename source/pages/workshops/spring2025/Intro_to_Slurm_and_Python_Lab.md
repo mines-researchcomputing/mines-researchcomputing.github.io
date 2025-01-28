@@ -79,7 +79,7 @@ Now, to send this job using a job script, we need to write one using the SLURM p
 	#SBATCH --nodes=1 # number of nodes
 	#SBATCH --ntasks-per-node=1 # number of tasks per node
 	#SBATCH --ntasks=1 # redundant; total number of tasks: ntasks = nodes * ntasks-per-node
-    #SBATCH --account="spr25_hpc_workshop" 
+	#SBATCH --account="spr25_hpc_workshop" 
 	#SBATCH --time=00:00:01 # time in HH:MM:SS
 	#SBATCH --output output.%j # standard print output labeled with SLURM job id %j
 	#SBATCH --error error.%j  # standard print error  labeled with SLURM job id %j
@@ -166,7 +166,7 @@ A sample job script (which we will call run.slurm) to use the executable will lo
 	#SBATCH --nodes=1 # number of nodes
 	#SBATCH --ntasks-per-node=12 # number of tasks per node
 	#SBATCH --ntasks=12 # redundant; total number of tasks: ntasks = nodes * ntasks-per-node
-    #SBATCH --account="spr25_hpc_workshop" 
+	#SBATCH --account="spr25_hpc_workshop" 
 	#SBATCH --time=00:00:01 # time in HH:MM:SS
 	#SBATCH --output output.%j # standard print output labeled with SLURM job id %j
 	#SBATCH --error error.%j  # standard print error  labeled with SLURM job id %j
