@@ -5,13 +5,19 @@
 
 #### Workshop Materials
 
-### Intro to MPI using Python 
-  * [Slides (Google Slides, Mines Users Only)](https://docs.google.com/presentation/d/1pep-QNpw4_pG3A8KBBz1ptqUSjnowIuo/edit?usp=sharing&ouid=115016039895124004295&rtpof=true&sd=true)
+* Day 2: Overview of Research Computing & Cyberinfrastructure, Intro to Linux/Bash and Slurm/Job Schedulers
+  * [Slides (Google Slides, Mines Users Only)](https://docs.google.com/presentation/d/1WEj-AWt5aanRWh2KbiGZ30B5IqMMtdZ3/edit?usp=sharing&ouid=115016039895124004295&rtpof=true&sd=true)
+  * Lab #1: Instructions available on Slides (Wendian users only)
+  * Lab #2: [Intro to Parallel Processing on HPC using GROMACS](./workshops/spring2025/Intro_to_Parallel_Processing_on_HPC_-_GROMACS.md)
+
+ * Day 1: Intro to Linux
+  *  [Slides (Google Slides, Mines Users Only)](https://docs.google.com/presentation/d/1pep-QNpw4_pG3A8KBBz1ptqUSjnowIuo/edit?usp=sharing&ouid=115016039895124004295&rtpof=true&sd=true)
   * Lab #1: [Intro to Linux and Bash](./workshops/spring2025/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.md)
   * Lab #2: [Intro to Slurm, Modules, and Python Environments](./workshops/spring2025/Intro_to_Slurm_and_Python_Lab.md)
 
 ## Fall 2024
 
+### Intro to MPI using Python 
 #### Workshop Materials
 Date(s): November 19+21, 2024, 4:30-6:30pm
 Presented by: Nicholas A. Danes
