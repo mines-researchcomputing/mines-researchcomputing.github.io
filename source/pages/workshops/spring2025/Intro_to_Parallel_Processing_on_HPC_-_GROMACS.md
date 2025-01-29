@@ -7,13 +7,13 @@ To begin, we first need to download a benchmark problem from GROMACS and the wor
 Copy the workshop materials using the following command:
 	
 ```
-cp /sw/BUILD/src/workshop/Workshop_Fall2024_day2.tar.gz ~/scratch
+cp /sw/BUILD/src/workshop/Workshop_Spring2025_day2.tar.gz ~/scratch
 ```
     
 And go to that directory and untar it:
     
 ```
-cd ~/scratch && tar -xf Workshop_Fall2024_day2.tar.gz
+cd ~/scratch && tar -xf Workshop_Spring2025_day2.tar.gz
 cd Workshop_Fall2024/rk2_python && ls
 ```
 
@@ -48,7 +48,7 @@ First the first job, let's try one node, with 36 MPI tasks to run for 1 hour. We
 ```bash
 #!/bin/bash
 #SBATCH --job-name=gromacs-single-node-MPI
-#SBATCH --account="fall2024_hpc_workshop"
+#SBATCH --account="spr25_hpc_workshop"
 #SBATCH --exclusive # USE FOR THIS LAB ONLY
 #SBATCH --output=%j.out
 #SBATCH --time=00:60:00 ## format is HH:MM:SS
@@ -101,7 +101,7 @@ GROMACS also supports OpenMP threads. To leverage this, we will tell Slurm we on
 ```bash
 #!/bin/bash
 #SBATCH --job-name=gromacs-single-node-MPI
-#SBATCH --account="fall2024_hpc_workshop"
+#SBATCH --account="spr25_hpc_workshop"
 #SBATCH --exclusive # USE FOR THIS LAB ONLY
 #SBATCH --output=%j.out
 #SBATCH --time=00:60:00 ## format is HH:MM:SS
@@ -157,7 +157,7 @@ Modify the job script to run the following cases. Do you see any improvement in 
 2. Run with 2 nodes, 36 MPI tasks (18 MPI tasks per node), 1 OpenMP thread per task
 3. Run with 2 nodes, 72 MPI tasks (36 MPI tasks per node), 1 OpenMP thread per task
 4. Run with 2 nodes, 36 MPI tasks (18 MPI tasks per node), 2 OpenMP thread per task
-5. Run with 1 **GPU** node with 1 GPU card, 1 task (with 6 CPUs per task) by running the code with the following script. You can just copy and paste the following to a new job script caleld `single_node_GPU.sh`:
+5. Run with 1 **GPU** node with 1 GPU card, 1 task (with 6 CPUs per task) by running the code with the following script. You can just copy and paste the following to a new job script called `single_node_GPU.sh`:
 
 ```bash
 #!/bin/bash
@@ -169,7 +169,7 @@ Modify the job script to run the following cases. Do you see any improvement in 
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=6
-#SBATCH --account="fall2024_hpc_workshop"
+#SBATCH --account="spr25_hpc_workshop"
 
 module load compilers/gcc
 module load libs/cuda
