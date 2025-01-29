@@ -148,7 +148,7 @@ echo $PATH
 
 On Wendian:
 
-	$ module load compilers/gcc mpi/openmpi/gcc-cuda
+	$ module load compilers/gcc mpi/openmpi/gcc
 This will load a newer GCC compiler that is required for our OpenMPI library we're going to use with the code. After loading the modules, print out the PATH variable to see what has changed:
 
 ```
@@ -172,7 +172,7 @@ A sample job script (which we will call run.slurm) to use the executable will lo
 	#SBATCH --error error.%j  # standard print error  labeled with SLURM job id %j
 
 	# Load the modules used to compile the code in the job script
-	module load compilers/gcc mpi/openmpi/gcc-cuda
+	module load compilers/gcc mpi/openmpi/gcc
 
 	echo "Job has started!"
 	srun hello_world.exe
