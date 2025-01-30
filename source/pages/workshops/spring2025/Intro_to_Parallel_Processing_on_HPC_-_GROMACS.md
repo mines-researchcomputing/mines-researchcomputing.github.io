@@ -22,7 +22,7 @@ This sample problem is provided by the Max Planck Institue in Göttingen[1.] To 
 
 ```bash
 
-cd ~/scratch/Workshop_Fall2024/gromacs
+cd ~/scratch/Workshop_Spring2025/gromacs
 wget https://www.mpinat.mpg.de/benchRIB.zip
 
 # unzip
