@@ -5,12 +5,17 @@
 
 #### Workshop Materials
 
-* Day 2: Overview of Research Computing & Cyberinfrastructure, Intro to Linux/Bash and Slurm/Job Schedulers
+* Day 3: Intro to Data Management on HPC, Monitoring Performance & Budget Guidance for HPC Researchers
+  * [Slides for Data Management (Google Slides, Mines Users Only)](https://docs.google.com/presentation/d/1CzDFYZBb9h2rClqsrivCm7Far613-mvk/edit?usp=sharing&ouid=115016039895124004295&rtpof=true&sd=true)
+  * [Slides for Monitoring Performance & Budget Guidance for HPC Researchers (Google Slides, Mines Users Only)](https://docs.google.com/presentation/d/1qpHZuPfXPjjs7MkLU5R5NyDpR-7w5mJF/edit?usp=sharing&ouid=115016039895124004295&rtpof=true&sd=true)
+  * Lab #1: [Data Management on HPC](./workshops/spring2025/Data_Management_on_HPC_Lab_Handout.md)
+
+* Day 2: Intro to Serial and Parallel Computing Concepts, Running GROMACS on HPC
   * [Slides (Google Slides, Mines Users Only)](https://docs.google.com/presentation/d/1WEj-AWt5aanRWh2KbiGZ30B5IqMMtdZ3/edit?usp=sharing&ouid=115016039895124004295&rtpof=true&sd=true)
   * Lab #1: Instructions available on Slides (Wendian users only)
   * Lab #2: [Intro to Parallel Processing on HPC using GROMACS](./workshops/spring2025/Intro_to_Parallel_Processing_on_HPC_-_GROMACS.md)
 
- * Day 1: Intro to Linux
+ * Day 1: Overview of Research Computing & Cyberinfrastructure, Intro to Linux/Bash and Slurm/Job Schedulers
   *  [Slides (Google Slides, Mines Users Only)](https://docs.google.com/presentation/d/1pep-QNpw4_pG3A8KBBz1ptqUSjnowIuo/edit?usp=sharing&ouid=115016039895124004295&rtpof=true&sd=true)
   * Lab #1: [Intro to Linux and Bash](./workshops/spring2025/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.md)
   * Lab #2: [Intro to Slurm, Modules, and Python Environments](./workshops/spring2025/Intro_to_Slurm_and_Python_Lab.md)
