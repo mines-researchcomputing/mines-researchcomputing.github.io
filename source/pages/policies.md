@@ -148,3 +148,72 @@ This policy outlines the support and decommissioning process for High-Performanc
 
 ### Review and Revision
 This policy shall be reviewed periodically to ensure its effectiveness and relevance. Revisions to the policy may be made as necessary, with approval from the HPC steering committee.
+
+
+# Wendian Policies
+
+
+## Student Partition of Wendian HPC Cluster
+
+### Purpose
+
+The Student partition of Wendian is dedicated to supporting student education. Access to this partition is available for use by students under the guidance of professors or sponsors. The primary goals are to promote hands-on learning of HPC (High Performance Computing) practices; including the responsible use of resources, efficient task management, and checkpointing.
+
+### Departmental Contributions and Priority Access
+
+* A special thank you to the Applied Mathematics & Statistics (AMS) department for contributing to the funding of the Student partition. In recognition of their contribution, AMS will receive priority access to resources, proportional to their investment.  
+* Other departments or groups interested in contributing to the future expansion of the HPC cluster should reach out to the Mines Research Computing team. In return for contributions, departments will be provided similar priority access proportional to their contribution.
+
+### System Specifications
+
+* Number of Nodes: 7  
+* Cores per Node: 32 Intel Xeon Platinum cores (INTEL XEON PLATINUM 8562Y+)  
+* Total Cores Available: 224 cores  
+* Memory per node:  502 GB (usable)
+
+### Access
+
+* Professors or sponsors must submit a TDX ticket to request a Wendian account.  
+* In the TDX ticket, the following details must be provided:  
+  * **Purpose**: Provide a general description of the project and its goals.  
+  * **Start and End Dates**: Clearly specify the expected duration of the course.  
+  * **Max CPU Cores Requested**: The maximum number of CPU cores the user is expected to use per job.  
+  * **Software Requirements:** List all software necessary for the project.  
+  * **Interactive Sessions:** Provide a tentative schedule for when interactive sessions are needed.
+
+TDX ticket requests will be reviewed to ensure equitable and appropriate resource allocation.
+
+### Resource Allocation and Limits
+
+To encourage resource sharing and good HPC habits, the following limits apply:
+
+* Maximum Wall Time: 4 hours per job. Users are encouraged to break large workflows into smaller jobs to maximize throughput and promote fairness in scheduling.  
+* Course-Based Allocations: Resource allocations will be based on the specific needs of each course, as provided in advance in the TDX ticket. This ensures resources are allocated appropriately to match the scope of the course.  *See above: Eligibility*  
+* Checkpointing: Users are encouraged to checkpoint long-running jobs to avoid data loss or waste of computational resources.  
+* Fair Usage: Slurm’s Fair-Share algorithm prioritizes jobs based on prior usage.  Users are expected to share resources and be considerate of other users. No user should monopolize the partition for extended periods.
+
+### Project Duration
+
+* Project accounts will be granted for a specific time period as requested in the TDX ticket, with a clearly defined start and end date.  
+* Projects that extend beyond the approved end date may request an extension through a follow-up TDX ticket, subject to availability of resources.
+
+### Job Scheduling and Queuing
+
+* In-class interactive usage is provided via reservations on a first-come, first-served basis as requested in the TDX ticket.   
+* Jobs are scheduled on a first-come, first-served basis until the partition is full. Once the partition is full jobs will be given priority based largely on the QoS and [Fair-Share](https://slurm.schedmd.com/fair_tree.html) factors.  
+* Users are encouraged to break large workflows into smaller jobs to maximize throughput and promote fairness in scheduling.
+
+### Support and Help
+
+HPC support is available to assist users with technical questions, software installations, and job submission issues within reasonable limits. Please note that the support team will not complete assignments or perform coursework on behalf of students. For assistance, contact the Mines Research Computing team through the ticketing system: [Research Computing (RC) Services](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service).
+
+### Data Management and Security
+
+* Users are responsible for managing their own data, including backup and transfer of results. Regular data transfers and cleanup are encouraged to free up storage.  
+* [Data Management consultations](https://outlook.office365.com/book/ResearchComputingSupportTeamServices@mines0.onmicrosoft.com/?ae=true&login_hint) are available to learn how to use Globus & OnDemand
+
+### Termination of Access
+
+* Access to the Student partition will automatically be terminated after the course’s end date.  
+* Users are expected to remove any relevant data prior to the course’s end date.  
+* Violations of this policy, including attempting to monopolize resources or use of the student partition for funded work, may result in earlier termination of access.
