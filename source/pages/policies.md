@@ -156,7 +156,7 @@ This policy shall be reviewed periodically to ensure its effectiveness and relev
 
 The Student partition of Wendian is dedicated to supporting student education. Access to this partition is available for use by students under the guidance of professors or sponsors. The primary goals are to promote hands-on learning of HPC (High Performance Computing) practices; including the responsible use of resources, efficient task management, and checkpointing.
 
-### Departmental Contributions and Priority Access
+#### Departmental Contributions and Priority Access
 
 - A special thank you to the Applied Mathematics & Statistics (AMS) department for contributing to the funding of the Student partition. In recognition of their contribution, AMS will receive priority access to resources, proportional to their investment.  
 - Other departments or groups interested in contributing to the future expansion of the HPC cluster should reach out to the Mines Research Computing team. In return for contributions, departments will be provided similar priority access proportional to their contribution.
