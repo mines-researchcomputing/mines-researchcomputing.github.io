@@ -27,7 +27,7 @@ To check usage as a user, use the command `getUtilizationByUser`:
 	"hpcgroup","janedoe - Jane Doe",$1.23,0
 
 To check usage as a PI for all your users, use the command `getUtilizationByPI`:
- 
+
 	pi@wendian002:[~]: getUtilizationByPI
 	pi -- Cluster/Account/User Utilization 2023-04-01T00:00:00 - 2023-04-12T11:59:59 (993600 secs)
 	"Account"|"User"|"Amount"
@@ -42,9 +42,6 @@ Please refer to the GitHub page for more information: [https://github.com/troyco
 
 If you find that you are poorly utilizing CPU or memory resources, feel free to reach out to the [Mines Help Center](https://helpcenter.mines.edu) for an [HPC Consultation](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/ServiceDet?ID=30287). Job efficiency likely needs to be solved by a case by case basis, and we can serve you best this way.
 
-
- 
-
 ### Storage Rates
 
 The current storage rate policy is below:
@@ -56,8 +53,6 @@ The current storage rate policy is below:
 
 *Last updated: 08/14/2024*
 
- 
-
 ## Data Policy
 
 There are a few data solutions we offer at Mines for research data:
@@ -65,18 +60,19 @@ There are a few data solutions we offer at Mines for research data:
 - Orebits - High capacity research storage *not* connected to HPC
 
 The following are only on Wendian & Mio:
-* `/scratch` - Active research data, subject to 180 day data purge
-* `/projects` - Scratch research data used within a research project that shared with multiple users, also subject to 180 day data purge. The PI must request a projects directory with the list of authorized users.
-* `/sets` - Long term data storage available on HPC. The PI must request a sets directory with a list of authorized users.
- 
-Note that all data on these directories have no redudancy, so please keep up with your own backups of active research data. 
+
+- `/scratch` - Active research data, subject to 180 day data purge
+- `/projects` - Scratch research data used within a research project that shared with multiple users, also subject to 180 day data purge. The PI must request a projects directory with the list of authorized users.
+- `/sets` - Long term data storage available on HPC. The PI must request a sets directory with a list of authorized users.
+
+Note that all data on these directories have no redudancy, so please keep up with your own backups of active research data.
 
 Your account privileges may be suspended if we detect any attempt to evade the data purge policies (i.e. scripting the touching of files to keep them current)
 
 The table below breaks down the purge policy and associated costs of each the data solutions:
 
 | Type | Purge Policy | Cost | Redunancy |
-|-----------|------------|---------|-------| 
+|-----------|------------|---------|-------|
 | Scratch (`/scratch`) | >180 days | Free | No
 | Projects (`/projects`) | >180 days | Free | No
 | Wendian Long-Term Storage (`/sets`) | None | Free | No |
@@ -86,26 +82,26 @@ The table below breaks down the purge policy and associated costs of each the da
 
 *Last updated: 11/09/2023*
 
-
 ## HPC Etiquette
 
 ### Login/Management Node
 
-When you login one of our HPC systems, you login what is known as the "management" node. This node allows one to login to HPC systems and interface with the job scheduler SLURM. Additionally, the management node can also be used to edit files, create environment and compile codes. However as a general rule, **running simulation software on the management node is prohibited.** On both HPC systems, a software called `arbiter` monitors system resources used on the login node. If you are using too many CPU resources, an automated email will be sent to you Mines E-Mail, warning you and throttling your CPU usage. Once a cooldown period ends, your CPU allotment will return to normal. 
+When you login one of our HPC systems, you login what is known as the "management" node. This node allows one to login to HPC systems and interface with the job scheduler SLURM. Additionally, the management node can also be used to edit files, create environment and compile codes. However as a general rule, **running simulation software on the management node is prohibited.** On both HPC systems, a software called `arbiter` monitors system resources used on the login node. If you are using too many CPU resources, an automated email will be sent to you Mines E-Mail, warning you and throttling your CPU usage. Once a cooldown period ends, your CPU allotment will return to normal.
 
 ### Scratch vs Home Directory
 
 ### Home Directory Policy
 
-Every user has 20GB of data allocated to their `$HOME` directory. A common issue with filling this storage is conda environments. You can clean your conda packages by following [this](https://wpfiles.mines.edu/wp-content/uploads/ciarc/docs/pages/user_guides/python_environments.html#cleaning-up-conda-packages) page.    
+Every user has 20GB of data allocated to their `$HOME` directory. A common issue with filling this storage is conda environments. You can clean your conda packages by following [this](https://wpfiles.mines.edu/wp-content/uploads/ciarc/docs/pages/user_guides/python_environments.html#cleaning-up-conda-packages) page.
 
 ### Scratch Policy
 
 Files on `/scratch` (e.g. `$SCRATCH`)  is a short-term shared filesystem for storing data currently necessary for active research projects. Subject to purge on a six-month (180 day) cycle. There are no limits (within reason) to amount of data.  
 
-### Slurm 
+### Slurm
 
 #### Walltime Policy
+
 The standard maximum walltime is six days (144 hours):
 
 ``
@@ -118,18 +114,20 @@ This policy is strictly enforced by HPC@Mines.  In the event that the computatio
 
 By increasing the number of cores/nodes used in your job, you can often decrease the total wall time needed. If your code is only a single-core workload, feel free to reach out to us for a [HPC technical consultation](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/ServiceDet?ID=33487) for other workflow options.
 
-
 #### Incorporate checkpointing
+
 Checkpointing is the process of periodically saving the state of a code's program execution so that it can be resumed at a later time.  This is extremely helpful in mitigating the effects on your calculation in the event of an unexpected crash or error.  By saving output periodically, or at a certain recurring point, and being able to restart the calculation using the saved output, a catastrophic loss of an entire days-long compute effort could be avoided.  Using checkpointing to intentionally restart a calculation at a reasonably estimated point is a recommended approach to remain within the six-day maximum walltime.
 
-For more focused computational assistance, with the above situations and other compute aspects of your research, the HPC@Mines team is available and willing to provide personal, one-on-one assistance.  Please [submit a help request](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/ServiceDet?ID=33487) to start the process.  We also suggest consulting with members of your group or other peers currently using similar codes or applications; they may provide expedited answers to your questions, based on their experience. 
- 
+For more focused computational assistance, with the above situations and other compute aspects of your research, the HPC@Mines team is available and willing to provide personal, one-on-one assistance.  Please [submit a help request](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/ServiceDet?ID=33487) to start the process.  We also suggest consulting with members of your group or other peers currently using similar codes or applications; they may provide expedited answers to your questions, based on their experience.
+
 ## High-Performance Computing (HPC) Node Life Cycle
 
 ### Policy Statement
+
 This policy outlines the support and decommissioning process for High-Performance Computing (HPC) nodes within our organization. It establishes the duration of support under a service contract, outlines the repair procedures after the contract ends, and sets the retirement timeframe of seven years for HPC nodes.
 
 ### Policy Details
+
 1. Support under Service Contract:
     1. HPC nodes will be covered under a service contract for a specified duration, which will be determined during the procurement process. The service contract will include technical support, maintenance, and repair services.
     2. The service contract duration will be communicated to the relevant stakeholders and documented by the HPC administration team.
@@ -147,11 +145,10 @@ This policy outlines the support and decommissioning process for High-Performanc
     2. Exceptions to the retirement timeframe or repair criteria must be approved by the research computing manager, following a thorough evaluation and justification process.
 
 ### Review and Revision
+
 This policy shall be reviewed periodically to ensure its effectiveness and relevance. Revisions to the policy may be made as necessary, with approval from the HPC steering committee.
 
-
 # Wendian Policies
-
 
 ## Student Partition of Wendian HPC Cluster
 
@@ -161,25 +158,25 @@ The Student partition of Wendian is dedicated to supporting student education. A
 
 ### Departmental Contributions and Priority Access
 
-* A special thank you to the Applied Mathematics & Statistics (AMS) department for contributing to the funding of the Student partition. In recognition of their contribution, AMS will receive priority access to resources, proportional to their investment.  
-* Other departments or groups interested in contributing to the future expansion of the HPC cluster should reach out to the Mines Research Computing team. In return for contributions, departments will be provided similar priority access proportional to their contribution.
+- A special thank you to the Applied Mathematics & Statistics (AMS) department for contributing to the funding of the Student partition. In recognition of their contribution, AMS will receive priority access to resources, proportional to their investment.  
+- Other departments or groups interested in contributing to the future expansion of the HPC cluster should reach out to the Mines Research Computing team. In return for contributions, departments will be provided similar priority access proportional to their contribution.
 
 ### System Specifications
 
-* Number of Nodes: 7  
-* Cores per Node: 32 Intel Xeon Platinum cores (INTEL XEON PLATINUM 8562Y+)  
-* Total Cores Available: 224 cores  
-* Memory per node:  502 GB (usable)
+- Number of Nodes: 7  
+- Cores per Node: 32 Intel Xeon Platinum cores (INTEL XEON PLATINUM 8562Y+)  
+- Total Cores Available: 224 cores  
+- Memory per node:  502 GB (usable)
 
 ### Access
 
-* Professors or sponsors must submit a TDX ticket to request a Wendian account.  
-* In the TDX ticket, the following details must be provided:  
-  * **Purpose**: Provide a general description of the project and its goals.  
-  * **Start and End Dates**: Clearly specify the expected duration of the course.  
-  * **Max CPU Cores Requested**: The maximum number of CPU cores the user is expected to use per job.  
-  * **Software Requirements:** List all software necessary for the project.  
-  * **Interactive Sessions:** Provide a tentative schedule for when interactive sessions are needed.
+- Professors or sponsors must submit a TDX ticket to request a Wendian account.  
+- In the TDX ticket, the following details must be provided:  
+  - **Purpose**: Provide a general description of the project and its goals.  
+  - **Start and End Dates**: Clearly specify the expected duration of the course.  
+  - **Max CPU Cores Requested**: The maximum number of CPU cores the user is expected to use per job.  
+  - **Software Requirements:** List all software necessary for the project.  
+  - **Interactive Sessions:** Provide a tentative schedule for when interactive sessions are needed.
 
 TDX ticket requests will be reviewed to ensure equitable and appropriate resource allocation.
 
@@ -187,21 +184,21 @@ TDX ticket requests will be reviewed to ensure equitable and appropriate resourc
 
 To encourage resource sharing and good HPC habits, the following limits apply:
 
-* Maximum Wall Time: 4 hours per job. Users are encouraged to break large workflows into smaller jobs to maximize throughput and promote fairness in scheduling.  
-* Course-Based Allocations: Resource allocations will be based on the specific needs of each course, as provided in advance in the TDX ticket. This ensures resources are allocated appropriately to match the scope of the course.  *See above: Eligibility*  
-* Checkpointing: Users are encouraged to checkpoint long-running jobs to avoid data loss or waste of computational resources.  
-* Fair Usage: Slurm’s Fair-Share algorithm prioritizes jobs based on prior usage.  Users are expected to share resources and be considerate of other users. No user should monopolize the partition for extended periods.
+- Maximum Wall Time: 4 hours per job. Users are encouraged to break large workflows into smaller jobs to maximize throughput and promote fairness in scheduling.  
+- Course-Based Allocations: Resource allocations will be based on the specific needs of each course, as provided in advance in the TDX ticket. This ensures resources are allocated appropriately to match the scope of the course.  *See above: Eligibility*  
+- Checkpointing: Users are encouraged to checkpoint long-running jobs to avoid data loss or waste of computational resources.  
+- Fair Usage: Slurm’s Fair-Share algorithm prioritizes jobs based on prior usage.  Users are expected to share resources and be considerate of other users. No user should monopolize the partition for extended periods.
 
 ### Project Duration
 
-* Project accounts will be granted for a specific time period as requested in the TDX ticket, with a clearly defined start and end date.  
-* Projects that extend beyond the approved end date may request an extension through a follow-up TDX ticket, subject to availability of resources.
+- Project accounts will be granted for a specific time period as requested in the TDX ticket, with a clearly defined start and end date.  
+- Projects that extend beyond the approved end date may request an extension through a follow-up TDX ticket, subject to availability of resources.
 
 ### Job Scheduling and Queuing
 
-* In-class interactive usage is provided via reservations on a first-come, first-served basis as requested in the TDX ticket.   
-* Jobs are scheduled on a first-come, first-served basis until the partition is full. Once the partition is full jobs will be given priority based largely on the QoS and [Fair-Share](https://slurm.schedmd.com/fair_tree.html) factors.  
-* Users are encouraged to break large workflows into smaller jobs to maximize throughput and promote fairness in scheduling.
+- In-class interactive usage is provided via reservations on a first-come, first-served basis as requested in the TDX ticket.
+- Jobs are scheduled on a first-come, first-served basis until the partition is full. Once the partition is full jobs will be given priority based largely on the QoS and [Fair-Share](https://slurm.schedmd.com/fair_tree.html) factors.  
+- Users are encouraged to break large workflows into smaller jobs to maximize throughput and promote fairness in scheduling.
 
 ### Support and Help
 
@@ -209,13 +206,84 @@ HPC support is available to assist users with technical questions, software inst
 
 ### Data Management and Security
 
-* Users are responsible for managing their own data, including backup and transfer of results. Regular data transfers and cleanup are encouraged to free up storage.  
-* [Data Management consultations](https://outlook.office365.com/book/ResearchComputingSupportTeamServices@mines0.onmicrosoft.com/?ae=true&login_hint) are available to learn how to use Globus & OnDemand
+- Users are responsible for managing their own data, including backup and transfer of results. Regular data transfers and cleanup are encouraged to free up storage.  
+- [Data Management consultations](https://outlook.office365.com/book/ResearchComputingSupportTeamServices@mines0.onmicrosoft.com/?ae=true&login_hint) are available to learn how to use Globus & OnDemand
 
 ### Termination of Access
 
-* Access to the Student partition will automatically be terminated after the course’s end date.  
-* Users are expected to remove any relevant data prior to the course’s end date.  
-* Violations of this policy, including attempting to monopolize resources or use of the student partition for funded work, may result in earlier termination of access.
+- Access to the Student partition will automatically be terminated after the course’s end date.  
+- Users are expected to remove any relevant data prior to the course’s end date.  
+- Violations of this policy, including attempting to monopolize resources or use of the student partition for funded work, may result in earlier termination of access.
 
+## Data Center Guidelines
 
+The Research Computing (RC) at Colorado School of Mines provides condo & colocation services at its CTLM facility, offering fast connectivity for hosting research servers. This webpage outlines the guidelines and requirements for physically hosting data center equipment in this shared facility, benefiting the Colorado School of Mines research community.  
+
+### Condo Additions
+
+Principal Investigators (PIs) may integrate exclusive hardware partitions into the main cluster to support specific research needs while ensuring system compatibility and operational efficiency
+
+#### Financial Justification and Funding
+
+Hardware purchases require a clear financial justification and must be funded using unrestricted capital funds.
+
+#### Support
+
+The Research Computing team is responsible for maintaining all aspects of the computing environment, including the operating system, security features, and software. Hardware support and management are fully centralized within the Research Computing team. This model encourages a hands-off approach for Principal Investigators (PIs)."
+
+#### Hardware
+
+PIs must collaborate with the Research Computing team to ensure technical compatibility and obtain approval for vendor selection and hardware specifications. Integrated hardware must include InfiniBand cards, adhere to cluster interoperability standards, be under warranty, and be no more than five years old.
+
+#### Warranty
+
+All equipment must be under warranty or maintenance contract. Equipment is expected to have a maximum operational lifespan of five years, and customers should plan for regular equipment refresh cycles.
+
+#### Start-Up Fees
+
+Start-up fees will apply per port and per kW to cover the cost of cables and switches. Rates will be provided upon consultation with the Research Computing team.
+
+#### Procurement Process
+
+The Research Computing team will collaborate with the Procurement team to facilitate hardware purchases and ensure compliance with all institutional policies.
+
+#### Inventory
+
+Customers authorize Mines IT & Research Computing to manage the Annual Capital Asset Inventory process.
+Hosted (Co-Located) Additions
+
+### Colocation
+
+This outlines the guidelines and requirements for faculty interested in  managing their own hardware within the centrally managed Mines data center. Due to limited space availability, these guidelines ensure equitable access and responsible resource utilization.  
+
+#### Cybersecurity
+
+Adherence to industry best practices and relevant security regulations is mandatory. While Mines IT provides a secure network environment, failure to maintain adequate security standards on the part of a hardware owner may result in disconnection from the network to mitigate potential security risks to the overall campus environment.
+
+#### Rack Space
+
+Customers may only deploy equipment that has been approved by Mines IT. Allocated rack space must be used exclusively, and customers are obligated to respect the space allotted to other users.
+
+#### Hardware
+
+Equipment must function reliably within a cooling temperature up to 85°F.   Servers must have redundant power supplies or run the risk of losing function during data center and network maintenance windows.  A baseboard management system is strongly suggested such as iLO, iDRAC, or other BMC for the purpose of remote OS upgrades, rebooting, etc.  Owners are responsible for physical delivery to the CTLM server room, unboxing, rack installation, and configuration (OS, sys admin configs, networking, user management) of the hosted server.  IT System Administration team will assist with network port, network cable setup, KVM connection, and power access within the CTLM data center.
+
+#### Access
+
+Systems are accessible via the network 24x7, except for regularly scheduled maintenance downtime related to the Mines network or server room maintenance.  Physical access to the data center is restricted to authorized faculty and staff 24/7 after registering with the building proctor and setting up credentials with Mines Lock Shop.
+
+#### Inventory
+
+System owners are expected to manage the Annual Capital Asset Inventory process.
+
+#### Warranty
+
+All equipment must be under warranty or maintenance contract. Equipment is expected to have a maximum operational lifespan of five years, and customers should plan for regular equipment refresh cycles. Customers are responsible for promptly updating equipment information with Mines IT upon replacement.
+
+#### Support
+
+Mines IT does NOT provide direct technical support for co-located equipment. Principal Investigators (PIs) are responsible for the maintenance and support of their hardware and software.
+
+#### Cost
+
+Start-up fees will be assessed based on port usage and power consumption (per kW). These fees cover the costs associated with cabling and network switches. Rates will be determined during consultation with the Research Computing team
