@@ -89,13 +89,13 @@ The table below breaks down the purge policy and associated costs of each the da
 
 ## HPC Etiquette
 
-## Login/Management Node
+### Login/Management Node
 
 When you login one of our HPC systems, you login what is known as the "management" node. This node allows one to login to HPC systems and interface with the job scheduler SLURM. Additionally, the management node can also be used to edit files, create environment and compile codes. However as a general rule, **running simulation software on the management node is prohibited.** On both HPC systems, a software called `arbiter` monitors system resources used on the login node. If you are using too many CPU resources, an automated email will be sent to you Mines E-Mail, warning you and throttling your CPU usage. Once a cooldown period ends, your CPU allotment will return to normal. 
 
-## Scratch vs Home Directory
+### Scratch vs Home Directory
 
-## Home Directory Policy
+### Home Directory Policy
 
 Every user has 20GB of data allocated to their `$HOME` directory. A common issue with filling this storage is conda environments. You can clean your conda packages by following [this](https://wpfiles.mines.edu/wp-content/uploads/ciarc/docs/pages/user_guides/python_environments.html#cleaning-up-conda-packages) page.    
 
@@ -103,9 +103,9 @@ Every user has 20GB of data allocated to their `$HOME` directory. A common issue
 
 Files on `/scratch` (e.g. `$SCRATCH`)  is a short-term shared filesystem for storing data currently necessary for active research projects. Subject to purge on a six-month (180 day) cycle. There are no limits (within reason) to amount of data.  
 
-## Slurm 
+### Slurm 
 
-### Walltime Policy
+#### Walltime Policy
 The standard maximum walltime is six days (144 hours):
 
 ``
@@ -114,7 +114,7 @@ The standard maximum walltime is six days (144 hours):
 
 This policy is strictly enforced by HPC@Mines.  In the event that the computational problem you are tasked with solving seems to require a walltime that exceeds 144 hours, we strongly encourage that you find alternative approaches to simply extending walltime.  Below are two possible approaches.
 
-#### Increase the amount of parallelism
+##### Increase the amount of parallelism
 
 By increasing the number of cores/nodes used in your job, you can often decrease the total wall time needed. If your code is only a single-core workload, feel free to reach out to us for a [HPC technical consultation](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/ServiceDet?ID=33487) for other workflow options.
 
@@ -217,3 +217,5 @@ HPC support is available to assist users with technical questions, software inst
 * Access to the Student partition will automatically be terminated after the course’s end date.  
 * Users are expected to remove any relevant data prior to the course’s end date.  
 * Violations of this policy, including attempting to monopolize resources or use of the student partition for funded work, may result in earlier termination of access.
+
+
