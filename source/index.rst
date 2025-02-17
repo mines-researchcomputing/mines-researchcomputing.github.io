@@ -17,7 +17,6 @@ Welcome to Research Computing at Mines documentation!
    pages/workshops.md
    pages/publications.rst
 
-
 .. toctree::
    :caption: Scientific Visualization
 
@@ -49,6 +48,7 @@ Welcome to Research Computing at Mines documentation!
    pages/user_guides/archived_guides.md
 
 .. toctree::
+   :maxdepth: 1
    :caption: Data Storage and Management
    pages/data_storage_management/orebits.md
 
