@@ -50,6 +50,7 @@ Welcome to Research Computing at Mines documentation!
 
 .. toctree::
    :caption: Data Storage & Management
+   pages/data_storage_management/orebits.md
 
 .. toctree::
    :maxdepth: 1
