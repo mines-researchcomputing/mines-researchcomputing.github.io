@@ -49,7 +49,7 @@ Welcome to Research Computing at Mines documentation!
    pages/user_guides/archived_guides.md
 
 .. toctree::
-   :caption: Data Storage & Management
+   :caption: Data Storage and Management
    pages/data_storage_management/orebits.md
 
 .. toctree::
