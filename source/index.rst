@@ -35,10 +35,9 @@ Welcome to Research Computing at Mines documentation!
 
 .. toctree::
    :maxdepth: 3
-   :caption: Cloud Resources
+   :caption: Data Management
 
-   pages/Cloud/AWS.rst
-   pages/Cloud/GCP.rst
+   pages/data_storage_management/orebits.md
 
 .. toctree::
    :caption: High Performance Computing (HPC)
