@@ -33,6 +33,12 @@ Welcome to Research Computing at Mines documentation!
    pages/Cloud/AWS.rst
    pages/Cloud/GCP.rst
 
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Data Storage and Management
+   pages/data_storage_management/orebits.md
+
 .. toctree::
    :caption: High Performance Computing (HPC)
 
@@ -47,10 +53,6 @@ Welcome to Research Computing at Mines documentation!
    pages/user_guides/Parallel_Scaling_Guide.ipynb
    pages/user_guides/archived_guides.md
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Data Storage and Management
-   pages/data_storage_management/orebits.md
 
 .. toctree::
    :maxdepth: 1
