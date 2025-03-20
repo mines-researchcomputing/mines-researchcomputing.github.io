@@ -18,5 +18,4 @@ Overall, AWS provides a powerful, flexible, and scalable solution for modern app
 .. toctree::
    :caption: General Information
 
-   AWS/GettingAccount.md
    AWS/CentralizedBillingAndSavings.md
