@@ -18,11 +18,11 @@ different and show clearly which computer host they belong too.
 Connecting to a Jupyter Lab server running on a computer node requires starting an interactive job and a tunnel to the 
 compute node. See below for an outline. For more details visit: [jupyter.org](https://jupyter.org)
 
-#### Required Module for python
+## Required Module for python
 
 [joeuser@wendian001 ~$] `module load apps/python3`
 
-### Compute Node Jupyter Lab
+## Compute Node Jupyter Lab
 
 Log into Wendian and load the module for python:
 [joeuser@wendian001 ~]$ `ml apps/python3`

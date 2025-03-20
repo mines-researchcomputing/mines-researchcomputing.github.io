@@ -82,7 +82,7 @@ file/read-case myFluentCase.cas
 
 Then the command in the batch script to start fluent changes to call this journal file. Using multiple 
 processors and nodes the variables `$cpus` and `$SLURM_JOB_ID.nodes` are created in the script 
-See [Fluent using Multiple Nodes](./fluentstartup.md#fluent-using-multiple-nodes). So the last line becomes:
+See [ANSYS Fluent Job Submission Guide](../user_guides/ansys.md). So the last line becomes:
 ```
 fluent 3ddp -t$cpus -cnf=$SLURM_JOB_ID.nodes -gu -i read_case.jou
 ```

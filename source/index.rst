@@ -47,6 +47,7 @@ Welcome to Research Computing at Mines documentation!
    pages/user_guides/new_user_guide.md
    pages/user_guides/connecting_to_systems.md
    pages/user_guides/python_environments.md
+   pages/user_guides/ansys.md
    pages/user_guides/matlab.md
    pages/user_guides/advanced_slurm_guide.md
    pages/user_guides/job_efficiency_xdmod.md
