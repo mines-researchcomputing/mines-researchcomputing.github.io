@@ -19,16 +19,15 @@ You may also may create personal endpoints and transfer file to other users by b
 When transferring files between systems, keep in mind that your username might not be the same on each system.
 
 Follow these steps to transfer files.
-
-    Go to the main Globus page ([globus.org](https://globus.org)) and use your Mines credentials to log in. 
-    Go to File Transfer.
-    Enter your source endpoint on one side of the panel.
-    Specify the path where your source files are located and click Go.
-    Enter your username and token response or password when you are asked to authenticate.
-    Identify your target endpoint in the other panel.
-    Specify a destination path.
-    Select the files you want to copy.
-    Click the arrow button to initiate the transfer.
+* Go to the main Globus page ([globus.org](https://globus.org)) and use your Mines credentials to log in. 
+* Go to File Transfer.
+* Enter your source endpoint on one side of the panel.
+* Specify the path where your source files are located and click Go.
+* Enter your username and token response or password when you are asked to authenticate.
+* Identify your target endpoint in the other panel.
+* Specify a destination path.
+* Select the files you want to copy.
+* Click the arrow button to initiate the transfer.
 
 You can check the status of your transfers any time through the web interface and will be notified when they are complete.
 
