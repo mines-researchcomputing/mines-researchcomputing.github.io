@@ -38,6 +38,7 @@ Welcome to Research Computing at Mines documentation!
    :caption: Data Management
 
    pages/data_storage_management/orebits.md
+   pages/data_storage_management/globus.md
 
 .. toctree::
    :caption: High Performance Computing (HPC)
