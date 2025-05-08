@@ -53,7 +53,7 @@ The current storage rate policy is below:
 
 *Last updated: 08/14/2024*
 
-## Data Policy
+## Data Guidelines
 
 There are a few data solutions we offer at Mines for research data:
 
@@ -71,7 +71,7 @@ Your account privileges may be suspended if we detect any attempt to evade the d
 
 The table below breaks down the purge policy and associated costs of each the data solutions:
 
-| Type | Purge Policy | Cost | Redunancy |
+| Type | Purge Guidelines | Cost | Redunancy |
 |-----------|------------|---------|-------|
 | Scratch (`/scratch`) | >180 days | Free | No
 | Projects (`/projects`) | >180 days | Free | No
@@ -90,17 +90,17 @@ When you login one of our HPC systems, you login what is known as the "managemen
 
 ### Scratch vs Home Directory
 
-### Home Directory Policy
+### Home Directory Guidelines
 
 Every user has 20GB of data allocated to their `$HOME` directory. A common issue with filling this storage is conda environments. You can clean your conda packages by following [this](https://wpfiles.mines.edu/wp-content/uploads/ciarc/docs/pages/user_guides/python_environments.html#cleaning-up-conda-packages) page.
 
-### Scratch Policy
+### Scratch Guidelines
 
 Files on `/scratch` (e.g. `$SCRATCH`)  is a short-term shared filesystem for storing data currently necessary for active research projects. Subject to purge on a six-month (180 day) cycle. There are no limits (within reason) to amount of data.  
 
 ### Slurm
 
-#### Walltime Policy
+#### Walltime Guidelines
 
 The standard maximum walltime is six days (144 hours):
 
@@ -122,11 +122,11 @@ For more focused computational assistance, with the above situations and other c
 
 ## High-Performance Computing (HPC) Node Life Cycle
 
-### Policy Statement
+### Guidelines Statement
 
 This policy outlines the support and decommissioning process for High-Performance Computing (HPC) nodes within our organization. It establishes the duration of support under a service contract, outlines the repair procedures after the contract ends, and sets the retirement timeframe of seven years for HPC nodes.
 
-### Policy Details
+### Guidelines Details
 
 1. Support under Service Contract:
     1. HPC nodes will be covered under a service contract for a specified duration, which will be determined during the procurement process. The service contract will include technical support, maintenance, and repair services.
@@ -148,7 +148,7 @@ This policy outlines the support and decommissioning process for High-Performanc
 
 This policy shall be reviewed periodically to ensure its effectiveness and relevance. Revisions to the policy may be made as necessary, with approval from the HPC steering committee.
 
-## Wendian Policies
+## Wendian Guidelines
 
 ### Student Partition of Wendian HPC Cluster
 
