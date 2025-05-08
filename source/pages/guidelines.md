@@ -1,4 +1,4 @@
-# Policies
+# Guidelines
 
 ## HPC & Storage Rates and Best Practices
 

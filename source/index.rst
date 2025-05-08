@@ -10,7 +10,7 @@ Welcome to Research Computing at Mines documentation!
    :caption: General Information
 
    pages/overview.md
-   pages/policies.md
+   pages/guidelines.md
    pages/computing_options.md
    pages/consultations.md
    pages/faq.md
