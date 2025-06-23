@@ -80,7 +80,7 @@ The table below breaks down the purge policy and associated costs of each the da
 
 > Your account privileges may be suspended if we detect any attempt to evade the data purge policies (i.e. scripting the touching of files to keep them current)
 
-*Last updated: 11/09/2023*
+*Last updated: 06/23/2025*
 
 ## HPC Etiquette
 
