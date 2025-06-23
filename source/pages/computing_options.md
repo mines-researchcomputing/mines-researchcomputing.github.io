@@ -2,7 +2,7 @@
 
 Mines offers a variety of high performance computing options. We have on-site HPC clusters, but also can provide user support for alternative high performance computing options if our on-site clusters do not fit your needs. We provide an overview of our computing options at Mines below.
 
-If you have a specific use case, or have more questions, feel free to email us at [hpcinfo@mines.edu](mailto:hpcinfo@mines.edu).
+If you have a specific use case, or have more questions, feel free to email us at [rc@mines.edu](mailto:rc@mines.edu).
 
 ## Pay-per-use HPC
 
@@ -10,7 +10,7 @@ If you have a specific use case, or have more questions, feel free to email us a
 
 Our primary HPC computing platform is Wendian, which started service at Mines for the Spring 2019 semester. We have extensive documentation on this system on this website, which you can read the details on our [Systems](./systems.md) page.
 
-Wendian uses a "core-hour" model to charge for computing usage. We charge $0.02 per core-hour, which details can be found on our [Policies](./policies.md) page. 
+Wendian uses a "core-hour" model to charge for computing usage. We charge $0.005 per core-hour, which details can be found on our [Guidelines](./guidelines.md) page. 
   
 
 ### AWS Cloud Computing
