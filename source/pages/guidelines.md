@@ -252,7 +252,7 @@ The Research Computing team will collaborate with the Procurement team to facili
 Customers authorize Mines IT & Research Computing to manage the Annual Capital Asset Inventory process.
 Hosted (Co-Located) Additions
 
-### Colocation
+### Hosted (Co-Located) Additions
 
 This outlines the guidelines and requirements for faculty interested in  managing their own hardware within the centrally managed Mines data center. Due to limited space availability, these guidelines ensure equitable access and responsible resource utilization.  
 
