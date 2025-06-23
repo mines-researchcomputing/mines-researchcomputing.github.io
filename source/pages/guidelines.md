@@ -61,8 +61,8 @@ There are a few data solutions we offer at Mines for research data:
 
 The following are only on Wendian & Mio:
 
-- `/scratch` - Active research data, subject to 180 day data purge
-- `/projects` - Scratch research data used within a research project that shared with multiple users, also subject to 180 day data purge. The PI must request a projects directory with the list of authorized users.
+- `/scratch` - Active research data, subject to 90 day data purge
+- `/scratch/projects` - Scratch research data used within a research project that shared with multiple users, also subject to 90 day data purge. The PI must request a projects directory with the list of authorized users.
 - `/sets` - Long term data storage available on HPC. The PI must request a sets directory with a list of authorized users.
 
 Note that all data on these directories have no redudancy, so please keep up with your own backups of active research data.
@@ -73,8 +73,8 @@ The table below breaks down the purge policy and associated costs of each the da
 
 | Type | Purge Guidelines | Cost | Redunancy |
 |-----------|------------|---------|-------|
-| Scratch (`/scratch`) | >180 days | Free | No
-| Projects (`/projects`) | >180 days | Free | No
+| Scratch (`/scratch`) | >90 days | Free | No
+| Projects (`/scratch/projects`) | >90 days | Free | No
 | Wendian Long-Term Storage (`/sets`) | None | Free | No |
 | Orebits | None | $2/TB/month | Yes |
 
@@ -96,7 +96,7 @@ Every user has 20GB of data allocated to their `$HOME` directory. A common issue
 
 ### Scratch Guidelines
 
-Files on `/scratch` (e.g. `$SCRATCH`)  is a short-term shared filesystem for storing data currently necessary for active research projects. Subject to purge on a six-month (180 day) cycle. There are no limits (within reason) to amount of data.  
+Files on `/scratch` (e.g. `$SCRATCH`)  is a short-term shared filesystem for storing data currently necessary for active research projects. Subject to purge on a six-month (90 day) cycle. There are no limits (within reason) to amount of data.  
 
 ### Slurm
 
