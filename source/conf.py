@@ -28,7 +28,7 @@ author = 'Nicholas A. Danes'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx-copybutton','sphinx_rtd_theme', 'myst_parser', 'sphinx.ext.autosectionlabel', 'nbsphinx', 'IPython.sphinxext.ipython_console_highlighting', 'sphinxcontrib.bibtex', 'sphinx.ext.githubpages']
+extensions = ['sphinx_rtd_theme', 'myst_parser', 'sphinx.ext.autosectionlabel', 'nbsphinx', 'IPython.sphinxext.ipython_console_highlighting', 'sphinxcontrib.bibtex', 'sphinx.ext.githubpages']
 
 bibtex_bibfiles = ['refs.bib']
 bibtex_default_style = 'plain'
