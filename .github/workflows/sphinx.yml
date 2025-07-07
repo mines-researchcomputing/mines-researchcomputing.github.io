@@ -16,7 +16,7 @@ jobs:
           sudo apt-get install -y pandoc
       - name: Install dependencies (pip)
         run: |
-          pip install --no-cache-dir ipython sphinx nbsphinx myst-parser sphinx-rtd-theme jinja2==3.0.3 nbconvert==6.4.4 sphinxcontrib.bibtex  sphinx-copybutton
+          pip install --no-cache-dir ipython sphinx nbsphinx myst-parser sphinx-rtd-theme jinja2==3.0.3 sphinx-copybutton nbconvert==6.4.4 sphinxcontrib.bibtex
       - name: Sphinx build
         run: |
           sphinx-build source _build
