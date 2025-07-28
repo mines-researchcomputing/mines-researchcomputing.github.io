@@ -8,7 +8,7 @@ We have two High Performance Computing (HPC) systems on campus: Wendian and Mio.
 
 The initial way to connect to HPC platforms is by using ssh. Unix and Unix-like operating systems, (macOS, Linux, etc) have ssh built in. If you are using a Windows-based machine then you must use a terminal package that supports ssh, such as Mobaxterm or Windows Subsystem for Linux. As of the April 2018 update, ssh is also available by default in Windows Powershell.
 
- All of the HPC platforms are behind the campus firewall. The firewall blocks access from off campus. Thus you need to be on campus to get access, or you need to use VPN software discussed on the [Global Protect VPN](https://globalprotect.mines.edu) page. To make ssh more convenient, we allow the use of ssh keys which will bypass needing to re-entering your password every time you login.
+ All of the HPC platforms are behind the campus firewall. The firewall blocks access from off campus. Thus you need to be on campus to get access, or you need to use VPN software discussed on the [Global Protect VPN](https://helpcenter.mines.edu/TDClient/1946/Portal/KB/ArticleDet?ID=154280) page. To make ssh more convenient, we allow the use of ssh keys which will bypass needing to re-entering your password every time you login.
 
 Assuming you are on campus and you are using a machine that supports ssh directly, you can get to Mio and Wendian, respectively, by entering the following in a terminal window:
 
