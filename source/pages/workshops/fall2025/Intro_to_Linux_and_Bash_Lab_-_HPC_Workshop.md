@@ -3,7 +3,7 @@
 ## Connecting to an HPC System via SSH
 
 ### Linux and MacOS
-Connecting to and using Mines' HPC systems requires knowledge of the command line. The first step will be opening the terminal on your operating system. On Mac systems, the quickest way is to use the "Spotlight" search by pressing "Command + Space" on your keyboard and typing "Terminal". Most Linux systems will also have a terminal app preinstalled. Once you have the terminal open, you can login using the ssh command. If you are on the Mines network, either on-campus, or connected to the Mines VPN, you can type the command
+Connecting to and using Mines' HPC systems requires knowledge of the command line. The first step will be opening the terminal on your operating system. On Mac systems, the quickest way is to use the "Spotlight" search by pressing "Command + Space" on your keyboard and typing "Terminal". Most Linux systems will also have a terminal app preinstalled. Once you have the terminal open, you can login using the ssh command. If you are on the Mines network, either on-campus, or connected to the Mines VPN, you can type the command.d
 
 	$ ssh username@name-of-hpc-system.mines.edu
 
@@ -12,11 +12,6 @@ and enter your Mines Multipass password.
 For example, if you have an account on Wendian and your username is janedoe,
 
 	$ ssh janedoe@wendian.mines.edu 
-
-Mines' IT infrastructure allows one into Mines HPC systems through an ssh "jumpbox" if you're not connected to the Mines Network. To do so, you first need to ssh into jumpbox by typing:
-
-	$ ssh username@pvm-jumpbox.mines.edu 
-If you have multi-factor authentication (MFA) enabled, you will be asked for your one-time password (OTP) here as well in addition to your Mines MultiPass password. Once logged in, you can log into a Mines HPC system as normal.
 
 ### Windows
 On Windows, we either recommend using the Windows Terminal app. It is preinstalled on most Windows 11 systems, and available on Windows 10 via the [Microsoft Store](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701). Once you have this application, you can ssh using the Linux and MacOS instructions above.
