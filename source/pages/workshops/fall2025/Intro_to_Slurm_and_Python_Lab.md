@@ -11,7 +11,7 @@ A sample script is shown below:
 	#!/bin/bash
 	#SBATCH --job-name="sample"
 	#SBATCH --nodes=2
-        #SBATCH --account="spr25_hpc_workshop" 
+    #SBATCH --account="fall25_hpc_workshop" 
 	#SBATCH --ntasks-per-node=4
 	#SBATCH --ntasks=8
 	#SBATCH --time=01:00:00
@@ -79,7 +79,7 @@ Now, to send this job using a job script, we need to write one using the SLURM p
 	#SBATCH --nodes=1 # number of nodes
 	#SBATCH --ntasks-per-node=1 # number of tasks per node
 	#SBATCH --ntasks=1 # redundant; total number of tasks: ntasks = nodes * ntasks-per-node
-	#SBATCH --account="spr25_hpc_workshop" 
+	#SBATCH --account="fall25_hpc_workshop" 
 	#SBATCH --time=00:00:01 # time in HH:MM:SS
 	#SBATCH --output output.%j # standard print output labeled with SLURM job id %j
 	#SBATCH --error error.%j  # standard print error  labeled with SLURM job id %j
@@ -110,8 +110,8 @@ On Linux systems, paths for software and their libraries are determined by setti
 * `module spider` - Lists all available modules in a cascading tree format
 * `module -r spider mpi` - Lists all modules related to `mpi` in a cascading tree format
 * `module keyword gromacs` - List modules related to the gromacs program
-* `module load apps/gromacs/gcc-ompi-plumed/2021.1` - Loads the Gromacs 2021.1 module
-* `module unload apps/gromacs/gcc-ompi-plumed/2021.1` - Unloads the Gromacs 2021.1 module
+* `module load apps/gromacs/gcc-ompi-plumed` - Loads the Gromacs 2021.1 module
+* `module unload apps/gromacs/gcc-ompi-plumed` - Unloads the Gromacs 2021.1 module
 * `module purge` - Unloads all currenty loaded modules
 * `module list` - Lists all currently loaded modules
 Not all applications are accessible by all HPC users. Some codes are commercial and require licensing, and hence PI approval. Some require PI approval for other reasons. If you are unable to load a module, or see permission errors when executing a job, and would like to know how you might obtain access, please submit a help request.
@@ -166,7 +166,7 @@ A sample job script (which we will call run.slurm) to use the executable will lo
 	#SBATCH --nodes=1 # number of nodes
 	#SBATCH --ntasks-per-node=12 # number of tasks per node
 	#SBATCH --ntasks=12 # redundant; total number of tasks: ntasks = nodes * ntasks-per-node
-	#SBATCH --account="spr25_hpc_workshop" 
+	#SBATCH --account="fall25_hpc_workshop" 
 	#SBATCH --time=00:00:01 # time in HH:MM:SS
 	#SBATCH --output output.%j # standard print output labeled with SLURM job id %j
 	#SBATCH --error error.%j  # standard print error  labeled with SLURM job id %j
@@ -445,7 +445,7 @@ The following NEW packages will be INSTALLED:
   openmpi            conda-forge/linux-64::openmpi-5.0.8-h2fe1745_107 
   parmetis           conda-forge/linux-64::parmetis-4.0.3-h02de7a9_1007 
   petsc              conda-forge/linux-64::petsc-3.23.6-real_h5e9295b_0 
-  petsc4py           conda-forge/linux-64::petsc4py-3.23.6-np2py313h72f38b6_1 
+  petsc4py           conda-forge/4linux-64::petsc4py-3.23.6-np2py313h72f38b6_1 
   rdma-core          conda-forge/linux-64::rdma-core-59.0-hecca717_0 
   scalapack          conda-forge/linux-64::scalapack-2.2.0-h16fb9de_4 
   superlu            conda-forge/linux-64::superlu-7.0.1-h8f6e6c4_0 
@@ -463,5 +463,10 @@ Confirm by typing 'y' and pressing enter. You now should have your own Python en
 Once you are done with your environment, you can disable it by issuing the command:
 
 	$ conda deactivate
-    
+
+## Organizing your jobs using environment variables between your home and scratch directory
+
+The easiest way to organize SLURM jobs is to use the provided slurm job ID that is automatically assigned when your job is submitted. This job ID is conveniently stored in an environment variable called `SLURM_JOBID`. In many HPC environments, your scratch directory is faster for input/output, but it usually not backed up, whereas your home directory is. For the job example below, we will re-use our "Hello World using MPI!" example above, but automatically move the job workload to scratch, including its output.
+
+
    
