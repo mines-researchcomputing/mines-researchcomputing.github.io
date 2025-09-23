@@ -53,7 +53,7 @@ The script is launched using the `sbatch` command. By default the standard outpu
 	c001
 	c002
 	c002
-	c002
+	c002m
 
 ## Running your first compiled job - Hello World! 
 Now that you can login, navigate the filesystem and understand the basics of the SLURM job scheduler, we are ready to send our first job to the scheduler. For the first example, we are going to show how to send a job using the simple C++ program for `Hello World`:
@@ -494,7 +494,7 @@ echo "Job has finished!"
 
 After the file is saved, try submitting it
 
-	submit_scratch_1.sh
+	sbatch submit_scratch_1.sh
 
 You should still see a `slurm-<jobid>.out` file in your directory. But now check your scratch directory under `'jobs`
 
@@ -539,5 +539,9 @@ srun ${SLURM_SUBMIT_DIR}/hello_world.exe
 echo "Job has finished!"
 ```
 
+After the file is saved, try submitting it
 
+	sbatch submit_scratch_2.sh
+
+And compare the differences between it and `submit_scratch_1.sh`.
    
