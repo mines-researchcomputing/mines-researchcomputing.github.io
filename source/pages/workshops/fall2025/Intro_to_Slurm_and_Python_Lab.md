@@ -468,5 +468,76 @@ Once you are done with your environment, you can disable it by issuing the comma
 
 The easiest way to organize SLURM jobs is to use the provided slurm job ID that is automatically assigned when your job is submitted. This job ID is conveniently stored in an environment variable called `SLURM_JOBID`. In many HPC environments, your scratch directory is faster for input/output, but it usually not backed up, whereas your home directory is. For the job example below, we will re-use our "Hello World using MPI!" example above, but automatically move the job workload to scratch, including its output.
 
+Calling the file `submit_scratch_1.sh`:
+
+```
+#!/bin/bash
+#SBATCH --nodes=1 # number of nodes
+#SBATCH --ntasks-per-node=12 # number of tasks per node
+#SBATCH --ntasks=12 # redundant; total number of tasks: ntasks = nodes * ntasks-per-node
+#SBATCH --account="fall25_hpc_workshop" 
+#SBATCH --time=00:00:01 # time in HH:MM:SS
+# notice we removed the output and error file comments of SBATCH
+
+# Load the modules used to compile the code in the job script
+module load compilers/gcc mpi/openmpi/gcc
+
+echo "Job has started!"
+
+echo "Moving job output to scratch"
+mkdir -p ${SCRATCH}/jobs/${SLURM_JOBID}
+cp hello_world.exe ${SCRATCH}/jobs/${SLURM_JOBID}
+cd ${SCRATCH}/jobs/${SLURM_JOBID}
+srun hello_world.exe 1> output.${SLURM_JOBID} 2> error.${SLURM_JOBID} # 1> refers to stdout, 2> refers to stderr
+echo "Job has finished!"
+```
+
+After the file is saved, try submitting it
+
+	submit_scratch_1.sh
+
+You should still see a `slurm-<jobid>.out` file in your directory. But now check your scratch directory under `'jobs`
+
+	cd $SCRATCH/jobs
+	cd <jobid>
+
+Now look at the contents of that folder, you should see something like:
+	$ ls
+	hello_world.exe  output.<jobid>
+
+So now we have a reference copy of the output and error (note that the error file won't exist it the job runs successfully).
+	
+
+### An alternative setup using `SLURM_SUBMIT_DIR`
+
+If we don't want to make a copy of `hello_world.exe` to the output directory, we can make use of the `SLURM_SUBMIT_DIR` environment variable to refer to the original folder we submitted the job from. We will also show that you can redirect the output and error files directly with `#SBATCH` below. To do so, we first need to print out our `SCRATCH` path:
+
+	$ echo ${SCRATCH}
+	/scratch/<your username>
+
+We'll call this file `submit_scratch_2.sh`:
+
+```
+#!/bin/bash
+#SBATCH --nodes=1 # number of nodes
+#SBATCH --ntasks-per-node=12 # number of tasks per node
+#SBATCH --ntasks=12 # redundant; total number of tasks: ntasks = nodes * ntasks-per-node
+#SBATCH --account="fall25_hpc_workshop" 
+#SBATCH --time=00:00:01 # time in HH:MM:SS
+#SBATCH --output /scratch/<your username>/jobs/%j/output.%j # standard print output labeled with SLURM job id %j
+#SBATCH --error /scratch/<your username>/jobs/%j/error.%j  # standard print error  labeled with SLURM job id %j
+
+# Load the modules used to compile the code in the job script
+module load compilers/gcc mpi/openmpi/gcc
+
+echo "Job has started!"
+
+echo "Moving job output to scratch"
+mkdir -p ${SCRATCH}/jobs/${SLURM_JOBID}
+cd ${SCRATCH}/jobs/${SLURM_JOBID}
+srun ${SLURM_SUBMIT_DIR}/hello_world.exe
+echo "Job has finished!"
+```
+
 
    
