@@ -40,11 +40,11 @@ To archive data using tar, it takes the following format:
 tar -czf <filename>.tar.gz <list of directories>
 ```
 
-For example, if we wanted to bundle our data from yesterday's lab, with the job data:
+For example, we can make tarball our jobs folder from the previous lab:
 
 ```bash
 cd $SCRATCH
-tar -czf Workshop_Fall2024_day2.tar.gz Workshop_Fall2024 jobs
+tar -czf workshop_fall2025.tar.gz jobs
 ```
 
 Let's untar the data in a new folder:
@@ -52,11 +52,11 @@ Let's untar the data in a new folder:
 cd $SCRATCH
 mkdir -p new_data_folder
 cd new_data_folder
-cp ../Workshop_Fall2024_day2.tar.gz .
-tar -xf Workshop_Fall2024_day2.tar.gz
+cp ../workshop_fall2025.tar.gz 
+tar -xf workshop_fall2025.tar.gz 
 ```
 
-*Exercise:* Try untarring the data to a specific folder say `~/scratch/test_oct12` using the `-C` flag. Look at the documentation for `tar` to figure this out.
+*Exercise:* Try untarring the data to a specific folder say `~/scratch/test_sep23` using the `-C` flag. Look at the documentation for `tar` to figure this out.
 
 
 
@@ -70,7 +70,7 @@ tar -xf Workshop_Fall2024_day2.tar.gz
 
 Now transfer the tarball we created from Wendian to your home system (open a new terminal that is NOT logged into Wendian):
 ```bash
-scp username@wendian.mines.edu:~/scratch/Workshop_Fall2024_day2.tar.gz . 
+scp username@wendian.mines.edu:~/scratch/workshop_fall2025.tar.gz .
 ```
 
 #### Transfering directory
