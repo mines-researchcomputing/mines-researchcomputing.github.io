@@ -209,65 +209,79 @@ First step is to load the desired version Python version:
 
 Then create your own python environment using the following command:
 
-	$ conda create --name my_env python=3.7
+	$ conda create --name my_env python=3.13
+	
 You should see something similiar to the following print to the screen:
-
-	Collecting package metadata (current_repodata.json): done
-	Solving environment: done
-
-	## Package Plan ##
-
-	environment location: /u/pa/sh/username/.conda/envs/my_env
-
-	added / updated specs:
-		- python=3.7
+```
+Retrieving notices: done
+Channels:
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
 
 
-	The following packages will be downloaded:
+==> WARNING: A newer version of conda exists. <==
+    current version: 24.11.3
+    latest version: 25.7.0
 
-		package                    |            build
-		---------------------------|-----------------
-		ca-certificates-2021.1.19  |       h06a4308_0         121 KB
-		certifi-2020.12.5          |   py37h06a4308_0         141 KB
-		libedit-3.1.20191231       |       h14c3975_1         116 KB
-		libffi-3.3                 |       he6710b0_2          50 KB
-		ncurses-6.2                |       he6710b0_1         817 KB
-		openssl-1.1.1i             |       h27cfd23_0         2.5 MB
-		pip-20.3.3                 |   py37h06a4308_0         1.8 MB
-		python-3.7.9               |       h7579374_0        45.3 MB
-		readline-8.1               |       h27cfd23_0         362 KB
-		setuptools-52.0.0          |   py37h06a4308_0         710 KB
-		sqlite-3.33.0              |       h62c20be_0         1.1 MB
-		tk-8.6.10                  |       hbc83047_0         3.0 MB
-		wheel-0.36.2               |     pyhd3eb1b0_0          33 KB
-		------------------------------------------------------------
-											Total:        56.0 MB
+Please update conda by running
 
-	The following NEW packages will be INSTALLED:
-
-	_libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
-	ca-certificates    pkgs/main/linux-64::ca-certificates-2021.1.19-h06a4308_0
-	certifi            pkgs/main/linux-64::certifi-2020.12.5-py37h06a4308_0
-	ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.33.1-h53a641e_7
-	libedit            pkgs/main/linux-64::libedit-3.1.20191231-h14c3975_1
-	libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_2
-	libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.1.0-hdf63c60_0
-	libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.1.0-hdf63c60_0
-	ncurses            pkgs/main/linux-64::ncurses-6.2-he6710b0_1
-	openssl            pkgs/main/linux-64::openssl-1.1.1i-h27cfd23_0
-	pip                pkgs/main/linux-64::pip-20.3.3-py37h06a4308_0
-	python             pkgs/main/linux-64::python-3.7.9-h7579374_0
-	readline           pkgs/main/linux-64::readline-8.1-h27cfd23_0
-	setuptools         pkgs/main/linux-64::setuptools-52.0.0-py37h06a4308_0
-	sqlite             pkgs/main/linux-64::sqlite-3.33.0-h62c20be_0
-	tk                 pkgs/main/linux-64::tk-8.6.10-hbc83047_0
-	wheel              pkgs/main/noarch::wheel-0.36.2-pyhd3eb1b0_0
-	xz                 pkgs/main/linux-64::xz-5.2.5-h7b6447c_0
-	zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
+    $ conda update -n base -c conda-forge conda
 
 
-	Proceed ([y]/n)? 
-	Proceed by typing 'y', followed by enter. You can then activate your new environment by typing
+
+## Package Plan ##
+
+  environment location: /u/pa/sh/ndanes/.conda/envs/my_env
+
+  added / updated specs:
+    - python=3.13
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    libgcc-15.1.0              |       h767d61c_5         805 KB  conda-forge
+    libgomp-15.1.0             |       h767d61c_5         437 KB  conda-forge
+    libuuid-2.41.2             |       he9a06e4_0          36 KB  conda-forge
+    openssl-3.5.3              |       h26f9b46_1         3.0 MB  conda-forge
+    python-3.13.7              |h2b335a9_100_cp313        32.0 MB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        36.3 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge 
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu 
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-hda65f42_8 
+  ca-certificates    conda-forge/noarch::ca-certificates-2025.8.3-hbd8a1cb_0 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.44-h1423503_1 
+  libexpat           conda-forge/linux-64::libexpat-2.7.1-hecca717_0 
+  libffi             conda-forge/linux-64::libffi-3.4.6-h2dba641_1 
+  libgcc             conda-forge/linux-64::libgcc-15.1.0-h767d61c_5 
+  libgomp            conda-forge/linux-64::libgomp-15.1.0-h767d61c_5 
+  liblzma            conda-forge/linux-64::liblzma-5.8.1-hb9d3cd8_2 
+  libmpdec           conda-forge/linux-64::libmpdec-4.0.0-hb9d3cd8_0 
+  libsqlite          conda-forge/linux-64::libsqlite-3.50.4-h0c1763c_0 
+  libuuid            conda-forge/linux-64::libuuid-2.41.2-he9a06e4_0 
+  libzlib            conda-forge/linux-64::libzlib-1.3.1-hb9d3cd8_2 
+  ncurses            conda-forge/linux-64::ncurses-6.5-h2d0b736_3 
+  openssl            conda-forge/linux-64::openssl-3.5.3-h26f9b46_1 
+  pip                conda-forge/noarch::pip-25.2-pyh145f28c_0 
+  python             conda-forge/linux-64::python-3.13.7-h2b335a9_100_cp313 
+  python_abi         conda-forge/noarch::python_abi-3.13-8_cp313 
+  readline           conda-forge/linux-64::readline-8.2-h8c095d6_2 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_hd72426e_102 
+  tzdata             conda-forge/noarch::tzdata-2025b-h78e105d_0 
+
+
+Proceed ([y]/n)?
+```
+
+
     
 Once you confirm and the installation completes, you activate the conda environment with the following command: 
 
@@ -280,94 +294,168 @@ You should now see (my_env) to the left on your command line like follows:
 You can now add packages you need for your conda environment either using pip or the conda commands. For example, we can install the petsc4py package through conda-forge:
 
 	(my_env) [username@wendian ~]$ conda install -c conda-forge petsc4py
-	You should see something similiar print to the screen:
-
-	Collecting package metadata (current_repodata.json): done
-	Solving environment: done
-
-	## Package Plan ##
-
-	environment location: /u/pa/sh/username/.conda/envs/my_env
-
-	added / updated specs:
-		- petsc4py
+	# You should see something similiar print to the screen:
+```
+Channels:
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
 
 
-	The following packages will be downloaded:
+==> WARNING: A newer version of conda exists. <==
+    current version: 24.11.3
+    latest version: 25.7.0
 
-		package                    |            build
-		---------------------------|-----------------
-		ca-certificates-2020.12.5  |       ha878542_0         137 KB  conda-forge
-		certifi-2020.12.5          |   py37h89c1867_1         143 KB  conda-forge
-		hdf5-1.10.6                |nompi_h7c3c948_1111         3.1 MB  conda-forge
-		hypre-2.18.2               |       hc98498a_1         1.7 MB  conda-forge
-		krb5-1.17.2                |       h926e7f8_0         1.4 MB  conda-forge
-		libblas-3.9.0              |       8_openblas          11 KB  conda-forge
-		libcblas-3.9.0             |       8_openblas          11 KB  conda-forge
-		libcurl-7.71.1             |       hcdd3856_3         302 KB  conda-forge
-		libgfortran-ng-7.5.0       |      h14aa051_18          22 KB  conda-forge
-		libgfortran4-7.5.0         |      h14aa051_18         1.3 MB  conda-forge
-		liblapack-3.9.0            |       8_openblas          11 KB  conda-forge
-		libopenblas-0.3.12         |pthreads_hb3c22a3_1         8.2 MB  conda-forge
-		metis-5.1.0                |    h58526e2_1006         4.1 MB  conda-forge
-		mpi-1.0                    |            mpich           4 KB  conda-forge
-		mpich-3.3.2                |       h846660c_5         6.4 MB  conda-forge
-		mumps-include-5.2.1        |      ha770c72_10          23 KB  conda-forge
-		mumps-mpi-5.2.1            |      h12930e3_10         3.5 MB  conda-forge
-		numpy-1.18.1               |   py37h8960a57_1         5.2 MB  conda-forge
-		parmetis-4.0.3             |    h9f7b9cf_1005         290 KB  conda-forge
-		petsc-3.13.6               |       h9a2a0d4_1         9.8 MB  conda-forge
-		petsc4py-3.13.0            |   py37h66998c9_5         1.3 MB  conda-forge
-		ptscotch-6.0.9             |       h294ddb0_1         1.6 MB  conda-forge
-		python_abi-3.7             |          1_cp37m           4 KB  conda-forge
-		scalapack-2.0.2            |    hfacbc1e_1009         2.2 MB  conda-forge
-		suitesparse-5.6.0          |       h717dc36_0         2.4 MB  conda-forge
-		superlu-5.2.2              |       hfe2efc7_0         218 KB  conda-forge
-		superlu_dist-6.2.0         |       h5e15a89_2         900 KB  conda-forge
-		------------------------------------------------------------
-											Total:        54.1 MB
+Please update conda by running
 
-	The following NEW packages will be INSTALLED:
-
-	hdf5               conda-forge/linux-64::hdf5-1.10.6-nompi_h7c3c948_1111
-	hypre              conda-forge/linux-64::hypre-2.18.2-hc98498a_1
-	krb5               conda-forge/linux-64::krb5-1.17.2-h926e7f8_0
-	libblas            conda-forge/linux-64::libblas-3.9.0-8_openblas
-	libcblas           conda-forge/linux-64::libcblas-3.9.0-8_openblas
-	libcurl            conda-forge/linux-64::libcurl-7.71.1-hcdd3856_3
-	libgfortran-ng     conda-forge/linux-64::libgfortran-ng-7.5.0-h14aa051_18
-	libgfortran4       conda-forge/linux-64::libgfortran4-7.5.0-h14aa051_18
-	liblapack          conda-forge/linux-64::liblapack-3.9.0-8_openblas
-	libopenblas        conda-forge/linux-64::libopenblas-0.3.12-pthreads_hb3c22a3_1
-	libssh2            conda-forge/linux-64::libssh2-1.9.0-hab1572f_5
-	metis              conda-forge/linux-64::metis-5.1.0-h58526e2_1006
-	mpi                conda-forge/linux-64::mpi-1.0-mpich
-	mpich              conda-forge/linux-64::mpich-3.3.2-h846660c_5
-	mumps-include      conda-forge/linux-64::mumps-include-5.2.1-ha770c72_10
-	mumps-mpi          conda-forge/linux-64::mumps-mpi-5.2.1-h12930e3_10
-	numpy              conda-forge/linux-64::numpy-1.18.1-py37h8960a57_1
-	parmetis           conda-forge/linux-64::parmetis-4.0.3-h9f7b9cf_1005
-	petsc              conda-forge/linux-64::petsc-3.13.6-h9a2a0d4_1
-	petsc4py           conda-forge/linux-64::petsc4py-3.13.0-py37h66998c9_5
-	ptscotch           conda-forge/linux-64::ptscotch-6.0.9-h294ddb0_1
-	python_abi         conda-forge/linux-64::python_abi-3.7-1_cp37m
-	scalapack          conda-forge/linux-64::scalapack-2.0.2-hfacbc1e_1009
-	scotch             conda-forge/linux-64::scotch-6.0.9-h0eec0ba_1
-	suitesparse        conda-forge/linux-64::suitesparse-5.6.0-h717dc36_0
-	superlu            conda-forge/linux-64::superlu-5.2.2-hfe2efc7_0
-	superlu_dist       conda-forge/linux-64::superlu_dist-6.2.0-h5e15a89_2
-	tbb                conda-forge/linux-64::tbb-2020.2-hc9558a2_0
-
-	The following packages will be UPDATED:
-
-	certifi            pkgs/main::certifi-2020.12.5-py37h06a~ --> conda-forge::certifi-2020.12.5-py37h89c1867_1
-
-	The following packages will be SUPERSEDED by a higher-priority channel:
-
-	ca-certificates    pkgs/main::ca-certificates-2021.1.19-~ --> conda-forge::ca-certificates-2020.12.5-ha878542_0
+    $ conda update -n base -c conda-forge conda
 
 
-	Proceed ([y]/n)?
+
+## Package Plan ##
+
+  environment location: /u/pa/sh/ndanes/.conda/envs/my_env
+
+  added / updated specs:
+    - petsc4py
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _x86_64-microarch-level-4  | 2_skylake_avx512           8 KB  conda-forge
+    attr-2.5.2                 |       h39aace5_0          66 KB  conda-forge
+    fftw-3.3.10                |mpi_openmpi_h99e62ba_10         2.0 MB  conda-forge
+    hdf5-1.14.6                |mpi_openmpi_h4fb29d0_3         3.8 MB  conda-forge
+    hypre-2.32.0               |mpi_openmpi_h398ea61_1         1.9 MB  conda-forge
+    keyutils-1.6.3             |       hb9d3cd8_0         131 KB  conda-forge
+    libaec-1.1.4               |       h3f801dc_0          36 KB  conda-forge
+    libamd-3.3.3               | haaf9dc3_7100102          49 KB  conda-forge
+    libblas-3.9.0              | 36_h91f140b_blis          17 KB  conda-forge
+    libbtf-2.3.2               | h32481e8_7100102          27 KB  conda-forge
+    libcamd-3.3.3              | h32481e8_7100102          46 KB  conda-forge
+    libcap-2.76                |       h0b2e76d_0         119 KB  conda-forge
+    libcblas-3.9.0             | 36_h3c44731_blis          17 KB  conda-forge
+    libccolamd-3.3.4           | h32481e8_7100102          42 KB  conda-forge
+    libcholmod-5.3.1           | h59ddab4_7100102         1.1 MB  conda-forge
+    libcolamd-3.3.4            | h32481e8_7100102          33 KB  conda-forge
+    libcurl-8.14.1             |       h332b0f4_0         439 KB  conda-forge
+    libfabric-2.2.0            |       ha770c72_2          14 KB  conda-forge
+    libfabric1-2.2.0           |       h3ff6011_2         666 KB  conda-forge
+    libgcc-ng-15.1.0           |       h69a702a_5          29 KB  conda-forge
+    libgfortran-15.1.0         |       h69a702a_5          28 KB  conda-forge
+    libgfortran-ng-15.1.0      |       h69a702a_5          29 KB  conda-forge
+    libgfortran5-15.1.0        |       hcea5267_5         1.5 MB  conda-forge
+    libhwloc-2.12.1            |default_h7f8ec31_1002         2.3 MB  conda-forge
+    libiconv-1.18              |       h3b78370_2         772 KB  conda-forge
+    libklu-2.3.5               | hf24d653_7100102         142 KB  conda-forge
+    liblapack-3.9.0            |12_hd37a5e2_netlib         2.7 MB  conda-forge
+    libnghttp2-1.67.0          |       had1ee68_0         651 KB  conda-forge
+    libpmix-5.0.8              |       h4bd6b51_2         714 KB  conda-forge
+    libptscotch-7.0.8          | int32_h0de9fd6_2         179 KB  conda-forge
+    libscotch-7.0.8            | int32_h16dc488_2         347 KB  conda-forge
+    libspqr-4.3.4              | h852d39f_7100102         213 KB  conda-forge
+    libstdcxx-15.1.0           |       h8f9b012_5         3.7 MB  conda-forge
+    libstdcxx-ng-15.1.0        |       h4852527_5          29 KB  conda-forge
+    libsuitesparseconfig-7.10.1| h92d6892_7100102          42 KB  conda-forge
+    libsystemd0-257.9          |       h996ca69_0         481 KB  conda-forge
+    libudev1-257.9             |       h085a93f_0         141 KB  conda-forge
+    libumfpack-6.3.5           | heb53515_7100102         424 KB  conda-forge
+    libxml2-2.15.0             |       h26afc86_0          44 KB  conda-forge
+    libxml2-16-2.15.0          |       ha9997c6_0         546 KB  conda-forge
+    mpi-1.0.1                  |          openmpi           6 KB  conda-forge
+    mumps-include-5.8.1        |       h158ef2a_3          19 KB  conda-forge
+    mumps-mpi-5.8.1            |       hcd43f66_3         2.6 MB  conda-forge
+    numpy-2.3.3                |  py313hf6604e3_0         8.5 MB  conda-forge
+    openmpi-5.0.8              |     h2fe1745_107         3.7 MB  conda-forge
+    parmetis-4.0.3             |    h02de7a9_1007         270 KB  conda-forge
+    petsc-3.23.6               |  real_h5e9295b_0        20.8 MB  conda-forge
+    petsc4py-3.23.6            |np2py313h72f38b6_1         1.8 MB  conda-forge
+    rdma-core-59.0             |       hecca717_0         1.2 MB  conda-forge
+    scalapack-2.2.0            |       h16fb9de_4         1.8 MB  conda-forge
+    superlu-7.0.1              |       h8f6e6c4_0         274 KB  conda-forge
+    superlu_dist-9.1.0         |       h3349319_0         1.0 MB  conda-forge
+    ucc-1.5.1                  |       hb729f83_0         8.4 MB  conda-forge
+    ucx-1.19.0                 |       hc93acc0_4         7.4 MB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        83.0 MB
+
+The following NEW packages will be INSTALLED:
+
+  _x86_64-microarch~ conda-forge/noarch::_x86_64-microarch-level-4-2_skylake_avx512 
+  attr               conda-forge/linux-64::attr-2.5.2-h39aace5_0 
+  blis               conda-forge/linux-64::blis-0.9.0-h4ab18f5_2 
+  c-ares             conda-forge/linux-64::c-ares-1.34.5-hb9d3cd8_0 
+  fftw               conda-forge/linux-64::fftw-3.3.10-mpi_openmpi_h99e62ba_10 
+  hdf5               conda-forge/linux-64::hdf5-1.14.6-mpi_openmpi_h4fb29d0_3 
+  hypre              conda-forge/linux-64::hypre-2.32.0-mpi_openmpi_h398ea61_1 
+  icu                conda-forge/linux-64::icu-75.1-he02047a_0 
+  keyutils           conda-forge/linux-64::keyutils-1.6.3-hb9d3cd8_0 
+  krb5               conda-forge/linux-64::krb5-1.21.3-h659f571_0 
+  libaec             conda-forge/linux-64::libaec-1.1.4-h3f801dc_0 
+  libamd             conda-forge/linux-64::libamd-3.3.3-haaf9dc3_7100102 
+  libblas            conda-forge/linux-64::libblas-3.9.0-36_h91f140b_blis 
+  libbtf             conda-forge/linux-64::libbtf-2.3.2-h32481e8_7100102 
+  libcamd            conda-forge/linux-64::libcamd-3.3.3-h32481e8_7100102 
+  libcap             conda-forge/linux-64::libcap-2.76-h0b2e76d_0 
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-36_h3c44731_blis 
+  libccolamd         conda-forge/linux-64::libccolamd-3.3.4-h32481e8_7100102 
+  libcholmod         conda-forge/linux-64::libcholmod-5.3.1-h59ddab4_7100102 
+  libcolamd          conda-forge/linux-64::libcolamd-3.3.4-h32481e8_7100102 
+  libcurl            conda-forge/linux-64::libcurl-8.14.1-h332b0f4_0 
+  libedit            conda-forge/linux-64::libedit-3.1.20250104-pl5321h7949ede_0 
+  libev              conda-forge/linux-64::libev-4.33-hd590300_2 
+  libevent           conda-forge/linux-64::libevent-2.1.12-hf998b51_1 
+  libfabric          conda-forge/linux-64::libfabric-2.2.0-ha770c72_2 
+  libfabric1         conda-forge/linux-64::libfabric1-2.2.0-h3ff6011_2 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-15.1.0-h69a702a_5 
+  libgcrypt-lib      conda-forge/linux-64::libgcrypt-lib-1.11.1-hb9d3cd8_0 
+  libgfortran        conda-forge/linux-64::libgfortran-15.1.0-h69a702a_5 
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-15.1.0-h69a702a_5 
+  libgfortran5       conda-forge/linux-64::libgfortran5-15.1.0-hcea5267_5 
+  libgpg-error       conda-forge/linux-64::libgpg-error-1.55-h3f2d84a_0 
+  libhwloc           conda-forge/linux-64::libhwloc-2.12.1-default_h7f8ec31_1002 
+  libiconv           conda-forge/linux-64::libiconv-1.18-h3b78370_2 
+  libklu             conda-forge/linux-64::libklu-2.3.5-hf24d653_7100102 
+  liblapack          conda-forge/linux-64::liblapack-3.9.0-12_hd37a5e2_netlib 
+  libnghttp2         conda-forge/linux-64::libnghttp2-1.67.0-had1ee68_0 
+  libnl              conda-forge/linux-64::libnl-3.11.0-hb9d3cd8_0 
+  libpmix            conda-forge/linux-64::libpmix-5.0.8-h4bd6b51_2 
+  libptscotch        conda-forge/linux-64::libptscotch-7.0.8-int32_h0de9fd6_2 
+  libscotch          conda-forge/linux-64::libscotch-7.0.8-int32_h16dc488_2 
+  libspqr            conda-forge/linux-64::libspqr-4.3.4-h852d39f_7100102 
+  libssh2            conda-forge/linux-64::libssh2-1.11.1-hcf80075_0 
+  libstdcxx          conda-forge/linux-64::libstdcxx-15.1.0-h8f9b012_5 
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-15.1.0-h4852527_5 
+  libsuitesparsecon~ conda-forge/linux-64::libsuitesparseconfig-7.10.1-h92d6892_7100102 
+  libsystemd0        conda-forge/linux-64::libsystemd0-257.9-h996ca69_0 
+  libudev1           conda-forge/linux-64::libudev1-257.9-h085a93f_0 
+  libumfpack         conda-forge/linux-64::libumfpack-6.3.5-heb53515_7100102 
+  libxml2            conda-forge/linux-64::libxml2-2.15.0-h26afc86_0 
+  libxml2-16         conda-forge/linux-64::libxml2-16-2.15.0-ha9997c6_0 
+  lz4-c              conda-forge/linux-64::lz4-c-1.10.0-h5888daf_1 
+  metis              conda-forge/linux-64::metis-5.1.0-hd0bcaf9_1007 
+  mpi                conda-forge/noarch::mpi-1.0.1-openmpi 
+  mumps-include      conda-forge/linux-64::mumps-include-5.8.1-h158ef2a_3 
+  mumps-mpi          conda-forge/linux-64::mumps-mpi-5.8.1-hcd43f66_3 
+  numpy              conda-forge/linux-64::numpy-2.3.3-py313hf6604e3_0 
+  openmpi            conda-forge/linux-64::openmpi-5.0.8-h2fe1745_107 
+  parmetis           conda-forge/linux-64::parmetis-4.0.3-h02de7a9_1007 
+  petsc              conda-forge/linux-64::petsc-3.23.6-real_h5e9295b_0 
+  petsc4py           conda-forge/linux-64::petsc4py-3.23.6-np2py313h72f38b6_1 
+  rdma-core          conda-forge/linux-64::rdma-core-59.0-hecca717_0 
+  scalapack          conda-forge/linux-64::scalapack-2.2.0-h16fb9de_4 
+  superlu            conda-forge/linux-64::superlu-7.0.1-h8f6e6c4_0 
+  superlu_dist       conda-forge/linux-64::superlu_dist-9.1.0-h3349319_0 
+  ucc                conda-forge/linux-64::ucc-1.5.1-hb729f83_0 
+  ucx                conda-forge/linux-64::ucx-1.19.0-hc93acc0_4 
+  yaml               conda-forge/linux-64::yaml-0.2.5-h280c20c_3 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb8e6e7a_2 
+
+```
 
 Confirm by typing 'y' and pressing enter. You now should have your own Python environment with petsc4py!
 
