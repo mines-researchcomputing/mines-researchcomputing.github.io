@@ -4,7 +4,13 @@
 
 ### Intro to Research Computing at Mines
 
+
+
 #### Workshop Materials
+* Day 2: Intro to Serial + Parallel Computing Concepts, GROMACS on HPC + Monitoring Performance & Budget Guidance for Researchers:
+   * [Slides](https://docs.google.com/presentation/d/1LD9uDIJ8QIghznifoamwEA4e0TWdQ-CO4FI-4d4IZi0/edit?usp=sharing)
+   *  Lab #2: [Intro to Parallel Processing on HPC using GROMACS](./workshops/fall2025/Intro_to_Parallel_Processing_on_HPC_-_GROMACS.md)
+   *  
  * Day 1: Overview of Research Computing & Cyberinfrastructure, Intro to Linux/Bash, Slurm/Job Schedulers and Data Management
   *  [Slides (Google Slides, Mines Users Only)](https://docs.google.com/presentation/d/1RKYCpDge27NdDnV2w5X9qbSDe8Tkl07Co1T_4fNuNTM/edit?usp=sharing)
   * Lab #1: [Intro to Linux and Bash](./workshops/fall2025/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.md)
