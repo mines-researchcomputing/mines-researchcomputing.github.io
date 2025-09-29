@@ -31,7 +31,7 @@ Welcome to Research Computing at Mines documentation!
    :caption: Cloud Resources
 
    pages/Cloud/AWS.rst
-   pages/Cloud/GCP.rst
+   pages/Cloud/gcp.md
 
 .. toctree::
    :maxdepth: 3
