@@ -163,10 +163,18 @@ The Student partition of Wendian is dedicated to supporting student education. A
 
 #### System Specifications
 
+
+#### CPU Nodes
 - Number of Nodes: 7  
 - Cores per Node: 32 Intel Xeon Platinum cores (INTEL XEON PLATINUM 8562Y+)  
 - Total Cores Available: 224 cores  
 - Memory per node:  502 GB (usable)
+
+#### GPU Node
+- Number of Nodes: 1
+- Cores Per Node: 64 cores (AMD EPYC 9534)
+- GPUs per Node: 4 x NVIDIA L40s (48 GB VRAM)
+- Memory per Node: 770 GB
 
 #### Access
 
