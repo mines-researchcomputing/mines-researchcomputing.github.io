@@ -25,6 +25,7 @@ Welcome to Research Computing at Mines documentation!
    pages/visualization_guides/fluent-remote-visualization.md
    pages/visualization_guides/jupyter-lab-startup.md
    pages/visualization_guides/using-vnc-connection-for-fluent-gui-access.md
+   pages/visualization_guides/ansys-setup-megn423.md
 
 .. toctree::
    :maxdepth: 3
