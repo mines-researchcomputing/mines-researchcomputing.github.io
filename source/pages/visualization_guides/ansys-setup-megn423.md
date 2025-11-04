@@ -1,6 +1,15 @@
 # Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025
 
 This is a walk through for class today to get the software and start up Open Ondemand on Wendian compute nodes.
+
+## Copy of Powerpoint presentation with walkthrough instuctions
+
+```
+scp $MINES_USERNAME@wendiandtn.mines.edu:/sw/examples/fluent/MEGN423-HPC-intro-2025.pptx .
+```
+
+NOTE: the "space" followed by "." are important here.
+
 ## Get the software for Windows
 To start a download of the Ansys FLUIDS install for Windows from a PowerShell Terminal
 
