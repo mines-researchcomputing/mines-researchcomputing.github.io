@@ -25,7 +25,7 @@ Connectivity: Please see Memorandum of Understanding (MOU) for details of servic
 
 ## Billing 
 
-RC has added full backup infrastructure to the OreBits service which serves to protect data in case of datacenter incidents or cryptolocker/malware attacks.  We still intend to provide the service “at-cost”; currently at $1.75/TB/mo.  This translates to $42/year/TB for fully replicated storage/snapshots/backup.
+RC has added full backup infrastructure to the OreBits service which serves to protect data in case of datacenter incidents or cryptolocker/malware attacks.  We still intend to provide the service “at-cost”; currently at $1.75/TB/mo.  This translates to $21/year/TB for fully replicated storage/snapshots/backup.
 
 OreBits was designed as a “middle-of-the-road”, on-premise solution, offering a balance between performance, protection and price. Users only pay hardware and maintenance contract costs at a subscription rate of $1.75/TB/mo.  
 
