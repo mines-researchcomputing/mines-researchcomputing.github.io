@@ -234,6 +234,8 @@ Type the server address in this format:
 If you are successful, click the [+] icon at right to save the address permanently.
 Note: If asked for login credentials, use those for the system to which you are trying to connect, not your local Mac username and password (unless, of course, they are the same).
 
+Add a shortcut in Finder by selecting Go > Computer. Then dragging and dropping the mounted folder anywhere to left side bar.
+
 ### Instructions for Linux Users:
 
 There are many ways to mount network drives using a Linux system. Some Linux distributions have graphical clients for this purpose. Others require command-line solutions. In general, when mounting Windows shares, the “Samba” package will be used. For help with your particular Linux distribution, and a particular network file system, please submit a support request at Mines Help Center (https://helpdesk.mines.edu). Describe as completely as possible the variety of Linux you are using and the file system you are attempting to access. Or proceed using the hints found below.
