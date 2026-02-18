@@ -137,5 +137,53 @@ $ python
 >>> MPI.Comm
 <class 'mpi4py.MPI.Comm'>
 ```
+## Conda to $SCRATCH directory guide
 
+By default, Anaconda puts your conda environments under `$HOME/.conda`. Although this is convenient, restrictions to home directory quotas can limit what type of conda environments can be stored there.
+
+Conda provides the ability to move your conda environment to any directory. In this guide, we will show you how to move your home directory using a file called `.condarc`.
+
+
+### Setting up your conda environments to store in `$SCRATCH`
+
+
+First we need to make the folders that will hold our conda environments and their packages:
+
+```
+mkdir -p ~/scratch/conda_envs
+mkdir -p ~/scratch/conda_pkgs
+```
+
+Next, make a file in your home directory called .condarc:
+
+```
+touch $HOME/.condarc
+```
+
+Open the file, then copy and paste the following:
+```
+channels:
+  - conda-forge
+  - defaults
+envs_dirs:
+  - ~/scratch/conda_envs
+  - ~/.conda/envs
+pkgs_dirs:
+  - ~/scratch/conda_pkgs
+  - ~/.conda/pkgs
+```
+
+
+Relogin to {Wendian, Mio} and load the python module and try to make your first new conda environment.
+
+```
+module load apps/python3
+conda create -n test_env  -y
+```
+
+Verify that your conda environment is in `$SCRATCH/conda_envs`:
+
+```
+ls $SCRATCH/conda_envs
+```
 
