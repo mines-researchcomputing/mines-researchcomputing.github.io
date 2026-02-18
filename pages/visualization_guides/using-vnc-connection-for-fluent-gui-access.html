@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Remote VNC Setup Connection to Access Linux Desktop Apps &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/visualization_guides/using-vnc-connection-for-fluent-gui-access.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025" href="ansys-setup-megn423.html" />
+    <link rel="prev" title="Jupyter Lab on HPC platforms at Mines" href="jupyter-lab-startup.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Remote VNC Setup Connection to Access Linux Desktop Apps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ondemand-users-linux-desktop-and-gui-apps">OnDemand Users - Linux Desktop and GUI apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-setup-using-you-own-vnc-connection-app">Basic setup using you own VNC connection app</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#software-requirements">Software Requirements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mines-hpc-software-modules">Mines’ HPC Software Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mines-hpc-vnc-server-module">Mines’ HPC VNC Server Module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-start-an-interactive-slurm-job">Step 1: Start an interactive SLURM Job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-start-a-vncserver">Step 2: Start a VNCserver:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-identify-where-the-vncserver-started-and-screen-number">Step 3: Identify where the VNCserver started and screen number</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#some-useful-commands">Some useful commands:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-setting-up-a-ssh-tunnel">Step 4: Setting up a SSH Tunnel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-5-start-the-vnc-client-on-your-machine">Step 5: Start the VNC Client on your Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-6-opening-the-terminal-emulator-on-the-linux-desktop">Step 6: Opening the “Terminal Emulator” on the Linux Desktop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-7-start-your-gui-application">Step 7: Start your GUI application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#multi-cpu-parallel-on-a-single-node-specify-the-number-of-cores-with-t">multi-CPU parallel on a single node specify the number of cores with <code class="docutils literal notranslate"><span class="pre">-t</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fluent-using-multiple-nodes">Fluent using Multiple Nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pre-step-7-preparing-fluent-node-connection-list">pre-Step 7: Preparing Fluent Node Connection List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mulit-node-step-7-starting-the-fluent-application">Mulit-node Step 7: Starting the Fluent Application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Remote VNC Setup Connection to Access Linux Desktop Apps</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/visualization_guides/using-vnc-connection-for-fluent-gui-access.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="remote-vnc-setup-connection-to-access-linux-desktop-apps">
+<h1>Remote VNC Setup Connection to Access Linux Desktop Apps<a class="headerlink" href="#remote-vnc-setup-connection-to-access-linux-desktop-apps" title="Link to this heading"></a></h1>
+<section id="ondemand-users-linux-desktop-and-gui-apps">
+<h2>OnDemand Users - Linux Desktop and GUI apps<a class="headerlink" href="#ondemand-users-linux-desktop-and-gui-apps" title="Link to this heading"></a></h2>
+<p>Login into <a class="reference external" href="https://wendian-ondemand.mines.edu">wendian-ondemand.mines.edu</a> or
+<a class="reference external" href="https://mio-ondemand.mines.edu">mio-ondemand.mines.edu</a> to short cut many of these
+steps. A desktop app is available to start any GUI app from the terminal.
+For single node users, starting fluent from Workbench and selecting the total
+number of cores that you received is all that is needed. For MULTI-NODE sessions
+Ansys workbench and the Fluent Launcher configured with the hostnames added to
+the parallel settings tab.</p>
+</section>
+<section id="basic-setup-using-you-own-vnc-connection-app">
+<h2>Basic setup using you own VNC connection app<a class="headerlink" href="#basic-setup-using-you-own-vnc-connection-app" title="Link to this heading"></a></h2>
+<p>This guide uses the vncserver TurboVNC installed on Mines HPC platform to access a full
+graphics environment in a Linux desktop. Graphic acceleration is available through <code class="docutils literal notranslate"><span class="pre">vglrun</span></code>
+See their documenation about <a class="reference external" href="https://www.virtualgl.org/">VirtualGL</a> This example, starts
+the application Ansys Fluent. Ansys Workbench, Ansys Electronics Desktop, Matlab,
+R-studio, Cloud Compare, Paraview,Ovito, and VMD are also available. For Ansys
+Fluent version 2024 and above consider using the Ansys Remote Visualization Client.</p>
+<section id="software-requirements">
+<h3>Software Requirements<a class="headerlink" href="#software-requirements" title="Link to this heading"></a></h3>
+<p>Locally installed on your machine a Terminal in Linux or MacOS, and <a class="reference external" href="https://www.tigervnc.org">TigerVNC</a>
+or MacOS user can use the Screen Sharing App) or your favorite VNC viewer.
+Windows users have a Terminal program, Windows PowerShell, to complete the <code class="docutils literal notranslate"><span class="pre">ssh</span></code>
+tunnel steps and SLURM job request.</p>
+<section id="mines-hpc-software-modules">
+<h4>Mines’ HPC Software Modules<a class="headerlink" href="#mines-hpc-software-modules" title="Link to this heading"></a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">apps/ansys/242</span></code>
+For newer versions of Fluent use <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code> to see a full list.</p>
+</section>
+<section id="mines-hpc-vnc-server-module">
+<h4>Mines’ HPC VNC Server Module<a class="headerlink" href="#mines-hpc-vnc-server-module" title="Link to this heading"></a></h4>
+<p>Wendian: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">utility/standard/turbovnc/2.2.4</span></code></p>
+<p>Mio: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">utility/standard/turbovnc/3.1.1</span></code></p>
+</section>
+</section>
+<section id="step-1-start-an-interactive-slurm-job">
+<h3>Step 1: Start an interactive SLURM Job<a class="headerlink" href="#step-1-start-an-interactive-slurm-job" title="Link to this heading"></a></h3>
+<p>After logging into Mines’ HPC with a terminal or PowerShell.
+Requesting a single CPU tasks on a node.</p>
+<p>[joeuser&#64;wendian001 ~]$ <code class="docutils literal notranslate"><span class="pre">salloc</span> <span class="pre">-n1</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">salloc</span><span class="p">:</span> <span class="n">Pending</span> <span class="n">job</span> <span class="n">allocation</span> <span class="mi">12109017</span>
+<span class="n">salloc</span><span class="p">:</span> <span class="n">job</span> <span class="mi">12109015</span> <span class="n">queued</span> <span class="ow">and</span> <span class="n">waiting</span> <span class="k">for</span> <span class="n">resources</span>
+<span class="n">salloc</span><span class="p">:</span> <span class="n">Granted</span> <span class="n">job</span> <span class="n">allocation</span> <span class="mi">12109017</span>
+<span class="n">salloc</span><span class="p">:</span> <span class="n">Waiting</span> <span class="k">for</span> <span class="n">resource</span> <span class="n">configuration</span>
+<span class="n">salloc</span><span class="p">:</span> <span class="n">Nodes</span> <span class="n">compute031</span> <span class="n">are</span> <span class="n">ready</span> <span class="k">for</span> <span class="n">job</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-start-a-vncserver">
+<h3>Step 2: Start a VNCserver:<a class="headerlink" href="#step-2-start-a-vncserver" title="Link to this heading"></a></h3>
+<p>Load the TurboVNC module and the application module of the HPC platform.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">apps</span><span class="o">/</span><span class="n">ansys</span><span class="o">/</span><span class="mi">242</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">utility</span><span class="o">/</span><span class="n">standard</span><span class="o">/</span><span class="n">turbovnc</span>
+</pre></div>
+</div>
+<p>Then start a vncserver on this compute node. The first time you start the vncserver
+you will be prompted to create a password for when you connect with the VNC viewer.
+Enter a password and re-enter to verify.</p>
+<p>[joeuser&#64;c078 ~]$ <code class="docutils literal notranslate"><span class="pre">vncserver</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">perl</span><span class="p">:</span> <span class="n">warning</span><span class="p">:</span> <span class="n">Setting</span> <span class="n">locale</span> <span class="n">failed</span><span class="o">.</span>
+<span class="n">perl</span><span class="p">:</span> <span class="n">warning</span><span class="p">:</span> <span class="n">Please</span> <span class="n">check</span> <span class="n">that</span> <span class="n">your</span> <span class="n">locale</span> <span class="n">settings</span><span class="p">:</span>
+       <span class="n">LANGUAGE</span> <span class="o">=</span> <span class="p">(</span><span class="n">unset</span><span class="p">),</span>
+       <span class="n">LC_ALL</span> <span class="o">=</span> <span class="p">(</span><span class="n">unset</span><span class="p">),</span>
+       <span class="n">LANG</span> <span class="o">=</span> <span class="s2">&quot;en_US.UTF-8&quot;</span>
+   <span class="n">are</span> <span class="n">supported</span> <span class="ow">and</span> <span class="n">installed</span> <span class="n">on</span> <span class="n">your</span> <span class="n">system</span><span class="o">.</span>
+<span class="n">perl</span><span class="p">:</span> <span class="n">warning</span><span class="p">:</span> <span class="n">Falling</span> <span class="n">back</span> <span class="n">to</span> <span class="n">the</span> <span class="n">standard</span> <span class="n">locale</span> <span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span><span class="o">.</span>
+<span class="n">You</span> <span class="n">will</span> <span class="n">require</span> <span class="n">a</span> <span class="n">password</span> <span class="n">to</span> <span class="n">access</span> <span class="n">your</span> <span class="n">desktops</span><span class="o">.</span>
+
+<span class="n">Password</span><span class="p">:</span>
+ <span class="n">Verify</span><span class="p">:</span>
+
+<span class="n">New</span> <span class="s1">&#39;compute031:1 (joeuser)&#39;</span> <span class="n">desktop</span> <span class="ow">is</span> <span class="n">c078</span><span class="p">:</span><span class="mi">1</span>
+
+<span class="n">Starting</span> <span class="n">applications</span> <span class="n">specified</span> <span class="ow">in</span> <span class="o">/</span><span class="n">u</span><span class="o">/</span><span class="n">aa</span><span class="o">/</span><span class="n">bb</span><span class="o">/</span><span class="n">joeuser</span><span class="o">/.</span><span class="n">vnc</span><span class="o">/</span><span class="n">xstartup</span>
+ <span class="n">Log</span> <span class="n">file</span> <span class="ow">is</span> <span class="o">/</span><span class="n">u</span><span class="o">/</span><span class="n">aa</span><span class="o">/</span><span class="n">bb</span><span class="o">/</span><span class="n">joeuser</span><span class="o">/.</span><span class="n">vnc</span><span class="o">/</span><span class="n">c078</span><span class="p">:</span><span class="mf">1.</span><span class="n">log</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-identify-where-the-vncserver-started-and-screen-number">
+<h3>Step 3: Identify where the VNCserver started and screen number<a class="headerlink" href="#step-3-identify-where-the-vncserver-started-and-screen-number" title="Link to this heading"></a></h3>
+<p>In this case, the node is c078 and the screen is :1. Screen port locations start on 5900
+for :0 and increase, In this case, the port number will be 5901 for screen :1.</p>
+<section id="some-useful-commands">
+<h4>Some useful commands:<a class="headerlink" href="#some-useful-commands" title="Link to this heading"></a></h4>
+<p>To stop a running server use <code class="docutils literal notranslate"><span class="pre">vncserver</span> <span class="pre">-kill</span> <span class="pre">:1</span></code> for screen :1.</p>
+<p>To list running servers use <code class="docutils literal notranslate"><span class="pre">vncserver</span> <span class="pre">-list</span></code>.</p>
+<p>If you forget your password you can delete the passwd file in your .vnc/ home directory.</p>
+</section>
+</section>
+<section id="step-4-setting-up-a-ssh-tunnel">
+<h3>Step 4: Setting up a SSH Tunnel<a class="headerlink" href="#step-4-setting-up-a-ssh-tunnel" title="Link to this heading"></a></h3>
+<p>An SSH Tunnel makes it possible to securely connect to through a port on your machine through
+the SSH protocol to the remote compute node on the Mines’ HPC platform. From your client
+machine using Linux, MacOS, or Windows PowerShell use this terminal command.</p>
+<p>From a new terminal session from your computer (if you’re using Linux pick a different
+number for the first port as <code class="docutils literal notranslate"><span class="pre">5901</span></code> is reserved for your current running X-session).
+The first number is your local machine port number the second number is the remote compute node
+port number <code class="docutils literal notranslate"><span class="pre">5900</span></code> plus the screen number (a value of 1 in this case).</p>
+<p>[username&#64;MyComputer ~] % <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-L</span> <span class="pre">5901:c078:5901</span> <span class="pre">username&#64;wendian.mines.edu</span></code></p>
+</section>
+<section id="step-5-start-the-vnc-client-on-your-machine">
+<h3>Step 5: Start the VNC Client on your Machine<a class="headerlink" href="#step-5-start-the-vnc-client-on-your-machine" title="Link to this heading"></a></h3>
+<p>On Windows download and install TightVNC or TigerVNC or another VNC
+viewer of your choice. You only need to install the “Viewer” part of the software.</p>
+<p>For MacOS you can use “Screen Sharing” which is a VNC client installed with MacOS
+(Use Command+Space to use spotlight to search). You can also use the native Mac VNC
+Viewer found in <code class="docutils literal notranslate"><span class="pre">/System/Library/CoreServices/Applications/Screen</span> <span class="pre">Sharing.app</span></code>.</p>
+<p>Windows: Start the Client VNC that you download and installed.</p>
+<p>Using the VNC connection through your SSH tunnel at localhost and the port
+number listed first in your Terminal SSH Tunnel configuration. In this case, this is
+<code class="docutils literal notranslate"><span class="pre">localhost:5901</span></code> or for short screen one at <code class="docutils literal notranslate"><span class="pre">localhost:1</span></code></p>
+<p><img alt="Input for VNC Connection" src="../../_images/turbo2_connection.png" /></p>
+<p>Click connect and enter your VNC password you set in step 2.</p>
+<p><img alt="Prompt for VNC Password" src="../../_images/turbo3_login.png" /></p>
+<p>The first time you open the connection will receive a configuration prompt.
+Select “Use default config” settings.</p>
+</section>
+<section id="step-6-opening-the-terminal-emulator-on-the-linux-desktop">
+<h3>Step 6: Opening the “Terminal Emulator” on the Linux Desktop<a class="headerlink" href="#step-6-opening-the-terminal-emulator-on-the-linux-desktop" title="Link to this heading"></a></h3>
+<p>You are now connected to the compute node through the localhost and encrypted
+SSH Tunnel connection. The generic linux desktop windows manager will open.
+Select from the “Applications Menu” the “Terminal Emulator” program.</p>
+</section>
+<section id="step-7-start-your-gui-application">
+<h3>Step 7: Start your GUI application<a class="headerlink" href="#step-7-start-your-gui-application" title="Link to this heading"></a></h3>
+<p>At the command prompt in the Terminal Emulator load the software module and start the program.
+For Ansys Fluent this is:
+<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">apps/ansys/242</span></code>
+For MULTI-NODE you must follow the steps in the next section to configure fluent with the connections and host names.</p>
+<p>This will start the fluent launcher from which you choice the number process that
+the request node has available.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[joeuser@c078 ~]$ fluent
+</pre></div>
+</div>
+<section id="multi-cpu-parallel-on-a-single-node-specify-the-number-of-cores-with-t">
+<h4>multi-CPU parallel on a single node specify the number of cores with <code class="docutils literal notranslate"><span class="pre">-t</span></code><a class="headerlink" href="#multi-cpu-parallel-on-a-single-node-specify-the-number-of-cores-with-t" title="Link to this heading"></a></h4>
+<p>For example, starting fluent in 3d double precision and 8 processors.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[joeuser@c078 ~]$ fluent 3ddp -t8
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="fluent-using-multiple-nodes">
+<h2>Fluent using Multiple Nodes<a class="headerlink" href="#fluent-using-multiple-nodes" title="Link to this heading"></a></h2>
+<p>In step 1, request an interactive session with multiple nodes. <code class="docutils literal notranslate"><span class="pre">-N2</span></code> for two nodes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[joeuser@c078 ~]$ salloc -N2
+</pre></div>
+</div>
+<p>And continue through steps 2-6.</p>
+<section id="pre-step-7-preparing-fluent-node-connection-list">
+<h3>pre-Step 7: Preparing Fluent Node Connection List<a class="headerlink" href="#pre-step-7-preparing-fluent-node-connection-list" title="Link to this heading"></a></h3>
+<p>Fluent uses a file with a list of hostnames for each unique host that will run an MPI fluent process,
+one per line. This list is give as an arguement at startup <code class="docutils literal notranslate"><span class="pre">-cnf=hostname1,hostname2,etc</span></code> or a filename.</p>
+<p>Use this commmand to create a file from the SLRUM variable into a file name stored in the variable
+FL_SCHEDULER_HOST_FILE, or simple give it a filename here.</p>
+<p>[joeuser&#64;c078 ~]$ <code class="docutils literal notranslate"><span class="pre">scontrol</span> <span class="pre">show</span> <span class="pre">hostnames</span> <span class="pre">&quot;$SLURM_JOB_NODELIST&quot;</span> <span class="pre">&gt;&gt;</span> <span class="pre">$FL_SCHEDULER_HOST_FILE</span></code></p>
+</section>
+<section id="mulit-node-step-7-starting-the-fluent-application">
+<h3>Mulit-node Step 7: Starting the Fluent Application<a class="headerlink" href="#mulit-node-step-7-starting-the-fluent-application" title="Link to this heading"></a></h3>
+<p>Fluent application started with this CPU core count number, and the flag “-cnf=node_hostnames” as follows.
+Know that the HPC Cluster Wendian has 36-cpu machines and the requested number of nodes is 2.</p>
+<p>[joeuser&#64;c001 ~]$ <code class="docutils literal notranslate"><span class="pre">fluent</span> <span class="pre">3ddp</span> <span class="pre">-t56</span> <span class="pre">-cnf=c001,c002</span></code></p>
+<p>OR using a file as the input.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[joeuser@c001 ~]$ echo $FL_SCHEDULER_HOST_FILE
+hostname_file
+[joeuser@c001 ~]$ cat $FL_SCHEDULER_HOST_FILE
+c001
+c002
+[joeuser@c001 ~]$ fluent 3ddp -t56 -cnf=$FL_SCHEDULER_HOST_FILE
+</pre></div>
+</div>
+<p>See Startup options for Ansys Fluent at the command line, and fluent job scheduler
+startup options for launching directly from the login node.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="jupyter-lab-startup.html" class="btn btn-neutral float-left" title="Jupyter Lab on HPC platforms at Mines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ansys-setup-megn423.html" class="btn btn-neutral float-right" title="Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fd39d2b0>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

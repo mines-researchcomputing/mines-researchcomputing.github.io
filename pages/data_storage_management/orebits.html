@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orebits Storage Platform &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/data_storage_management/orebits.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Globus File Transfer" href="globus.html" />
+    <link rel="prev" title="Google Cloud Platform (GCP)" href="../Cloud/gcp.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Orebits Storage Platform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#billing">Billing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#memorandum-of-understanding-mou">Memorandum of Understanding (MOU)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">1.  INTRODUCTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description-of-service">2.  DESCRIPTION OF SERVICE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#service-classes">2.1 Service Classes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#service-details">2.2 Service Details:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#end-user-expectations">3.  END-USER EXPECTATIONS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usage">3.1 Usage:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-group-administration">3.2 User/Group Administration:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#costs-fees">3.4 Costs/Fees:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ownership-of-media">3.5 Ownership of Media:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#service-expectations">4.  SERVICE EXPECTATIONS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#support-levels">4.1 Support levels:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-storage">4.2 Accessing storage:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duration-of-service">4.3 Duration of Service:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amount-of-storage-available">4.4 Amount of storage available:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reporting">4.5 Reporting:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maintenance">4.6 Maintenance:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-management">4.7 Change management:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#performance">4.8 Performance:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#refunds">4.9 Refunds:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#help-support-requests">5.  HELP/SUPPORT REQUESTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appendix-a">APPENDIX A:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appendix-b">APPENDIX B:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#connection-information">Connection Information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instructions-for-windows-users">Instructions for Windows users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instructions-for-macos-users">Instructions for macOS Users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instructions-for-linux-users">Instructions for Linux Users:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#command-line">Command Line</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graphical-interface">Graphical Interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Orebits Storage Platform</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/data_storage_management/orebits.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="orebits-storage-platform">
+<h1>Orebits Storage Platform<a class="headerlink" href="#orebits-storage-platform" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The OreBits Storage Platform is an on-premise storage appliance hosted by IT, and was created to accommodate larger data storage needs at Mines.  OreBits is a “middle-of-the-road” solution, offering a balance between performance, protection and price.</p>
+<p>If you would like more information or have questions, please see the Memorandum of Understanding below, or contact the RC Team for assistance.</p>
+<p>If you are interested in purchasing additional storage for your group, please open a helpdesk ticket by using the <a class="reference external" href="https://outlook.office365.com/owa/calendar/ResearchComputingSupportTeamServices&#64;mines0.onmicrosoft.com/bookings/">Research Consultation Request</a>.</p>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>On-premise storage solution (required by some government and many industry contracts).</p></li>
+<li><p>Accessible on or off campus.</p></li>
+<li><p>Ability to share folders with Mines users.</p></li>
+<li><p>Purchased in increments of a terabyte.</p></li>
+<li><p>Utilize <a class="reference external" href="https://globus.org">Globus</a> to transfer large files via gridFTP.</p></li>
+<li><p>Hardware:</p>
+<ul>
+<li><p>OreBits operates on Linux and ZFS filesystem.</p></li>
+<li><p>Configured as a ZFS RAIDZ2 with 2 spare drives.</p></li>
+<li><p>Dual controller’s, power supplies, and network connections</p></li>
+</ul>
+</li>
+</ul>
+<p>Connectivity: Please see Memorandum of Understanding (MOU) for details of service.</p>
+</section>
+<section id="billing">
+<h2>Billing<a class="headerlink" href="#billing" title="Link to this heading"></a></h2>
+<p>RC has added full backup infrastructure to the OreBits service which serves to protect data in case of datacenter incidents or cryptolocker/malware attacks.  We still intend to provide the service “at-cost”; currently at $1.75/TB/mo.  This translates to $21/year/TB for fully replicated storage/snapshots/backup.</p>
+<p>OreBits was designed as a “middle-of-the-road”, on-premise solution, offering a balance between performance, protection and price. Users only pay hardware and maintenance contract costs at a subscription rate of $1.75/TB/mo.</p>
+<p>If OreBits will be funded by a research grant, please contact <a class="reference external" href="https://ora.mines.edu/">ORA</a> regarding proper appropriation of funds.</p>
+</section>
+<section id="memorandum-of-understanding-mou">
+<h2>Memorandum of Understanding (MOU)<a class="headerlink" href="#memorandum-of-understanding-mou" title="Link to this heading"></a></h2>
+<p>Colorado School of Mines</p>
+<p>IT / Research Computing (RC)</p>
+<p>OreBits Storage Platform MOU</p>
+<section id="introduction">
+<h3>1.  INTRODUCTION<a class="headerlink" href="#introduction" title="Link to this heading"></a></h3>
+<p>This is the memorandum of understanding (MOU) for OreBits.  It includes both a Service Level Agreement (services provided to the customer) and an End User Agreement (terms agreed to by the customer).</p>
+</section>
+<section id="description-of-service">
+<h3>2.  DESCRIPTION OF SERVICE<a class="headerlink" href="#description-of-service" title="Link to this heading"></a></h3>
+<p>The OreBits storage appliance is a cooperative funded model to support storage for the Mines research community.</p>
+<section id="service-classes">
+<h4>2.1 Service Classes:<a class="headerlink" href="#service-classes" title="Link to this heading"></a></h4>
+<p>There is currently one service class of storage available:</p>
+<ul class="simple">
+<li><p>Active</p>
+<ul>
+<li><p>For data that is frequently written or read</p></li>
+<li><p>Directly accessible (read/write) from computational resources within the Mines environment</p></li>
+<li><p>Accessible from outside the Mines environment only via specific data transfer protocols (GlobusOnline) through designated gateway nodes
+Not designed for highly I/O-intensive or massively parallel usage</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="service-details">
+<h4>2.2 Service Details:<a class="headerlink" href="#service-details" title="Link to this heading"></a></h4>
+<p>Currently, we only offer one storage service.  Storage space must be pre-purchased, with a minimum purchase of 1 TB for 1 year.  In addition to active storage service, it is recommended that you have a local backup copy of critical data.  We do not centrally backup the active storage device.</p>
+<ul class="simple">
+<li><p>Active – single copy on disk</p>
+<ul>
+<li><p>Appropriate for non-critical data</p></li>
+<li><p>Volumes are configured as RAID 6 (2 parity disks)</p></li>
+<li><p>Some protection against accidental file deletion with local snapshots</p></li>
+<li><p>No protection against catastrophic failure of the primary storage system</p></li>
+<li><p>There is no central backup, please backup your data locally*
+*Backup services are scheduled for a future implementation</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="end-user-expectations">
+<h3>3.  END-USER EXPECTATIONS<a class="headerlink" href="#end-user-expectations" title="Link to this heading"></a></h3>
+<section id="usage">
+<h4>3.1 Usage:<a class="headerlink" href="#usage" title="Link to this heading"></a></h4>
+<p>See Appendix A for the End User Agreement, which must be acknowledged by the researcher / PI before a project can be initiated.</p>
+</section>
+<section id="user-group-administration">
+<h4>3.2 User/Group Administration:<a class="headerlink" href="#user-group-administration" title="Link to this heading"></a></h4>
+<p>Every research group using OreBits should provide IT / RC with two official contacts: The Principal Investigator (PI) and an alternate Technical Point of Contact (POC) person.  The PI must be a Mines faculty member.  These two people are the only ones authorized to make changes to the set of users that comprise a group, to add or remove users on the access list, or to request other changes on behalf of the project.</p>
+<p>Any change request that may impact a group will have to come through the PI or POC.  Without such approval, IT / RC will not act on group-level requests.  Change and service requests should be made through the Mines helpdesk ticketing system.</p>
+<p>The PI and POC should verify their list of users on a yearly basis.  Note that while Mines Multipass password may be terminated after a person leaves the university, his or her files will be retained in OreBits and their ownership will be transferred to the PI.  This is done to ensure that shared files do not become unusable by a research group when one user account becomes inactive.  The PI is encouraged to purge out-of-date data periodically.  In the event that a PI leaves the university, the PI understands that the data may be purged to reclaim space.</p>
+<p>OreBits relies on Mines Multipass credentials for access and authorization.  All users must have a valid Mines Multipass account which ensures that all users are Mines faculty, students, staff, or affiliates.  Note that a Mines faculty member may sponsor a non-Mines person as an affiliate, and then add them to the service.  IT / RC cannot act as the sponsor.</p>
+</section>
+<section id="costs-fees">
+<h4>3.4 Costs/Fees:<a class="headerlink" href="#costs-fees" title="Link to this heading"></a></h4>
+<p>Mines users pay actual media costs for disk space.  Appendix B outlines the costs of the different services.</p>
+</section>
+<section id="ownership-of-media">
+<h4>3.5 Ownership of Media:<a class="headerlink" href="#ownership-of-media" title="Link to this heading"></a></h4>
+<p>The physical media that the data resides on belongs to IT and may not be removed from OreBits</p>
+</section>
+</section>
+<section id="service-expectations">
+<h3>4.  SERVICE EXPECTATIONS<a class="headerlink" href="#service-expectations" title="Link to this heading"></a></h3>
+<section id="support-levels">
+<h4>4.1 Support levels:<a class="headerlink" href="#support-levels" title="Link to this heading"></a></h4>
+<p>Two levels of service are available:</p>
+<p>Tier 1: Support is provided during business hours only, Monday through Friday, 8am to 5pm.
+Tier 2: Support is provided from Monday through Friday 8am to 5pm, including after-hours support on those weekdays with “best effort”. There is no guarantee of weekend or holiday support, though IT / RC will try to respond to incidents impacting the operation of the service with “best effort”.
+IT / RC will operate OreBits as a hybrid between the “Tier 1” and “Tier 2” service levels.  Customer-initiated support requests (e.g., group membership or permission changes) will be “Tier 1”.  The backend storage systems and gateway nodes will be “Tier 2”.</p>
+<p>While every reasonable and good faith effort will be made to ensure the integrity, reliability and availability of OreBits and of the files stored on it, access to data in OreBits may be affected by circumstances outside of the control of  IT/ RC.</p>
+</section>
+<section id="accessing-storage">
+<h4>4.2 Accessing storage:<a class="headerlink" href="#accessing-storage" title="Link to this heading"></a></h4>
+<p>Active storage is directly accessible for read/write via NFS, CIFS, and ssh (scp, sftp, or rsync) from computational resources within the Mines environment, including login nodes.</p>
+<p>To access active storage from outside of the Mines environment, it is necessary to use ssh or VPN connections.  Connections can be made through orebits2.mines.edu.  Additionally, data transfers can also be made utilizing gridftp/Globus; Globus will almost always provide much higher throughput and resiliency than all other connection options and is the preferred protocol for any but the smallest transfers.</p>
+</section>
+<section id="duration-of-service">
+<h4>4.3 Duration of Service:<a class="headerlink" href="#duration-of-service" title="Link to this heading"></a></h4>
+<p>In the event that IT / RC ceases to provide OreBits or any comparable resource, IT / RC will give at least 90-day advance notice.  It will be the responsibility of the PI to transfer their data to other storage resources within that time window.</p>
+</section>
+<section id="amount-of-storage-available">
+<h4>4.4 Amount of storage available:<a class="headerlink" href="#amount-of-storage-available" title="Link to this heading"></a></h4>
+<p>The service will be grown as needed to address demand.  IT / RC reserves the right to limit initial or additional allocations (on a temporary basis) to ensure the availability of the service to all who request it.</p>
+<p>When it becomes more clear which services have the highest demand, IT / RC can purchase additional infrastructure to support those services.</p>
+</section>
+<section id="reporting">
+<h4>4.5 Reporting:<a class="headerlink" href="#reporting" title="Link to this heading"></a></h4>
+<p>A report detailing the project’s current storage usage will be emailed to the PI and the POC upon request.</p>
+<p>At least annually, IT / RC will provide a list of users to all PIs and POCs showing the user IDs for every user who has access to the project’s data.  The PI’s must affirm that those individuals should retain access and request the removal of access for individuals who no longer need it.</p>
+</section>
+<section id="maintenance">
+<h4>4.6 Maintenance:<a class="headerlink" href="#maintenance" title="Link to this heading"></a></h4>
+<p>Planned maintenance of the IT / RC infrastructure, including OreBits hardware, will take place every second Thursday of the month at 5:30pm.  IT / RC reserves the right to change the window, always with advance notice.</p>
+</section>
+<section id="change-management">
+<h4>4.7 Change management:<a class="headerlink" href="#change-management" title="Link to this heading"></a></h4>
+<p>IT / RC will make every effort to announce to all OreBits customers any significant changes to the system a minimum of 30 days in advance.  Exceptions may be critical security updates and bug fixes that improve the stability of the system.</p>
+</section>
+<section id="performance">
+<h4>4.8 Performance:<a class="headerlink" href="#performance" title="Link to this heading"></a></h4>
+<p>IT / RC will provide expected throughput performance targets for each service type; however, since OreBits is a shared infrastructure actual performance may vary depending on workload from other customers.  When they become available, statistics on data performance and availability will be posted.</p>
+</section>
+<section id="refunds">
+<h4>4.9 Refunds:<a class="headerlink" href="#refunds" title="Link to this heading"></a></h4>
+<p>We are not able to process refunds or pro-rate any fees for any time lost due to repairs or maintenance events (planned or otherwise), nor for any datacenter-related down time.</p>
+</section>
+</section>
+<section id="help-support-requests">
+<h3>5.  HELP/SUPPORT REQUESTS<a class="headerlink" href="#help-support-requests" title="Link to this heading"></a></h3>
+<p>Orebits users may initiate support requests through the IT Help Desk ticketing system by placing a help ticket at <a class="reference external" href="https://helpcenter.mines.edu">https://helpcenter.mines.edu</a>.  While IT / RC will make every effort to respond to and resolve support requests, those support requests which require domain-specific knowledge or expertise may not be able to be handled by IT / RC alone.  In these cases, the support request may be forwarded to the POC for assistance.</p>
+</section>
+<section id="appendix-a">
+<h3>APPENDIX A:<a class="headerlink" href="#appendix-a" title="Link to this heading"></a></h3>
+<p>End User Agreement</p>
+<p>Colorado School of Mines OreBits Storage Use Agreement</p>
+<p>As the PI, I understand that my use of and access to the digital storage facility known as the Colorado School of Mines OreBits shall be in accordance with all of the following stipulations:</p>
+<p>____  The PI is responsible for ensuring data stored on the OreBits Platform complies with all institutional policies as well as all state and federal laws, including copyright, the Health Insurance Portability and Accountability Act (HIPAA), the Family Educational Rights and Privacy Act (FERPA), and the International Traffic in Arms Regulations (ITAR).  Please contact IT / RC for advisement of sensitive data</p>
+<p>Colorado School of Mines IT Policies:
+https://IT.mines.edu/POGO-Information-Technology
+Colorado School of Mines Administrative Policies
+https://IT.mines.edu/POGO-Policies-Governance
+Health Insurance Portability and Accountability Act (HIPAA):
+https://www.hhs.gov/ocr/privacy/hipaa/understanding/index.html
+Family Educational Rights and Privacy Act (FERPA):
+https://inside.mines.edu/FERPA
+International Traffic in Arms Regulations (ITAR):
+https://pmddtc.state.gov/regulations_laws/itar_official.html</p>
+<p>____  If any of the files that I store on the OreBits Platform are subject to one or more agreements with any  Institutional Review Board (IRB), including but not limited to the IRB of Mines, then I will take full responsibility for ensuring full compliance with such agreement(s).</p>
+<p>____  If I am collaborating with colleagues who are at institutions outside of the United States of America (that is, outside of both US states and US territories), then I will take full responsibility for ensuring that those colleagues do not access the OreBits themselves, but rather I and/or or other members of my team who are at US institutions will access the OreBits on behalf of the entire team.</p>
+<p>____  I understand that, if and when I cease to be employed by and/or a student at an institution in the United States of America, then access to my files on OreBits will be available only to those of my collaborators who are employed by and/or students at US institutions.</p>
+<p>____  If I am one of the Principal/Co-Principal investigators of a team, then I will take full responsibility for ensuring that any other members of the team are likewise in full compliance.</p>
+<p>____  In the event that the OreBits Platform ceases providing storage or any comparable resource, then I will take full responsibility for transferring any and all relevant files to other storage resources, and in a timely manner.</p>
+<p>____  I will take full responsibility for ensuring that I keep abreast of and comply with changes to any of the relevant laws, policies and circumstances described above.</p>
+</section>
+<section id="appendix-b">
+<h3>APPENDIX B:<a class="headerlink" href="#appendix-b" title="Link to this heading"></a></h3>
+<p>Order Form: Please submit a <a class="reference external" href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&amp;amp;RequestorType=Service">Mines Service Request</a></p>
+</section>
+</section>
+<section id="connection-information">
+<h2>Connection Information<a class="headerlink" href="#connection-information" title="Link to this heading"></a></h2>
+<section id="instructions-for-windows-users">
+<h3>Instructions for Windows users<a class="headerlink" href="#instructions-for-windows-users" title="Link to this heading"></a></h3>
+<p>Open Windows Explorer, My Computer or My Documents.
+Locate the option to map a network drive. The method for doing this will vary with different versions of Windows. Typically, it will be either:
+Options &gt; Tools &gt; Map Network Drive or This PC &gt; Computer &gt; Map Network Drive</p>
+<p>A “Map Network Drive” (or similar) panel should appear. The first item identified will usually be the “Drive” letter to be assigned on your system. This will be the virtual drive letter that you will later use to access your files on the remote domain. Usually the last available drive letter will show up. You can any other unassigned drive letter in the drop-down list.
+The second item requested is the “path” or “share” that tells your computer where to look on the network to find your files; this is the “full path to your files”. For Orebits user, this will be <code class="docutils literal notranslate"><span class="pre">\\orebits2.mines.edu\[share</span> <span class="pre">name]</span></code> or <code class="docutils literal notranslate"><span class="pre">\\orebits3.mines.edu\[share</span> <span class="pre">name]</span></code> brackets removed
+If the “Reconnect at Login” box is checked, you should check or uncheck it as appropriate. For desktop machines constantly on the Mines network, this is a good choice. Laptops that travel off the Mines network are more problematic.
+Press the “OK” or “Finish” button.
+If the information you provided is correct and the drive is available, you will be prompted to enter your ADIT password (or username and password). Submit that information and press the “OK” button. You may need to enter your username as “ADIT\username” instead of just “username”– indicating the domain where your account is found (ADIT in this case).
+If the system validates your username/password, the drive letter you selected will now be mapped and you should be able to navigate to that virtual drive and access your files, just as if it were a local drive on your computer.</p>
+</section>
+<section id="instructions-for-macos-users">
+<h3>Instructions for macOS Users<a class="headerlink" href="#instructions-for-macos-users" title="Link to this heading"></a></h3>
+<p>To access a remote drive using macOS, determine the path to the remote network drive. The methods noted above may be useful for discovering the path if it is not already known.</p>
+<p>Using the Mac Finder, click Go &gt; Connect to Server.
+Type the server address in this format:
+smb://orebits2.mines.edu/[share name]  brackets removed, or
+smb://orebits3.mines.edu/[share name]  brackets removed</p>
+<p>If you are successful, click the [+] icon at right to save the address permanently.
+Note: If asked for login credentials, use those for the system to which you are trying to connect, not your local Mac username and password (unless, of course, they are the same).</p>
+<p>Add a shortcut in Finder by selecting Go &gt; Computer. Then dragging and dropping the mounted folder anywhere to left side bar.</p>
+</section>
+<section id="instructions-for-linux-users">
+<h3>Instructions for Linux Users:<a class="headerlink" href="#instructions-for-linux-users" title="Link to this heading"></a></h3>
+<p>There are many ways to mount network drives using a Linux system. Some Linux distributions have graphical clients for this purpose. Others require command-line solutions. In general, when mounting Windows shares, the “Samba” package will be used. For help with your particular Linux distribution, and a particular network file system, please submit a support request at Mines Help Center (https://helpdesk.mines.edu). Describe as completely as possible the variety of Linux you are using and the file system you are attempting to access. Or proceed using the hints found below.</p>
+<section id="command-line">
+<h4>Command Line<a class="headerlink" href="#command-line" title="Link to this heading"></a></h4>
+<p>For Linux users comfortable with the terminal or shell interface, the simplest method for accessing the files involves using the Samba package’s “smbclient” executable, along with the cifs-utils package. They may need to be installed using the package manager appropriate to your Linux distribution, and can be used as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> sudo smbclient -m SMB3 -U username -W adit //orebits2.mines.edu/[share name]  brackets removed
+ sudo mount.cifs –verbose -o username=joeuser@adit,vers=3.0 //orebits2.mines.edu/[share name]  brackets removed Replace the “username” with your campus username, “server” with the server in question (Hornet for Z: drive, Files for Y: drive, orebits2.mines.edu for Orebits users), and “share” with the share that is given to you during account setup.
+</pre></div>
+</div>
+</section>
+<section id="graphical-interface">
+<h4>Graphical Interface<a class="headerlink" href="#graphical-interface" title="Link to this heading"></a></h4>
+<p>For Linux users more comfortable in the GUI environment, there are a variety of options, but the most commonly available is to use Nautilus (or “Files” in recent versions of Ubuntu). For most, this is by far the easiest way to connect to a Windows share in Linux.</p>
+<p>Click on “Connect to Server” in the bottom of the left hand side bar (on Ubuntu 18.04, you will need to click on “Other Locations” first), and enter the server address in the format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> smb://orebits2.mines.edu/[share name]  brackets removed
+</pre></div>
+</div>
+<p>Enter. You will be asked to supply your ADIT username, domain name (ADIT), and ADIT password (these are highly likely to be the same login credentials as your MultiPass credentials). You will also specify how long the system should remember your ADIT password (choose “Remember forever” for maximum convenience). Then click Connect and your ADIT directory on Hornet will now be available to you via the Nautilus file manager.</p>
+<p>In summary, this process involves a lot of variation between different Linux distributions and configurations. Let us know if you have problems with the instructions above and we will try to help if your version of Linux is one with which we are familiar.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Cloud/gcp.html" class="btn btn-neutral float-left" title="Google Cloud Platform (GCP)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="globus.html" class="btn btn-neutral float-right" title="Globus File Transfer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fd08f410>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

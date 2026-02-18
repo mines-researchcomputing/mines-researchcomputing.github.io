@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro to Data Management on HPC &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/workshops/fall2025/Data_Management_on_HPC_Lab_Handout.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Intro to Data Management on HPC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/pages/workshops/fall2025/Data_Management_on_HPC_Lab_Handout.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intro-to-data-management-on-hpc">
+<h1>Intro to Data Management on HPC<a class="headerlink" href="#intro-to-data-management-on-hpc" title="Link to this heading"></a></h1>
+<section id="checking-data-usage">
+<h2>Checking data usage<a class="headerlink" href="#checking-data-usage" title="Link to this heading"></a></h2>
+<p>If you want to see the size of files in a given directory, the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command with the <code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">-l</span></code>, and <code class="docutils literal notranslate"><span class="pre">-a</span></code> flags will list all files in the directory in a human readable filesize:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">lah</span>
+</pre></div>
+</div>
+<section id="using-du">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">du</span></code><a class="headerlink" href="#using-du" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">du</span></code> reference: https://www.geeksforgeeks.org/du-command-linux/</p>
+<p>To get a summary of data usage in your current directory, use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>du<span class="w"> </span>-sh
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-s</span></code> flag gives you a summary, while the <code class="docutils literal notranslate"><span class="pre">-h</span></code> flag makes it human readable.</p>
+<p>To get the 10 largest directories in a given directory, we can pipe <code class="docutils literal notranslate"><span class="pre">du</span></code> into the <code class="docutils literal notranslate"><span class="pre">sort</span></code> command. For the example below, we use it for our scratch directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>du<span class="w"> </span>-a<span class="w"> </span><span class="nv">$SCRATCH</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>NOTE: This command can get slow if you have a lot of files.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="archive-data">
+<h2>Archive Data<a class="headerlink" href="#archive-data" title="Link to this heading"></a></h2>
+<section id="using-tar">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">tar</span></code><a class="headerlink" href="#using-tar" title="Link to this heading"></a></h3>
+<p>Tar reference: https://www.geeksforgeeks.org/tar-command-linux-examples/</p>
+<p>To archive data using tar, it takes the following format:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar<span class="w"> </span>-czf<span class="w"> </span>&lt;filename&gt;.tar.gz<span class="w"> </span>&lt;list<span class="w"> </span>of<span class="w"> </span>directories&gt;
+</pre></div>
+</div>
+<p>For example, we can make tarball our jobs folder from the previous lab:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$SCRATCH</span>
+tar<span class="w"> </span>-czf<span class="w"> </span>workshop_fall2025.tar.gz<span class="w"> </span><span class="nb">jobs</span>
+</pre></div>
+</div>
+<p>Let’s untar the data in a new folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$SCRATCH</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>new_data_folder
+<span class="nb">cd</span><span class="w"> </span>new_data_folder
+cp<span class="w"> </span>../workshop_fall2025.tar.gz<span class="w"> </span>
+tar<span class="w"> </span>-xf<span class="w"> </span>workshop_fall2025.tar.gz<span class="w"> </span>
+</pre></div>
+</div>
+<p><em>Exercise:</em> Try untarring the data to a specific folder say <code class="docutils literal notranslate"><span class="pre">~/scratch/test_sep23</span></code> using the <code class="docutils literal notranslate"><span class="pre">-C</span></code> flag. Look at the documentation for <code class="docutils literal notranslate"><span class="pre">tar</span></code> to figure this out.</p>
+</section>
+</section>
+<section id="transfer-data">
+<h2>Transfer Data<a class="headerlink" href="#transfer-data" title="Link to this heading"></a></h2>
+<section id="using-scp">
+<h3>Using scp<a class="headerlink" href="#using-scp" title="Link to this heading"></a></h3>
+<section id="transfering-individual-file">
+<h4>Transfering individual file<a class="headerlink" href="#transfering-individual-file" title="Link to this heading"></a></h4>
+<p>Now transfer the tarball we created from Wendian to your home system (open a new terminal that is NOT logged into Wendian):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>username@wendian.mines.edu:~/scratch/workshop_fall2025.tar.gz<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="transfering-directory">
+<h4>Transfering directory<a class="headerlink" href="#transfering-directory" title="Link to this heading"></a></h4>
+<p>You can also just transfer the directory directory using the recursive <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag. Again make sure you have a terminal open that is NOT logged into Wendian:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>-r<span class="w"> </span>username@wendian.mines.edu:~/scratch/new_data_folder<span class="w"> </span>.<span class="w"> </span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="using-rsync-linux-macos-only">
+<h3>Using rsync (Linux/macOS only)<a class="headerlink" href="#using-rsync-linux-macos-only" title="Link to this heading"></a></h3>
+<p>Rsync is similar to scp, but will let transfers restart if they’re cancelled. Here is a template for a typical rsync transfer:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rsync<span class="w"> </span>--rsh<span class="o">=</span>ssh<span class="w"> </span>-rvP<span class="w"> </span>username@remote_host:/path/to/source<span class="w"> </span>/path/to/destination
+</pre></div>
+</div>
+<p>The flag <code class="docutils literal notranslate"><span class="pre">–rsh=ssh</span></code> ensures rsync uses ssh. <code class="docutils literal notranslate"><span class="pre">-rvP</span></code> will recursively pull files from the directory (<code class="docutils literal notranslate"><span class="pre">-r</span></code>), with verbose output to the screen (<code class="docutils literal notranslate"><span class="pre">-v</span></code>) and allow for partial transfers (<code class="docutils literal notranslate"><span class="pre">-P</span></code>) in case an interruption or a restart. For example, to transfer the directory <code class="docutils literal notranslate"><span class="pre">new_data_folder</span></code> from Wendian to your local directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rsync<span class="w"> </span>--rsh<span class="o">=</span>ssh<span class="w"> </span>-rvP<span class="w"> </span>username@wendian.mines.edu:~/scratch/new_data_folder<span class="w"> </span>.
+</pre></div>
+</div>
+<p>If you want to purposely cancel it, press <code class="docutils literal notranslate"><span class="pre">CTRL+C</span></code> on your keyboard and cancel it. You can see on your local machine, by typing <code class="docutils literal notranslate"><span class="pre">ls</span></code>, that part of the file will still be there. If you did this with <code class="docutils literal notranslate"><span class="pre">scp</span></code>, you would not see a partial file.</p>
+<p>Now restart the transfer with the command above, you’ll see it will pick up where it left off from the last cancellation.</p>
+</section>
+<section id="using-graphical-applications">
+<h3>Using Graphical Applications<a class="headerlink" href="#using-graphical-applications" title="Link to this heading"></a></h3>
+<section id="filezilla">
+<h4>Filezilla<a class="headerlink" href="#filezilla" title="Link to this heading"></a></h4>
+<p>Go to https://filezilla-project.org/ and install Filezilla on your machine. Then open the application and fill in the information on the top:</p>
+<ul class="simple">
+<li><p>Host: <a class="reference internal" href="#sftp://wendian.mines.edu"><span class="xref myst">sftp://wendian.mines.edu</span></a></p></li>
+<li><p>Username: Your Mines Username</p></li>
+<li><p>Password: Your Mines Password</p></li>
+<li><p>Port: 22</p></li>
+</ul>
+<p>Try to transfer the same tarball down using the FTP client.</p>
+</section>
+</section>
+<section id="globus">
+<h3>Globus<a class="headerlink" href="#globus" title="Link to this heading"></a></h3>
+<p>Go to http://app.globus.org and login using your Colorado School of Mines Credentials. Try to pull down the tarball using this interface too.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fd1506b0>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amazon Web Service (AWS) &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/Cloud/AWS.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Centralized Billing and Cost savings" href="AWS/CentralizedBillingAndSavings.html" />
+    <link rel="prev" title="Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025" href="../visualization_guides/ansys-setup-megn423.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Amazon Web Service (AWS)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AWS/CentralizedBillingAndSavings.html">Centralized Billing and Cost savings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Amazon Web Service (AWS)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/Cloud/AWS.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="amazon-web-service-aws">
+<h1>Amazon Web Service (AWS)<a class="headerlink" href="#amazon-web-service-aws" title="Link to this heading"></a></h1>
+<p>Amazon Web Services (AWS) is a comprehensive and widely adopted cloud platform that offers a broad set of on-demand services, including compute power, storage options, and networking capabilities, which enable businesses, developers, and researchers to build and scale applications with flexibility and speed. Launched by Amazon in 2006, AWS was among the first to provide highly scalable cloud solutions and is now a leader in the cloud industry, hosting millions of active users worldwide.</p>
+<p>AWS services are organized into categories, including <strong>Compute</strong>, <strong>Storage</strong>, <strong>Database</strong>, <strong>Networking</strong>, <strong>Machine Learning</strong>, <strong>Analytics</strong>, and <strong>Security</strong>. Notable services include <strong>Amazon EC2</strong> (Elastic Compute Cloud) for virtual servers, <strong>Amazon S3</strong> (Simple Storage Service) for scalable storage, and <strong>Amazon RDS</strong> (Relational Database Service) for managed databases. These services allow users to run virtually any type of application without investing in physical infrastructure, offering a pay-as-you-go pricing model to optimize costs.</p>
+<p>One of AWS’s key strengths is its global infrastructure, consisting of <strong>Regions</strong> and <strong>Availability Zones</strong> spread across the world. This enables customers to deploy applications closer to end users, ensuring low latency, improved performance, and increased reliability. By using multiple Availability Zones, businesses can achieve high levels of fault tolerance and disaster recovery.</p>
+<p>AWS also offers advanced tools for <strong>Security and Compliance</strong>, such as identity management, encryption, and auditing features, which meet industry standards and regulatory requirements. These capabilities make AWS a suitable choice for enterprises with high security needs, like finance, healthcare, and government sectors.</p>
+<p>Overall, AWS provides a powerful, flexible, and scalable solution for modern application development, enabling organizations to innovate rapidly and respond to changing business demands while minimizing operational overhead.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="AWS/CentralizedBillingAndSavings.html">Centralized Billing and Cost savings</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../visualization_guides/ansys-setup-megn423.html" class="btn btn-neutral float-left" title="Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="AWS/CentralizedBillingAndSavings.html" class="btn btn-neutral float-right" title="Centralized Billing and Cost savings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fd08f7d0>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

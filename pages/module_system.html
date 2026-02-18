@@ -1,0 +1,805 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Module System &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/module_system.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting Started (New User Guide)" href="user_guides/new_user_guide.html" />
+    <link rel="prev" title="Systems" href="systems.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="systems.html">Systems</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Module System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#notes-on-lmod">Notes on Lmod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-module-commands">Common module commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modules-for-compilers">Modules for Compilers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mpi-compiler-wrappers">MPI Compiler Wrappers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-with-gcc-and-openmpi">Build with GCC and OpenMPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-with-intel-compilers-and-openmpi">Build with Intel compilers and Openmpi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-with-intel-and-intel-mpi">Build with Intel and Intel MPI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#more-on-compilers">More on Compilers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#intel-compilers">Intel compilers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ax-suboptions"><code class="docutils literal notranslate"><span class="pre">-ax</span></code> Suboptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#march-suboptions"><code class="docutils literal notranslate"><span class="pre">-march</span></code> Suboptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gcc-compilers">GCC Compilers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#current-modules">Current Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wendian">Wendian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mio">Mio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">The Module System</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pages/module_system.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-module-system">
+<h1>The Module System<a class="headerlink" href="#the-module-system" title="Link to this heading"></a></h1>
+<p>The module system is commonly used on many HPC systems to help users set up their environment to run particular programs. The behavior on Linux systems is controlled by setting environmental variables. You can see the settings of all variables by running the command <code class="docutils literal notranslate"><span class="pre">printenv</span></code>. Arguably, the most important variables are <code class="docutils literal notranslate"><span class="pre">PATH</span></code> and <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>. <code class="docutils literal notranslate"><span class="pre">PATH</span></code> is a list of directories that can be searched for finding applications. Likewise, <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> is a list of directories that will be searched to find libraries used by applications. If you enter a command and see command not found then it is possible the directory containing the application is not in <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. If an application can not find a library it the system will display a similar message. The module system is designed to easily set collections of variables. You can set a number of variables by loading a module Mines uses the lmod module system.</p>
+<p>Full documentation on the module system can be found at: <a class="reference external" href="https://lmod.readthedocs.io/en/latest/">https://lmod.readthedocs.io/en/latest</a></p>
+<section id="notes-on-lmod">
+<h2>Notes on Lmod<a class="headerlink" href="#notes-on-lmod" title="Link to this heading"></a></h2>
+<p>Not all applications are accessible by all HPC users.  Some codes are commercial and require licensing, and hence PI approval.  Some require PI approval for other reasons.  If you are unable to load a module, or see permission errors when executing a job, and would like to know how you might obtain access, please submit a help request.
+Some modules have dependencies that need to be manually entered. For example, the gromacs module requires that modules for the compiler and MPI be loaded first. If there is an unsatisfied dependency you will be notified.</p>
+</section>
+<section id="common-module-commands">
+<h2>Common module commands<a class="headerlink" href="#common-module-commands" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">spider</span>
+</pre></div>
+</div>
+<p>Lists all available modules</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="o">-</span><span class="n">r</span> <span class="n">spider</span> <span class="n">mpi</span>
+</pre></div>
+</div>
+<p>List modules that are related to MPI</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">keyword</span> <span class="n">gromacs</span>
+</pre></div>
+</div>
+<p>List modules that are related to the gromacs program</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">apps</span><span class="o">/</span><span class="n">gromacs</span><span class="o">/</span><span class="n">gcc</span><span class="o">-</span><span class="n">ompi</span><span class="o">-</span><span class="n">plumed</span><span class="o">/</span><span class="mf">2021.1</span>
+<span class="n">OR</span> <span class="n">ON</span> <span class="n">MIO</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">apps</span><span class="o">/</span><span class="n">gromacs</span><span class="o">/</span><span class="n">intel</span><span class="o">-</span><span class="n">impi</span><span class="o">/</span><span class="mf">2021.2</span>
+</pre></div>
+</div>
+<p>Load the module for gromacs version 2021.1 with gcc compiler and open-mpi support with plumed on Wendian, or load gromacs version 2021.2 with the intel compiler and intel-mpi suport– this will enable you to run gromacs</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">purge</span>
+</pre></div>
+</div>
+<p>Unload all modules</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="nb">list</span>
+</pre></div>
+</div>
+<p>List currently loaded modules</p>
+</section>
+<section id="modules-for-compilers">
+<h2>Modules for Compilers<a class="headerlink" href="#modules-for-compilers" title="Link to this heading"></a></h2>
+<p>The primary compilers on Wendian and Intel are from the Intel and gnu (gcc) suites. For most parallel applications, an MPI compiler is also needed. MPI compilers actually require a backend compiler, typically Intel or gcc based. The gcc compilers are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gcc</span></code> – C</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g++</span></code> – C++</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gfortran</span></code> – fortran</p></li>
+</ul>
+<p>The Intel compilers are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">icc</span></code> - C</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icpc</span></code> – C++</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ifort</span></code> – fortran</p></li>
+</ul>
+<p>The default version of the gcc compilers on both Wendian and Mio, version 4.8.5,  is rather old. Newer versions of the compilers are available via a module load. For example, on Mio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[joeuser@wendian001 ~]$ gcc --version
+gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-44)
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[joeuser@wendian001 ~]$ module load compilers/gcc/9 
+
+[joeuser@wendian001 ~]$ gcc --version
+gcc (GCC) 9.3.1 20200408 (Red Hat 9.3.1-2)
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</pre></div>
+</div>
+<p>You will also see the same versions printed if querying <code class="docutils literal notranslate"><span class="pre">g++</span></code> or <code class="docutils literal notranslate"><span class="pre">gfortran</span></code>.</p>
+<p>Similarly, with Intel compilers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[joesuer@wendian001 ~]$ module load compilers/intel/18.0 
+
+[joesuer@wendian001 ~]$ icc --version
+icc (ICC) 18.0.1 20171018
+Copyright (C) 1985-2017 Intel Corporation.  All rights reserved.
+</pre></div>
+</div>
+<section id="mpi-compiler-wrappers">
+<h3>MPI Compiler Wrappers<a class="headerlink" href="#mpi-compiler-wrappers" title="Link to this heading"></a></h3>
+<p>The most popular implementations of the MPI standard available on the HPC platforms are OpenMPI, MPICH, and Intel MPI. MPI compilers are actually scripts that set environmental variables and then call backend compilers. Both versions of MPI can be used with either gnu or Intel backend compilers. Next, we present some examples below if using Wendian.</p>
+<section id="build-with-gcc-and-openmpi">
+<h4>Build with GCC and OpenMPI<a class="headerlink" href="#build-with-gcc-and-openmpi" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[joeuser@wendian001 ~]$ module purge 
+[joeuser@wendian001 ~]$ module load compilers/gcc/9.3.1 
+[joeuser@wendian001 ~]$ module load mpi/openmpi/gcc/3.1.3 
+
+[joeuser@wendian001 ~]$ which mpicc
+/sw/mpi/openmpi/3.1.3-gnu-7.3.1/bin/mpicc
+
+[joeuser@wendian001 ~]$ which mpic++
+/sw/mpi/openmpi/3.1.3-gnu-7.3.1/bin/mpicxx
+
+[joeuser@wendian001 ~]$ which mpif90
+/sw/mpi/openmpi/3.1.3-gnu-7.3.1/bin/mpif90
+
+[joeuser@wendian001 ~]$ which mpif77
+/sw/mpi/openmpi/3.1.3-gnu-7.3.1/bin/mpif77
+</pre></div>
+</div>
+<p>You can also verify that the backend compiler is gcc:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">joeuser</span><span class="nd">@wendian002</span><span class="p">:[</span><span class="o">~</span><span class="p">]:</span> <span class="n">mpicc</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">gcc</span> <span class="p">(</span><span class="n">GCC</span><span class="p">)</span> <span class="mf">9.3.1</span> <span class="mi">20200408</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">9.3.1</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2019</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">free</span> <span class="n">software</span><span class="p">;</span> <span class="n">see</span> <span class="n">the</span> <span class="n">source</span> <span class="k">for</span> <span class="n">copying</span> <span class="n">conditions</span><span class="o">.</span>  <span class="n">There</span> <span class="ow">is</span> <span class="n">NO</span>
+<span class="n">warranty</span><span class="p">;</span> <span class="ow">not</span> <span class="n">even</span> <span class="k">for</span> <span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="build-with-intel-compilers-and-openmpi">
+<h4>Build with Intel compilers and Openmpi<a class="headerlink" href="#build-with-intel-compilers-and-openmpi" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[joeuser@wendian001~]$ module purge
+[joeuser@wendian001 ~]$ module load compilers/gcc/9.3.1 
+[joeuser@wendian001 ~]$ module load compilers/intel/2021.1
+[joeuser@wendian001 ~]$ module load mpi/openmpi/intel-cuda/4.1.2
+
+[joeuser@wendian001 ~]$ which mpicc
+/sw/mpi/openmpi/4.1.2/intel-cuda/bin/mpiicc
+
+[joeuser@wendian001 ~]$ mpicc --version
+icc (ICC) 2021.1 Beta 20201112
+Copyright (C) 1985-2020 Intel Corporation.  All rights reserved.
+</pre></div>
+</div>
+</section>
+<section id="build-with-intel-and-intel-mpi">
+<h4>Build with Intel and Intel MPI<a class="headerlink" href="#build-with-intel-and-intel-mpi" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[joeuser@wendian001 ~]$ module purge
+[joeuser@wendian001 ~]$ module load compilers/intel/2021.1
+[joeuser@wendian001 ~]$ module load mpi/impi/2021.1 
+[joeuser@wendian001 ~]: which mpicc
+/sw/compilers/intel/oneapi/mpi/2021.1.1/bin/mpicc
+[joeuser@wendian001 ~]: mpiicc -v
+mpiicc for the Intel(R) MPI Library 2021.1 for Linux*
+Copyright 2003-2020, Intel Corporation.
+icc version 2021.1 (gcc version 4.8.5 compatibility)
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="more-on-compilers">
+<h2>More on Compilers<a class="headerlink" href="#more-on-compilers" title="Link to this heading"></a></h2>
+<section id="intel-compilers">
+<h3>Intel compilers<a class="headerlink" href="#intel-compilers" title="Link to this heading"></a></h3>
+<p>Both Wendian and Mio HPC systems contain various generations of Intel processors. Mio contains Sandybridge, Ivybridge, Haswell, Broadwell and Skylake (oldest to newest) processor, and Wendian uses Skylake processors. This is important because newer generation processors have some instructions that will not work on older processors. The newer instructions offer optimizations for the newer processors. Some of these optimizations allow for significantly faster speed for some operations, in particular when working on arrays or vectors. When a program is built with an Intel compiler, it detects what generation processor is being used to compile the code and will include the latest instructions for that processor. If the code is then run on an older processor it might return an illegal instruction error. Or if it is run on a newer processor it will not take advantage of the increased functionality. Applications built on Wendian may not run on Mio, because Wendian’s head nodes contains Skylake processors. It is possible to:</p>
+<ul class="simple">
+<li><p>Build an application with the lowest common instruction set so it will run on all processors, often referred to as a “universal” binary</p></li>
+<li><p>Build an application so that it contains multiple sets of instructions so it will use advanced features on processors when available</p></li>
+<li><p>Build an application so that it will only run on specific (or newer) processors</p></li>
+</ul>
+<p>There are two options that control the instruction set used for a compile: <code class="docutils literal notranslate"><span class="pre">-ax</span></code> and <code class="docutils literal notranslate"><span class="pre">-march</span></code>. These commands have the same sub-options, specifying which processor to target. The <code class="docutils literal notranslate"><span class="pre">-ax</span></code> sub-options are additive; you can specify multiple processors and the binary will contain instructions for each. This will create programs that can be larger but it will run well on all specified processors. The <code class="docutils literal notranslate"><span class="pre">-march</span></code> option will only take a single sub-option. This will create programs that can run well on the specified generation processor or newer but will most likely not run on older processors. The table below shows the various generations of processors on Mines’ platforms and the important extra instructions that are added in each generation. With the exception of fma these are advanced versions of vector instructions.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>–</p></th>
+<th class="head"><p>Core 2</p></th>
+<th class="head"><p>sandybridge</p></th>
+<th class="head"><p>ivybridge</p></th>
+<th class="head"><p>haswell</p></th>
+<th class="head"><p>broadwell</p></th>
+<th class="head"><p>skylake</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sse</span></code></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sse2</span></code></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sse4_1</span></code></p></td>
+<td><p></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sse4_2</span></code></p></td>
+<td><p></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">avx</span></code></p></td>
+<td><p></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fma</span></code></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">avx2</span></code></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">avx512f</span></code></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">avx512cd</span></code></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>x</p></td>
+</tr>
+</tbody>
+</table>
+<section id="ax-suboptions">
+<h4><code class="docutils literal notranslate"><span class="pre">-ax</span></code> Suboptions<a class="headerlink" href="#ax-suboptions" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Suboption</p></th>
+<th class="head"><p>Adding instructions for Processor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-ax=AVX</span></code></p></td>
+<td><p>Sandybridge or newer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-ax=SANDYBRIDGE</span></code></p></td>
+<td><p>Sandybridge or newer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-ax=IVYBRIDGE</span></code></p></td>
+<td><p>Ivybridge or newer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-ax=HASWELL</span></code></p></td>
+<td><p>Haswell or newer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-ax=BROADWELL</span></code></p></td>
+<td><p>Broadwell or newer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-ax=SKYLAKE</span></code></p></td>
+<td><p>Skylake</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-ax=SKYLAKE-AVX512</span></code></p></td>
+<td><p>Skylake</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-ax=CORE-AVX-I</span></code></p></td>
+<td><p>Sandybridge or newer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-ax=CORE-AVX-2</span></code></p></td>
+<td><p>Ivybridge or newer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-ax=CORE-AVX512</span></code></p></td>
+<td><p>Skylake</p></td>
+</tr>
+</tbody>
+</table>
+<p>As noted above, <code class="docutils literal notranslate"><span class="pre">-ax</span></code> options are additive. You can specify <code class="docutils literal notranslate"><span class="pre">-ax=AVX,CORE-AVX512</span></code> and the code should run on any processor but it will also use the Skylake instruction set if run on a node that supports it. Since the <code class="docutils literal notranslate"><span class="pre">-ax</span></code> options are additive, if you specify <code class="docutils literal notranslate"><span class="pre">-ax=CORE-AVX512</span></code> the code will contain the default instruction set which will run anywhere but will also contain Skylake specific instructions that will be used if run on that processor. As you add more options the code will grow in size. The table below shows the options for march:</p>
+</section>
+<section id="march-suboptions">
+<h4><code class="docutils literal notranslate"><span class="pre">-march</span></code> Suboptions<a class="headerlink" href="#march-suboptions" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Processor</p></th>
+<th class="head"><p>Set</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-march</span></code></p></td>
+<td><p>anywhere</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-march=core-avx-i</span></code></p></td>
+<td><p>sandybridge or newer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-march=sandybridge</span></code></p></td>
+<td><p>sandybridge or newer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-march=ivybridge</span></code></p></td>
+<td><p>ivybridge or newer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-march=haswell</span></code></p></td>
+<td><p>haswell or newer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-march=core-avx2</span></code></p></td>
+<td><p>haswell or newer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-march=broadwell</span></code></p></td>
+<td><p>broadwell or newer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-march=skylake</span></code></p></td>
+<td><p>skylake</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-march=skylake-avx512</span></code></p></td>
+<td><p>skylake</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-march=core-avx-i</span></code></p></td>
+<td><p>sandybridge or newer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-march=core-avx-2</span></code></p></td>
+<td><p>ivybridge or newer</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">-march</span></code> options are <em>not</em> additive. You can only specify one and you can not use both the <code class="docutils literal notranslate"><span class="pre">-ax</span></code> and <code class="docutils literal notranslate"><span class="pre">-march</span></code> options. If you build an application on Wendian and don’t specify either <code class="docutils literal notranslate"><span class="pre">-ax</span></code> or <code class="docutils literal notranslate"><span class="pre">-march</span></code> it will in default to effectively <code class="docutils literal notranslate"><span class="pre">-march=skylake-avx512</span></code> and the application will most likely not run on Mio.</p>
+<p>Here are some example compiles with notes on where the apps will run and the size of the application.</p>
+<section id="build-on-mio-to-run-anywhere">
+<h5>Build on Mio to run anywhere<a class="headerlink" href="#build-on-mio-to-run-anywhere" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[tkaiser@mio001 hybrid]$ icc phostone.c 
+[tkaiser@mio001 hybrid]$ ls -lt a.out
+-rwxr-x--x 1 tkaiser tkaiser 120095 Sep  7 13:18 a.out
+</pre></div>
+</div>
+</section>
+<section id="build-on-mio-to-run-anywhere-but-include-skylake-instructions">
+<h5>Build on Mio to run anywhere but include skylake instructions<a class="headerlink" href="#build-on-mio-to-run-anywhere-but-include-skylake-instructions" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[tkaiser@mio001 hybrid]$ icc -ax=SKYLAKE-AVX512 phostone.c -o runs_well
+[tkaiser@mio001 hybrid]$ ls -lt a.out
+-rwxr-x--x 1 tkaiser tkaiser 140969 Sep  7 13:18 a.out
+</pre></div>
+</div>
+</section>
+<section id="build-on-mio-to-run-anywhere-but-include-skylake-instructions-same-as-above">
+<h5>Build on Mio to run anywhere but include skylake instructions, same as above<a class="headerlink" href="#build-on-mio-to-run-anywhere-but-include-skylake-instructions-same-as-above" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[tkaiser@mio001 hybrid]$ icc -ax=SKYLAKE-AVX512,AVX phostone.c 
+[tkaiser@mio001 hybrid]$ ls -lt a.out
+-rwxr-x--x 1 tkaiser tkaiser 140969 Sep  7 13:19 a.out
+</pre></div>
+</div>
+</section>
+<section id="build-on-mio-but-can-only-run-on-skylake-nodes">
+<h5>Build on Mio but can only run on skylake nodes<a class="headerlink" href="#build-on-mio-but-can-only-run-on-skylake-nodes" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[tkaiser@mio001 hybrid]$ icc -march=skylake-avx512  phostone.c -o skylake_only
+[tkaiser@mio001 hybrid]$ ls -lt a.out
+-rwxr-x--x 1 tkaiser tkaiser 125392 Sep  7 13:19 a.out
+</pre></div>
+</div>
+</section>
+<section id="trying-to-run-a-skylake-code-on-mio-returns-an-error">
+<h5>Trying to run a skylake code on Mio returns an error<a class="headerlink" href="#trying-to-run-a-skylake-code-on-mio-returns-an-error" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[tkaiser@mio001 hybrid]$ srun -N 1 --tasks-per-node=8 ./a.out
+srun: job 4393558 queued and waiting for resources
+srun: job 4393558 has been allocated resources
+srun: error: compute030: tasks 0-7: Illegal instruction (core dumped)
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="gcc-compilers">
+<h3>GCC Compilers<a class="headerlink" href="#gcc-compilers" title="Link to this heading"></a></h3>
+<p>The gcc compilers support the <code class="docutils literal notranslate"><span class="pre">-march</span></code> option as described under <a class="reference internal" href="#intel-compilers"><span class="std std-ref">Intel Compilers</span></a> with the following sub-options:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Processor</p></th>
+<th class="head"><p>Compatibility</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-march</span></code></p></td>
+<td><p>anywhere</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-march=sandybridge</span></code></p></td>
+<td><p>sandybridge or newer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-march=ivybridge</span></code></p></td>
+<td><p>ivybridge or newer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-march=haswell</span></code></p></td>
+<td><p>haswell or newer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-march=broadwell</span></code></p></td>
+<td><p>broadwell or newer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-march=skylake</span></code></p></td>
+<td><p>skylake or newer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="current-modules">
+<h2>Current Modules<a class="headerlink" href="#current-modules" title="Link to this heading"></a></h2>
+<section id="wendian">
+<h3>Wendian<a class="headerlink" href="#wendian" title="Link to this heading"></a></h3>
+<p><em>Last updated: June 10, 2022</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ module avail 
+
+------------------------------------------- /sw/mfiles -------------------------------------------
+   StdEnv                                          apps/tcltk/8.6.9-gnu
+   StdEnv1901                                      apps/test/1.2.3
+   apps/abaqus/2019                                apps/trimmomatic/0.39
+   apps/abinit/gcc-ompi/9.6.2                      apps/valgrind/gcc/3.14.0
+   apps/adf/intelmpi/2019.305                      apps/vasp/intel-impi-vtst-1.8.4/5.4.4.pl2
+   apps/adf/intelmpi/2020.101                      apps/vasp/intel-impi/5.4.4.pl2
+   apps/adf/intelmpi/2022.103               (D)    apps/vasp/intel-impi/5.4.4
+   apps/ansys/182                                  apps/vasp/intel-impi/6.1.2                (D)
+   apps/ansys/202                                  compilers/gcc/7.3.1
+   apps/ansys/211                                  compilers/gcc/9.3.1                       (D)
+   apps/ansys/212                                  compilers/intel/2018
+   apps/ansys/221                                  compilers/intel/2019
+   apps/ansys/222                                  compilers/intel/2019.5
+   apps/ansys/231                           (D)    compilers/intel/2021.1                    (D)
+   apps/ansysem/202                                compilers/java/1.8.0_181
+   apps/ansysem/211                                compilers/julia/1.5.1
+   apps/ansysem/222                                libs/asdf-library/intel-impi/1.0.2
+   apps/ansysem/231                         (D)    libs/asdf-library/intel-impi/02-27-2020   (D)
+   apps/autodock_vina/1.1.2                        libs/boost/gcc-ompi/1.73.0
+   apps/bowtie2/2.4.5                              libs/boost/intel-impi/1.68.0
+   apps/charmm/gcc-mpich/sep-14                    libs/cuda/10.0
+   apps/charmm/gcc-ompi-ljpme/nov-17-21            libs/cuda/10.1
+   apps/charmm/gcc-ompi/nov-17-21                  libs/cuda/10.2
+   apps/charmm/intel-impi/nov-17-21                libs/cuda/11.3                            (D)
+   apps/charmm/intel-ompi-ljpme/nov-17-21          libs/curl/7.64.0-gnu
+   apps/cp2k/gcc-ompi/8.2                          libs/eigen3/e3.3.7
+   apps/cp2k/gcc-ompi/2022.2                (D)    libs/fftw/gcc-ompi/3.3.8
+   apps/forge/22.0.2                               libs/fftw/gcc9-mpich/3.3.8
+   apps/fvcom/intel-mpich/4.3.1                    libs/fftw/gcc9-ompi/3.3.8
+   apps/gaussian09/g09                             libs/fftw/intel-impi/3.3.8
+   apps/gaussian16/aun/c01                         libs/hdf5/gcc-ompi/1.10.7
+   apps/gaussian16/c01                             libs/hdf5/intel-impi/1.8.10
+   apps/gdal/gcc/3.0.2                             libs/hdf5/intel/1.10.2
+   apps/gnu-parallel/20200322                      libs/hhsuite/3.3.0
+   apps/gromacs/gcc-ompi-4/2021.1                  libs/lapack/gcc/3.6.1
+   apps/gromacs/gcc-ompi-plumed/2021               libs/libint/2.7.0
+   apps/gromacs/gcc-ompi-plumed/2021.1      (D)    libs/libint/2.7.2                         (D)
+   apps/gromacs/gcc-ompi/2020.1                    libs/metis/5.1.0
+   apps/gromacs/gcc-ompi/2021.1                    libs/mkl/2021.1
+   apps/gromacs/gcc-ompi/2022               (D)    libs/mumps/5.1.2
+   apps/gromacs/intel-impi/2019.3                  libs/netcdf-c/gcc-ompi/4.8.1
+   apps/gromacs/intel-impi/2021.1           (D)    libs/netcdf-c/gcc-ompi/4.9.2              (D)
+   apps/gurobi/10.0.0                              libs/netcdf-fortran/gcc-ompi/4.5.4
+   apps/ibamr/gcc-ompi/0.11.0                      libs/nfft/intel/3.5.0
+   apps/lammps/aun/29Oct20                         libs/nvhpc-byo-compiler/21.2
+   apps/lammps/intel-impi-plumed/23Jun2022         libs/nvhpc-nompi/21.2
+   apps/lammps/intel-impi/20Nov2020                libs/nvhpc/21.2
+   apps/matlab/2018b                               libs/nvidia-optix/7.3
+   apps/matlab/2020a                               libs/openblas/gcc/0.3.12
+   apps/matlab/2021b                        (D)    libs/parmetis/gcc/4.0.3
+   apps/mcnp/62                                    libs/pcre2/gcc/10.42
+   apps/megahit/1.2.9                              libs/pfft/gcc-ompi/1.0.8a
+   apps/metabat2/20220328                          libs/scotch/6.0.5a
+   apps/mocassin/gcc/1.0.9                         libs/szip/gcc/2.1.1
+   apps/modulus/singularity/22.09                  libs/wxwidgets/gcc/3.1.3
+   apps/openfoam-esi/gcc-openmpi/2106              mpi/impi/2018
+   apps/openfoam-esi/gcc-openmpi/2206       (D)    mpi/impi/2019.3
+   apps/openfoam/gcc-openmpi/8                     mpi/impi/2019.5
+   apps/openfoam/gcc-openmpi/9                     mpi/impi/2021.1                           (D)
+   apps/openfoam/gcc-openmpi/10             (D)    mpi/mpich/gcc/3.0.4
+   apps/openmm/gcc/7.7.0                           mpi/mpich/intel/3.4.2
+   apps/paraview/gcc-gpu/5.9.0                     mpi/openmpi/gcc-cuda-10.2/4.1.2
+   apps/paraview/gcc/5.8.1                         mpi/openmpi/gcc-cuda/4.1.2
+   apps/paraview/gcc/5.9.0                  (D)    mpi/openmpi/gcc-cuda/4.1.4                (D)
+   apps/poisfft/20200609                           mpi/openmpi/gcc/3.1.3
+   apps/prms/gcc/5.2.1                             mpi/openmpi/intel-cuda/4.1.2
+   apps/python2/2018.12                            mpi/openmpi/intel/3.1.3
+   apps/python2/intel/2018.3                       utility/spack/0.16.2
+   apps/python3/intel/2018.3                       utility/spack/0.18.1                      (D)
+   apps/python3/2018.12                            utility/standard/autoconf/2.69
+   apps/python3/2020.02                            utility/standard/bzip2/1.0.8
+   apps/python3/2022.10                     (D)    utility/standard/cmake/3.11.4
+   apps/qchem/5.2                                  utility/standard/cmake/3.16.2
+   apps/quantum_espresso/gcc-ompi/7.1              utility/standard/cmake/3.18.2
+   apps/quantum_espresso/intel-impi-aun/6.5        utility/standard/cmake/3.19.6             (D)
+   apps/quantum_espresso/intel-impi/6.5            utility/standard/curl/7.64.0
+   apps/quantum_espresso/intel-impi/7.1     (D)    utility/standard/git/2.40.1               
+   apps/r/gcc/4.2.3                                utility/standard/gnu_parallel/20200322
+   apps/saga/gcc/7.4.0                             utility/standard/tcltk/8.6.9
+   apps/serpent/1.1.7                              utility/standard/turbovnc/2.2.4
+   apps/serpent2/2.1.32                            utility/wgrib2/3.0.2i
+</pre></div>
+</div>
+</section>
+<section id="mio">
+<h3>Mio<a class="headerlink" href="#mio" title="Link to this heading"></a></h3>
+<p><em>Last updated: June 10, 2022</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ module avail
+
+------------------------------------------- /sw/mfiles -------------------------------------------
+   apps/adf/intelmpi/2019.302                       apps/vasp/intel-impi-pl2/5.4.4
+   apps/adf/intelmpi/2019.305                       apps/vasp/intel-impi/5.4.4
+   apps/adf/intelmpi/2020.101                       apps/zeo++/0.3
+   apps/adf/intelmpi/2022.103                (D)    compilers/gcc/9
+   apps/ansys/202                                   compilers/intel/18.0
+   apps/ansys/211                                   compilers/intel/19.0
+   apps/ansys/212                                   compilers/intel/19.5
+   apps/ansys/221                                   compilers/intel/2021.1
+   apps/ansys/222                                   compilers/intel/2021.2                 (D)
+   apps/ansys/231                            (D)    libs/bzip2/gcc/1.0.6
+   apps/ansysem/211                                 libs/cuda/11.2
+   apps/ansysem/231                          (D)    libs/fftw3/gcc-openmpi/3.3.7
+   apps/bocs/intel/4.0.0                            libs/fftw3/intel-impi/3.3.8
+   apps/cmg/2020.109.gu                             libs/hdf5/intel-impi/1.12.0
+   apps/denise_black_edition/gcc-openmpi/1.4        libs/libtorch/1.12.1
+   apps/denise_black_edition/intel-impi/1.4         libs/metis/5.1.0
+   apps/forge/22.0.2                                libs/mkl/2021.1
+   apps/gaussian16/avx/c01                          libs/mkl/2021.2                        (D)
+   apps/gaussian16/avx2/c01                         libs/mumps/5.1.2
+   apps/gaussian16/c01                              libs/nvhpc/21.3
+   apps/gromacs/gcc-ompi/2019.6                     libs/pcre2/gcc/10.40
+   apps/gromacs/gcc-ompi/2020.2              (D)    libs/petsc/gcc-ompi-dbg/3.13
+   apps/gromacs/intel-impi/2019.6                   libs/petsc/intel-impi-dbg/3.15
+   apps/gromacs/intel-impi/2020.1                   libs/petsc/intel-impi-universal/3.15
+   apps/gromacs/intel-impi/2021.2            (D)    libs/petsc/intel-impi/3.15
+   apps/ifos2d/gcc-openmpi/2.0.3                    libs/scotch/6.0.5a
+   apps/lammps/29oct20                              libs/xz/gcc/5.2.5
+   apps/lammps/gcc-ompi-nequip/29Sep21              mpi/impi/2018.1
+   apps/lammps/gcc-ompi-plumed/23Jun2022            mpi/impi/2019.1
+   apps/lammps/gcc-ompi/29Sep21                     mpi/impi/2019.5
+   apps/lammps/gcc/29oct20                          mpi/impi/2021.1
+   apps/lammps/intel-impi/29oct20                   mpi/impi/2021.2                        (D)
+   apps/lammps/intel-ompi/29oct20                   mpi/openmpi/gcc/3.0.0
+   apps/matlab/2020a                                mpi/openmpi/gcc/3.0.1
+   apps/matlab/2021b                         (D)    mpi/openmpi/gcc/4.1.1                  (D)
+   apps/openfoam-esi/gcc-openmpi/2106               mpi/openmpi/intel/3.0.0
+   apps/openfoam/gcc-openmpi/9                      mpi/openmpi/intel/4.1.1                (D)
+   apps/paraview/gcc/5.9.0                          utility/standard/cmake/3.18.2
+   apps/python2/2.7.11                              utility/standard/cmake/3.26.3          (D)
+   apps/python3/2020.02                             utility/standard/git/2.40.1
+   apps/python3/2021.11                             utility/standard/gnu_parallel/20210922
+   apps/python3/2022.10                      (D)    utility/standard/likwid/gcc/5.2.2
+   apps/quantum_espresso/intel-impi/6.5             utility/standard/scons/3.1.2
+   apps/r/3.6.3                                     utility/standard/spack/0.16.2
+   apps/r/4.2.0                              (D)    utility/standard/turbovnc/2.1.2
+   apps/seisspace/5000.10.0                         utility/standard/turbovnc/2.2.6        (D)
+   apps/vasp/intel-impi-cneb/5.4.1                  utility/standard/valgrind/gcc/3.20.0
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="systems.html" class="btn btn-neutral float-left" title="Systems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user_guides/new_user_guide.html" class="btn btn-neutral float-right" title="Getting Started (New User Guide)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fceb44d0>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

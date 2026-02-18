@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ansys Remote Visualization Client Startup Guide &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/visualization_guides/fluent-remote-visualization.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Jupyter Lab on HPC platforms at Mines" href="jupyter-lab-startup.html" />
+    <link rel="prev" title="Paraview Server Startup and Connection Guide" href="paraview-server-startup.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ansys Remote Visualization Client Startup Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-ansys-remote-visualization-client-at-mines">Using ANSYS Remote Visualization Client at Mines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-submit-a-slurm-job">Step 1: Submit a Slurm Job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-alternative-startup-using-a-journal-file">Step 1: Alternative Startup using a Journal File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submit-a-fluent-job-using-predefined-commands">Submit a Fluent job using predefined commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-get-the-connection-infomation-and-start-a-tunnel">Step 2: Get the connection infomation and start a tunnel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#starting-a-tunnel-to-the-compute-node-host">Starting a Tunnel to the compute node host</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-start-your-local-client-and-connect">Step 3: Start your local client and connect</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Ansys Remote Visualization Client Startup Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/visualization_guides/fluent-remote-visualization.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ansys-remote-visualization-client-startup-guide">
+<h1>Ansys Remote Visualization Client Startup Guide<a class="headerlink" href="#ansys-remote-visualization-client-startup-guide" title="Link to this heading"></a></h1>
+<section id="using-ansys-remote-visualization-client-at-mines">
+<h2>Using ANSYS Remote Visualization Client at Mines<a class="headerlink" href="#using-ansys-remote-visualization-client-at-mines" title="Link to this heading"></a></h2>
+<p>This utilizes the GPU of your computer over CPU rendering on the HPC systems.
+For quick access to Ansys products use either <a class="reference external" href="https://wendian-ondemand.mines.edu">wendian-ondemand.mines.edu</a>
+or <a class="reference external" href="https://mio-ondemand.mines.edu">mio-ondemand.mines.edu</a> for CPU rendering.
+The following application notes are adapted for use at Colorado School of Mines for our clusters, Wendian and Mio.
+For detailed information read the <a class="reference external" href="https://ansyshelp.ansys.com/account/secured?returnurl=/Views/Secured/corp/v242/en/flu_ug_workspaces/flu_ug_chp_remote_client.html">Fluent Workspaces User’s Guide, Chapter 1:
+Remote Visualization and Accessing Fluent Remotely</a>,
+see Ansyshelp.ansys.com. Note that the Major and minor version and service pack numbers must match.</p>
+<p>The purpose of using the ANSYS Fluent Remote Visualization Client is to access remotely
+running simulations without directly owning the process in case of the network disconnection.
+Using this application you can connect to a total of 6 running simulations and display the mesh,
+contour and vector plots, residual and monitor plots, and modify settings and send text commands
+to the TUI on the running Fluent (meshing or solver) server.</p>
+<section id="step-1-submit-a-slurm-job">
+<h3>Step 1: Submit a Slurm Job<a class="headerlink" href="#step-1-submit-a-slurm-job" title="Link to this heading"></a></h3>
+<p>To get started create a SLURM submit script with the following in a directory with a Fluent case file.
+<code class="docutils literal notranslate"><span class="pre">$HOME/scratch/$USER/fluent-cases/flremote-svr-start.submit</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SLURM submit script filename: flremote-svr-start.submit</span>
+<span class="c1">#SBATCH -t 00:30:00</span>
+<span class="c1">#SBATCH -n1</span>
+<span class="c1">#Opening 2-12 ports depending on host_node operation more than one server (2 minimum)</span>
+<span class="n">export</span> <span class="n">REMOTING_PORTS</span><span class="o">=</span><span class="mi">2678</span><span class="o">/</span><span class="n">portspan</span><span class="o">=</span><span class="mi">2</span>
+<span class="c1"># Loading Wendian module for Ansys version 2024R2</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">apps</span><span class="o">/</span><span class="n">ansys</span><span class="o">/</span><span class="mi">242</span>
+
+<span class="c1"># 3ddp for 3-Dimension double precision; -t1 for 1 cpu; -g for enabling graphics; -driver null for no graphical interface</span>
+<span class="c1"># -sifile= for enabling the fluent server and giving a filename to store IP and PASSWORD</span>
+<span class="c1"># use -i journal_of_TUI_commands.jou</span>
+<span class="c1"># Filename starts with the variable SLURM_JOBID for uniqueness </span>
+
+<span class="n">fluent</span> <span class="mi">3</span><span class="n">ddp</span> <span class="o">-</span><span class="n">t1</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">driver</span> <span class="n">null</span> <span class="o">-</span><span class="n">sifile</span><span class="o">=./</span><span class="s2">&quot;$SLURM_JOBID&quot;</span><span class="n">_fluent_server_info</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Now, submit this to the SLURM scheduler</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[joeuser@wendian001.mines.edu]$ sbatch flremote-svr-start.submit
+Submitted batch job 6033061
+</pre></div>
+</div>
+<p>Once the Fluent job starts the file with the <code class="docutils literal notranslate"><span class="pre">SLURM_JOBID_fluent_server_info.txt</span></code> is created with the connection information,
+the Fluent cleanup script (can be run by executing <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">FILENAME</span></code> at the command prompt), a transcript files, and the
+<code class="docutils literal notranslate"><span class="pre">slurm-SLURM_JOBID</span></code> output file. The connection information file identifies the IP address and password needed to
+create the network port tunnel from the client machine to this node.</p>
+<p>For example, this job now has the follow files in the working directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[joeuser@wendian001.mines.ed]$ ls 
+6033061_fluent_server_info.txt  cleanup-fluent-node136-20180.sh  fluent-20210216-154942-19982.trn  slurm-6033061.out
+catalytic_converter.cas         flremote-svr-start.submit
+</pre></div>
+</div>
+<p>As an alternative to an HPC running server. You may test running this from a Fluent GUI (Linux or Windows) by
+selecting “File” -&gt; “Start/Stop Server” or run the TUI “server/start-server”. You can connect to local running
+copies of the server on the same machine to practice setting up commands or running scripts.</p>
+</section>
+<section id="step-1-alternative-startup-using-a-journal-file">
+<h3>Step 1: Alternative Startup using a Journal File<a class="headerlink" href="#step-1-alternative-startup-using-a-journal-file" title="Link to this heading"></a></h3>
+<section id="submit-a-fluent-job-using-predefined-commands">
+<h4>Submit a Fluent job using predefined commands<a class="headerlink" href="#submit-a-fluent-job-using-predefined-commands" title="Link to this heading"></a></h4>
+<p>Fluent executes commands through the TUI (Text User Interface). The format is a command followed by white space, comma,
+or answer to the prompted question. For a detailed list see the Ansys Help documentation for Fluent -&gt; Fluent Text
+Command List -&gt; Solution Mode. General navigation from a the fluent console is a directory structure.
+Press ‘enter/return’ will list available entries that are either commands or directories.
+Pressing ‘q’ will take you back one, and entering a command in the shortest unique letters will begin the
+prompts for options regarding that command. For example, ‘define/models/viscous/ke-realizable?’ is a simple yes
+or no, but ‘/define/boundary-conditions/velocity-inlet’ requires further information such as which surface(s),
+velocity, turbulent parameters, temperature, species, etc.</p>
+<p>The a simple journal file may contain a read case, initialize or read data, iterate, save case and data, and exit.
+However, for our purposes here starting a visualization client server and reading a case is sufficient.</p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">read_case.jou</span></code> contains these two lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span><span class="n">Journal</span> <span class="n">file</span> <span class="n">to</span> <span class="n">start</span> <span class="n">the</span> <span class="n">visualization</span> <span class="n">client</span> <span class="n">server</span> <span class="ow">and</span> <span class="n">read</span> <span class="n">a</span> <span class="n">case</span>
+<span class="n">server</span><span class="o">/</span><span class="n">start</span><span class="o">-</span><span class="n">client</span>
+<span class="n">file</span><span class="o">/</span><span class="n">read</span><span class="o">-</span><span class="n">case</span> <span class="n">myFluentCase</span><span class="o">.</span><span class="n">cas</span>
+</pre></div>
+</div>
+<p>Then the command in the batch script to start fluent changes to call this journal file. Using multiple
+processors and nodes the variables <code class="docutils literal notranslate"><span class="pre">$cpus</span></code> and <code class="docutils literal notranslate"><span class="pre">$SLURM_JOB_ID.nodes</span></code> are created in the script
+See <a class="reference internal" href="../user_guides/ansys.html"><span class="std std-doc">ANSYS Fluent Job Submission Guide</span></a>. So the last line becomes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>fluent 3ddp -t$cpus -cnf=$SLURM_JOB_ID.nodes -gu -i read_case.jou
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-2-get-the-connection-infomation-and-start-a-tunnel">
+<h3>Step 2: Get the connection infomation and start a tunnel<a class="headerlink" href="#step-2-get-the-connection-infomation-and-start-a-tunnel" title="Link to this heading"></a></h3>
+<p>Output the contents of the fluent server file: <code class="docutils literal notranslate"><span class="pre">SLURM_JOBID_fluent_server_info.txt</span></code> or use the Ondemand “Files” tab to view the text file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[joeuser@wendian001.mines.edu]$ cat 6033061_fluent_server_info.txt
+172.18.10.78:2678
+229zknbn
+</pre></div>
+</div>
+<p>Edit or copy the content to a file on your local machine and change the IP address to “localhost”, for example
+on my desktop this file looks like this now:
+C:\Users\joeuser\Desktop\6033061_fluent_server_info.txt</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">localhost</span><span class="p">:</span><span class="mi">2678</span>
+<span class="mi">229</span><span class="n">zknbn</span>
+</pre></div>
+</div>
+<section id="starting-a-tunnel-to-the-compute-node-host">
+<h4>Starting a Tunnel to the compute node host<a class="headerlink" href="#starting-a-tunnel-to-the-compute-node-host" title="Link to this heading"></a></h4>
+<p>Opening a Terminal (Linux) or Windows PowerShell and run the ssh command with the flag <code class="docutils literal notranslate"><span class="pre">-L</span></code> with the connection information.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS Z:\&gt; ssh -L 8001:c078:2678 joeuser@wendian.mines.edu
+</pre></div>
+</div>
+<p>The first number <code class="docutils literal notranslate"><span class="pre">8001</span></code>is your choice, the compute host name is <code class="docutils literal notranslate"><span class="pre">c078</span></code>, and the second number <code class="docutils literal notranslate"><span class="pre">2678</span></code> is the port number gave in the submit script.</p>
+</section>
+</section>
+<section id="step-3-start-your-local-client-and-connect">
+<h3>Step 3: Start your local client and connect<a class="headerlink" href="#step-3-start-your-local-client-and-connect" title="Link to this heading"></a></h3>
+<p>Start the “Remote Visualization Client 2024 R2” App from the windows start menu. Locate the “Server info Filename” box
+under “Properties - RemoteSession 1” and click in the box. Select the file on your Desktop and the client will connect through your localhost port
+through the ‘ssh’ encripted tunnel to the compute node.</p>
+<p>From here you can view the mesh, watch the simulation run, send commands to the server, and disconnect knowing the job is still running.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="paraview-server-startup.html" class="btn btn-neutral float-left" title="Paraview Server Startup and Connection Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jupyter-lab-startup.html" class="btn btn-neutral float-right" title="Jupyter Lab on HPC platforms at Mines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fd3f12b0>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

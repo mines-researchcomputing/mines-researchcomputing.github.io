@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/budget_guidance/guidance-case-study-fenics.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Research Computing Guidance" href="research_computing_resource_guidance.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#identify-software-usage">1. Identify Software Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#identify-workload-and-workflows">2. Identify workload and workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#find-published-benchmark-little-to-no-experience-with-software-or-manual-benchmarking-established-codebase-or-simulation-input-deck">3. Find published benchmark (little to no experience with software) or manual benchmarking (established codebase or simulation input deck)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#legacy-fenics">Legacy FEniCS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dolfin">DOLFIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ffc">FFC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fiat">FIAT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#run-test-problem-across-multiple-hardware-configurations">4. Run test problem across multiple hardware configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#identify-pre-funded-hpc-options">5. Identify Pre-Funded HPC options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#perform-baseline-parallel-and-efficiency-analysis-on-pre-funded-hpc-choice">6. Perform baseline parallel and efficiency analysis on Pre-Funded HPC choice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#secure-funding">7. Secure Funding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#secure-allocation-on-paid-nsf-cluster-or-fund-aws-hpc">8. Secure allocation on paid/NSF cluster, or fund AWS HPC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/budget_guidance/guidance-case-study-fenics.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="case-study-researcher-using-open-source-finite-element-code-fenics-for-modeling-reacting-flows">
+<h1>Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows<a class="headerlink" href="#case-study-researcher-using-open-source-finite-element-code-fenics-for-modeling-reacting-flows" title="Link to this heading"></a></h1>
+<section id="identify-software-usage">
+<h2>1. Identify Software Usage<a class="headerlink" href="#identify-software-usage" title="Link to this heading"></a></h2>
+<p>Researcher wants to use FEniCS 2019.1, an open source Finite Element software package. No restrictions on licensing/usage. Python/C++ code which requires compilation from source.</p>
+<p>Website: [https://fenicsproject.org/download/archive/](FEniCS Project)</p>
+<p>User also may write their own extensions/modules that work with the FEniCS 2019.1 base. This will require the Python tool Cython, an open source package available with <a class="reference external" href="https://pypi.org/project/Cython">pypi</a>.</p>
+<p>Science Domain: Computational Fluid Dynamics; Mathematical Biology</p>
+</section>
+<section id="identify-workload-and-workflows">
+<h2>2. Identify workload and workflows<a class="headerlink" href="#identify-workload-and-workflows" title="Link to this heading"></a></h2>
+<p>FEniCS 2019.1 is primarily a code based on using the message passing interface (MPI) library, using domain decomposition to break up the computational domain into chunks that can be solved on separate MPI tasks. MPI communication is then used to share information between tasks for updates on the quantities of interest between domain chunks. Depending on the size of the computational domain, measured by the number of cells used to discretize the domain, the problem can scale up to many nodes and/or require high memory.</p>
+</section>
+<section id="find-published-benchmark-little-to-no-experience-with-software-or-manual-benchmarking-established-codebase-or-simulation-input-deck">
+<h2>3. Find published benchmark (little to no experience with software) or manual benchmarking (established codebase or simulation input deck)<a class="headerlink" href="#find-published-benchmark-little-to-no-experience-with-software-or-manual-benchmarking-established-codebase-or-simulation-input-deck" title="Link to this heading"></a></h2>
+<p>FEniCS has many published papers regarding its construction and performance.</p>
+<section id="legacy-fenics">
+<h3>Legacy FEniCS<a class="headerlink" href="#legacy-fenics" title="Link to this heading"></a></h3>
+<p>M. S. Alnaes, J. Blechta, J. Hake, A. Johansson, B. Kehlet, A. Logg, C. Richardson, J. Ring, M. E. Rognes and G. N. Wells. The FEniCS Project Version 1.5, <em>Archive of Numerical Software</em> 3 (2015). [<a class="reference external" href="https://doi.org/10.11588/ans.2015.100.20553">doi.org/10.11588/ans.2015.100.20553</a>]</p>
+<p>A. Logg, K.-A. Mardal, G. N. Wells et al. Automated Solution of Differential Equations by the Finite Element Method, , Springer(2012). [<a class="reference external" href="https://doi.org/10.1007/978-3-642-23099-8">doi.org/10.1007/978-3-642-23099-8</a>]</p>
+</section>
+<section id="dolfin">
+<h3>DOLFIN<a class="headerlink" href="#dolfin" title="Link to this heading"></a></h3>
+<p>A. Logg and G. N. Wells. DOLFIN: Automated Finite Element Computing, <em>ACM Transactions on Mathematical Software</em> 37 (2010). [<a class="reference external" href="http://arxiv.org/abs/1103.6248">arΧiv</a>] [<a class="reference external" href="https://doi.org/10.1145/1731022.1731030">doi.org/10.1145/1731022.1731030</a>]</p>
+<p>A. Logg, G. N. Wells and J. Hake. DOLFIN: a C++/Python Finite Element Library, in: A. Logg, K.-A. Mardal and G. N. Wells (eds) Automated Solution of Differential Equations by the Finite Element Method (chapter 10), volume 84 of <em>Lecture Notes in Computational Science and Engineering</em>, Springer (2012).</p>
+</section>
+<section id="ffc">
+<h3>FFC<a class="headerlink" href="#ffc" title="Link to this heading"></a></h3>
+<p>R. C. Kirby and A. Logg. A Compiler for Variational Forms, <em>ACM Transactions on Mathematical Software</em> 32 (2006). [<a class="reference external" href="http://arxiv.org/abs/1112.0402">arΧiv</a>] [<a class="reference external" href="https://doi.org/10.1145/1163641.1163644">doi.org/10.1145/1163641.1163644</a>]</p>
+<p>A. Logg, K. B. Ølgaard, M. E. Rognes and G. N. Wells. FFC: the FEniCS Form Compiler, in: A. Logg, K.-A. Mardal and G. N. Wells (eds) Automated Solution of Differential Equations by the Finite Element Method (chapter 11), volume 84 of <em>Lecture Notes in Computational Science and Engineering</em>, Springer (2012).</p>
+<p>K. B. Ølgaard and G. N. Wells. Optimisations for Quadrature Representations of Finite Element Tensors Through Automated Code Generation, <em>ACM Transactions on Mathematical Software</em> 37 (2010). [<a class="reference external" href="http://arxiv.org/abs/1104.0199">arΧiv</a>] [<a class="reference external" href="https://doi.org/10.1145/1644001.1644009">doi.org/10.1145/1644001.1644009</a>]</p>
+</section>
+<section id="fiat">
+<h3>FIAT<a class="headerlink" href="#fiat" title="Link to this heading"></a></h3>
+<p>R. C. Kirby. Algorithm 839: FIAT, a New Paradigm for Computing Finite Element Basis Functions, <em>ACM Transactions on Mathematical Software</em> 30 (2004) 502–516. [<a class="reference external" href="https://doi.org/10.1145/1039813.1039820">doi.org/10.1145/1039813.1039820</a>]</p>
+<p>R. C. Kirby. FIAT: Numerical Construction of Finite Element Basis Functions, in: A. Logg, K.-A. Mardal and G. N. Wells (eds) Automated Solution of Differential Equations by the Finite Element Method (chapter 13), volume 84 of <em>Lecture Notes in Computational Science and Engineering</em>, Springer (2012).</p>
+</section>
+</section>
+<section id="run-test-problem-across-multiple-hardware-configurations">
+<h2>4. Run test problem across multiple hardware configurations<a class="headerlink" href="#run-test-problem-across-multiple-hardware-configurations" title="Link to this heading"></a></h2>
+<p>Initial testing of a 2D <a class="reference external" href="https://fenicsproject.org/pub/tutorial/sphinx1/._ftut1003.html">Poisson equation</a> and <a class="reference external" href="https://fenicsproject.org/pub/tutorial/html/._ftut1006.html">2D Heat Equation</a> conducted on 8-core Intel 4th-generation x86 based workstation. Problem shows initial scalablity up the 8 cores on the local machine for a sufficient problem size.</p>
+</section>
+<section id="identify-pre-funded-hpc-options">
+<h2>5. Identify Pre-Funded HPC options<a class="headerlink" href="#identify-pre-funded-hpc-options" title="Link to this heading"></a></h2>
+<p>User has access to the legacy Mio legacy HPC, but would like to secure funding to scale problem to larger compute nodes. Initial work can be continued on Mio HPC.</p>
+</section>
+<section id="perform-baseline-parallel-and-efficiency-analysis-on-pre-funded-hpc-choice">
+<h2>6. Perform baseline parallel and efficiency analysis on Pre-Funded HPC choice<a class="headerlink" href="#perform-baseline-parallel-and-efficiency-analysis-on-pre-funded-hpc-choice" title="Link to this heading"></a></h2>
+<p>Initial testing on Mio suggests that the user’s problem size scales to about 1 node (36 cores), with a runtime of about 5 days. This translates to about 4320 core-hours per job. The user plans to run about 100 jobs a month related to this research. This translates to 43,200 jobs per month. On Wendian’s $0.02 core-hr rate, this would be about $864 per month or $10,368 per year.</p>
+</section>
+<section id="secure-funding">
+<h2>7. Secure Funding<a class="headerlink" href="#secure-funding" title="Link to this heading"></a></h2>
+<p>User secures funding from [private entity] with line item for HPC usage at a $10,000 per fiscal year budget.</p>
+<section id="secure-allocation-on-paid-nsf-cluster-or-fund-aws-hpc">
+<h3>8. Secure allocation on paid/NSF cluster, or fund AWS HPC<a class="headerlink" href="#secure-allocation-on-paid-nsf-cluster-or-fund-aws-hpc" title="Link to this heading"></a></h3>
+<p>User decides to work on Wendian HPC with budget, and plans to explore AWS HPC options for cloud bursting workflows in the future.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="research_computing_resource_guidance.html" class="btn btn-neutral float-left" title="Research Computing Guidance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fced63f0>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

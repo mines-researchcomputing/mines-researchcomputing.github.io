@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Computing Guidance &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/budget_guidance/research_computing_resource_guidance.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows" href="guidance-case-study-fenics.html" />
+    <link rel="prev" title="Archived Guides" href="../user_guides/archived_guides.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Research Computing Guidance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#budget-guidance-for-hpc">Budget Guidance for HPC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#life-cycle-of-research-computing-projects">Life Cycle of Research Computing Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters-to-determine">Parameters to Determine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Research Computing Guidance</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/budget_guidance/research_computing_resource_guidance.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="research-computing-guidance">
+<h1>Research Computing Guidance<a class="headerlink" href="#research-computing-guidance" title="Link to this heading"></a></h1>
+<section id="budget-guidance-for-hpc">
+<h2>Budget Guidance for HPC<a class="headerlink" href="#budget-guidance-for-hpc" title="Link to this heading"></a></h2>
+<p>whether starting a new research project or continuing one at Mines this document
+will help you find the resources to get your High-Performance Computing workload
+done. Some useful free compute cycles through programs such as
+<a class="reference external" href="https://curc.readthedocs.io/en/latest/access/rmacc.html">RMACC via Alpine</a> or
+<a class="reference external" href="https://access-ci.org/">NSF ACCESS Program</a>, will help you get some exploratory compute
+cycles to awarded a grant, and might be used through out the project.</p>
+<p>Mines HPC systems on-premise are operated under a Operational Expenditure (OpEX)
+cost model, where researchers pay for the CPU/hours cycles used. This document
+aims to help write future research grants that use HPC resources at Mines.</p>
+<p>Schedule a consultation appointment at
+<a class="reference external" href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&amp;amp;RequestorType=Service">RC.mines.edu</a></p>
+<section id="life-cycle-of-research-computing-projects">
+<h3>Life Cycle of Research Computing Projects<a class="headerlink" href="#life-cycle-of-research-computing-projects" title="Link to this heading"></a></h3>
+<p><img alt="Life Cycle of an HPC Project" src="../../_images/life_cycle_hpc_project.png" /></p>
+<p>Stage 1: Identify area for exploratory research to expand current scientific knowledge base</p>
+<ul class="simple">
+<li><p>Choice of Software</p>
+<ul>
+<li><p>Vet software for security and other restrictions</p></li>
+<li><p>Open Source vs Commercial</p>
+<ul>
+<li><p>Commercial: Licensing requirements</p>
+<ul>
+<li><p>FlexLM server</p></li>
+<li><p>Site-wide, single user, multi-user, etc.</p></li>
+</ul>
+</li>
+<li><p>Open Source</p>
+<ul>
+<li><p>Optimized build for compute architecture</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Self-authored software</p>
+<ul>
+<li><p>Identify software languages, compilers, libraries required, etc.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Stage 2: Development of scripts, scaling &amp; benchmarking</p>
+<ul class="simple">
+<li><p>Identify workload and workflows</p>
+<ul>
+<li><p>Common Parallel Workflows:</p>
+<ul>
+<li><p>Multi-node (e.g. MPI)</p></li>
+<li><p>Multi-threaded (e.g. OpenMP)</p></li>
+<li><p>Single or Multi GPU (NVIDIA using CUDA, AMD using OpenCL, etc)</p></li>
+<li><p>Embarrassingly Parallel – Parameter Sweeps, Markov Chain Monte Carlo Simulations</p></li>
+</ul>
+</li>
+<li><p>Other considerations</p>
+<ul>
+<li><p>High memory (relative to CPU requirements)</p></li>
+<li><p>High data I/O (e.g. machine learning)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Stage 2 (alternative): Find published benchmark (little to no experience with software) or manual benchmarking (established codebase or simulation input deck)</p>
+<ul class="simple">
+<li><p>Run test problem across multiple hardware configurations:</p>
+<ul>
+<li><p>Local workstation or laptop</p></li>
+<li><p>Freely Accessible HPC</p></li>
+<li><p>Performance Analysis Consultation Checklist</p>
+<ul>
+<li><p>A working test problem of model/code</p>
+<ul>
+<li><p>What compute resources were used to verify code? (No. of cores, memory, etc)</p></li>
+</ul>
+</li>
+<li><p>Model can use multiple cpus and/or nodes</p></li>
+<li><p>Anticipated number of runs of model</p>
+<ul>
+<li><p>Parameter matrix</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Outcomes: Performance Analysis report</p>
+<ul>
+<li><p>Weak scaling (vary problem size proportionally to no. of processors)</p></li>
+<li><p>Strong scaling (fixed problem size -&gt; increase no. of processors)</p></li>
+<li><p>Scaling analysis will estimate to user the amount of core-hours per job they need</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Stage 3: Pre-Funded HPC options</p>
+<ul class="simple">
+<li><p>No funding:</p>
+<ul>
+<li><p>CU Boulder’s Alpine via RMACC</p></li>
+<li><p>Open Science Grid (if user has an Embarassingly Parallel workflow)</p></li>
+<li><p>NSF ACCESS Program</p>
+<ul>
+<li><p>Proposal required, but grant is not required</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Stage 3 (grant supported HPC): Perform baseline parallel and efficiency analysis on Pre-Funded HPC choice</p>
+<ul class="simple">
+<li><p>Use as an approximate scale -&gt; estimate budget</p></li>
+<li><p>Secure funding</p></li>
+<li><p>Secure allocation on paid/NSF cluster, or fund AWS HPC</p></li>
+</ul>
+<p>Stage 4: Full-scale Computing &amp; Visualization</p>
+<ul class="simple">
+<li><p>Setting up computing environment</p>
+<ul>
+<li><p>Request software install</p></li>
+<li><p>Project Allocation</p></li>
+<li><p>User access account</p></li>
+<li><p>Shared storage and project storage</p></li>
+</ul>
+</li>
+<li><p>Performance batch jobs</p></li>
+<li><p>Data management</p></li>
+<li><p>Visualization setups</p></li>
+</ul>
+<p>Stage 5: Post-processing &amp; continued training of new researchers</p>
+<ul class="simple">
+<li><p>Data insights, data sharing, project publications</p></li>
+<li><p>Training for new researchers</p></li>
+</ul>
+<p>Stage 6: Project close-out and data transfer to long term storage</p>
+<ul class="simple">
+<li><p>Metadata tagging</p></li>
+<li><p>Archive ready datasets</p></li>
+</ul>
+</section>
+<section id="parameters-to-determine">
+<h3>Parameters to Determine<a class="headerlink" href="#parameters-to-determine" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Nodes x Cores: total number of Cores used for simulation</p></li>
+<li><p>Total jobs: Jobs needed to complete research project</p></li>
+<li><p>Core Run Time (Cores * Hours): Wirk done by each CPU (CPUh)</p></li>
+<li><p>Storage of Input and Output: Data sets inputs (multi-use or single-use)</p></li>
+<li><p>Cost / (Core-Hour): Wendian = $0.02 (CPUh), Apex (AWS cloud) $0.04 and up and GPUs even more ie. $96/hour</p></li>
+<li><p>Storage during &amp; after simulation: S3-Bucket, Orebits, fast NVMe</p></li>
+<li><p>Job Parametric Study: Number of simulations to assess science domain</p></li>
+<li><p>GPU-Hour (GPUh): Increased costs for specialize resources. Wendian GPU V100 = 6 core-hour or $0.12.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../user_guides/archived_guides.html" class="btn btn-neutral float-left" title="Archived Guides" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="guidance-case-study-fenics.html" class="btn btn-neutral float-right" title="Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fceb5d30>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

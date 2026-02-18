@@ -1,0 +1,616 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro to Linux / Bash on HPC Lab &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/workshops/fall2024/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Intro to Linux / Bash on HPC Lab</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/pages/workshops/fall2024/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intro-to-linux-bash-on-hpc-lab">
+<h1>Intro to Linux / Bash on HPC Lab<a class="headerlink" href="#intro-to-linux-bash-on-hpc-lab" title="Link to this heading"></a></h1>
+<section id="connecting-to-an-hpc-system-via-ssh">
+<h2>Connecting to an HPC System via SSH<a class="headerlink" href="#connecting-to-an-hpc-system-via-ssh" title="Link to this heading"></a></h2>
+<section id="linux-and-macos">
+<h3>Linux and MacOS<a class="headerlink" href="#linux-and-macos" title="Link to this heading"></a></h3>
+<p>Connecting to and using Mines’ HPC systems requires knowledge of the command line. The first step will be opening the terminal on your operating system. On Mac systems, the quickest way is to use the “Spotlight” search by pressing “Command + Space” on your keyboard and typing “Terminal”. Most Linux systems will also have a terminal app preinstalled. Once you have the terminal open, you can login using the ssh command. If you are on the Mines network, either on-campus, or connected to the Mines VPN, you can type the command</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ssh username@name-of-hpc-system.mines.edu
+</pre></div>
+</div>
+<p>and enter your Mines Multipass password.</p>
+<p>For example, if you have an account on Wendian and your username is janedoe,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ssh janedoe@wendian.mines.edu 
+</pre></div>
+</div>
+<p>Mines’ IT infrastructure allows one into Mines HPC systems through an ssh “jumpbox” if you’re not connected to the Mines Network. To do so, you first need to ssh into jumpbox by typing:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ssh username@pvm-jumpbox.mines.edu 
+</pre></div>
+</div>
+<p>If you have multi-factor authentication (MFA) enabled, you will be asked for your one-time password (OTP) here as well in addition to your Mines MultiPass password. Once logged in, you can log into a Mines HPC system as normal.</p>
+</section>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Link to this heading"></a></h3>
+<p>On Windows, we either recommend using the Windows Terminal app. It is preinstalled on most Windows 11 systems, and available on Windows 10 via the <a class="reference external" href="https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701">Microsoft Store</a>. Once you have this application, you can ssh using the Linux and MacOS instructions above.</p>
+</section>
+</section>
+<section id="introduction-to-command-line-and-filesystem">
+<h2>Introduction to Command Line and Filesystem<a class="headerlink" href="#introduction-to-command-line-and-filesystem" title="Link to this heading"></a></h2>
+<p>In this section, we will go through the basics of how to use the command line to navigate the filesystem. We will also briefly describe aspects of the filesystem that are important to keep your work organized and adhere to HPC policy.</p>
+<section id="filesystem-basics">
+<h3>Filesystem Basics<a class="headerlink" href="#filesystem-basics" title="Link to this heading"></a></h3>
+<p>For both HPC systems, there is a basic filesystem structure with designated paths for various types of files. Upon login to either Wendian or Mio, typing ls, you should see the following too directories: bins and scratch.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Useful Environment Variables
+Directory 	Environmental variable
+Home directory 	$HOME
+$HOME/bins 	$BINS
+$HOME/scratch 	$SCRATCH
+</pre></div>
+</div>
+<p>Your home directory is where you can store any personal files, scripts, and programs that you need to keep long term. The bins is a place to store compiled programs and executables that you need to run for jobs. As the name implies, scratch is the scratch directory used for temporary files needed for running jobs.</p>
+<blockquote>
+<div><p>It is HPC policy to make sure that job data is run under your scratch directory. Users who do not follow this may receive notice or warnings from HPC staff.</p>
+</div></blockquote>
+</section>
+<section id="choosing-a-text-editor">
+<h3>Choosing a text editor<a class="headerlink" href="#choosing-a-text-editor" title="Link to this heading"></a></h3>
+<p>When using the command line, a text editor becomes a powerful tool to create and edit job scripts, as well as modify codes on the system. There are 3 text editors that we recommend:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nano</span></code> - recommended for beginners new to command line-based text editors. A guide and shortcuts can be found on their website.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vim</span></code> - A keyboard-centric highly customizable text editor. Recommended for advanced users who want to customize how they edit their files on the commandline.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">emacs</span></code> - Another power user-friendly text editor.</p></li>
+</ul>
+</section>
+</section>
+<section id="lab-exercise-1-navigating-the-linux-command-line">
+<h2><strong>Lab Exercise #1: Navigating the Linux Command Line</strong><a class="headerlink" href="#lab-exercise-1-navigating-the-linux-command-line" title="Link to this heading"></a></h2>
+<p>In this exercise, you will learn the basics of navigating the Linux command line, including how to move between directories, list directory contents, and understand the file system hierarchy.</p>
+<p><strong>Exercise 1: Navigating the file system</strong></p>
+<p><strong>Step 1: Open a Terminal</strong></p>
+<p>1.1.	Launch your terminal emulator of choice based on your operating system:</p>
+<ul class="simple">
+<li><p>Linux/macOS: Default terminal application</p></li>
+<li><p>Windows 11: Windows Terminal should be preinstalled with ssh</p></li>
+</ul>
+<p><strong>Step 2: Navigating the File System</strong></p>
+<p>2.1. The first thing we’ll do is to understand where you are in the file system. In the terminal, type the following command and press Enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pwd</span>
+</pre></div>
+</div>
+<p>This will print the present working directory, showing your current location in the file system.</p>
+<p>2.2. Next, let’s list the contents of the current directory. Use the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<p>You will see a list of files and directories in your current location.</p>
+<p><strong>Step 3: Changing Directories</strong></p>
+<p>3.1. To navigate to a different directory, you can use the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command followed by the directory path. For example, to change to the <code class="docutils literal notranslate"><span class="pre">~/scratch</span></code> directory (which contains system configuration files), type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/scratch
+</pre></div>
+</div>
+<p>3.2. Now that you are in the <code class="docutils literal notranslate"><span class="pre">~/scratch</span></code> directory, you can use <code class="docutils literal notranslate"><span class="pre">pwd</span></code> again to confirm your current location.</p>
+<p>3.3. Let’s list the contents of the <code class="docutils literal notranslate"><span class="pre">~/scratch</span></code> directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<p>You will see various configuration files and subdirectories.</p>
+<p><strong>Step 4: Moving Up the Directory Tree</strong></p>
+<p>4.1. To move back to the parent directory (in this case, your home directory), you can use a special symbol, <code class="docutils literal notranslate"><span class="pre">..</span></code>, which represents the parent directory. Type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>..
+</pre></div>
+</div>
+<p>4.2. Use <code class="docutils literal notranslate"><span class="pre">pwd</span></code> to confirm that you are back in your home directory.</p>
+<p><strong>Step 5: Navigating to Your Home Directory</strong></p>
+<p>5.1. You can also navigate directly to your home directory using the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command without any arguments. Try it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span>
+</pre></div>
+</div>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">~</span></code> as a reference back to your home directory as well:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~
+</pre></div>
+</div>
+<p>5.2. Confirm your location with <code class="docutils literal notranslate"><span class="pre">pwd</span></code>.</p>
+<p><strong>Step 6: Creating and Navigating Subdirectories</strong></p>
+<p>6.1. Let’s create a new directory within your home directory. You can use the <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> command. For example, create a directory called <code class="docutils literal notranslate"><span class="pre">my_documents</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>my_documents
+</pre></div>
+</div>
+<p>6.2. Navigate into the newly created directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>my_documents
+</pre></div>
+</div>
+<p>6.3. Use <code class="docutils literal notranslate"><span class="pre">pwd</span></code> to confirm your location.</p>
+<p><strong>Step 7: Create a file in my_documents</strong></p>
+<p>8.1 Use your text editor to open a new file. Below, we will use <code class="docutils literal notranslate"><span class="pre">nano</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano<span class="w"> </span>new_file.txt
+</pre></div>
+</div>
+<p>Add the following text to the file, then save and close it.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">QWERTY1234</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">nano</span></code>, on your keyboard press ‘CTRL+X’ then type ‘y’ and press enter to confirm.</p>
+<p><strong>Step 8: Returning to Your Home Directory</strong></p>
+<p>8.1. To go back to your home directory, you can use the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command without any arguments again:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span>
+</pre></div>
+</div>
+<p><strong>Step 9: Removing the Created Directory</strong></p>
+<p>9.1. To remove the created directory, you first need to empty it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>new_file.txt
+</pre></div>
+</div>
+<p>If you want to remove the <code class="docutils literal notranslate"><span class="pre">my_documents</span></code> directory, you can use the <code class="docutils literal notranslate"><span class="pre">rmdir</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rmdir<span class="w"> </span>my_documents
+</pre></div>
+</div>
+<p>The table below summarizes all the basic commands you need to navigate the file system:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lah</span></code></p></td>
+<td><p>shows list (<code class="docutils literal notranslate"><span class="pre">-l</span></code>) of all files/directories, including hidden ones (<code class="docutils literal notranslate"><span class="pre">-a</span></code>), in current directory with human-readable (<code class="docutils literal notranslate"><span class="pre">-h</span></code>) file sizes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></td>
+<td><p>prints out the path of the current working directory</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cd</span></code></p></td>
+<td><p>changes your directory to your home directory (on most Linux/Mac machines, this will be <code class="docutils literal notranslate"><span class="pre">/home/username</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code></p></td>
+<td><p>changes your directory down one directory on the path, e.g. if you’re at <code class="docutils literal notranslate"><span class="pre">/home/username,</span> <span class="pre">&quot;</span></code>cd ..<code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">will</span> <span class="pre">take</span> <span class="pre">you</span> <span class="pre">to</span> </code>/home`</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$directory-path</span></code></p></td>
+<td><p>changes to directory at <code class="docutils literal notranslate"><span class="pre">$directory-path</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">$directory-name</span></code></p></td>
+<td><p>creates a directory in your current working directory called <code class="docutils literal notranslate"><span class="pre">$directory-name</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">$directory-path</span></code></p></td>
+<td><p>creates a directory located at <code class="docutils literal notranslate"><span class="pre">$directory-path</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">$directory-path=&quot;/home/Documents/&quot;</span></code> would move you to <code class="docutils literal notranslate"><span class="pre">/home/Documents</span></code> as your current working directory)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">$filename</span> <span class="pre">$new_file_location</span></code></p></td>
+<td><p>copies <code class="docutils literal notranslate"><span class="pre">$filename</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">$filename=&quot;/home/Documents/foo.txt&quot;</span></code> would copy the file to <code class="docutils literal notranslate"><span class="pre">$new_file_location</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">$new_file_location=&quot;/home/Documents/New/foo.txt&quot;)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">$filename</span> <span class="pre">$new_file_location</span></code></p></td>
+<td><p>moves <code class="docutils literal notranslate"><span class="pre">$filename</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">$filename=&quot;/home/Documents/foo.txt&quot;</span></code> would copy the file to <code class="docutils literal notranslate"><span class="pre">$new_file_location</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">$new_file_location=&quot;/home/Documents/New/foo.txt&quot;)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exercise 2: Transfer a file to HPC</strong></p>
+<p>On your local machine, create a text file with random text in it.</p>
+<p>On Mac/Linux/WSL:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>
+cat<span class="w"> </span>/usr/share/dict/words<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-R<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1024<span class="w"> </span>&gt;<span class="w"> </span>random.txt
+</pre></div>
+</div>
+<p>On Windows Powershell:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$random</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="n">Random</span>
+<span class="nv">$text</span> <span class="p">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span><span class="p">(</span><span class="nv">$i</span> <span class="p">=</span> <span class="n">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">-lt</span> <span class="n">100</span><span class="p">;</span> <span class="nv">$i</span><span class="p">++)</span> <span class="p">{</span>
+  <span class="nv">$text</span> <span class="p">+=</span> <span class="nv">$random</span><span class="p">.</span><span class="n">Next</span><span class="p">(</span><span class="n">0</span><span class="p">,</span> <span class="n">255</span><span class="p">).</span><span class="n">ToString</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nv">$file</span> <span class="p">=</span> <span class="s2">&quot;random.txt&quot;</span>
+<span class="nv">$handle</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">StreamWriter</span><span class="p">(</span><span class="nv">$file</span><span class="p">)</span>
+<span class="nv">$handle</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="nv">$text</span><span class="p">)</span>
+<span class="nv">$handle</span><span class="p">.</span><span class="n">Close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now transfer the file to your home directory on Wendian:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>random.txt<span class="w"> </span>&lt;username&gt;@wendian.mines.edu:~
+</pre></div>
+</div>
+</section>
+<section id="lab-2-introduction-to-bash-scripting-lab">
+<h2>Lab #2: Introduction to Bash Scripting Lab<a class="headerlink" href="#lab-2-introduction-to-bash-scripting-lab" title="Link to this heading"></a></h2>
+<section id="lab-exercises">
+<h3>Lab Exercises:<a class="headerlink" href="#lab-exercises" title="Link to this heading"></a></h3>
+<p><strong>Exercise 1: Basic Commands</strong></p>
+<ol class="arabic simple">
+<li><p>Open a terminal or command prompt.</p></li>
+<li><p>Create a directory named <code class="docutils literal notranslate"><span class="pre">bash_lab</span></code> in your home directory using the command <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>.</p></li>
+<li><p>Navigate to the <code class="docutils literal notranslate"><span class="pre">bash_lab</span></code> directory using the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command.</p></li>
+<li><p>Create a text file named <code class="docutils literal notranslate"><span class="pre">hello_world.txt</span></code> in the <code class="docutils literal notranslate"><span class="pre">bash_lab</span></code> directory using the text editor of your choice (<code class="docutils literal notranslate"><span class="pre">nano</span></code>, <code class="docutils literal notranslate"><span class="pre">vim</span></code>, <code class="docutils literal notranslate"><span class="pre">emacs</span></code> are recommended):</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano<span class="w"> </span>hello_world.txt
+</pre></div>
+</div>
+<p>Write <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World!</span></code> in it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Hello<span class="w"> </span>World!
+</pre></div>
+</div>
+<p>Save and close the file. If you’re using <code class="docutils literal notranslate"><span class="pre">nano</span></code>, use Ctrl + X and then type ‘y’ and press enter to save.</p>
+<ol class="arabic simple" start="5">
+<li><p>List the contents of the directory to confirm that <code class="docutils literal notranslate"><span class="pre">hello_world.txt</span></code> was created using <code class="docutils literal notranslate"><span class="pre">ls</span></code>. Try <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-h</span></code> and use flags to see how the output changes.</p></li>
+<li><p>Display the contents of <code class="docutils literal notranslate"><span class="pre">hello_world.txt</span></code> on the terminal using the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>hello_world.txt
+</pre></div>
+</div>
+<p><strong>Exercise 2: Variables and Echo</strong></p>
+<ol class="arabic simple">
+<li><p>Create a Bash script named <code class="docutils literal notranslate"><span class="pre">greet.sh</span></code> that stores your name in a variable and then echoes a greeting using that variable.</p></li>
+</ol>
+<p>Open and create the file using the text editor of your choice (common are <code class="docutils literal notranslate"><span class="pre">nano</span></code>, <code class="docutils literal notranslate"><span class="pre">vim</span></code>, <code class="docutils literal notranslate"><span class="pre">emacs</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano<span class="w"> </span>greet.sh
+</pre></div>
+</div>
+<p>Add the following to the file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nv">NAME</span><span class="o">=</span><span class="s2">&quot;Your Name&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello </span><span class="si">${</span><span class="nv">NAME</span><span class="si">}</span><span class="s2">!&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Make the script executable using the <code class="docutils literal notranslate"><span class="pre">chmod</span></code> command:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>greet.sh
+</pre></div>
+</div>
+<ol class="arabic" start="3">
+<li><p>Execute the script to see the greeting. There’s two ways to do this:</p>
+<ul class="simple">
+<li><p>Use the notation <code class="docutils literal notranslate"><span class="pre">./</span></code>:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./greet.sh
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">bash</span></code> command:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>greet.sh
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>Exercise 3: Conditional Statements</strong></p>
+<p>Write a Bash script that takes a number as input and tells whether it’s even or odd.</p>
+<p>Create a script called <code class="docutils literal notranslate"><span class="pre">even_odd.sh</span></code>, and then open it with your text editor.</p>
+<p>Populate it with the following text</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash   </span>
+
+<span class="c1"># assign the number inputted by user in the command with my_number</span>
+<span class="nv">my_number</span><span class="o">=</span><span class="nv">$1</span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="k">$((</span><span class="nv">my_number</span><span class="o">%</span><span class="m">2</span><span class="k">))</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span>
+<span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The inputted number is even!&quot;</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The inputted number is odd!&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+<p>Make it executable and then run it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">even_odd</span><span class="o">.</span><span class="n">sh</span>
+<span class="o">./</span><span class="n">even_odd</span><span class="o">.</span><span class="n">sh</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="n">a</span> <span class="n">integer</span> <span class="n">here</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Let’s see if it works:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./even_odd.sh<span class="w"> </span><span class="m">47</span>
+The<span class="w"> </span>inputted<span class="w"> </span>number<span class="w"> </span>is<span class="w"> </span>odd!
+$<span class="w"> </span>./even_odd.sh<span class="w"> </span><span class="m">1002</span>
+The<span class="w"> </span>inputted<span class="w"> </span>number<span class="w"> </span>is<span class="w"> </span>even!
+</pre></div>
+</div>
+<p>BONUS: Figure out how to print an error if a non-integer number is inputted, or if a non-numeric character is inputted.</p>
+<p><strong>Exercise 4: Loops</strong></p>
+<p>Next, we’re going to write a bash script that prints numbers from 1 to 10 using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+<p>Create a file called <code class="docutils literal notranslate"><span class="pre">my_for_loop.sh</span></code> and add the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash   </span>
+
+<span class="nv">N</span><span class="o">=</span><span class="m">10</span>
+<span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="m">1</span><span class="p">;</span><span class="w"> </span>i&lt;<span class="o">=</span><span class="nv">$N</span><span class="p">;</span><span class="w"> </span>i++<span class="w"> </span><span class="o">))</span>
+<span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>We can also modify the script to use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop instead:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash   </span>
+
+<span class="nv">N</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">i</span><span class="o">=</span><span class="m">1</span>
+<span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$i</span><span class="w"> </span>-le<span class="w"> </span><span class="nv">$N</span><span class="w"> </span><span class="o">]</span>
+<span class="k">do</span><span class="w"> </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nv">i</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="nv">$i</span><span class="w"> </span><span class="o">+</span><span class="m">1</span><span class="w"> </span><span class="k">))</span><span class="w"> </span><span class="c1"># Double parentheses are a C-style construct to apply arithmetic evaluation</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="demo-shell-and-environment-variables">
+<h2>DEMO: Shell and Environment Variables<a class="headerlink" href="#demo-shell-and-environment-variables" title="Link to this heading"></a></h2>
+<p>In Unix/Linux environments, you can set variables that can be used later.</p>
+<p>For example, let’s say you wanted set a variable that goes to a new folder you created called <code class="docutils literal notranslate"><span class="pre">my_stuff</span></code> in your home directory under the variable STUFF.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>my_stuff
+<span class="nb">cd</span><span class="w"> </span>my_stuff
+<span class="nv">STUFF</span><span class="o">=</span><span class="nv">$PWD</span>
+</pre></div>
+</div>
+<p>the set of lines above would create the folder <code class="docutils literal notranslate"><span class="pre">my_stuff</span></code> and point the <code class="docutils literal notranslate"><span class="pre">STUFF</span></code> variable to the path <code class="docutils literal notranslate"><span class="pre">$HOME/my_stuff</span></code>. You can print out what the variable is using the <code class="docutils literal notranslate"><span class="pre">echo</span></code> command and designating the <code class="docutils literal notranslate"><span class="pre">$</span></code> will read the variable’s string value:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="nv">$STUFF</span>
+</pre></div>
+</div>
+<p>If you close the terminal session, the variable will disappear.</p>
+<p>Now let’s say you want use this variable within a shell script. Let’s create the script <code class="docutils literal notranslate"><span class="pre">stuff.sh</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$STUFF</span>
+</pre></div>
+</div>
+<p>If we try to make it executable and run it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ➜  chmod +x stuff.sh
+$ ➜  ./stuff.sh 
+
+
+</pre></div>
+</div>
+<p>We see that nothing is outputted. When you set a variable in this way, it only works with the current <em>parent</em> process. It cannot spawn any <em>child</em> process that can also use the variable. Thankfully, we can fix this by using the <code class="docutils literal notranslate"><span class="pre">export</span></code> command when setting the <code class="docutils literal notranslate"><span class="pre">STUFF</span></code> variable. Assuming you’re still in the same directory, run the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">STUFF</span><span class="o">=</span><span class="nv">$PWD</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>Now if we re-run the script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>➜<span class="w">  </span>my_stuff<span class="w"> </span>./stuff.sh<span class="w"> </span>
+/Users/username/my_stuff
+</pre></div>
+</div>
+<section id="common-environment-variables">
+<h3>Common Environment Variables<a class="headerlink" href="#common-environment-variables" title="Link to this heading"></a></h3>
+<p>When customizing our software environment, environment variables are used to control what the shell can see and use. The most common 3 variables you may need to modify are <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, <code class="docutils literal notranslate"><span class="pre">CPATH</span></code>, and <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>. They all serve distinct rules to the shell environment.</p>
+</section>
+<section id="path-variable">
+<h3>PATH variable<a class="headerlink" href="#path-variable" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PATH</span></code> sets the directories you can run executables without specifying their entire path. For example, the text editor <code class="docutils literal notranslate"><span class="pre">nano</span></code> is (typically) located at <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code>. You can see this using the <code class="docutils literal notranslate"><span class="pre">which</span></code> command:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ which nano
+/usr/bin/nano
+</pre></div>
+</div>
+<p>We can see all the executable sources from PATH by printing out the variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo $PATH
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+</pre></div>
+</div>
+<p>Hence, with this environment variable, all executables located in <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/local/sbin</span></code>, and <code class="docutils literal notranslate"><span class="pre">/usr/sbin</span></code>. Let’s say you wanted to add our <code class="docutils literal notranslate"><span class="pre">stuff.sh</span></code> script to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable. You can do this by recursively appending the <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> variable with our <code class="docutils literal notranslate"><span class="pre">$STUFF</span></code> variable we defined above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export PATH=$PATH:$STUFF
+$ echo $PATH
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/Users/username/my_stuff
+</pre></div>
+</div>
+<p>Now if we can change our directories, and access the <code class="docutils literal notranslate"><span class="pre">stuff.sh</span></code> script in any directory we’re in, in that terminal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $HOME
+$ stuff.sh
+/Users/username/my_stuff
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ld-library-path-cpath">
+<h2><code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">CPATH</span></code><a class="headerlink" href="#ld-library-path-cpath" title="Link to this heading"></a></h2>
+<p>Similary, the environment variables <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> and <code class="docutils literal notranslate"><span class="pre">CPATH</span></code> are important for setting up software variables.</p>
+<p><code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> allows the OS to see what system libraries a program may need to run,.</p>
+<p><code class="docutils literal notranslate"><span class="pre">CPATH</span></code> allows the OS to find header files for C-programming language codes.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fcebae10>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

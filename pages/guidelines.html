@@ -1,0 +1,682 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guidelines &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/guidelines.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Computing Options at Mines" href="computing_options.html" />
+    <link rel="prev" title="Overview of Research Computing at Mines" href="overview.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hpc-storage-rates-and-best-practices">HPC &amp; Storage Rates and Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hpc-rates-wendian">HPC Rates (Wendian)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-hpc-usage">Checking HPC usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-job-efficiency">Checking job efficiency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#storage-rates">Storage Rates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-guidelines">Data Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hpc-etiquette">HPC Etiquette</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#login-management-node">Login/Management Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scratch-vs-home-directory">Scratch vs Home Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#home-directory-guidelines">Home Directory Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scratch-guidelines">Scratch Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slurm">Slurm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#walltime-guidelines">Walltime Guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#incorporate-checkpointing">Incorporate checkpointing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#high-performance-computing-hpc-node-life-cycle">High-Performance Computing (HPC) Node Life Cycle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#guidelines-statement">Guidelines Statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#guidelines-details">Guidelines Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#review-and-revision">Review and Revision</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#wendian-guidelines">Wendian Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#student-partition-of-wendian-hpc-cluster">Student Partition of Wendian HPC Cluster</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#departmental-contributions-and-priority-access">Departmental Contributions and Priority Access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-specifications">System Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cpu-nodes">CPU Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu-node">GPU Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#access">Access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resource-allocation-and-limits">Resource Allocation and Limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project-duration">Project Duration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#job-scheduling-and-queuing">Job Scheduling and Queuing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#support-and-help">Support and Help</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-management-and-security">Data Management and Security</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#termination-of-access">Termination of Access</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-center-guidelines">Data Center Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#condo-additions">Condo Additions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#financial-justification-and-funding">Financial Justification and Funding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#support">Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hardware">Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#warranty">Warranty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#start-up-fees">Start-Up Fees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procurement-process">Procurement Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inventory">Inventory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hosted-co-located-additions">Hosted (Co-Located) Additions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cybersecurity">Cybersecurity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rack-space">Rack Space</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Inventory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Warranty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cost">Cost</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Guidelines</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pages/guidelines.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guidelines">
+<h1>Guidelines<a class="headerlink" href="#guidelines" title="Link to this heading"></a></h1>
+<section id="hpc-storage-rates-and-best-practices">
+<h2>HPC &amp; Storage Rates and Best Practices<a class="headerlink" href="#hpc-storage-rates-and-best-practices" title="Link to this heading"></a></h2>
+<section id="hpc-rates-wendian">
+<h3>HPC Rates (Wendian)<a class="headerlink" href="#hpc-rates-wendian" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Node Type</strong></p></th>
+<th class="head"><p><strong>Rate per hour [USD]</strong></p></th>
+<th class="head"><p><strong>CPU core</strong></p></th>
+<th class="head"><p><strong>Memory per CPU core [GB]</strong></p></th>
+<th class="head"><p><strong>GPU</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CPU</p></td>
+<td><p>$0.005</p></td>
+<td><p>1</p></td>
+<td><p>5 or 10*</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPU enabled</p></td>
+<td><p>$0.03**</p></td>
+<td><p>6</p></td>
+<td><p>48</p></td>
+<td><p>1 x NVIDIA V100</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Last updated: 8/14/2024</em></p>
+<p>*There are two types of CPU nodes on Wendian: (1) a “low” memory node of 192 GB, and (2) a “high” memory node of 384 GB node. Jobs will be routed to each of these nodes depending on requested resources.</p>
+<p>**For GPU jobs, the V100 node has 4 GPU cards. For each GPU card you request, you automatically must pay for 6 CPU cores and 48 GB memory, since this is ¼ of the available compute resources on the GPU node.</p>
+</section>
+<section id="checking-hpc-usage">
+<h3>Checking HPC usage<a class="headerlink" href="#checking-hpc-usage" title="Link to this heading"></a></h3>
+<p>If you would like to check your usage for a given month, we have provided some convenient commands on Wendian.</p>
+<p>To check usage as a user, use the command <code class="docutils literal notranslate"><span class="pre">getUtilizationByUser</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$janedoe@wendian002:[~]: getUtilizationByUser 
+janedoe -- Cluster/Account/User Utilization 2023-04-01T00:00:00 - 2023-04-12T11:59:59 (993600 secs)
+&quot;Account&quot;,&quot;User&quot;,&quot;Amount&quot;,&quot;Used&quot;
+&quot;hpcgroup&quot;,&quot;janedoe - Jane Doe&quot;,$1.23,0
+</pre></div>
+</div>
+<p>To check usage as a PI for all your users, use the command <code class="docutils literal notranslate"><span class="pre">getUtilizationByPI</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pi@wendian002:[~]: getUtilizationByPI
+pi -- Cluster/Account/User Utilization 2023-04-01T00:00:00 - 2023-04-12T11:59:59 (993600 secs)
+&quot;Account&quot;|&quot;User&quot;|&quot;Amount&quot;
+&quot;hpcgroup&quot;,&quot;janedoe - Jane Doe&quot;,$1.23,0
+&quot;hpcgroup&quot;,&quot;johnsmith - John Smith&quot;,$1000.00,0
+</pre></div>
+</div>
+</section>
+<section id="checking-job-efficiency">
+<h3>Checking job efficiency<a class="headerlink" href="#checking-job-efficiency" title="Link to this heading"></a></h3>
+<p>After a given job is complete, we have a tool installed called <code class="docutils literal notranslate"><span class="pre">reportseff</span></code> that allows one to quickly check the percent utilization of CPU and memory requested. This tool can let you check jobs for a given jobID, as well as check in a given job directory that has slurm output files.</p>
+<p>Please refer to the GitHub page for more information: <a class="reference external" href="https://github.com/troycomi/reportseff">https://github.com/troycomi/reportseff</a></p>
+<p>If you find that you are poorly utilizing CPU or memory resources, feel free to reach out to the <a class="reference external" href="https://helpcenter.mines.edu">Mines Help Center</a> for an <a class="reference external" href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/ServiceDet?ID=30287">HPC Consultation</a>. Job efficiency likely needs to be solved by a case by case basis, and we can serve you best this way.</p>
+</section>
+<section id="storage-rates">
+<h3>Storage Rates<a class="headerlink" href="#storage-rates" title="Link to this heading"></a></h3>
+<p>The current storage rate policy is below:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Storage</p></th>
+<th class="head"><p>Rate [USD/Terabyte/Month]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Orebits, backed-up</p></td>
+<td><p>$1.75</p></td>
+</tr>
+<tr class="row-odd"><td><p>Orebits, no back-up</p></td>
+<td><p>$1.00</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Last updated: 08/14/2024</em></p>
+</section>
+</section>
+<section id="data-guidelines">
+<h2>Data Guidelines<a class="headerlink" href="#data-guidelines" title="Link to this heading"></a></h2>
+<p>There are a few data solutions we offer at Mines for research data:</p>
+<ul class="simple">
+<li><p>Orebits - High capacity research storage <em>not</em> connected to HPC</p></li>
+</ul>
+<p>The following are only on Wendian &amp; Mio:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/scratch</span></code> - Active research data, subject to 90 day data purge</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/scratch/projects</span></code> - Scratch research data used within a research project that shared with multiple users, also subject to 90 day data purge. The PI must request a projects directory with the list of authorized users.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/sets</span></code> - Long term data storage available on HPC. The PI must request a sets directory with a list of authorized users.</p></li>
+</ul>
+<p>Note that all data on these directories have no redudancy, so please keep up with your own backups of active research data.</p>
+<p>Your account privileges may be suspended if we detect any attempt to evade the data purge policies (i.e. scripting the touching of files to keep them current)</p>
+<p>The table below breaks down the purge policy and associated costs of each the data solutions:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Purge Guidelines</p></th>
+<th class="head"><p>Cost</p></th>
+<th class="head"><p>Redunancy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Scratch (<code class="docutils literal notranslate"><span class="pre">/scratch</span></code>)</p></td>
+<td><p>&gt;90 days</p></td>
+<td><p>Free</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>Projects (<code class="docutils literal notranslate"><span class="pre">/scratch/projects</span></code>)</p></td>
+<td><p>&gt;90 days</p></td>
+<td><p>Free</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>Wendian Long-Term Storage (<code class="docutils literal notranslate"><span class="pre">/sets</span></code>)</p></td>
+<td><p>None</p></td>
+<td><p>Free</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>Orebits</p></td>
+<td><p>None</p></td>
+<td><p>$1.75/TB/month</p></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Your account privileges may be suspended if we detect any attempt to evade the data purge policies (i.e. scripting the touching of files to keep them current)</p>
+</div></blockquote>
+<p><em>Last updated: 06/23/2025</em></p>
+</section>
+<section id="hpc-etiquette">
+<h2>HPC Etiquette<a class="headerlink" href="#hpc-etiquette" title="Link to this heading"></a></h2>
+<section id="login-management-node">
+<h3>Login/Management Node<a class="headerlink" href="#login-management-node" title="Link to this heading"></a></h3>
+<p>When you login one of our HPC systems, you login what is known as the “management” node. This node allows one to login to HPC systems and interface with the job scheduler SLURM. Additionally, the management node can also be used to edit files, create environment and compile codes. However as a general rule, <strong>running simulation software on the management node is prohibited.</strong> On both HPC systems, a software called <code class="docutils literal notranslate"><span class="pre">arbiter</span></code> monitors system resources used on the login node. If you are using too many CPU resources, an automated email will be sent to you Mines E-Mail, warning you and throttling your CPU usage. Once a cooldown period ends, your CPU allotment will return to normal.</p>
+</section>
+<section id="scratch-vs-home-directory">
+<h3>Scratch vs Home Directory<a class="headerlink" href="#scratch-vs-home-directory" title="Link to this heading"></a></h3>
+</section>
+<section id="home-directory-guidelines">
+<h3>Home Directory Guidelines<a class="headerlink" href="#home-directory-guidelines" title="Link to this heading"></a></h3>
+<p>Every user has 20GB of data allocated to their <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> directory. A common issue with filling this storage is conda environments. You can clean your conda packages by following <a class="reference external" href="https://wpfiles.mines.edu/wp-content/uploads/ciarc/docs/pages/user_guides/python_environments.html#cleaning-up-conda-packages">this</a> page.</p>
+</section>
+<section id="scratch-guidelines">
+<h3>Scratch Guidelines<a class="headerlink" href="#scratch-guidelines" title="Link to this heading"></a></h3>
+<p>Files on <code class="docutils literal notranslate"><span class="pre">/scratch</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">$SCRATCH</span></code>)  is a short-term shared filesystem for storing data currently necessary for active research projects. Subject to purge on a six-month (90 day) cycle. There are no limits (within reason) to amount of data.</p>
+</section>
+<section id="slurm">
+<h3>Slurm<a class="headerlink" href="#slurm" title="Link to this heading"></a></h3>
+<section id="walltime-guidelines">
+<h4>Walltime Guidelines<a class="headerlink" href="#walltime-guidelines" title="Link to this heading"></a></h4>
+<p>The standard maximum walltime is six days (144 hours):</p>
+<p><code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">–time=144:00:00.</span></code></p>
+<p>This policy is strictly enforced by HPC&#64;Mines.  In the event that the computational problem you are tasked with solving seems to require a walltime that exceeds 144 hours, we strongly encourage that you find alternative approaches to simply extending walltime.  Below are two possible approaches.</p>
+<section id="increase-the-amount-of-parallelism">
+<h5>Increase the amount of parallelism<a class="headerlink" href="#increase-the-amount-of-parallelism" title="Link to this heading"></a></h5>
+<p>By increasing the number of cores/nodes used in your job, you can often decrease the total wall time needed. If your code is only a single-core workload, feel free to reach out to us for a <a class="reference external" href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/ServiceDet?ID=33487">HPC technical consultation</a> for other workflow options.</p>
+</section>
+</section>
+<section id="incorporate-checkpointing">
+<h4>Incorporate checkpointing<a class="headerlink" href="#incorporate-checkpointing" title="Link to this heading"></a></h4>
+<p>Checkpointing is the process of periodically saving the state of a code’s program execution so that it can be resumed at a later time.  This is extremely helpful in mitigating the effects on your calculation in the event of an unexpected crash or error.  By saving output periodically, or at a certain recurring point, and being able to restart the calculation using the saved output, a catastrophic loss of an entire days-long compute effort could be avoided.  Using checkpointing to intentionally restart a calculation at a reasonably estimated point is a recommended approach to remain within the six-day maximum walltime.</p>
+<p>For more focused computational assistance, with the above situations and other compute aspects of your research, the HPC&#64;Mines team is available and willing to provide personal, one-on-one assistance.  Please <a class="reference external" href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/ServiceDet?ID=33487">submit a help request</a> to start the process.  We also suggest consulting with members of your group or other peers currently using similar codes or applications; they may provide expedited answers to your questions, based on their experience.</p>
+</section>
+</section>
+</section>
+<section id="high-performance-computing-hpc-node-life-cycle">
+<h2>High-Performance Computing (HPC) Node Life Cycle<a class="headerlink" href="#high-performance-computing-hpc-node-life-cycle" title="Link to this heading"></a></h2>
+<section id="guidelines-statement">
+<h3>Guidelines Statement<a class="headerlink" href="#guidelines-statement" title="Link to this heading"></a></h3>
+<p>This policy outlines the support and decommissioning process for High-Performance Computing (HPC) nodes within our organization. It establishes the duration of support under a service contract, outlines the repair procedures after the contract ends, and sets the retirement timeframe of seven years for HPC nodes.</p>
+</section>
+<section id="guidelines-details">
+<h3>Guidelines Details<a class="headerlink" href="#guidelines-details" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Support under Service Contract:</p>
+<ol class="arabic simple">
+<li><p>HPC nodes will be covered under a service contract for a specified duration, which will be determined during the procurement process. The service contract will include technical support, maintenance, and repair services.</p></li>
+<li><p>The service contract duration will be communicated to the relevant stakeholders and documented by the HPC administration team.</p></li>
+</ol>
+</li>
+<li><p>Post-Service Contract Repairs:</p>
+<ol class="arabic simple">
+<li><p>After the service contract ends, the HPC administration team will continue to support HPC nodes for repairs if they meet the following criteria:</p>
+<ol class="arabic simple">
+<li><p>The issue is identified as an easy fix that can be resolved without significant time, effort, or expense.</p></li>
+<li><p>The necessary parts for repair are readily available and can be obtained within a reasonable timeframe and cost.</p></li>
+</ol>
+</li>
+<li><p>Repairs falling outside the criteria mentioned above may be considered on a case-by-case basis, subject to approval by the designated authority based on factors such as the node’s importance, overall HPC system requirements, and financial considerations.</p></li>
+</ol>
+</li>
+<li><p>Retirement at Seven Years:</p>
+<ol class="arabic simple">
+<li><p>At the seven-year mark from the date of initial deployment or purchase, HPC nodes will be decommissioned as part of the standard retirement process.</p></li>
+<li><p>The HPC administration team will coordinate the retirement process with the affected users.</p></li>
+<li><p>Upon retirement, the node will be securely removed from the HPC cluster, and any remaining components will be properly disposed of or repurposed as per applicable guidelines.</p></li>
+</ol>
+</li>
+<li><p>Exceptional Cases:</p>
+<ol class="arabic simple">
+<li><p>In exceptional cases where repairing a node beyond the service contract period may be necessary due to critical dependencies or unique circumstances, a deviation from this policy may be considered.</p></li>
+<li><p>Exceptions to the retirement timeframe or repair criteria must be approved by the research computing manager, following a thorough evaluation and justification process.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="review-and-revision">
+<h3>Review and Revision<a class="headerlink" href="#review-and-revision" title="Link to this heading"></a></h3>
+<p>This policy shall be reviewed periodically to ensure its effectiveness and relevance. Revisions to the policy may be made as necessary, with approval from the HPC steering committee.</p>
+</section>
+</section>
+<section id="wendian-guidelines">
+<h2>Wendian Guidelines<a class="headerlink" href="#wendian-guidelines" title="Link to this heading"></a></h2>
+<section id="student-partition-of-wendian-hpc-cluster">
+<h3>Student Partition of Wendian HPC Cluster<a class="headerlink" href="#student-partition-of-wendian-hpc-cluster" title="Link to this heading"></a></h3>
+<section id="purpose">
+<h4>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h4>
+<p>The Student partition of Wendian is dedicated to supporting student education. Access to this partition is available for use by students under the guidance of professors or sponsors. The primary goals are to promote hands-on learning of HPC (High Performance Computing) practices; including the responsible use of resources, efficient task management, and checkpointing.</p>
+</section>
+<section id="departmental-contributions-and-priority-access">
+<h4>Departmental Contributions and Priority Access<a class="headerlink" href="#departmental-contributions-and-priority-access" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>A special thank you to the Applied Mathematics &amp; Statistics (AMS) department for contributing to the funding of the Student partition. In recognition of their contribution, AMS will receive priority access to resources, proportional to their investment.</p></li>
+<li><p>Other departments or groups interested in contributing to the future expansion of the HPC cluster should reach out to the Mines Research Computing team. In return for contributions, departments will be provided similar priority access proportional to their contribution.</p></li>
+</ul>
+</section>
+<section id="system-specifications">
+<h4>System Specifications<a class="headerlink" href="#system-specifications" title="Link to this heading"></a></h4>
+</section>
+<section id="cpu-nodes">
+<h4>CPU Nodes<a class="headerlink" href="#cpu-nodes" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Number of Nodes: 7</p></li>
+<li><p>Cores per Node: 32 Intel Xeon Platinum cores (INTEL XEON PLATINUM 8562Y+)</p></li>
+<li><p>Total Cores Available: 224 cores</p></li>
+<li><p>Memory per node:  502 GB (usable)</p></li>
+</ul>
+</section>
+<section id="gpu-node">
+<h4>GPU Node<a class="headerlink" href="#gpu-node" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Number of Nodes: 1</p></li>
+<li><p>Cores Per Node: 64 cores (AMD EPYC 9534)</p></li>
+<li><p>GPUs per Node: 4 x NVIDIA L40s (48 GB VRAM)</p></li>
+<li><p>Memory per Node: 770 GB</p></li>
+</ul>
+</section>
+<section id="access">
+<h4>Access<a class="headerlink" href="#access" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Professors or sponsors must submit a TDX ticket to request a Wendian account.</p></li>
+<li><p>In the TDX ticket, the following details must be provided:</p>
+<ul>
+<li><p><strong>Purpose</strong>: Provide a general description of the project and its goals.</p></li>
+<li><p><strong>Start and End Dates</strong>: Clearly specify the expected duration of the course.</p></li>
+<li><p><strong>Max CPU Cores Requested</strong>: The maximum number of CPU cores the user is expected to use per job.</p></li>
+<li><p><strong>Software Requirements:</strong> List all software necessary for the project.</p></li>
+<li><p><strong>Interactive Sessions:</strong> Provide a tentative schedule for when interactive sessions are needed.</p></li>
+</ul>
+</li>
+</ul>
+<p>TDX ticket requests will be reviewed to ensure equitable and appropriate resource allocation.</p>
+</section>
+<section id="resource-allocation-and-limits">
+<h4>Resource Allocation and Limits<a class="headerlink" href="#resource-allocation-and-limits" title="Link to this heading"></a></h4>
+<p>To encourage resource sharing and good HPC habits, the following limits apply:</p>
+<ul class="simple">
+<li><p>Maximum Wall Time: 4 hours per job. Users are encouraged to break large workflows into smaller jobs to maximize throughput and promote fairness in scheduling.</p></li>
+<li><p>Course-Based Allocations: Resource allocations will be based on the specific needs of each course, as provided in advance in the TDX ticket. This ensures resources are allocated appropriately to match the scope of the course.  <em>See above: Eligibility</em></p></li>
+<li><p>Checkpointing: Users are encouraged to checkpoint long-running jobs to avoid data loss or waste of computational resources.</p></li>
+<li><p>Fair Usage: Slurm’s Fair-Share algorithm prioritizes jobs based on prior usage.  Users are expected to share resources and be considerate of other users. No user should monopolize the partition for extended periods.</p></li>
+</ul>
+</section>
+<section id="project-duration">
+<h4>Project Duration<a class="headerlink" href="#project-duration" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Project accounts will be granted for a specific time period as requested in the TDX ticket, with a clearly defined start and end date.</p></li>
+<li><p>Projects that extend beyond the approved end date may request an extension through a follow-up TDX ticket, subject to availability of resources.</p></li>
+</ul>
+</section>
+<section id="job-scheduling-and-queuing">
+<h4>Job Scheduling and Queuing<a class="headerlink" href="#job-scheduling-and-queuing" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>In-class interactive usage is provided via reservations on a first-come, first-served basis as requested in the TDX ticket.</p></li>
+<li><p>Jobs are scheduled on a first-come, first-served basis until the partition is full. Once the partition is full jobs will be given priority based largely on the QoS and <a class="reference external" href="https://slurm.schedmd.com/fair_tree.html">Fair-Share</a> factors.</p></li>
+<li><p>Users are encouraged to break large workflows into smaller jobs to maximize throughput and promote fairness in scheduling.</p></li>
+</ul>
+</section>
+<section id="support-and-help">
+<h4>Support and Help<a class="headerlink" href="#support-and-help" title="Link to this heading"></a></h4>
+<p>HPC support is available to assist users with technical questions, software installations, and job submission issues within reasonable limits. Please note that the support team will not complete assignments or perform coursework on behalf of students. For assistance, contact the Mines Research Computing team through the ticketing system: <a class="reference external" href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&amp;amp;RequestorType=Service">Research Computing (RC) Services</a>.</p>
+</section>
+<section id="data-management-and-security">
+<h4>Data Management and Security<a class="headerlink" href="#data-management-and-security" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Users are responsible for managing their own data, including backup and transfer of results. Regular data transfers and cleanup are encouraged to free up storage.</p></li>
+<li><p><a class="reference external" href="https://outlook.office365.com/book/ResearchComputingSupportTeamServices&#64;mines0.onmicrosoft.com/?ae=true&amp;amp;login_hint">Data Management consultations</a> are available to learn how to use Globus &amp; OnDemand</p></li>
+</ul>
+</section>
+<section id="termination-of-access">
+<h4>Termination of Access<a class="headerlink" href="#termination-of-access" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Access to the Student partition will automatically be terminated after the course’s end date.</p></li>
+<li><p>Users are expected to remove any relevant data prior to the course’s end date.</p></li>
+<li><p>Violations of this policy, including attempting to monopolize resources or use of the student partition for funded work, may result in earlier termination of access.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="data-center-guidelines">
+<h2>Data Center Guidelines<a class="headerlink" href="#data-center-guidelines" title="Link to this heading"></a></h2>
+<p>The Research Computing (RC) at Colorado School of Mines provides condo &amp; colocation services at its CTLM facility, offering fast connectivity for hosting research servers. This webpage outlines the guidelines and requirements for physically hosting data center equipment in this shared facility, benefiting the Colorado School of Mines research community.</p>
+<section id="condo-additions">
+<h3>Condo Additions<a class="headerlink" href="#condo-additions" title="Link to this heading"></a></h3>
+<p>Principal Investigators (PIs) may integrate exclusive hardware partitions into the main cluster to support specific research needs while ensuring system compatibility and operational efficiency</p>
+<section id="financial-justification-and-funding">
+<h4>Financial Justification and Funding<a class="headerlink" href="#financial-justification-and-funding" title="Link to this heading"></a></h4>
+<p>Hardware purchases require a clear financial justification and must be funded using unrestricted capital funds.</p>
+</section>
+<section id="support">
+<h4>Support<a class="headerlink" href="#support" title="Link to this heading"></a></h4>
+<p>The Research Computing team is responsible for maintaining all aspects of the computing environment, including the operating system, security features, and software. Hardware support and management are fully centralized within the Research Computing team. This model encourages a hands-off approach for Principal Investigators (PIs).”</p>
+</section>
+<section id="hardware">
+<h4>Hardware<a class="headerlink" href="#hardware" title="Link to this heading"></a></h4>
+<p>PIs must collaborate with the Research Computing team to ensure technical compatibility and obtain approval for vendor selection and hardware specifications. Integrated hardware must include InfiniBand cards, adhere to cluster interoperability standards, be under warranty, and be no more than five years old.</p>
+</section>
+<section id="warranty">
+<h4>Warranty<a class="headerlink" href="#warranty" title="Link to this heading"></a></h4>
+<p>All equipment must be under warranty or maintenance contract. Equipment is expected to have a maximum operational lifespan of five years, and customers should plan for regular equipment refresh cycles.</p>
+</section>
+<section id="start-up-fees">
+<h4>Start-Up Fees<a class="headerlink" href="#start-up-fees" title="Link to this heading"></a></h4>
+<p>Start-up fees will apply per port and per kW to cover the cost of cables and switches. Rates will be provided upon consultation with the Research Computing team.</p>
+</section>
+<section id="procurement-process">
+<h4>Procurement Process<a class="headerlink" href="#procurement-process" title="Link to this heading"></a></h4>
+<p>The Research Computing team will collaborate with the Procurement team to facilitate hardware purchases and ensure compliance with all institutional policies.</p>
+</section>
+<section id="inventory">
+<h4>Inventory<a class="headerlink" href="#inventory" title="Link to this heading"></a></h4>
+<p>Customers authorize Mines IT &amp; Research Computing to manage the Annual Capital Asset Inventory process.
+Hosted (Co-Located) Additions</p>
+</section>
+</section>
+<section id="hosted-co-located-additions">
+<h3>Hosted (Co-Located) Additions<a class="headerlink" href="#hosted-co-located-additions" title="Link to this heading"></a></h3>
+<p>This outlines the guidelines and requirements for faculty interested in  managing their own hardware within the centrally managed Mines data center. Due to limited space availability, these guidelines ensure equitable access and responsible resource utilization.</p>
+<section id="cybersecurity">
+<h4>Cybersecurity<a class="headerlink" href="#cybersecurity" title="Link to this heading"></a></h4>
+<p>Adherence to industry best practices and relevant security regulations is mandatory. While Mines IT provides a secure network environment, failure to maintain adequate security standards on the part of a hardware owner may result in disconnection from the network to mitigate potential security risks to the overall campus environment.</p>
+</section>
+<section id="rack-space">
+<h4>Rack Space<a class="headerlink" href="#rack-space" title="Link to this heading"></a></h4>
+<p>Customers may only deploy equipment that has been approved by Mines IT. Allocated rack space must be used exclusively, and customers are obligated to respect the space allotted to other users.</p>
+</section>
+<section id="id1">
+<h4>Hardware<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<p>Equipment must function reliably within a cooling temperature up to 85°F.   Servers must have redundant power supplies or run the risk of losing function during data center and network maintenance windows.  A baseboard management system is strongly suggested such as iLO, iDRAC, or other BMC for the purpose of remote OS upgrades, rebooting, etc.  Owners are responsible for physical delivery to the CTLM server room, unboxing, rack installation, and configuration (OS, sys admin configs, networking, user management) of the hosted server.  IT System Administration team will assist with network port, network cable setup, KVM connection, and power access within the CTLM data center.</p>
+</section>
+<section id="id2">
+<h4>Access<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<p>Systems are accessible via the network 24x7, except for regularly scheduled maintenance downtime related to the Mines network or server room maintenance.  Physical access to the data center is restricted to authorized faculty and staff 24/7 after registering with the building proctor and setting up credentials with Mines Lock Shop.</p>
+</section>
+<section id="id3">
+<h4>Inventory<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<p>System owners are expected to manage the Annual Capital Asset Inventory process.</p>
+</section>
+<section id="id4">
+<h4>Warranty<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<p>All equipment must be under warranty or maintenance contract. Equipment is expected to have a maximum operational lifespan of five years, and customers should plan for regular equipment refresh cycles. Customers are responsible for promptly updating equipment information with Mines IT upon replacement.</p>
+</section>
+<section id="id5">
+<h4>Support<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>Mines IT does NOT provide direct technical support for co-located equipment. Principal Investigators (PIs) are responsible for the maintenance and support of their hardware and software.</p>
+</section>
+<section id="cost">
+<h4>Cost<a class="headerlink" href="#cost" title="Link to this heading"></a></h4>
+<p>Start-up fees will be assessed based on port usage and power consumption (per kW). These fees cover the costs associated with cabling and network switches. Rates will be determined during consultation with the Research Computing team</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview of Research Computing at Mines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="computing_options.html" class="btn btn-neutral float-right" title="Computing Options at Mines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fd072f60>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

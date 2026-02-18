@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paraview Server Startup and Connection Guide &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/visualization_guides/paraview-server-startup.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ansys Remote Visualization Client Startup Guide" href="fluent-remote-visualization.html" />
+    <link rel="prev" title="Graphing using Matplotlib and Creating Interactive Plots and Animations" href="2d-prime-plots.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Paraview Server Startup and Connection Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-paraview-by-connecting-to-a-server-running-on-our-hpc-platform-at-mines">Using ParaView by Connecting to a Server running on our HPC platform at Mines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-creating-a-job-submit-script-and-submit">Step 1: Creating a Job Submit Script and Submit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-what-node-is-paraview-running-on-and-setting-up-your-tunnel">Step 2: What node is ParaView running on and setting up your tunnel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-create-a-secure-tunnel-to-the-host-from-your-client-machine">Step 2: Create a secure tunnel to the host from your client machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-start-paraview-and-connect-to-the-server">Step 3: Start ParaView and connect to the server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-adding-the-server-configuration">Step 4: Adding the Server Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-5-connect-to-the-selected-server">Step 5: Connect to the Selected Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#successful-connection-from-paraview-client-to-a-remote-server-on-mines-hpc">Successful connection from ParaView client to a Remote Server on Mines’ HPC</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#closing-paraview">Closing Paraview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guides/archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Paraview Server Startup and Connection Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/visualization_guides/paraview-server-startup.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="paraview-server-startup-and-connection-guide">
+<h1>Paraview Server Startup and Connection Guide<a class="headerlink" href="#paraview-server-startup-and-connection-guide" title="Link to this heading"></a></h1>
+<section id="using-paraview-by-connecting-to-a-server-running-on-our-hpc-platform-at-mines">
+<h2>Using ParaView by Connecting to a Server running on our HPC platform at Mines<a class="headerlink" href="#using-paraview-by-connecting-to-a-server-running-on-our-hpc-platform-at-mines" title="Link to this heading"></a></h2>
+<p>ParaView is a visualization open-source software that runs in a server/client relationship scalable and
+useable across multiple platforms. This is a quick start access guide to starting a server running on
+Mines HPC platforms and connecting from your local client machine. Visit ParaView.org for
+software downloads to get a matching version to the HPC platform, and visit the ParaView Wiki for further
+resources. This guide details configuration settings for Mines HPC using the following resources as a guide:
+<a class="reference external" href="https://docs.paraview.org/en/latest/ReferenceManual/parallelDataVisualization.html">https://docs.paraview.org/en/latest/ReferenceManual/parallelDataVisualization.html</a>
+and <a class="reference external" href="https://hpc.llnl.gov/running-paraview-client-server-mode">https://hpc.llnl.gov/running-paraview-client-server-mode</a></p>
+<section id="step-1-creating-a-job-submit-script-and-submit">
+<h3>Step 1: Creating a Job Submit Script and Submit<a class="headerlink" href="#step-1-creating-a-job-submit-script-and-submit" title="Link to this heading"></a></h3>
+<p>The following “paraview_server_job.submit” file is a sample Slurm submit script. Customize the job submit script
+as needed with the correct module version, and add your partition or account number as required.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+# SLURM submit file for Paraview server filename: paraview_server_job.submit
+#SBATCH -ntasks 1
+#SBATCH -t 00:30:00
+# Set a port for running the paraview server connection
+export PV_ACCESSPORT=11111
+
+# Load module for Wendian
+module load apps/paraview/gcc/5.13.0
+
+# Load module for Mio
+#module load apps/paraview/gcc/5.11.0
+
+# For single CPU server job
+pvserver  --server-port=$PV_ACCESSPORT 
+
+# For parallel server
+# mpirun -np $SLURM_NTASKS pvserver --server-port=$PV_ACCESSPORT
+</pre></div>
+</div>
+<p>Submit your job to the Slurm scheduler using sbatch.</p>
+<p>[joeuser&#64;wendian001 ~]$ <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">paraview_server_job.submit</span></code></p>
+</section>
+<section id="step-2-what-node-is-paraview-running-on-and-setting-up-your-tunnel">
+<h3>Step 2: What node is ParaView running on and setting up your tunnel<a class="headerlink" href="#step-2-what-node-is-paraview-running-on-and-setting-up-your-tunnel" title="Link to this heading"></a></h3>
+<p>Once your job has started the file <code class="docutils literal notranslate"><span class="pre">slurm-JOBID.out</span></code> will contain the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Waiting</span> <span class="k">for</span> <span class="n">client</span><span class="o">...</span>
+<span class="n">Connection</span> <span class="n">URL</span><span class="p">:</span> <span class="n">cs</span><span class="p">:</span><span class="o">//</span><span class="n">c078</span><span class="p">:</span><span class="mi">11111</span>
+<span class="n">Accepting</span> <span class="n">connection</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="n">c078</span><span class="p">:</span><span class="mi">11111</span>
+</pre></div>
+</div>
+<p>Or check your SLURM queue for compute node hostnames with <code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">$USER</span></code>, and look under the heading <code class="docutils literal notranslate"><span class="pre">NODELIST</span> <span class="pre">(REASON)</span></code>.</p>
+</section>
+<section id="step-2-create-a-secure-tunnel-to-the-host-from-your-client-machine">
+<h3>Step 2: Create a secure tunnel to the host from your client machine<a class="headerlink" href="#step-2-create-a-secure-tunnel-to-the-host-from-your-client-machine" title="Link to this heading"></a></h3>
+<p>Start a terminal (Linux or MacOS) or Windows PowerShell and run the following command. The first number of the SSH tunnel is<br />
+a port number on your local machine, such as <code class="docutils literal notranslate"><span class="pre">5555</span></code>. Followed by the hostname, here we have <code class="docutils literal notranslate"><span class="pre">c078</span></code>, and the final number is port
+number on the HPC node as stated “Accepting connections(s):” line from your slurm-JOBID.out containing the node and port number
+(<code class="docutils literal notranslate"><span class="pre">c078:11111</span></code>). End the command with your username and the Mines HPC platform.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+</pre></div>
+</div>
+<p>PS Z:&gt; <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-L</span> <span class="pre">5555:node135:11111</span> <span class="pre">janeuser&#64;wendian.mines.edu</span></code></p>
+</section>
+<section id="step-3-start-paraview-and-connect-to-the-server">
+<h3>Step 3: Start ParaView and connect to the server<a class="headerlink" href="#step-3-start-paraview-and-connect-to-the-server" title="Link to this heading"></a></h3>
+<p>Open the ParaView Application on your local machine with the same version number as the Server running on the HPC Platform.
+To configure the connection click the “Connect” button in the top ribbon or go to menu item “File” -&gt; “Connect…”</p>
+<p><img alt="Server connection button" src="../../_images/01-paraview-connection-button.png" /></p>
+<p>Select “Add Server” from the “Choose Server Configuration” window.</p>
+<p><img alt="ParaView Choose Server Configuration - Add Server Button" src="../../_images/02-paraview-choose-server-configuration.png" /></p>
+</section>
+<section id="step-4-adding-the-server-configuration">
+<h3>Step 4: Adding the Server Configuration<a class="headerlink" href="#step-4-adding-the-server-configuration" title="Link to this heading"></a></h3>
+<p>In the “Edit Server Configuration” window give the connection a “Name” such as Wendian_node. Select the “Server Type”
+as “Client / Server”. The connection “Host” will be to the “localhost” SSH tunnel setup previously, and the “Port”
+number 5555. Continue the configuration by clicking “Configure”.</p>
+<p><img alt="ParaView Edit Server Configuration Setup" src="../../_images/03-paraview-edit-server-configuration.png" /></p>
+<p>In the next window “Edit Server Launch Configuration” accept the default setting in “Startup Type” as “Manual” and
+click “Save” to return to the “Choose Server Configuration” window.</p>
+<p><img alt="ParaView Edit Server Launch Configuration" src="../../_images/04-paraview-edit-server-launch-configuration.png" /></p>
+</section>
+<section id="step-5-connect-to-the-selected-server">
+<h3>Step 5: Connect to the Selected Server<a class="headerlink" href="#step-5-connect-to-the-selected-server" title="Link to this heading"></a></h3>
+<p>In the “Choose Server Configuration” window highlight the server you wish to connect to and click “Connect”.</p>
+<p><img alt="ParaView-Select-Server-and-Connect" src="../../_images/05-paraview-select-server-and-connect.png" /></p>
+</section>
+<section id="successful-connection-from-paraview-client-to-a-remote-server-on-mines-hpc">
+<h3>Successful connection from ParaView client to a Remote Server on Mines’ HPC<a class="headerlink" href="#successful-connection-from-paraview-client-to-a-remote-server-on-mines-hpc" title="Link to this heading"></a></h3>
+<p>The connected server will now be displayed in the “Pipeline Browser” with the “Name” of the configuration,
+“Host” and “Port”. Open a data set, such as the tutorial file “can.ex2” and select the Variable to load and
+click “Apply” in the “Properties” to display the model.</p>
+<p><img alt="ParaView Successfully Connected" src="../../_images/06-paraview-successful-connection.png" /></p>
+</section>
+</section>
+<section id="closing-paraview">
+<h2>Closing Paraview<a class="headerlink" href="#closing-paraview" title="Link to this heading"></a></h2>
+<p>One the connection has been initiated to the Server running using the job submit script the running server
+will exit and the job will be complete. If you need to continue working, but need another dataset use the
+“Reset Session” button in the top ribbon or menu item “Edit” -&gt; “Reset Session” to begin again.</p>
+<p><img alt="ParaView Reset Session" src="../../_images/07-paraview-reset-session.png" /></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2d-prime-plots.html" class="btn btn-neutral float-left" title="Graphing using Matplotlib and Creating Interactive Plots and Animations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fluent-remote-visualization.html" class="btn btn-neutral float-right" title="Ansys Remote Visualization Client Startup Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fd225040>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

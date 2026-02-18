@@ -1,0 +1,919 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallel Scaling Guide &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/user_guides/Parallel_Scaling_Guide.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Archived Guides" href="archived_guides.html" />
+    <link rel="prev" title="Knowing your job efficiency" href="job_efficiency_xdmod.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Parallel Scaling Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Software-Prerequisities-for-Guide">Software Prerequisities for Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Prerequisities-to-use-this-Guide">Prerequisities to use this Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#What-is-parallel-scalability?">What is parallel scalability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Before-considering-parallel-scalability">Before considering parallel scalability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Parallelization-Support">Parallelization Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Serial-Performance">Serial Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Measuring-Parallel-Scalability">Measuring Parallel Scalability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Notation">Notation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Performance-Metrics">Performance Metrics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Wall-Time">Wall Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Speed-up">Speed-up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Efficiency">Efficiency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Load-balancing">Load balancing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Other-metrics">Other metrics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Basic-Theory">Basic Theory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Amdahl's-Law">Amdahl’s Law</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Strong-Scaling">Strong Scaling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Weak-Scaling-&amp;-Gustafson's-Law">Weak Scaling &amp; Gustafson’s Law</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Example:-Parallel-Matrix-Vector-Multiplication-using-Python">Example: Parallel Matrix-Vector Multiplication using Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Serial-Matrix-Vector-Multiplicaton-using-Python">Serial Matrix-Vector Multiplicaton using Python</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Pure-Python-Implementation">Pure Python Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#NumPy-Array-Implementation">NumPy Array Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#NumPy's-built-in-Matrix-vector-multiplication-function:-matmul()">NumPy’s built-in Matrix-vector multiplication function: matmul()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Using-Numba-with-NumPy">Using Numba with NumPy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Row-wise-Parallelization-of-Matrix-vector-multiplication-in-Python-using-MPI">Row-wise Parallelization of Matrix-vector multiplication in Python using MPI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Slurm-Setup">Slurm Setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Parallel Scaling Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/user_guides/Parallel_Scaling_Guide.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Parallel-Scaling-Guide">
+<h1>Parallel Scaling Guide<a class="headerlink" href="#Parallel-Scaling-Guide" title="Link to this heading"></a></h1>
+<section id="Software-Prerequisities-for-Guide">
+<h2>Software Prerequisities for Guide<a class="headerlink" href="#Software-Prerequisities-for-Guide" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Python</p>
+<ul>
+<li><p>Jupyter Notebook</p></li>
+<li><p>NumPy</p></li>
+<li><p>mpi4py</p></li>
+<li><p>matplotlib</p></li>
+</ul>
+</li>
+<li><p>Slurm/HPC access (if you want to run the parallel benchmakrs with Slurm)</p></li>
+</ul>
+</section>
+<section id="Introduction">
+<h2>Introduction<a class="headerlink" href="#Introduction" title="Link to this heading"></a></h2>
+<p>One of the biggest pros to using high performance computing (HPC) is the ability to use multiple processors, even across multiple computing nodes. However, due to a combination of factors, including but not limited to: algorithm choice, network protocols/bandwidth/throughput, memory, libraries, and CPU-threading, adding more processors doesn’t necessarily lead to faster performance. In this guide, we will go through a computing example to show how to measure performance and how best to use HPC
+resources for a scientific simulation.</p>
+</section>
+<section id="Prerequisities-to-use-this-Guide">
+<h2>Prerequisities to use this Guide<a class="headerlink" href="#Prerequisities-to-use-this-Guide" title="Link to this heading"></a></h2>
+</section>
+<section id="What-is-parallel-scalability?">
+<h2>What is parallel scalability?<a class="headerlink" href="#What-is-parallel-scalability?" title="Link to this heading"></a></h2>
+<p>Parallel scalability is a measurement of how efficient a simulation’s runtime is affected by changes in computing resources. For this guide, we will focus on the following two degrees of freedom that are modified to determine paralel scalability:</p>
+<ul class="simple">
+<li><p>Problem size (memory)</p></li>
+<li><p>Number of processors</p></li>
+</ul>
+</section>
+<section id="Before-considering-parallel-scalability">
+<h2>Before considering parallel scalability<a class="headerlink" href="#Before-considering-parallel-scalability" title="Link to this heading"></a></h2>
+<p>Before we can discuss parallel scalability, we need to step back and make sure that:</p>
+<ol class="arabic simple">
+<li><p>Your software supports a parallelization model</p></li>
+<li><p>The performance of your simulations when using only one processor</p></li>
+</ol>
+<section id="Parallelization-Support">
+<h3>Parallelization Support<a class="headerlink" href="#Parallelization-Support" title="Link to this heading"></a></h3>
+<p>There are various paradigms of parallel computing that be used to allow your software to use multiple processors. Some of the most popular programming models include:</p>
+<ul class="simple">
+<li><p>Message Passing Interface (MPI)</p>
+<ul>
+<li><p>OpenMPI</p></li>
+<li><p>MPICH</p></li>
+<li><p>Intel MPI</p></li>
+</ul>
+</li>
+<li><p>OpenMP</p></li>
+<li><p>NVIDIA CUDA</p></li>
+<li><p>Dask (Python)</p>
+<ul>
+<li><p>We will be writing a separate guide for this!</p></li>
+</ul>
+</li>
+<li><p>Hybrid (e.g. MPI+OpenMP)</p></li>
+</ul>
+<p>The choice of which parallel programming model to use will largely depend on your problem size and resources required. If you need help getting started with parallel programming in your research code, feel free to <a class="reference external" href="https://ciarc.mines.edu">reach out for a consultation</a>!</p>
+</section>
+<section id="Serial-Performance">
+<h3>Serial Performance<a class="headerlink" href="#Serial-Performance" title="Link to this heading"></a></h3>
+<p>When running simulations with a single processor, we call this a <strong>serial run</strong>. However, it is recommended to try to make optimizations for how fast your serial run is before you jump into a parallel programming model. Depending on your programming language, there are common tools to profile code. We list some common ones below:</p>
+<ul class="simple">
+<li><p>C/C++ and Fortran: <a class="reference external" href="http://sourceware.org/binutils/docs/gprof/">GNU gprof</a></p></li>
+<li><p>Python: <a class="reference external" href="https://docs.python.org/3/library/profile.html">cProfile</a></p></li>
+<li><p>Matlab: <a class="reference external" href="https://www.mathworks.com/help/matlab/matlab_prog/profiling-for-improving-performance.html">profile</a></p></li>
+</ul>
+<p>If you need more help profiliing and optimizing your code, feel free to open a ticket at the <a class="reference external" href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/ServiceDet?ID=33487">Help Desk</a> and we’d happy to help you!</p>
+</section>
+</section>
+<section id="Measuring-Parallel-Scalability">
+<h2>Measuring Parallel Scalability<a class="headerlink" href="#Measuring-Parallel-Scalability" title="Link to this heading"></a></h2>
+<section id="Notation">
+<h3>Notation<a class="headerlink" href="#Notation" title="Link to this heading"></a></h3>
+<p>The table below summarizes the notation we will use for this section.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(P\)</span></p></td>
+<td><p>Number of processors</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+<td><p>Problem size (e.g. <span class="math notranslate nohighlight">\(n\)</span> is number of mesh cells, etc)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(T_{P, max}\)</span></p></td>
+<td><p>Max wall time with <span class="math notranslate nohighlight">\(P\)</span> processors</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(T_{P, avg}\)</span></p></td>
+<td><p>Average wall time across <span class="math notranslate nohighlight">\(P\)</span> processors</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(T_{P, N}\)</span></p></td>
+<td><p>Wall time from the <span class="math notranslate nohighlight">\(N\)</span>-th out of <span class="math notranslate nohighlight">\(P\)</span> processors</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(S_P\)</span></p></td>
+<td><p>Speedup with <span class="math notranslate nohighlight">\(P\)</span> processors</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(E_P\)</span></p></td>
+<td><p>Efficiency with <span class="math notranslate nohighlight">\(P\)</span> processors</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\beta_{P}\)</span></p></td>
+<td><p>Load balance with <span class="math notranslate nohighlight">\(P\)</span> processors</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="Performance-Metrics">
+<h3>Performance Metrics<a class="headerlink" href="#Performance-Metrics" title="Link to this heading"></a></h3>
+<p>In this section we will summarize these common metrics used to benchmark parallel performance.</p>
+<section id="Wall-Time">
+<h4>Wall Time<a class="headerlink" href="#Wall-Time" title="Link to this heading"></a></h4>
+<p>The base measurement one should use is the wall time of the simulation. However, wall time between each processor (<span class="math notranslate nohighlight">\(T_{P,N}\)</span> for processor <span class="math notranslate nohighlight">\(N\)</span>) may be different. Hence, we use two different metrics for wall time, the average <span class="math notranslate nohighlight">\(T_{P, max}\)</span> and the processor with the maximum wall time, <span class="math notranslate nohighlight">\(T_{P,max}\)</span>. For, the derived metrics (speedup, etc), we use <span class="math notranslate nohighlight">\(T_{P,max}\)</span>.</p>
+</section>
+<section id="Speed-up">
+<h4>Speed-up<a class="headerlink" href="#Speed-up" title="Link to this heading"></a></h4>
+<p>The first commonly used metric for measuring parallel performance is <strong>speed-up</strong>. This measurement allows one to see how a code scales relative to the serial case. It is typically defined as the ratio of the serial wall time to the parallel (with <span class="math notranslate nohighlight">\(P\)</span> processors) wall time:</p>
+<div class="math notranslate nohighlight">
+\[S_{P} = \frac{T_{1, max}}{T_{P,max}}.\]</div>
+<p>We call the speedup <strong>ideal</strong> if <span class="math notranslate nohighlight">\(S_{P} = P\)</span>, since the the wall time decreases by factor equal to the number of processors. However, in most parallel codes, <span class="math notranslate nohighlight">\(S_P &lt; P\)</span>.</p>
+</section>
+<section id="Efficiency">
+<h4>Efficiency<a class="headerlink" href="#Efficiency" title="Link to this heading"></a></h4>
+<p>Another useful derived metric for measuring parallel performance is <strong>efficiency</strong>. This can be thought of as a <em>relative</em> speed-up since it measures the fraction of cores are being used in the computation. It is defined by:</p>
+<div class="math notranslate nohighlight">
+\[E_{P} = \frac{ S_{P} }{P}.\]</div>
+<p>Hence, we call it <strong>ideal</strong> efficiency when <span class="math notranslate nohighlight">\(E_{P} = 1\)</span>. Again, in most parallel codes, <span class="math notranslate nohighlight">\(E_P &lt; 1\)</span>.</p>
+</section>
+<section id="Load-balancing">
+<h4>Load balancing<a class="headerlink" href="#Load-balancing" title="Link to this heading"></a></h4>
+<p>The metrics above give one a sense of the general performance of the parallel code, but it doesn’t measure how each core contributes to its performance. Furthermore, we may also want to know if there are bottlenecks caused by communication between cores. One way to measure this is to use a <strong>load balancing</strong> metric:</p>
+<div class="math notranslate nohighlight">
+\[\beta_P = \frac{ T_{P,avg}}{ T_{P,max} }.\]</div>
+<p>Load balancing is <strong>ideal</strong> if <span class="math notranslate nohighlight">\(\beta_P = 1\)</span>. If you see that your load balance number is very small, i.e. <span class="math notranslate nohighlight">\(T_{P,avg} &lt;&lt; T_{P,max}\)</span>, then you may want to re-examine your parallel components of your code and also look at the individual wall times of each processors to determine where the bottleneck is coming from.</p>
+</section>
+<section id="Other-metrics">
+<h4>Other metrics<a class="headerlink" href="#Other-metrics" title="Link to this heading"></a></h4>
+<p>There are other metrics, such as parallel rule of thumb and the Karp-Flatt Balance metric, but we won’t get into them here. Please see the references below if you want to learn more!</p>
+</section>
+</section>
+<section id="Basic-Theory">
+<h3>Basic Theory<a class="headerlink" href="#Basic-Theory" title="Link to this heading"></a></h3>
+<p>Although we have practical metrics that can be computated <em>a posterior</em> to a simulation, it is helpful to know some theory to better gauge what these metrics can tell us about our parallel performance. In this section, we will go over some basic theory on parallel scaling. We will briefly cover two important Laws with regards to parallel computing: Amdhal’s and Gustavon’s Laws. We will also discuss their relations to two other important parallel computing concepts: strong and weak scaling.</p>
+<section id="Amdahl's-Law">
+<h4>Amdahl’s Law<a class="headerlink" href="#Amdahl's-Law" title="Link to this heading"></a></h4>
+<p>With any parallel code, there may be limitations on what can actually be paralleizable; some portions of the code may be serial only and can limit the scalability of the code. In 1967, Gene Amdhal proposed a way to predict how much a code can scale due to a serial bottleneck [4]. Amdhal’s Law can be summarized with the following equation relating to speedup <span class="math notranslate nohighlight">\(S_{P,Am}\)</span>[4]:</p>
+<div class="math notranslate nohighlight">
+\[S_{P,Am} = \frac{1}{F_{s} + \frac{F_{p}}{P}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(F_{s}\)</span> is the <em>theoretical</em> serial fraction spent on the serial portion of the code, while <span class="math notranslate nohighlight">\(F_{p}\)</span> is the fraction of the runtime spent on the code that is parallelizable. Hence, <span class="math notranslate nohighlight">\(F_p + F_s = 1\)</span> and Amdahl’s law can be simplified to:</p>
+<div class="math notranslate nohighlight">
+\[S_{P,Am}(F_{s}) = \frac{1}{F_{s} + \frac{1-F_{s}}{P}}\]</div>
+<p>We can plot this now as a function of <span class="math notranslate nohighlight">\(F_{s}\)</span> using Python’s scientific modules (numpy, matplotlib):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># define the serial fraction using a linear space in NumPy</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">101</span> <span class="c1"># plotting grid resolution</span>
+<span class="n">F_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">S_P_Am</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># set the number of processors</span>
+<span class="n">P</span> <span class="o">=</span> <span class="mi">1024</span>
+<span class="n">S_P_Am</span><span class="p">[:]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span> <span class="n">F_s</span><span class="p">[:]</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">F_s</span><span class="p">[:])</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">F_s</span><span class="p">,</span><span class="n">S_P_Am</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Serial Fraction ($F_s$)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Speedup ($S_{P, Am}$)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Amdahl&#39;s Law: Theoretical Speedup, P = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/pages_user_guides_Parallel_Scaling_Guide_1_0.png" src="../../_images/pages_user_guides_Parallel_Scaling_Guide_1_0.png" />
+</div>
+</div>
+<p>As we can see from the plot above, Amdahl’s law shows a a severe constraint to parallel scalability if a large portion of your code is in serial. For example, if <span class="math notranslate nohighlight">\(F_s = 0.05\)</span> and <span class="math notranslate nohighlight">\(P = 1024\)</span>, the theoretical speedup is approximately 167 times the serial performance. Even worse, with <span class="math notranslate nohighlight">\(F_s = 0.1\)</span>, the theoretical speedup drops to approximately 9.9 times the serial performance with 1024 processors!</p>
+<p>However, we should take this equation with a caution since it makes many assumptions for the computation. First, it doesn’t take into account memory bandwidth (RAM, CPU Cache, etc) and/or disk read/write speeds. Furthermore, it also ignores that <span class="math notranslate nohighlight">\(F_p\)</span> could be a function of the number of processors <span class="math notranslate nohighlight">\(P\)</span> (e.g <span class="math notranslate nohighlight">\(F_p = F_p(P)\)</span>) caused by algorithmic choices (and/or hardware bottlenecks).</p>
+</section>
+<section id="Strong-Scaling">
+<h4>Strong Scaling<a class="headerlink" href="#Strong-Scaling" title="Link to this heading"></a></h4>
+<p>One assumption of Amdhal’s law was that the problem size was fixed; we showed how the theoretical speedup was affected for a problem that doesn’t change when you change the another of processors. When you compare speedup vs number of processors for a fixed problem size, we call this <strong>strong scaling</strong>. As noted above, a consequence of this is that expected speedup should not be guaranteed, as the serial fraction may become larger as the number processors is increased. Nevertheless, it is an
+important metric when evaluating parallel performance.</p>
+</section>
+<section id="Weak-Scaling-&amp;-Gustafson's-Law">
+<h4>Weak Scaling &amp; Gustafson’s Law<a class="headerlink" href="#Weak-Scaling-&-Gustafson's-Law" title="Link to this heading"></a></h4>
+<p>Another way to think about parallel performance how is the code scales as you increase the problem size <strong>with</strong> the number of processors. When measuring speedup in this way, we call this <strong>weak scaling</strong>.</p>
+<p>In response to Amdhal’s Law, John Gustafson argued that the assumptions from Amdahl’s Law for <span class="math notranslate nohighlight">\(P = 1024\)</span> was not appropriate for all parallel workloads [4]. With work at Sandia National Lab, whom Gustafason was associated with at the time of this argument, he noted many scientific problems where Amdahl’s Law didn’t hold up to scrutiny. At the crux of it was the implicit assumpion that the serial time spent by a processing core was <strong>not</strong> independent of the number of processors <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<p>As an approximation, Gustafson found that the parallel part of a program scales with the problem size. Hence, one can assume that the amount of work done in parallel is linearly proportional to the number of processors. This leads to the following expression colloquially known as <em>Gustafson’s Law</em>:</p>
+<div class="math notranslate nohighlight">
+\[S_{P, Gu} = P + (1-P) F_{s}\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(S_{P, Gu}\)</span> is referred to as <em>scaled speedup</em> due to the assumption of the program scaling with problem size. We plot the scaled speedup plot for <span class="math notranslate nohighlight">\(P=1024\)</span> below:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># define the serial fraction using a linear space in NumPy</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">101</span> <span class="c1"># plotting grid resolution</span>
+<span class="n">F_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">S_P_Gu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># set the number of processors</span>
+<span class="n">P</span> <span class="o">=</span> <span class="mi">1024</span>
+<span class="n">S_P_Gu</span><span class="p">[:]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="n">P</span><span class="p">))</span><span class="o">*</span><span class="n">F_s</span><span class="p">[:]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">F_s</span><span class="p">,</span><span class="n">S_P_Gu</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Serial Fraction ($F_s$)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Scaled Speedup ($S_{P, Am}$)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Gustafson&#39;s Law: Theoretical Speedup, P = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/pages_user_guides_Parallel_Scaling_Guide_3_0.png" src="../../_images/pages_user_guides_Parallel_Scaling_Guide_3_0.png" />
+</div>
+</div>
+<p>In practice, it is good to both test for weak and strong scaling of your program to see how the problem scales with the number of processors both for a fixed and proportionally growing problem size. In the next section, we will go through an example using matrix multiplication on how to do such an analysis.</p>
+</section>
+</section>
+</section>
+<section id="Example:-Parallel-Matrix-Vector-Multiplication-using-Python">
+<h2>Example: Parallel Matrix-Vector Multiplication using Python<a class="headerlink" href="#Example:-Parallel-Matrix-Vector-Multiplication-using-Python" title="Link to this heading"></a></h2>
+<p>Next we will discuss an example of a matrix-vector multiplication algorithm that we can build up to be parallel and how to evaluate its performance. Prior to evaluating parallel performance, we will first look at how to setup the algorithm in various methods using Python and try to optimize its serial performance first.</p>
+<p>Consider an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(n \times 1\)</span> vector <span class="math notranslate nohighlight">\(\vec{v}\)</span>. Multiplying <span class="math notranslate nohighlight">\(A\)</span> with <span class="math notranslate nohighlight">\(\vec{v}\)</span> results in a <span class="math notranslate nohighlight">\(m \times 1\)</span> vector <span class="math notranslate nohighlight">\(\vec{b}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[A \vec{v} = \vec{b}\]</div>
+<p>We begin by exploring serial performance, since we want to make sure we’ve done our best for its serial performance before moving on to improving it usuing parallelization.</p>
+<section id="Serial-Matrix-Vector-Multiplicaton-using-Python">
+<h3>Serial Matrix-Vector Multiplicaton using Python<a class="headerlink" href="#Serial-Matrix-Vector-Multiplicaton-using-Python" title="Link to this heading"></a></h3>
+<section id="Pure-Python-Implementation">
+<h4>Pure Python Implementation<a class="headerlink" href="#Pure-Python-Implementation" title="Link to this heading"></a></h4>
+<p>Due to being an interpreted language, Python is well known to have <a class="reference external" href="https://stackoverflow.com/questions/8097408/why-python-is-so-slow-for-a-simple-for-loop">poor performance with for-loops</a>, but for the sake of exercise, we’re first going to implement this matrix-vector product in pure python. The pseudocode to compute this matrix-vector multiplication in serial looks like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Define matrix A(m,n)
+Define vector v(n,1)
+Define vector b(m,1) = 0 # Zero vector
+
+for i = 1 to m
+    for j = 1 to n
+        b(i,1) += A(i,j) * v(j, 1)
+    end for
+end for
+</pre></div>
+</div>
+<p>To write this in python, it looks like:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[163]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">rand_matrix_vector_mm_pure_python</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># inputs:</span>
+    <span class="c1"># m : number of rows</span>
+    <span class="c1"># n : number of columns</span>
+    <span class="c1"># outputs:</span>
+    <span class="c1"># b : m x 1 vector</span>
+
+    <span class="c1"># in pure python, we will use lists to store the values of the matrix and vectors</span>
+    <span class="c1"># use random module to generate A and v</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+
+    <span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span> <span class="c1"># create next zero as a zero to setup for matrix-vector product storage.</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+             <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<p>We can now test this Pure Python matrix-vector multiply’s performance for a large 10000 x 10000 matrix:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[179]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> rand_matrix_vector_mm_pure_python(10000,10000)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+21.3 s ± 156 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div></div>
+</div>
+<p>We now have our baseline performance of a matrix-vector product using Pure Python.</p>
+</section>
+<section id="NumPy-Array-Implementation">
+<h4>NumPy Array Implementation<a class="headerlink" href="#NumPy-Array-Implementation" title="Link to this heading"></a></h4>
+<p>Next we can rewrite our function above, but now use NumPy arrays. We will also switch to numpy’s built in random matrix function <code class="docutils literal notranslate"><span class="pre">random.rand()</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[180]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">rand_matrix_vector_mm_np_array_loop</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># inputs:</span>
+    <span class="c1"># m : number of rows</span>
+    <span class="c1"># n : number of columns</span>
+    <span class="c1"># outputs:</span>
+    <span class="c1"># b : m x 1 vector</span>
+
+    <span class="c1"># in pure python, we will use lists to store the values of the matrix and vectors</span>
+    <span class="c1"># use random module to generate A and v</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+             <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<p>If we time this function using a 10000 x 10000 matrix again, we see that our performance drops even more due to the for-loop using NumPy arrays:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[181]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> rand_matrix_vector_mm_np_array_loop(10000,10000)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4min 13s ± 176 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div></div>
+</div>
+<p>If we vectorize the inner loop and use a dot product, we can actually improve this performance:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[157]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">rand_matrix_vector_mm_np_array_vectorize</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># inputs:</span>
+    <span class="c1"># m : number of rows</span>
+    <span class="c1"># n : number of columns</span>
+    <span class="c1"># outputs:</span>
+    <span class="c1"># b : m x 1 vector</span>
+
+    <span class="c1"># in pure python, we will use lists to store the values of the matrix and vectors</span>
+    <span class="c1"># use random module to generate A and v</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="n">v</span><span class="p">[:])</span>
+    <span class="k">return</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[183]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> rand_matrix_vector_mm_np_array_vectorize(10000,10000)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.09 s ± 44.6 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div></div>
+</div>
+<p>By removing the inner loop and utilizing NumPy’s dot product function instead, we see an order of magnitude improvement over the Pure Python case, and 4 orders of magnitude performance over the NumPy Array-loop method. Can we do better than this?</p>
+</section>
+<section id="NumPy's-built-in-Matrix-vector-multiplication-function:-matmul()">
+<h4>NumPy’s built-in Matrix-vector multiplication function: matmul()<a class="headerlink" href="#NumPy's-built-in-Matrix-vector-multiplication-function:-matmul()" title="Link to this heading"></a></h4>
+<p>Next we will remove the loops entirely and use NumPy’s built-in matrix-multiplication function `matmul()’:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[172]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">rand_matrix_vector_mm_np_matmul</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># inputs:</span>
+    <span class="c1"># m : number of rows</span>
+    <span class="c1"># n : number of columns</span>
+    <span class="c1"># outputs:</span>
+    <span class="c1"># b : m x 1 vector</span>
+
+    <span class="c1"># in pure python, we will use lists to store the values of the matrix and vectors</span>
+    <span class="c1"># use random module to generate A and v</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[184]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> rand_matrix_vector_mm_np_matmul(10000,10000)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.01 s ± 1.14 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div></div>
+</div>
+<p>Here we see a marginal improvement over removing the inner loop. However, there other available libraries in Python that could improve our performance!</p>
+</section>
+<section id="Using-Numba-with-NumPy">
+<h4>Using Numba with NumPy<a class="headerlink" href="#Using-Numba-with-NumPy" title="Link to this heading"></a></h4>
+<p>For more performance intensive tasks, the Python library <a class="reference external" href="https://numba.pydata.org/">Numba</a> can yield potentially faster results in a serial case.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[177]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">rand_matrix_vector_mm_np_matmul_numba</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># inputs:</span>
+    <span class="c1"># m : number of rows</span>
+    <span class="c1"># n : number of columns</span>
+    <span class="c1"># outputs:</span>
+    <span class="c1"># b : m x 1 vector</span>
+
+    <span class="c1"># in pure python, we will use lists to store the values of the matrix and vectors</span>
+    <span class="c1"># use random module to generate A and v</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[185]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> rand_matrix_vector_mm_np_matmul_numba(10000,10000)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+986 ms ± 6.24 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div></div>
+</div>
+<p>Again, we see some marginal improvement by adding in Numba’s just-in-time (JIT) compiler.</p>
+<p>I hope we have made it clear that even taking a little time exploring alternatives for your serial performance will have implications for the parallel performance due to Amdahl’s Law.</p>
+<p>There are other ways we could explore serial performance, which we did not explore here, can include:</p>
+<ul class="simple">
+<li><p>Reformulating the problem, such as using SciPy’s <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/sparse.html">sparse matrices</a> if your matrix has few non-zero entries</p></li>
+<li><p>Using a C-extension library such as <a class="reference external" href="https://cython.org/">Cython</a> to port the floating point operation parts of the Python code to C</p></li>
+<li><p>Porting code completely to a low-level language such as C/C++ or Fortran</p></li>
+</ul>
+</section>
+<section id="Row-wise-Parallelization-of-Matrix-vector-multiplication-in-Python-using-MPI">
+<h4>Row-wise Parallelization of Matrix-vector multiplication in Python using MPI<a class="headerlink" href="#Row-wise-Parallelization-of-Matrix-vector-multiplication-in-Python-using-MPI" title="Link to this heading"></a></h4>
+<p>There are many ways one could parallelize a matrix-vector multiplication. When using MPI, the best approach is to use the “Single Program, Multiple Data” (SPMD) model [5] of programming. This allows for multiple tasks to be broken up across multiple processors, but all communicated within a single program.</p>
+<p>A simple way to parallelize a matrix-vector product is is to break up the rows of the matrix into smaller matrices. Rows are favored over breaking up the columns since each column entry of <span class="math notranslate nohighlight">\(A\)</span> is a vector which computes a dot product with the corresponding vector <span class="math notranslate nohighlight">\(\vec{v}\)</span>.</p>
+<p>We will divide the <span class="math notranslate nohighlight">\(m\)</span> rows of the matrix A equally across all processors <span class="math notranslate nohighlight">\(P\)</span>, which we will denote by <span class="math notranslate nohighlight">\(A_{m_{local}, P}\)</span>. However, if <span class="math notranslate nohighlight">\(P\)</span> does not divide by <span class="math notranslate nohighlight">\(m\)</span> we need to determine what to do with the extra rows. To keep things simple, we will assume that the last processor <span class="math notranslate nohighlight">\(P-1\)</span> will compute those extra rows.</p>
+<p>The submatrices on each processor will then be able to matrix multiply with <span class="math notranslate nohighlight">\(\vec{v}\)</span> using NumPy’s <code class="docutils literal notranslate"><span class="pre">matmul()</span></code> function without issue. There for for a given processor <span class="math notranslate nohighlight">\(P\)</span>, we obtain a local component of the final vector <span class="math notranslate nohighlight">\(\vec{b}_{local, P}\)</span>, which comes from:</p>
+<div class="math notranslate nohighlight">
+\[A_{m_{local}, P} \vec{v} = \vec{b}_{local, P}\]</div>
+<p>Finally, to restruct the final solution, we will send all the <span class="math notranslate nohighlight">\(\vec{b}_{local,P}\)</span>’s from each processor <span class="math notranslate nohighlight">\(P\)</span> to the “main” processor, which we call “rank 0”. This can be done using <code class="docutils literal notranslate"><span class="pre">mpi4py</span></code> with its communicator <code class="docutils literal notranslate"><span class="pre">send()</span></code> and <code class="docutils literal notranslate"><span class="pre">recv()</span></code> commands. Since this is not a guide on <code class="docutils literal notranslate"><span class="pre">mpi4py</span></code> we will just show the final code below:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">mpi4py</span> <span class="kn">import</span> <span class="n">MPI</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Wtime</span><span class="p">()</span>
+
+<span class="c1"># set up MPI communicator</span>
+<span class="n">comm</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span>
+
+<span class="c1"># set variables to hold current rank (i.e. processor) and total number of processors</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">rank</span>
+<span class="n">nprocs</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">Get_size</span><span class="p">()</span>
+
+<span class="c1">#print(&quot;rank = &quot;, rank, &quot;nprocs=&quot;, nprocs)</span>
+
+<span class="c1"># setup function which will compute our matrix vector product</span>
+<span class="k">def</span> <span class="nf">mat_mult_mpi</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># inputs:</span>
+    <span class="c1"># m : number of rows</span>
+    <span class="c1"># n : number of columns</span>
+    <span class="c1"># outputs:</span>
+    <span class="c1"># b : m x 1 vector</span>
+
+    <span class="c1"># get the local number of rows that a processor will store from the matrix</span>
+    <span class="c1"># use the floor function to ensure we have a integer value</span>
+    <span class="n">m_local_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span> <span class="n">m</span> <span class="o">/</span> <span class="n">nprocs</span>  <span class="p">))</span>
+
+    <span class="c1"># track the remainder of m dividing by nprocs</span>
+    <span class="n">rem</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span> <span class="n">m</span><span class="p">,</span> <span class="n">nprocs</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="c1"># if the remainder is nonzero, add that number of rows to the last processor to m_local_size</span>
+    <span class="k">if</span> <span class="n">rem</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">rank</span> <span class="o">==</span> <span class="n">nprocs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">m_local_size</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nprocs</span><span class="p">)</span>
+
+    <span class="c1"># use ones to generate A and v</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m_local_size</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">b_local</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m_local_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># use matmul to compute each component of the matrix-vector product for b</span>
+    <span class="n">b_local</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+
+    <span class="c1"># send b_local to the main (0th) rank</span>
+    <span class="k">if</span> <span class="n">rank</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">comm</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">b_local</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="n">rank</span><span class="p">)</span>
+
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># use the main rank (0th) to collect the entries of b using send/recv</span>
+    <span class="c1"># for this version, we will use the pickled version of send/recv, which will show slower performance</span>
+    <span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># set b to b_local using the local rank indices</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">rank</span><span class="o">*</span><span class="p">(</span><span class="n">m_local_size</span><span class="p">):</span> <span class="p">(</span><span class="n">rank</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">m_local_size</span><span class="p">)]</span> <span class="o">=</span> <span class="n">b_local</span>
+        <span class="k">if</span> <span class="n">nprocs</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nprocs</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">nprocs</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">m_local_size</span><span class="p">):</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">m_local_size</span><span class="p">)</span><span class="o">+</span><span class="n">rem</span><span class="p">]</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">m_local_size</span><span class="p">):</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">m_local_size</span><span class="p">)]</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">b_local</span>
+        <span class="k">return</span> <span class="n">b</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">m_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3200</span><span class="p">)</span>
+    <span class="n">n_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3200</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">mat_mult_mpi</span><span class="p">(</span><span class="n">m_size</span><span class="p">,</span><span class="n">n_size</span><span class="p">)</span>
+    <span class="c1">#np.savetxt(&quot;b_&quot;+str(nprocs)+&quot;.txt&quot;, b)</span>
+    <span class="c1">#if rank == 0:</span>
+    <span class="c1">#    print(b)</span>
+    <span class="c1"># get wall time on given rank</span>
+
+
+<span class="n">end</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">Wtime</span><span class="p">()</span>
+<span class="n">Wtime</span><span class="o">=</span> <span class="p">[</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">]</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">nprocs</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;_Wtime_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.txt&quot;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+   <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+   <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">Wtime</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>From here, we run this code over a variety of number of processors to see how the performance increases.</p>
+</section>
+</section>
+<section id="Slurm-Setup">
+<h3>Slurm Setup<a class="headerlink" href="#Slurm-Setup" title="Link to this heading"></a></h3>
+<p>To run the scaling analysis, we will use Slurm, the job manager used both on our Wendian and Mio HPC systems.</p>
+<p>The base bash Slurm script will look like:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=scaling_analysis    # Job name</span>
+<span class="c1">#SBATCH --time=00:30:00               # Time limit hrs:min:sec</span>
+<span class="c1">#SBATCH --output=test_%j.log   # Standard output and error log</span>
+<span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH --mem=90GB</span>
+<span class="c1">#SBATCH -A spr24_mpi4py_workshop</span>
+<span class="n">pwd</span><span class="p">;</span> <span class="n">hostname</span><span class="p">;</span> <span class="n">date</span>
+
+<span class="n">module</span> <span class="n">purge</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">apps</span><span class="o">/</span><span class="n">python3</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">compilers</span><span class="o">/</span><span class="n">gcc</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">mpi</span><span class="o">/</span><span class="n">openmpi</span><span class="o">/</span><span class="n">gcc</span><span class="o">-</span><span class="n">cuda</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">mpi4py_workshop</span>
+<span class="n">export</span> <span class="n">OMP_NUM_THREADS</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">export</span> <span class="n">OMPI_MCA_btl_openib_allow_ib</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="n">EXE</span><span class="o">=</span><span class="s2">&quot;srun python row_wise_mpi.py&quot;</span>
+
+<span class="c1"># measure time in milliseconds</span>
+<span class="n">START</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">date</span> <span class="o">+%</span><span class="k">s</span>.%N)
+<span class="n">time</span> <span class="err">$</span><span class="n">EXE</span>
+<span class="n">END</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">date</span> <span class="o">+%</span><span class="k">s</span>.%N)
+<span class="n">RUNTIME</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">echo</span> <span class="s2">&quot;$END - $START&quot;</span> <span class="o">|</span> <span class="n">bc</span> <span class="o">-</span><span class="n">l</span><span class="p">)</span>
+<span class="n">echo</span> <span class="err">$</span><span class="p">{</span><span class="n">RUNTIME</span><span class="p">}</span> <span class="o">&gt;&gt;</span> <span class="err">$</span><span class="p">{</span><span class="n">SLURM_NPROCS</span><span class="p">}</span><span class="n">_runtime</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">date</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="References">
+<h1>References<a class="headerlink" href="#References" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">[1] <a class="reference external" href="https://www.cs.uky.edu/~jzhang/CS621/chapter7.pdf">https://www.cs.uky.edu/~jzhang/CS621/chapter7.pdf</a></div>
+<div class="line">[2] <a class="reference external" href="https://www.youtube.com/watch?v=pDBIoil-LTk">https://www.youtube.com/watch?v=pDBIoil-LTk</a></div>
+<div class="line">[3] <a class="reference external" href="https://www-inst.eecs.berkeley.edu/~n252/paper/Amdahl.pdf">https://www-inst.eecs.berkeley.edu/~n252/paper/Amdahl.pdf</a></div>
+<div class="line">[4] Gustafson, John L. “Reevaluating Amdahl’s law.” Communications of the ACM 31, no. 5 (1988): 532-533: <a class="reference external" href="http://www.johngustafson.net/pubs/pub13/amdahl.htm">http://www.johngustafson.net/pubs/pub13/amdahl.htm</a></div>
+<div class="line">[5] <a class="reference external" href="https://xlinux.nist.gov/dads/HTML/singleprogrm.html">https://xlinux.nist.gov/dads/HTML/singleprogrm.html</a></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="job_efficiency_xdmod.html" class="btn btn-neutral float-left" title="Knowing your job efficiency" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="archived_guides.html" class="btn btn-neutral float-right" title="Archived Guides" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fcc35ac0>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

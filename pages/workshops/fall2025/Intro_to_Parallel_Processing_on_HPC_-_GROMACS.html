@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro to Parallel Programs on HPC - Using Gromacs &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/workshops/fall2025/Intro_to_Parallel_Processing_on_HPC_-_GROMACS.html" />
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guides/archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Intro to Parallel Programs on HPC - Using Gromacs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/pages/workshops/fall2025/Intro_to_Parallel_Processing_on_HPC_-_GROMACS.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intro-to-parallel-programs-on-hpc-using-gromacs">
+<h1>Intro to Parallel Programs on HPC - Using Gromacs<a class="headerlink" href="#intro-to-parallel-programs-on-hpc-using-gromacs" title="Link to this heading"></a></h1>
+<p>Author: Nicholas A. Danes, PhD</p>
+<p>For this lab, we will learn how to run <a class="reference external" href="https://www.gromacs.org/">GROMACS</a>, a popular molecular dynamics software package used on HPC systems. It supports both shared and distributed memory parallel processing, making it a great first test problem for new HPC users.</p>
+<p>To begin, we first need to download a benchmark problem from GROMACS and the workshop files.
+Copy the workshop materials using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="o">/</span><span class="n">sw</span><span class="o">/</span><span class="n">BUILD</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">workshop</span><span class="o">/</span><span class="n">Workshop_Fall2025_day2</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">~/</span><span class="n">scratch</span>
+</pre></div>
+</div>
+<p>And go to that directory and untar it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">scratch</span> <span class="o">&amp;&amp;</span> <span class="n">tar</span> <span class="o">-</span><span class="n">xf</span> <span class="n">Workshop_Fall2025_day2</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">cd</span> <span class="n">Workshop_Fall2024</span><span class="o">/</span><span class="n">rk2_python</span> <span class="o">&amp;&amp;</span> <span class="n">ls</span>
+</pre></div>
+</div>
+<p>This sample problem is provided by the Max Planck Institue in Göttingen[1.] To download it, let’s go to our scratch directory, create a new folder and then download the zip file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/scratch/Workshop_Spring2025/gromacs
+wget<span class="w"> </span>https://www.mpinat.mpg.de/benchRIB.zip
+
+<span class="c1"># unzip</span>
+unzip<span class="w"> </span>benchRIB.zip
+</pre></div>
+</div>
+<p>If unzipped correctly, you should see a file in the directory called <code class="docutils literal notranslate"><span class="pre">benchRIB.tpr</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls
+benchRIB.tpr  benchRIB.zip
+</pre></div>
+</div>
+<p>Next, let’s create a job script in order to run this job. We will try a few different configurations:</p>
+<ol class="arabic simple">
+<li><p>A single 36-core node, using 36 MPI tasks</p></li>
+<li><p>A single 36-core node, using 36 OpenMP threads on 1 task</p></li>
+</ol>
+<section id="single-node-all-mpi-tasks">
+<h2>Single node, all MPI tasks<a class="headerlink" href="#single-node-all-mpi-tasks" title="Link to this heading"></a></h2>
+<p>First the first job, let’s try one node, with 36 MPI tasks to run for 1 hour. We will also time the run in order to compare it to other configurations. Here is what the job script will look like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=gromacs-single-node-MPI</span>
+<span class="c1">#SBATCH --account=&quot;fall25_hpc_workshop&quot;</span>
+<span class="c1">#SBATCH --exclusive # USE FOR THIS LAB ONLY</span>
+<span class="c1">#SBATCH --output=%j.out</span>
+<span class="c1">#SBATCH --time=00:60:00 ## format is HH:MM:SS</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks=36</span>
+
+module<span class="w"> </span>load<span class="w"> </span>compilers/gcc
+module<span class="w"> </span>load<span class="w"> </span>mpi/openmpi/gcc
+module<span class="w"> </span>load<span class="w"> </span>libs/fftw/gcc-ompi
+module<span class="w"> </span>load<span class="w"> </span>apps/gromacs/gcc-ompi
+
+<span class="c1"># set the number of OpenMP threads</span>
+<span class="nv">NTOMP</span><span class="o">=</span><span class="m">1</span>
+
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/scratch/jobs/<span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span>~/scratch/jobs/<span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span>
+
+<span class="nv">start</span><span class="o">=</span><span class="sb">`</span>date<span class="w"> </span>+%s.%N<span class="sb">`</span>
+srun<span class="w"> </span>gmx_mpi<span class="w"> </span>mdrun<span class="w"> </span>-ntomp<span class="w"> </span><span class="si">${</span><span class="nv">NTOMP</span><span class="si">}</span><span class="w"> </span>-s<span class="w"> </span><span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span>/benchRIB.tpr<span class="w"> </span>-resethway
+<span class="nv">end</span><span class="o">=</span><span class="sb">`</span>date<span class="w"> </span>+%s.%N<span class="sb">`</span>
+
+<span class="nv">runtime</span><span class="o">=</span><span class="k">$(</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$end</span><span class="s2"> - </span><span class="nv">$start</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="w"> </span>-l<span class="w"> </span><span class="k">)</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$runtime</span>
+</pre></div>
+</div>
+<p>We will call the Slurm script file <code class="docutils literal notranslate"><span class="pre">single_node_MPI.sh</span></code>. To submit the job, type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sbatch single_node_MPI.sh
+</pre></div>
+</div>
+<p>For reference, here is the results achieved for this case:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>               <span class="n">Core</span> <span class="n">t</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>   <span class="n">Wall</span> <span class="n">t</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>        <span class="p">(</span><span class="o">%</span><span class="p">)</span>
+       <span class="n">Time</span><span class="p">:</span>    <span class="mf">14489.672</span>      <span class="mf">402.492</span>     <span class="mf">3600.0</span>
+                 <span class="p">(</span><span class="n">ns</span><span class="o">/</span><span class="n">day</span><span class="p">)</span>    <span class="p">(</span><span class="n">hour</span><span class="o">/</span><span class="n">ns</span><span class="p">)</span>
+<span class="n">Performance</span><span class="p">:</span>        <span class="mf">4.294</span>        <span class="mf">5.589</span>
+
+<span class="n">GROMACS</span> <span class="n">reminds</span> <span class="n">you</span><span class="p">:</span> <span class="s2">&quot;Roses are read // Violets are blue // Unexpected &#39;}&#39; on line 32&quot;</span> <span class="p">(</span><span class="n">Anonymous</span><span class="p">)</span>
+
+<span class="mf">845.404034006</span>
+</pre></div>
+</div>
+</section>
+<section id="single-node-all-openmp-threads-on-1-task">
+<h2>Single node, all OpenMP threads on 1 task<a class="headerlink" href="#single-node-all-openmp-threads-on-1-task" title="Link to this heading"></a></h2>
+<p>GROMACS also supports OpenMP threads. To leverage this, we will tell Slurm we only want one task, but want 36 cpus per task on the job:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=gromacs-single-node-MPI</span>
+<span class="c1">#SBATCH --account=&quot;fall25_hpc_workshop&quot;</span>
+<span class="c1">#SBATCH --exclusive # USE FOR THIS LAB ONLY</span>
+<span class="c1">#SBATCH --output=%j.out</span>
+<span class="c1">#SBATCH --time=00:60:00 ## format is HH:MM:SS</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks=1</span>
+<span class="c1">#SBATCH --cpus-per-task=36</span>
+
+module<span class="w"> </span>load<span class="w"> </span>compilers/gcc
+module<span class="w"> </span>load<span class="w"> </span>mpi/openmpi/gcc
+module<span class="w"> </span>load<span class="w"> </span>libs/fftw/gcc-ompi
+module<span class="w"> </span>load<span class="w"> </span>apps/gromacs/gcc-ompi
+
+<span class="c1"># set the number of OpenMP threads</span>
+<span class="nv">NTOMP</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_CPUS_PER_TASK</span><span class="si">}</span>
+
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/scratch/jobs/<span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span>~/scratch/jobs/<span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span>
+
+<span class="nv">start</span><span class="o">=</span><span class="sb">`</span>date<span class="w"> </span>+%s.%N<span class="sb">`</span>
+srun<span class="w"> </span>gmx_mpi<span class="w"> </span>mdrun<span class="w"> </span>-ntomp<span class="w"> </span><span class="si">${</span><span class="nv">NTOMP</span><span class="si">}</span><span class="w"> </span>-s<span class="w"> </span><span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span>/benchRIB.tpr<span class="w"> </span>-resethway
+<span class="nv">end</span><span class="o">=</span><span class="sb">`</span>date<span class="w"> </span>+%s.%N<span class="sb">`</span>
+
+<span class="nv">runtime</span><span class="o">=</span><span class="k">$(</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$end</span><span class="s2"> - </span><span class="nv">$start</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="w"> </span>-l<span class="w"> </span><span class="k">)</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$runtime</span>
+</pre></div>
+</div>
+<p>For reference, the final result with 36 OpenMP threads on 1 task should look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Writing</span> <span class="n">final</span> <span class="n">coordinates</span><span class="o">.</span>
+
+               <span class="n">Core</span> <span class="n">t</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>   <span class="n">Wall</span> <span class="n">t</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>        <span class="p">(</span><span class="o">%</span><span class="p">)</span>
+       <span class="n">Time</span><span class="p">:</span>    <span class="mf">15936.559</span>      <span class="mf">442.684</span>     <span class="mf">3600.0</span>
+                 <span class="p">(</span><span class="n">ns</span><span class="o">/</span><span class="n">day</span><span class="p">)</span>    <span class="p">(</span><span class="n">hour</span><span class="o">/</span><span class="n">ns</span><span class="p">)</span>
+<span class="n">Performance</span><span class="p">:</span>        <span class="mf">3.904</span>        <span class="mf">6.147</span>
+
+<span class="n">GROMACS</span> <span class="n">reminds</span> <span class="n">you</span><span class="p">:</span> <span class="s2">&quot;Why add prime numbers? Prime numbers are made to be multiplied.&quot;</span> <span class="p">(</span><span class="n">Lev</span> <span class="n">Landau</span><span class="p">)</span>
+
+<span class="mf">911.438343690</span>
+</pre></div>
+</div>
+<p>So we see with this particular test problem, running all MPI tasks with our node is slightly faster than running 1 task with 36 OpenMP thread.</p>
+<p>[1] Dept. of Theoretical and Computational Biophysics, Max Planck Institute for Multidisciplinary Sciences, Göttingen, https://www.mpinat.mpg.de/grubmueller/bench . The GROMACS input .tpr files are licensed under the Creative Commons Attribution 4.0 International license.</p>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h2>
+<p>Modify the job script to run the following cases. Do you see any improvement in performance?</p>
+<ol class="arabic simple">
+<li><p>Run with 1 node, 18 MPI tasks, 2 OpenMP threads per task</p></li>
+<li><p>Run with 2 nodes, 36 MPI tasks (18 MPI tasks per node), 1 OpenMP thread per task</p></li>
+<li><p>Run with 2 nodes, 72 MPI tasks (36 MPI tasks per node), 1 OpenMP thread per task</p></li>
+<li><p>Run with 2 nodes, 36 MPI tasks (18 MPI tasks per node), 2 OpenMP thread per task</p></li>
+<li><p>Run with 1 <strong>GPU</strong> node with 1 GPU card, 1 task (with 6 CPUs per task) by running the code with the following script. You can just copy and paste the following to a new job script called <code class="docutils literal notranslate"><span class="pre">single_node_GPU.sh</span></code>:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=gromacs-single-node-GPU</span>
+<span class="c1">#SBATCH -p gpu</span>
+<span class="c1">#SBATCH --gres=gpu:v100:1</span>
+<span class="c1">#SBATCH --output=%j.out</span>
+<span class="c1">#SBATCH --time=00:60:00 ## format is HH:MM:SS</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks=1</span>
+<span class="c1">#SBATCH --cpus-per-task=6</span>
+<span class="c1">#SBATCH --account=&quot;fall25_hpc_workshop&quot;</span>
+
+module<span class="w"> </span>load<span class="w"> </span>compilers/gcc
+module<span class="w"> </span>load<span class="w"> </span>libs/cuda
+module<span class="w"> </span>load<span class="w"> </span>mpi/openmpi/gcc-cuda
+module<span class="w"> </span>load<span class="w"> </span>libs/fftw/gcc-ompi
+ml<span class="w"> </span>apps/gromacs/gcc-ompi-cuda
+
+<span class="c1"># set the number of OpenMP threads</span>
+<span class="nv">NTOMP</span><span class="o">=</span><span class="m">1</span>
+
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/scratch/jobs/<span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span>~/scratch/jobs/<span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span>
+
+<span class="nv">start</span><span class="o">=</span><span class="sb">`</span>date<span class="w"> </span>+%s.%N<span class="sb">`</span>
+srun<span class="w"> </span>gmx<span class="w"> </span>mdrun<span class="w"> </span>-ntomp<span class="w"> </span><span class="si">${</span><span class="nv">NTOMP</span><span class="si">}</span><span class="w"> </span>-nb<span class="w"> </span>gpu<span class="w"> </span>-s<span class="w"> </span><span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span>/benchRIB.tpr<span class="w"> </span>-resethway
+<span class="nv">end</span><span class="o">=</span><span class="sb">`</span>date<span class="w"> </span>+%s.%N<span class="sb">`</span>
+
+<span class="nv">runtime</span><span class="o">=</span><span class="k">$(</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$end</span><span class="s2"> - </span><span class="nv">$start</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="w"> </span>-l<span class="w"> </span><span class="k">)</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$runtime</span>
+</pre></div>
+</div>
+<p>There a number of other parameters you can adjust to run on CPU versus GPU with gromacs, based on the physical solver. For more details if you’re interested, see: https://manual.gromacs.org/documentation/current/user-guide/mdrun-performance.html</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fdd0ac00>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

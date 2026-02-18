@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using Anaconda for python environments &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/user_guides/python_environments.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ANSYS Fluent Job Submission Guide" href="ansys.html" />
+    <link rel="prev" title="Connecting to Mines@HPC Systems" href="connecting_to_systems.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Anaconda for python environments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-base-environment">Setting up base environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#loading-the-python-module">Loading the Python module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wendian-and-mio">Wendian and Mio</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-and-activating-a-conda-environment-under-your-home-directory">Creating  and activating a conda environment under your home directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-conda-environment-in-a-custom-location">Creating conda environment in a custom location</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#appliciation-specific-conda-environment">Appliciation-specific conda environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#numpy-scipy-matplotlib">NumPy + SciPy + Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tensorflow-gpu">Tensorflow (GPU)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tensorflow-cpu-only">Tensorflow (CPU-only)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cleaning-up-conda-packages">Cleaning up conda packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#remove-all-cached-packages">Remove all cached packages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#proper-mpi4py-setup-to-use-system-mpi-on-wendian-mio">Proper mpi4py setup to use system MPI on Wendian/Mio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conda-to-scratch-directory-guide">Conda to $SCRATCH directory guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-your-conda-environments-to-store-in-scratch">Setting up your conda environments to store in <code class="docutils literal notranslate"><span class="pre">$SCRATCH</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using Anaconda for python environments</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/user_guides/python_environments.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-anaconda-for-python-environments">
+<h1>Using Anaconda for python environments<a class="headerlink" href="#using-anaconda-for-python-environments" title="Link to this heading"></a></h1>
+<p>Python is a commonly used programming language for scientific workloads. Among the ways to use Python libraries, the <a class="reference external" href="https://anaconda.org">Anaconda</a> binary distribution is a very popular means for managing python packages and environments. On Mines’ HPC system users, we recommend they use our centrally managed anaconda installation for setting up Python enivronments.</p>
+<p>We will go through how to setup several common anaconda environments.</p>
+<section id="setting-up-base-environment">
+<h2>Setting up base environment<a class="headerlink" href="#setting-up-base-environment" title="Link to this heading"></a></h2>
+<p>For all environments listed below, we will need to setup a base environment. There are a few different ways to do this, with several advanced options that can be viewed <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">here</a>.</p>
+<section id="loading-the-python-module">
+<h3>Loading the Python module<a class="headerlink" href="#loading-the-python-module" title="Link to this heading"></a></h3>
+<section id="wendian-and-mio">
+<h4>Wendian and Mio<a class="headerlink" href="#wendian-and-mio" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">apps</span><span class="o">/</span><span class="n">python3</span>      
+</pre></div>
+</div>
+</section>
+</section>
+<section id="creating-and-activating-a-conda-environment-under-your-home-directory">
+<h3>Creating  and activating a conda environment under your home directory<a class="headerlink" href="#creating-and-activating-a-conda-environment-under-your-home-directory" title="Link to this heading"></a></h3>
+<p>To create a conda environment using a environment name of your choice requires the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">name_of_your_environment</span>
+</pre></div>
+</div>
+<p>You then will be asked to confirm by typing ‘y’ and press enter.</p>
+<p>This will create your new environment and will be saved under  under <code class="docutils literal notranslate"><span class="pre">$HOME/.conda/envs/name_of_your_environment</span></code></p>
+<p>To activate the environment, type the command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">name_of_your_environment</span>
+</pre></div>
+</div>
+<p>In your terminal, you should now see the following to the left of your username</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(name_of_your_environment) username@hpc$
+</pre></div>
+</div>
+</section>
+<section id="creating-conda-environment-in-a-custom-location">
+<h3>Creating conda environment in a custom location<a class="headerlink" href="#creating-conda-environment-in-a-custom-location" title="Link to this heading"></a></h3>
+<p>To create a conda environment in a custom location, use the <code class="docutils literal notranslate"><span class="pre">—prefix</span></code> flag when using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">your</span><span class="o">/</span><span class="n">custom</span><span class="o">/</span><span class="n">path</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>You will be asked to confirm by typing ‘y’ like above. To activate the environment, type the command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="o">/</span><span class="n">your</span><span class="o">/</span><span class="n">custom</span><span class="o">/</span><span class="n">path</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="appliciation-specific-conda-environment">
+<h2>Appliciation-specific conda environment<a class="headerlink" href="#appliciation-specific-conda-environment" title="Link to this heading"></a></h2>
+<p>All instructions here we be assumed to be created under `$HOME/.conda</p>
+<section id="numpy-scipy-matplotlib">
+<h3>NumPy + SciPy + Matplotlib<a class="headerlink" href="#numpy-scipy-matplotlib" title="Link to this heading"></a></h3>
+<p>For this environment, you can set it up in one command when initially creating the environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">scientific_python</span> <span class="n">numpy</span> <span class="n">scipy</span> <span class="n">matplotlib</span>
+</pre></div>
+</div>
+</section>
+<section id="tensorflow-gpu">
+<h3>Tensorflow (GPU)<a class="headerlink" href="#tensorflow-gpu" title="Link to this heading"></a></h3>
+<p>For Tensorflow with NVIDIA GPU support, GPU support is included with Tensorflow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">tf_env</span> <span class="n">tensorflow</span> 
+</pre></div>
+</div>
+</section>
+<section id="tensorflow-cpu-only">
+<h3>Tensorflow (CPU-only)<a class="headerlink" href="#tensorflow-cpu-only" title="Link to this heading"></a></h3>
+<p>If you want tensorflow with CPU support only, use the following command when creating your environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">tf_cpu_only_env</span> <span class="n">tensorflow</span><span class="o">-</span><span class="n">cpu</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="cleaning-up-conda-packages">
+<h2>Cleaning up conda packages<a class="headerlink" href="#cleaning-up-conda-packages" title="Link to this heading"></a></h2>
+<p>After installing packages into a conda environment, there will many packages left as cache under <code class="docutils literal notranslate"><span class="pre">$HOME/.conda/pkgs</span></code> by default. These cached packages can be reused when creating new environments that depend on packages that were previously installed. However, this cache can become quite large and often cause you to reach the 20 GB limit of <code class="docutils literal notranslate"><span class="pre">$HOME</span></code>. There are few different options for cleaning up the package cache.</p>
+<section id="remove-all-cached-packages">
+<h3>Remove all cached packages<a class="headerlink" href="#remove-all-cached-packages" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">clean</span> <span class="o">--</span><span class="nb">all</span>
+</pre></div>
+</div>
+<p>This will remove all cached packages under <code class="docutils literal notranslate"><span class="pre">$HOME/.conda/pkgs</span></code></p>
+</section>
+</section>
+<section id="proper-mpi4py-setup-to-use-system-mpi-on-wendian-mio">
+<h2>Proper mpi4py setup to use system MPI on Wendian/Mio<a class="headerlink" href="#proper-mpi4py-setup-to-use-system-mpi-on-wendian-mio" title="Link to this heading"></a></h2>
+<p>Load the required modules</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>apps/python3
+module<span class="w"> </span>load<span class="w"> </span>compilers/gcc
+module<span class="w"> </span>load<span class="w"> </span>mpi/openmpi/gcc-cuda
+</pre></div>
+</div>
+<p>Set the environment variable <code class="docutils literal notranslate"><span class="pre">CC</span></code> to <code class="docutils literal notranslate"><span class="pre">mpicc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>mpicc<span class="k">)</span>
+</pre></div>
+</div>
+<p>You can double check it was set correctly by typing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="nv">$CC</span>
+</pre></div>
+</div>
+<p>And you should see something like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/sw/mpi/openmpi/4.1.4/gnu-cuda/bin/mpicc
+</pre></div>
+</div>
+<p>Next, create your conda environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>mpi4py_test<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>-y
+</pre></div>
+</div>
+<p>and activate it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>mpi4py_test
+</pre></div>
+</div>
+<p>Now install <code class="docutils literal notranslate"><span class="pre">mpi4py</span></code> using <em>pip</em> not <em>conda</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>mpi4py<span class="w"> </span>numpy
+</pre></div>
+</div>
+<p>You can double check it works by launching python and importing the module:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python
+&gt;&gt;&gt;<span class="w"> </span>from<span class="w"> </span>mpi4py<span class="w"> </span>import<span class="w"> </span>MPI
+&gt;&gt;&gt;<span class="w"> </span>MPI.Comm
+&lt;class<span class="w"> </span><span class="s1">&#39;mpi4py.MPI.Comm&#39;</span>&gt;
+</pre></div>
+</div>
+</section>
+<section id="conda-to-scratch-directory-guide">
+<h2>Conda to $SCRATCH directory guide<a class="headerlink" href="#conda-to-scratch-directory-guide" title="Link to this heading"></a></h2>
+<p>By default, Anaconda puts your conda environments under <code class="docutils literal notranslate"><span class="pre">$HOME/.conda</span></code>. Although this is convenient, restrictions to home directory quotas can limit what type of conda environments can be stored there.</p>
+<p>Conda provides the ability to move your conda environment to any directory. In this guide, we will show you how to move your home directory using a file called <code class="docutils literal notranslate"><span class="pre">.condarc</span></code>.</p>
+<section id="setting-up-your-conda-environments-to-store-in-scratch">
+<h3>Setting up your conda environments to store in <code class="docutils literal notranslate"><span class="pre">$SCRATCH</span></code><a class="headerlink" href="#setting-up-your-conda-environments-to-store-in-scratch" title="Link to this heading"></a></h3>
+<p>First we need to make the folders that will hold our conda environments and their packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">scratch</span><span class="o">/</span><span class="n">conda_envs</span>
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">scratch</span><span class="o">/</span><span class="n">conda_pkgs</span>
+</pre></div>
+</div>
+<p>Next, make a file in your home directory called .condarc:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>touch $HOME/.condarc
+</pre></div>
+</div>
+<p>Open the file, then copy and paste the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+  <span class="o">-</span> <span class="n">defaults</span>
+<span class="n">envs_dirs</span><span class="p">:</span>
+  <span class="o">-</span> <span class="o">~/</span><span class="n">scratch</span><span class="o">/</span><span class="n">conda_envs</span>
+  <span class="o">-</span> <span class="o">~/.</span><span class="n">conda</span><span class="o">/</span><span class="n">envs</span>
+<span class="n">pkgs_dirs</span><span class="p">:</span>
+  <span class="o">-</span> <span class="o">~/</span><span class="n">scratch</span><span class="o">/</span><span class="n">conda_pkgs</span>
+  <span class="o">-</span> <span class="o">~/.</span><span class="n">conda</span><span class="o">/</span><span class="n">pkgs</span>
+</pre></div>
+</div>
+<p>Relogin to {Wendian, Mio} and load the python module and try to make your first new conda environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">apps</span><span class="o">/</span><span class="n">python3</span>
+<span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">test_env</span>  <span class="o">-</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>Verify that your conda environment is in <code class="docutils literal notranslate"><span class="pre">$SCRATCH/conda_envs</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ls $SCRATCH/conda_envs
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="connecting_to_systems.html" class="btn btn-neutral float-left" title="Connecting to Mines@HPC Systems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ansys.html" class="btn btn-neutral float-right" title="ANSYS Fluent Job Submission Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fceba900>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

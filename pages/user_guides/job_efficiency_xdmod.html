@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Knowing your job efficiency &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/user_guides/job_efficiency_xdmod.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Parallel Scaling Guide" href="Parallel_Scaling_Guide.html" />
+    <link rel="prev" title="Advanced Slurm Guide" href="advanced_slurm_guide.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_slurm_guide.html">Advanced Slurm Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Knowing your job efficiency</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#xdmod-mines-edu">XDMoD.mines.edu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-efficiency-tab">Using the Efficiency Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#slurm-command-seff">SLURM command ‘seff’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#selecting-job-id-in-xdmod-mines-edu">Selecting Job ID in XDMoD.mines.edu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-of-rscript-using-3-nodes">Example of Rscript using 3-nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-of-ansys-fluent-interactively-running">Example of Ansys Fluent (interactively running)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Knowing your job efficiency</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/user_guides/job_efficiency_xdmod.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="knowing-your-job-efficiency">
+<h1>Knowing your job efficiency<a class="headerlink" href="#knowing-your-job-efficiency" title="Link to this heading"></a></h1>
+<section id="xdmod-mines-edu">
+<h2><a class="reference external" href="https://xdmod.mines.edu">XDMoD.mines.edu</a><a class="headerlink" href="#xdmod-mines-edu" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Management capabilities</p>
+<ul>
+<li><p>Monitoring standard metrics: utilization</p></li>
+<li><p>Metrics designed to identify underperforming systems hardware and software</p></li>
+<li><p>Reporting job level performance data for every job running on the HPC</p></li>
+</ul>
+</li>
+<li><p>A tool to effectively and efficiently use an allocations and optimize HPC resources</p></li>
+<li><p>Ability to monitor, diagnose, and tune system performance and measure the performance of all applications running</p></li>
+<li><p>Easily obtain detailed analysis of application performance to aid in optimizing code performance</p></li>
+<li><p>A diagnostic tool to facilitate HPC planning and analysis</p></li>
+<li><p>Metrics to help measure scientific impact.</p></li>
+<li><p>Analyses of the operational characteristics of the HPC environment can be carried out at different levels of granularity</p>
+<ul>
+<li><p>job, user, or on a system-wide basis.</p></li>
+</ul>
+</li>
+</ul>
+<section id="using-the-efficiency-tab">
+<h3>Using the Efficiency Tab<a class="headerlink" href="#using-the-efficiency-tab" title="Link to this heading"></a></h3>
+<p><img alt="XDMoD job efficiency System Wide Report" src="../../_images/xdmod_screenshot_job_efficiency.png" /></p>
+</section>
+</section>
+<section id="slurm-command-seff">
+<h2>SLURM command ‘seff’<a class="headerlink" href="#slurm-command-seff" title="Link to this heading"></a></h2>
+<p>Using the SLURM build-in command <code class="docutils literal notranslate"><span class="pre">seff</span> <span class="pre">$JOBID</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Job</span> <span class="n">ID</span><span class="p">:</span> <span class="n">xxxxxxx</span>
+<span class="n">Arrage</span> <span class="n">Job</span> <span class="n">ID</span><span class="p">:</span> <span class="n">xxxxxx_0</span>
+<span class="n">Cluster</span><span class="p">:</span> <span class="n">wendian</span>
+<span class="n">User</span><span class="o">/</span><span class="n">Group</span><span class="p">:</span> <span class="n">username</span><span class="o">/</span><span class="n">usergroup</span>
+<span class="n">State</span><span class="p">:</span> <span class="n">COMPLETE</span> <span class="p">(</span><span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">Nodes</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">Cores</span> <span class="n">per</span> <span class="n">node</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">CPU</span> <span class="n">Utilized</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">51</span>
+<span class="n">CPU</span> <span class="n">Efficiency</span><span class="p">:</span> <span class="mf">23.21</span><span class="o">%</span> <span class="n">of</span> <span class="mi">00</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">12</span> <span class="n">core</span><span class="o">-</span><span class="n">walltime</span>
+<span class="n">Job</span> <span class="n">Wall</span><span class="o">-</span><span class="n">clock</span> <span class="n">time</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">09</span>
+<span class="n">Memory</span> <span class="n">Utilized</span><span class="p">:</span> <span class="mf">973.22</span> <span class="n">MB</span> <span class="p">(</span><span class="n">estimated</span> <span class="n">maximum</span><span class="p">)</span>
+<span class="n">Memory</span> <span class="n">Efficiency</span><span class="p">:</span> <span class="mf">6.76</span><span class="o">%</span> <span class="n">of</span> <span class="mf">14.06</span> <span class="n">GB</span> <span class="p">(</span><span class="mf">1.76</span> <span class="n">GB</span><span class="o">/</span><span class="n">core</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="selecting-job-id-in-xdmod-mines-edu">
+<h2>Selecting Job ID in XDMoD.mines.edu<a class="headerlink" href="#selecting-job-id-in-xdmod-mines-edu" title="Link to this heading"></a></h2>
+<p>Output detailed information on accounting data, job script, executable, and metrics</p>
+<section id="example-of-rscript-using-3-nodes">
+<h3>Example of Rscript using 3-nodes<a class="headerlink" href="#example-of-rscript-using-3-nodes" title="Link to this heading"></a></h3>
+<p><img alt="XDMoD job efficiency an Rscript" src="../../_images/xdmod_screenshot_rscript.png" /></p>
+<p>A 3-node job where all nodes have work for the first three hours, then each node
+runs out of work and because an unbalance workload across the 3-node job.
+The total CPU Efficiency is reported at 12.8%. The Rscript program running should
+be examined to improve this load inbalance.</p>
+</section>
+<section id="example-of-ansys-fluent-interactively-running">
+<h3>Example of Ansys Fluent (interactively running)<a class="headerlink" href="#example-of-ansys-fluent-interactively-running" title="Link to this heading"></a></h3>
+<p><img alt="XDMoD job efficiency an Ansys Fluent" src="../../_images/xdmod_screenshot_ansys.png" /></p>
+<p>This jobs using 5-days of compute wall-time a utilization efficiency of 60.44% is report.
+The user was probably accessing the interface and adjusting settings during the
+few drops seen in the graph.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="advanced_slurm_guide.html" class="btn btn-neutral float-left" title="Advanced Slurm Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Parallel_Scaling_Guide.html" class="btn btn-neutral float-right" title="Parallel Scaling Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fcee9970>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Slurm Guide &mdash; Mines Research Computing  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=63dbbe29" />
+
+  
+    <link rel="canonical" href="https://rc-docs.mines.edu/pages/user_guides/advanced_slurm_guide.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Knowing your job efficiency" href="job_efficiency_xdmod.html" />
+    <link rel="prev" title="Running MATLAB on HPC Systems" href="matlab.html" />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-MXJV3MB');</script>
+
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="wy-body-for-nav">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-MXJV3MB
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Mines-RC-03.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of Research Computing at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines.html">Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing_options.html">Computing Options at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../consultations.html">Research Computing Consultation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops.html">Workshops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications using Mines HPC Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scientific Visualization</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/2d-prime-plots.html">Graphing using Matplotlib and Creating Interactive Plots and Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/paraview-server-startup.html">Paraview Server Startup and Connection Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/fluent-remote-visualization.html">Ansys Remote Visualization Client Startup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/jupyter-lab-startup.html">Jupyter Lab on HPC platforms at Mines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/using-vnc-connection-for-fluent-gui-access.html">Remote VNC Setup Connection to Access Linux Desktop Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization_guides/ansys-setup-megn423.html">Ansys Fluent Startup Guide for Class MEGN 423 Fall 2025</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/AWS.html">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/gcp.html">Google Cloud Platform (GCP)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/orebits.html">Orebits Storage Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage_management/globus.html">Globus File Transfer</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">High Performance Computing (HPC)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module_system.html">The Module System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_user_guide.html">Getting Started (New User Guide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting_to_systems.html">Connecting to Mines&#64;HPC Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_environments.html">Using Anaconda for python environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansys.html">ANSYS Fluent Job Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matlab.html">Running MATLAB on HPC Systems</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced Slurm Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-slurm-commands">General Slurm Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sbatch"><code class="docutils literal notranslate"><span class="pre">sbatch</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hpc-mines-specific-commands">HPC&#64;Mines Specific Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wendian-specific-commands">Wendian-specific Commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-charge-accounts">Using Charge Accounts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mio-specific-commands">Mio-specific commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-on-jobs-using-sacct">Checking on jobs using <code class="docutils literal notranslate"><span class="pre">sacct</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-compute-resources">Configuring compute resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#determining-node-configuration">Determining node configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#job-arrays">Job Arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-simple-example">A simple example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-job-array-index-to-setup-parameter-search">Using Job Array Index to setup parameter search</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="job_efficiency_xdmod.html">Knowing your job efficiency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parallel_Scaling_Guide.html">Parallel Scaling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parallel_Scaling_Guide.html#References">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archived_guides.html">Archived Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Budget Guidance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/research_computing_resource_guidance.html">Research Computing Guidance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../budget_guidance/guidance-case-study-fenics.html">Case Study: Researcher using Open Source Finite Element Code FEniCS for modeling reacting flows</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Mines Research Computing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Advanced Slurm Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/user_guides/advanced_slurm_guide.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="advanced-slurm-guide">
+<h1>Advanced Slurm Guide<a class="headerlink" href="#advanced-slurm-guide" title="Link to this heading"></a></h1>
+<p>Slurm is the job manager used by both of our HPC systems, Wendian and Mio. In this guide we will go over the basics and some of the advanced features of Slurm to best facitiliate one’s work on our HPC systems.</p>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading"></a></h2>
+<p>Before we go into the less commonly used commands in Slurm, let’s go over the basics.</p>
+<section id="general-slurm-commands">
+<h3>General Slurm Commands<a class="headerlink" href="#general-slurm-commands" title="Link to this heading"></a></h3>
+<p>Here’s a quick overview of commands you will use commonly:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sbatch</span></code> – Submit a batch script to Slurm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">salloc</span></code> - Allocates compute resources for an interactive shell job</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squeue</span></code> – View information about jobs located in the Slurm scheduling queue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sinfo</span></code> – View Slurm management information about nodes and partitions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scancel</span></code> – Cancel jobs or job steps that were scheduled using Slurm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scontrol</span></code> – View Slurm configuration and state.</p></li>
+</ul>
+<p>Next, let’s go through each of these commands in a bit more detail with some examples.</p>
+</section>
+<section id="sbatch">
+<h3><code class="docutils literal notranslate"><span class="pre">sbatch</span></code><a class="headerlink" href="#sbatch" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span></code> will be your most commonly used command for submitting jobs to the slurm scheduler. A typical slurm script will look like this, which we denote as <code class="docutils literal notranslate"><span class="pre">submit_slurm.sh</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --nodes=1 # number of nodes</span>
+<span class="c1">#SBATCH --ntasks-per-node=12 # number of tasks per node</span>
+<span class="c1">#SBATCH --ntasks=12 # redundant; total number of tasks: ntasks = nodes * ntasks-per-node</span>
+<span class="c1">#SBATCH --time=00:00:01 # time in HH:MM:SS</span>
+<span class="c1">#SBATCH -o output.%j # standard print output labeled with SLURM job id %j</span>
+<span class="c1">#SBATCH -e error.%j  # standard print error  labeled with SLURM job id %j</span>
+
+<span class="c1"># module loads here</span>
+
+<span class="n">echo</span> <span class="s2">&quot;Job has started!&quot;</span>
+<span class="n">srun</span> <span class="n">name_of_your_executable</span><span class="o">.</span><span class="n">exe</span>
+<span class="n">echo</span> <span class="s2">&quot;Job has finished!</span>
+</pre></div>
+</div>
+<p>As explained in the <a class="reference internal" href="new_user_guide.html"><span class="std std-doc">New User Guide</span></a>, the <code class="docutils literal notranslate"><span class="pre">#SBATCH</span></code> directives are a way to pass flags to <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> within the job script. If you wanted to submit this job without the preamble <code class="docutils literal notranslate"><span class="pre">#SBATCH</span></code> directives, your submission would have to look like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="o">--</span><span class="n">nodes</span><span class="o">=</span><span class="mi">1</span> <span class="o">--</span><span class="n">ntasks</span><span class="o">-</span><span class="n">per</span><span class="o">-</span><span class="n">node</span><span class="o">=</span><span class="mi">12</span> <span class="o">--</span><span class="n">ntasks</span><span class="o">=</span><span class="mi">12</span> <span class="o">--</span><span class="n">time</span><span class="o">=</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">01</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="o">.%</span><span class="n">j</span> <span class="o">-</span><span class="n">e</span> <span class="n">error</span><span class="o">.%</span><span class="n">j</span> <span class="n">submit_slurm</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>This cleans up the submission process and allows you to change things as needed.</p>
+<p>Slurm provides a number of other options for <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> on its <a class="reference external" href="https://slurm.schedmd.com/sbatch.html">docs page</a>, but we will highlight some more commonly used ones here:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-A</span></code>, <code class="docutils literal notranslate"><span class="pre">--account=&lt;Account_ID&gt;</span></code> - This directive will allocate your job under a specific project ID. These are used on Wendian only, but allow for users with more than project to track which hours to run jobs against.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-a</span></code>, <code class="docutils literal notranslate"><span class="pre">--array=&lt;array_indices&gt;</span></code> - This directive allows one to submit an array of jobs using the index specified by the <code class="docutils literal notranslate"><span class="pre">-array</span></code> argument. We will discuss more on job arrays below.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-C</span></code>, <code class="docutils literal notranslate"><span class="pre">--constraint=&lt;list_of_constraints&gt;</span></code> - This allows a job to be constrainted to a subset of nodes. On Mio, commonly used constraints include the CPU architecture: <code class="docutils literal notranslate"><span class="pre">broadwell</span></code>, <code class="docutils literal notranslate"><span class="pre">haswell</span></code>, <code class="docutils literal notranslate"><span class="pre">sandybridge</span></code>, <code class="docutils literal notranslate"><span class="pre">ivybridge</span></code>. If you want to view which constraints are given to each node, use the <code class="docutils literal notranslate"><span class="pre">scontrol</span></code> command to get more details on the node’s constraints.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c</span></code>, <code class="docutils literal notranslate"><span class="pre">--cpus-per-task=&lt;number_of_cpus&gt;</span></code> - Slurm distinguishes between CPUs and tasks. By default, <code class="docutils literal notranslate"><span class="pre">--cpus-per-task=1</span></code> and hence every CPU is assigned to a task. This allows finer control to allow for a job to stay on a single node, or to setup a multi-threaded job with some software.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-d</span></code>, <code class="docutils literal notranslate"><span class="pre">--dependency=&lt;list_of_dependencies&gt;</span></code> - This directive allows one to delay a job until a certain condition is met. We will show some slurm job dependency examples below.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--exclusive</span></code> - This directives forces the  job to not share the resources it has allocated. For example, if a job requests 1 task with <code class="docutils literal notranslate"><span class="pre">--exclusive</span></code> enabled, the entire node will be allocated to that job. This can be useful for wanting to make sure CPU cache isn’t shared to make sure performance is consistent.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--gres=gpu:&lt;GPU_TYPE&gt;:&lt;number_of_GPUs&gt;</span></code> - <code class="docutils literal notranslate"><span class="pre">gres</span></code> can be used more broadly than just for GPUs, but on Wendian and Mio, they are mostly used to specifiy GPU resources. On Wendian, <code class="docutils literal notranslate"><span class="pre">&lt;GPU_TYPE&gt;</span></code> can either be <code class="docutils literal notranslate"><span class="pre">v100</span></code> or <code class="docutils literal notranslate"><span class="pre">a100</span></code>, especially the NVIDIA V100 and A100, respectively. <code class="docutils literal notranslate"><span class="pre">&lt;number_of_GPUs&gt;</span></code> can be values of 1 to 4 on either GPU type.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--mem=&lt;number</span> <span class="pre">of</span> <span class="pre">MB</span> <span class="pre">or</span> <span class="pre">GB&gt;</span></code> - This directive specifies amount of memory <em>per node</em>. If you’re running jobs with more than one node, it your total pool of memory wiill be equal to the value of <code class="docutils literal notranslate"><span class="pre">--mem</span></code> times the number of nodes allocated.</p></li>
+</ul>
+</section>
+<section id="hpc-mines-specific-commands">
+<h3>HPC&#64;Mines Specific Commands<a class="headerlink" href="#hpc-mines-specific-commands" title="Link to this heading"></a></h3>
+<p>Below are some Slurm-related commands created specifically for HPC&#64;Mines. To access these utilities, change to the following directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd /sw/utility/local
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slurmnodes</span></code> - View information about available nodes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slurmjobs</span></code> - View information about queues and running jobs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expands</span></code> - View a full list of nodes used for a job</p></li>
+</ul>
+<p>All these commands have a help flag by adding <code class="docutils literal notranslate"><span class="pre">-h</span></code> or <code class="docutils literal notranslate"><span class="pre">-help</span></code> to the end of it.</p>
+</section>
+<section id="wendian-specific-commands">
+<h3>Wendian-specific Commands<a class="headerlink" href="#wendian-specific-commands" title="Link to this heading"></a></h3>
+<section id="using-charge-accounts">
+<h4>Using Charge Accounts<a class="headerlink" href="#using-charge-accounts" title="Link to this heading"></a></h4>
+<p>The high-performance computing group at Mines uses an accounting system to manage allocations and usage of HPC platforms. Once allocations are awarded, users will include corresponding project account numbers with each job submission to track and report group usage numbers.</p>
+<p>To view project account numbers against which a given user can run jobs, run the following command, replacing <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;</span></code> with the specific username (you’ll only be able to run this command for your own username):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@wendian001 ~]$ sacctmgr show assoc user=&lt;username&gt; format=user,account%25 .
+</pre></div>
+</div>
+<p>To view the association between your project account number and your project title, run the following command, replacing <code class="docutils literal notranslate"><span class="pre">&lt;account</span> <span class="pre">number&gt;</span></code> with the appropriate output from the previous command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@wendian001 ~]$ sacctmgr show account &lt;account number&gt; format=account%25,descr%50 .
+</pre></div>
+</div>
+<p>To charge your compute usage to a certain project account, include the following entry in the preamble of your batch submission script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --account=2203081813</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH -A 2203081813</span>
+</pre></div>
+</div>
+<p>replacing <code class="docutils literal notranslate"><span class="pre">2203081813</span></code> with the project account number of interest.</p>
+<p>Note that the “none” account is not a valid account and cannot be used to run jobs.</p>
+</section>
+</section>
+<section id="mio-specific-commands">
+<h3>Mio-specific commands<a class="headerlink" href="#mio-specific-commands" title="Link to this heading"></a></h3>
+<p>On Mio, Slurm schedules jobs on partitions. If you are not particular about the nodes on which your job will run, there is no need to specify a partition. If you would like to run on your group’s nodes or on the Power or GPU nodes, it’s necessary to specify a partition.  To do so, the option <code class="docutils literal notranslate"><span class="pre">-p</span></code> followed by the partition name must be added to the command to submit.  For example, to run in the <code class="docutils literal notranslate"><span class="pre">ppc</span></code> Power partition, and thus on the <code class="docutils literal notranslate"><span class="pre">ppc</span></code> PowerPC nodes, the syntax would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sbatch -p ppc --gres ${NAME_OF_YOUR_SCRIPT} 
+</pre></div>
+</div>
+</section>
+</section>
+<section id="checking-on-jobs-using-sacct">
+<h2>Checking on jobs using <code class="docutils literal notranslate"><span class="pre">sacct</span></code><a class="headerlink" href="#checking-on-jobs-using-sacct" title="Link to this heading"></a></h2>
+</section>
+<section id="configuring-compute-resources">
+<h2>Configuring compute resources<a class="headerlink" href="#configuring-compute-resources" title="Link to this heading"></a></h2>
+<p>There are variety of configuration options for choosing finer details on what compute resources one can use for a HPC job. In this section, we briefly cover those options.</p>
+<section id="determining-node-configuration">
+<h3>Determining node configuration<a class="headerlink" href="#determining-node-configuration" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="job-arrays">
+<h2>Job Arrays<a class="headerlink" href="#job-arrays" title="Link to this heading"></a></h2>
+<p>Slurm job arrays are a way to submit multiple jobs to the Slurm scheduler all at once. It uses an indexing “array” that tracks each of the jobs.</p>
+<section id="a-simple-example">
+<h3>A simple example<a class="headerlink" href="#a-simple-example" title="Link to this heading"></a></h3>
+</section>
+<section id="using-job-array-index-to-setup-parameter-search">
+<h3>Using Job Array Index to setup parameter search<a class="headerlink" href="#using-job-array-index-to-setup-parameter-search" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="matlab.html" class="btn btn-neutral float-left" title="Running MATLAB on HPC Systems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="job_efficiency_xdmod.html" class="btn btn-neutral float-right" title="Knowing your job efficiency" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+<jinja2.runtime.BlockReference object at 0x7fd3fcbc5ac0>
+  <footer role="contentinfo">
+  <div class="column left">
+   <h3><br><strong>Mines Research Computing</strong><hr></h3>
+
+<big><strong><a href="https://rc.mines.edu"><u>Research Computing (RC)</u></a></strong><br>
+          Colorado School of Mines<br>
+          1500 Illinois St., Golden, CO 80401<br>
+          303-273-3000 / 800-446-9488 </big>
+  </div>
+ 
+   <div class="column middle">
+<h3><br><strong>Quick Links</strong><hr></h3>
+<big>
+  <ul> 
+    <li><a href="https://outlook.office365.com/owa/calendar/ResearchComputing@mines0.onmicrosoft.com/bookings/"><u>Schedule a Meeting</u></a></li>
+    <li><a href="https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service"><u>Submit an RC ticket</u></a></li>
+    <li><a href="https://helpcenter.mines.edu"><u>Mines Help Center</u></a></li>
+  </ul>
+</big>
+<hr>
+<big>
+  <ul>  
+    <li><a href="https://ask.cyberinfrastructure.org/"><u>Ask.Ci</u></a> (External)</li>
+    <li><a href="https://it.mines.edu/"><u>Mines IT</u></a></li>
+    <li><a href="https://library.mines.edu/"><u>Mines Library</u></a></li>
+</ul>
+</big>
+
+
+
+
+</div>
+  <div class="column right">
+<h3><br><strong>About RC</strong><hr></h3>
+<p>Mines IT Research Computing (RC) group works to identify research needs across the university and aims to provide comprehensive and innovative services and infrastructure to further research and meet our vision set by the Mines@150 strategic plan. <br>
+</p><hr>
+
+<p></p>
+</div>
+
+
+<div>
+  <div><p style="text-align: center"><big><a href="https://www.mines.edu" target="_blank" ">Mines Home</a> <strong>|</strong> <a href="https://www.mines.edu/accessibility" target="_blank" ">Accessibility</a> <strong>|</strong> <a href="https://www.mines.edu/privacy" target="_blank" ">Privacy</a> <strong>|</strong> © 2022-24 Colorado School of Mines</big></p></div></div></div>  
+      </div>
+    
+  </footer>
+
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+   
+
+
+</body>
+</html>
