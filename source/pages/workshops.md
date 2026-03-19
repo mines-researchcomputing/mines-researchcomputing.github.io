@@ -4,6 +4,9 @@
 
 ### Intro to Research Computing at Mines
 
+#### Workshop Materials
+* Day 2: Intro to Serial + Parallel Computing Concepts, PyTorch on HPC + Monitoring Performance & Budget Guidance for Researchers:
+   * [Slides]([https://docs.google.com/presentation/d/1LD9uDIJ8QIghznifoamwEA4e0TWdQ-CO4FI-4d4IZi0/edit?usp=sharing](https://docs.google.com/presentation/d/1DwPldAminPZf7zJqQnAOaRCFmjvobLn7qaoVwyi61VE/edit?usp=sharing))
 
 #### Workshop Materials
  * Day 1: Overview of Research Computing & Cyberinfrastructure, Intro to Linux/Bash, Slurm/Job Schedulers and Data Management
