@@ -86,8 +86,19 @@ The table below breaks down the purge policy and associated costs of each the da
 
 ### Login/Management Node
 
-When you login one of our HPC systems, you login what is known as the "management" node. This node allows one to login to HPC systems and interface with the job scheduler SLURM. Additionally, the management node can also be used to edit files, create environment and compile codes. However as a general rule, **running simulation software on the management node is prohibited.** On both HPC systems, a software called `arbiter` monitors system resources used on the login node. If you are using too many CPU resources, an automated email will be sent to you Mines E-Mail, warning you and throttling your CPU usage. Once a cooldown period ends, your CPU allotment will return to normal.
+When you login one of our HPC systems, you login what is known as the "management" node. This node allows one to login to HPC systems and interface with the job scheduler SLURM. Additionally, the management node can also be used to edit files, create environment and compile codes. However as a general rule, **running simulation software on the management node is prohibited.** 
 
+
+#### CLI-based LLM Models (Claude, Gemini, ChatGPT, etc)
+
+Due to their high CPU and memory intensive usage, all CLI-based LLM models are **prohibited**  on the login node. Users who violate this policy may have their HPC access temporarily suspended. 
+
+
+
+
+<!---
+On both HPC systems, a software called `arbiter` monitors system resources used on the login node. If you are using too many CPU resources, an automated email will be sent to you Mines E-Mail, warning you and throttling your CPU usage. Once a cooldown period ends, your CPU allotment will return to normal.
+--->
 
 #### VS Code Usage
 
