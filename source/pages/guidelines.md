@@ -40,7 +40,7 @@ After a given job is complete, we have a tool installed called `reportseff` that
 
 Please refer to the GitHub page for more information: [https://github.com/troycomi/reportseff](https://github.com/troycomi/reportseff)
 
-If you find that you are poorly utilizing CPU or memory resources, feel free to reach out to the [Mines Help Center](https://helpcenter.mines.edu) for an [HPC Consultation](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/ServiceDet?ID=30287). Job efficiency likely needs to be solved by a case by case basis, and we can serve you best this way.
+If you find that you are poorly utilizing CPU or memory resources, feel free to reach out to the [Mines Help Center](https://helpcenter.mines.edu) for an [HPC Consultation](https://outlook.office365.com/owa/calendar/ResearchComputingSupportTeamServices@mines0.onmicrosoft.com/bookings/). Job efficiency likely needs to be solved by a case by case basis, and we can serve you best this way.
 
 ### Storage Rates
 
@@ -158,7 +158,7 @@ This ensures all background tasks are cleanly terminated, freeing up resources f
 
 ### Home Directory Guidelines
 
-Every user has 20GB of data allocated to their `$HOME` directory. A common issue with filling this storage is conda environments. You can clean your conda packages by following [this](https://wpfiles.mines.edu/wp-content/uploads/ciarc/docs/pages/user_guides/python_environments.html#cleaning-up-conda-packages) page.
+Every user has 20GB of data allocated to their `$HOME` directory. A common issue with filling this storage is conda environments. You can clean your conda packages by following [this](https://rc-docs.mines.edu/pages/user_guides/python_environments.html#cleaning-up-conda-packages) page.
 
 ### Scratch Guidelines
 
@@ -178,13 +178,13 @@ This policy is strictly enforced by HPC@Mines.  In the event that the computatio
 
 ##### Increase the amount of parallelism
 
-By increasing the number of cores/nodes used in your job, you can often decrease the total wall time needed. If your code is only a single-core workload, feel free to reach out to us for a [HPC technical consultation](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/ServiceDet?ID=33487) for other workflow options.
+By increasing the number of cores/nodes used in your job, you can often decrease the total wall time needed. If your code is only a single-core workload, feel free to reach out to us for a [HPC technical consultation](https://outlook.office365.com/owa/calendar/ResearchComputingSupportTeamServices@mines0.onmicrosoft.com/bookings/) for other workflow options.
 
 #### Incorporate checkpointing
 
 Checkpointing is the process of periodically saving the state of a code's program execution so that it can be resumed at a later time.  This is extremely helpful in mitigating the effects on your calculation in the event of an unexpected crash or error.  By saving output periodically, or at a certain recurring point, and being able to restart the calculation using the saved output, a catastrophic loss of an entire days-long compute effort could be avoided.  Using checkpointing to intentionally restart a calculation at a reasonably estimated point is a recommended approach to remain within the six-day maximum walltime.
 
-For more focused computational assistance, with the above situations and other compute aspects of your research, the HPC@Mines team is available and willing to provide personal, one-on-one assistance.  Please [submit a help request](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/ServiceDet?ID=33487) to start the process.  We also suggest consulting with members of your group or other peers currently using similar codes or applications; they may provide expedited answers to your questions, based on their experience.
+For more focused computational assistance, with the above situations and other compute aspects of your research, the HPC@Mines team is available and willing to provide personal, one-on-one assistance.  Please [submit a help request](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service) to start the process.  We also suggest consulting with members of your group or other peers currently using similar codes or applications; they may provide expedited answers to your questions, based on their experience.
 
 ## High-Performance Computing (HPC) Node Life Cycle
 
