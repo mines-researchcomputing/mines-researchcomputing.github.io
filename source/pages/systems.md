@@ -2,36 +2,38 @@
 HPC@Mines has two main HPC systems available for researchers and students: Wendian and Mio. 
  
 ## Wendian
-Wendian is the newest high performance computing platform at Mines. Wendian came online in the fall of 2018. It contains 87 compute nodes; Skylake Intel processors comprise the bulk of the system, with nine Nvidia GPU nodes and two OpenPower nodes. Max performance rating is over 350 teraflops. Additionally, Wendian has three administration nodes and six file system nodes holding up to 1152 terabytes of raw storage with over 10 gigabytes/second transfer speeds. Wendian currently runs  [CentOS](https://centos.org/)  7, a community-driven, functionality-compatible computing platform to  [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) . Simulations are managed as jobs using the  [SLURM](https://slurm.schedmd.com/overview.html)  scheduler.
+Wendian is the newest high performance computing platform at Mines. Wendian came online in the fall of 2018. For general compute usage, it contains 56 compute nodes; Skylake Intel processors comprise the bulk of the system, with 1 NVIDIA GPU V100 node.  Additionally, Wendian has three administration nodes and six file system nodes holding up to 1152 terabytes of raw storage with over 10 gigabytes/second transfer speeds. Wendian currently runs  [Rocky Linux](https://rockylinux.org/) 9, functionality-compatible computing platform to  [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) . Simulations are managed as jobs using the  [SLURM](https://slurm.schedmd.com/overview.html)  scheduler.
  
 ### Wendian Compute Configuration
  
 | **Processor**                       | **Cores** | **Memory (GB)** | **Nodes / Cards** | **Cores Total** | **Memory Total (GB)** |
 |-------------------------------------|-----------|-----------------|-------------------|-----------------|-----------------------|
-| Skylake 6154                        | 36        | 192             | 39                | 1,404           | 7,488                 |
-| Skylake 6154                        | 36        | 384             | 39                | 1,404           | 14,976                |
+| Skylake 6154                        | 36        | 192             | 32                | 1,404           | 7,488                 |
+| Skylake 6154                        | 36        | 384             | 24                | 1,404           | 14,976                |
 | Skylake 5118                        | 24        | 192             | 5                 | 120             | 960                   |
 | Skylake 5218                        | 32        | 192             | 4                 | 128             | 768                   |
 | GPU cards for 5118's \(Volta V100\) | 32        | 20              | 640               |
-| GPU cards for 5218's \(Tesla A100\) | 40        | 16              | 640               |
-| Totals                              |           |                 |                   | 3,056           | 24,192                |
+
  
 #### Compute Node Details
-- 78 Relion XO1132G Server – Skylake Nodes
+- 56 Relion XO1132G Server – Skylake Nodes
 	* Dual Intel Xeon 6154 (18 cores, 36 threads, 3.0GHz)
-		* 39 nodes with 192GB RAM, DDR4-2666MHz ECC (12 x 16GB)
-		* 39 nodes with 384GB RAM, DDR4-2666MHz ECC (12 x 32GB)
-	* 256 GB SSD
+		* 32 nodes with 192GB RAM, DDR4-2666MHz ECC (12 x 16GB)
+		* 24 nodes with 384GB RAM, DDR4-2666MHz ECC (12 x 32GB)
+	* 256 GB local SSD
 * 5 Relion XO1114GTS Server GPU Nodes 
 	* Dual Intel Xeon Gold 5118 CPU (12 cores, 24 threads, 2.30GHz)
 	* 192GB RAM, DDR4-2666MHz REG, ECC, 2R (12 x 16GB)
 	* 256GB SSD, 2.5″, SATA, 6Gbps, 0.2 DWPD, 3D TLC (Micron 1100)
 	* 4 x NVIDIA Tesla V100-SXM2, 32GB HBM2, 5120 CUDA, 640 Tensor, 300W
+
+<!---
 * 4 Relion XO1114GT GPU Server Nodes
 	* Dual Intel Xeon Gold 5218 (16C, 2.30GHz, 125W)
 	* 192GB RAM, DDR4-2933MHz ECC (12 x 16GB)
 	* 256GB SSD
 	* 4 x NVIDIA A100-PCIe, 40GB HBM2
+-->
  
 #### Filesystem
 * 960TB Usable Capacity @ 10GB/s
