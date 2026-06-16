@@ -112,7 +112,7 @@ If you are locked out or seeing errors related to process limits on the **Wendia
 -bash: fork: retry: Resource temporarily unavailable
 ```
 
-and lose your ability to login. If you reach this point, please submit a [ticket](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service). 
+and lose your ability to login. If you reach this point, please submit a [ticket](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/Service/52356/Research-Computing-RC-Services/Request). 
 
 To keep the login node responsive for everyone, we cap the maximum number of concurrent processes per user. VS Code can sometimes leave behind background "zombie" processes that quickly hit this limit.
 
@@ -184,7 +184,7 @@ By increasing the number of cores/nodes used in your job, you can often decrease
 
 Checkpointing is the process of periodically saving the state of a code's program execution so that it can be resumed at a later time.  This is extremely helpful in mitigating the effects on your calculation in the event of an unexpected crash or error.  By saving output periodically, or at a certain recurring point, and being able to restart the calculation using the saved output, a catastrophic loss of an entire days-long compute effort could be avoided.  Using checkpointing to intentionally restart a calculation at a reasonably estimated point is a recommended approach to remain within the six-day maximum walltime.
 
-For more focused computational assistance, with the above situations and other compute aspects of your research, the HPC@Mines team is available and willing to provide personal, one-on-one assistance.  Please [submit a help request](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service) to start the process.  We also suggest consulting with members of your group or other peers currently using similar codes or applications; they may provide expedited answers to your questions, based on their experience.
+For more focused computational assistance, with the above situations and other compute aspects of your research, the HPC@Mines team is available and willing to provide personal, one-on-one assistance.  Please [submit a help request](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/Service/52356/Research-Computing-RC-Services/Request) to start the process.  We also suggest consulting with members of your group or other peers currently using similar codes or applications; they may provide expedited answers to your questions, based on their experience.
 
 ## High-Performance Computing (HPC) Node Life Cycle
 
@@ -276,7 +276,7 @@ To encourage resource sharing and good HPC habits, the following limits apply:
 
 #### Support and Help
 
-HPC support is available to assist users with technical questions, software installations, and job submission issues within reasonable limits. Please note that the support team will not complete assignments or perform coursework on behalf of students. For assistance, contact the Mines Research Computing team through the ticketing system: [Research Computing (RC) Services](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service).
+HPC support is available to assist users with technical questions, software installations, and job submission issues within reasonable limits. Please note that the support team will not complete assignments or perform coursework on behalf of students. For assistance, contact the Mines Research Computing team through the ticketing system: [Research Computing (RC) Services](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/Service/52356/Research-Computing-RC-Services/Request).
 
 #### Data Management and Security
 
