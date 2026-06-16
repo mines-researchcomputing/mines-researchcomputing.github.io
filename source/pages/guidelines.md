@@ -88,6 +88,61 @@ The table below breaks down the purge policy and associated costs of each the da
 
 When you login one of our HPC systems, you login what is known as the "management" node. This node allows one to login to HPC systems and interface with the job scheduler SLURM. Additionally, the management node can also be used to edit files, create environment and compile codes. However as a general rule, **running simulation software on the management node is prohibited.** On both HPC systems, a software called `arbiter` monitors system resources used on the login node. If you are using too many CPU resources, an automated email will be sent to you Mines E-Mail, warning you and throttling your CPU usage. Once a cooldown period ends, your CPU allotment will return to normal.
 
+
+#### VS Code Usage
+
+
+[Microsoft VS Code](https://code.visualstudio.com/) is a popular code editor that has been increasingly being used on HPC system's login nodes. Our currently policy allows for users to use VSCode on the login node, but it is the user's responsibility to close out their VS Code server to keep login node functional and stable for all users. 
+
+If you are locked out or seeing errors related to process limits on the **Wendian** login node, it is usually caused by an orphaned or lingering **VS Code Remote Server** session. You may see errors such as:
+
+
+```
+-bash: fork: retry: Resource temporarily unavailable
+```
+
+and lose your ability to login. If you reach this point, please submit a [ticket](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service). 
+
+To keep the login node responsive for everyone, we cap the maximum number of concurrent processes per user. VS Code can sometimes leave behind background "zombie" processes that quickly hit this limit.
+
+There are two main ways to clear your ssh session when using VS Code.
+
+##### Option 1: Closing all login node processes
+
+1.  To see how many lightweight processes (threads) you currently have running on the login node, execute the following command in your terminal:
+
+```bash
+ps -o nlwp,pid,lwp,args -u $USER | awk '{sum+=$1} END {print sum}'
+
+```
+
+2. When you are done working, terminate your active processes. Run this command to kill all processes associated with your user ID:
+
+```bash
+pkill -9 -u `id -u $USERNAME`
+
+```
+
+> ⚠️ **Note:** This will instantly close all your active sessions and terminal connections on the host. Once completed, you should be able to log back into Wendian immediately.
+
+
+
+##### Option 2: Close your VSCode session within the application
+
+
+
+**To safely shut down the remote server:**
+
+1. Open the VS Code Command Palette:
+* **Windows/Linux:** `Ctrl` + `Shift` + `P`
+* **macOS:** `Cmd` + `Shift` + `P`
+
+2. Type and select: **`Remote-SSH: Kill VS Code Server on Host...`**
+3. Select **Wendian** from the list of hosts.
+
+This ensures all background tasks are cleanly terminated, freeing up resources for you and other cluster users.
+
+
 ### Scratch vs Home Directory
 
 ### Home Directory Guidelines
