@@ -10,7 +10,8 @@ If you are interested in purchasing additional storage for your group, please op
 
 ## Features
 
-* On-premise storage solution (required by some government and many industry contracts).
+* On-premise storage solution (required by some government and many industry contracts)
+   * Hosted in the Continental USA (Colorado) 
 * Accessible on or off campus.
 * Ability to share folders with Mines users.
 * Purchased in increments of a terabyte.
