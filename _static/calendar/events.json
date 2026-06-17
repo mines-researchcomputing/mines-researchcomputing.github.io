@@ -1,0 +1,13 @@
+{
+  "2025-05-01": [
+    {"title": "Meeting with Team", "time": "10:00 AM - 11:00 AM", "description": "Discuss project milestones."},
+    {"title": "Lunch with Sarah", "time": "12:30 PM - 1:30 PM", "description": "At the Italian restaurant."}
+  ],
+  "2025-05-15": [
+    {"title": "Doctor Appointment", "time": "3:00 PM - 3:30 PM", "description": "Annual check-up."}
+  ],
+  "2025-06-05": [
+    {"title": "Conference", "time": "9:00 AM - 5:00 PM", "description": "Tech conference downtown."}
+  ]
+}
+

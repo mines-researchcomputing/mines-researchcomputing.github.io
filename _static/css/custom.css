@@ -1,0 +1,146 @@
+/* Sidebar header (and topbar for mobile) */
+.wy-side-nav-search, .wy-nav-top {
+    background: #21314d;
+}
+
+/* Sidebar */
+.wy-nav-side {
+    background: #F8F8F8;
+}
+
+/* Caption Text on Side Menu */
+.wy-menu.wy-menu-vertical span.caption-text {
+    color: #C84528;
+}
+
+/* Link colors */
+a:link {
+    color: #09396C;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #21314d;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #21314d;
+}
+
+/* Update sidebar link colors */
+
+.wy-menu a:link {
+    color: #09396C;
+    text-decoration: none;
+}
+
+.wy-menu a:hover {
+    color: #21314d;
+    text-decoration: underline;
+}
+
+.wy-menu a:visited {
+    color: #21314d;
+    text-decoration: none;
+}
+
+/* Content links are underlined */
+.wy-nav-content a:link {
+    text-decoration: underline;
+}
+
+
+/* Code */
+pre {
+    color: #09396C;
+}
+
+span.pre {
+    color: #09396C;
+}
+
+.wy-menu-vertical a:hover {
+    background-color: #e6e6e6;
+}
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.middle, .right {
+    width: 30%;
+}
+
+.left {
+    width: 40%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+div.citation {
+    color: #707070 !important;
+}
+
+footer {
+    color: #707070;
+    /* Link colors */
+
+    a:link {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+/* FAQ styles scoped to the .faq-item class */
+
+.faq-item details {
+}
+
+.faq-item summary {
+    color: #879EC3;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    transition: background-color 0.2s ease;
+
+    list-style: none;
+    position: relative;
+    padding-left: 20px; /* Space for the custom icon */
+}
+
+.faq-item summary:hover {
+    background-color: #f0f0f0;
+}
+
+.faq-item summary::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+}
+
+.faq-item details > p,
+.faq-item details > div,
+.faq-item details > * {
+    padding-left: 25px;
+    margin-bottom: 15px;
+}
