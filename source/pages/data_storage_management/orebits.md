@@ -121,7 +121,7 @@ While every reasonable and good faith effort will be made to ensure the integrit
 
 Active storage is directly accessible for read/write via NFS, CIFS, and ssh (scp, sftp, or rsync) from computational resources within the Mines environment, including login nodes.
 
-To access active storage from outside of the Mines environment, it is necessary to use ssh or VPN connections.  Connections can be made through orebits2.mines.edu.  Additionally, data transfers can also be made utilizing gridftp/Globus; Globus will almost always provide much higher throughput and resiliency than all other connection options and is the preferred protocol for any but the smallest transfers.
+To access active storage from outside of the Mines environment, it is necessary to use ssh or VPN connections.  Connections can be made through orebits3.mines.edu.  Additionally, data transfers can also be made utilizing gridftp/Globus; Globus will almost always provide much higher throughput and resiliency than all other connection options and is the preferred protocol for any but the smallest transfers.
 
 #### 4.3 Duration of Service:
 
@@ -216,7 +216,7 @@ Locate the option to map a network drive. The method for doing this will vary wi
      Options > Tools > Map Network Drive or This PC > Computer > Map Network Drive
 
 A “Map Network Drive” (or similar) panel should appear. The first item identified will usually be the “Drive” letter to be assigned on your system. This will be the virtual drive letter that you will later use to access your files on the remote domain. Usually the last available drive letter will show up. You can any other unassigned drive letter in the drop-down list.
-The second item requested is the “path” or “share” that tells your computer where to look on the network to find your files; this is the “full path to your files”. For Orebits user, this will be `\\orebits2.mines.edu\[share name]` or `\\orebits3.mines.edu\[share name]` brackets removed
+The second item requested is the “path” or “share” that tells your computer where to look on the network to find your files; this is the “full path to your files”. For Orebits user, this will be `\\orebits3.mines.edu\[share name]` brackets removed
 If the “Reconnect at Login” box is checked, you should check or uncheck it as appropriate. For desktop machines constantly on the Mines network, this is a good choice. Laptops that travel off the Mines network are more problematic.
 Press the “OK” or “Finish” button.
 If the information you provided is correct and the drive is available, you will be prompted to enter your ADIT password (or username and password). Submit that information and press the “OK” button. You may need to enter your username as “ADIT\username” instead of just “username”– indicating the domain where your account is found (ADIT in this case).
@@ -229,7 +229,6 @@ To access a remote drive using macOS, determine the path to the remote network d
 
 Using the Mac Finder, click Go > Connect to Server.
 Type the server address in this format:
-     smb://orebits2.mines.edu/[share name]  brackets removed, or
      smb://orebits3.mines.edu/[share name]  brackets removed
 
 If you are successful, click the [+] icon at right to save the address permanently.
@@ -244,8 +243,8 @@ There are many ways to mount network drives using a Linux system. Some Linux dis
 #### Command Line
 For Linux users comfortable with the terminal or shell interface, the simplest method for accessing the files involves using the Samba package’s “smbclient” executable, along with the cifs-utils package. They may need to be installed using the package manager appropriate to your Linux distribution, and can be used as follows:
 
-     sudo smbclient -m SMB3 -U username -W adit //orebits2.mines.edu/[share name]  brackets removed
-     sudo mount.cifs –verbose -o username=joeuser@adit,vers=3.0 //orebits2.mines.edu/[share name]  brackets removed Replace the “username” with your campus username, “server” with the server in question (Hornet for Z: drive, Files for Y: drive, orebits2.mines.edu for Orebits users), and “share” with the share that is given to you during account setup.
+     sudo smbclient -m SMB3 -U username -W adit //orebits3.mines.edu/[share name]  brackets removed
+     sudo mount.cifs –verbose -o username=joeuser@adit,vers=3.0 //orebits3.mines.edu/[share name]  brackets removed Replace the “username” with your campus username, “server” with the server in question (Hornet for Z: drive, Files for Y: drive), and “share” with the share that is given to you during account setup.
 
  
 
@@ -255,7 +254,7 @@ For Linux users more comfortable in the GUI environment, there are a variety of 
 
 Click on “Connect to Server” in the bottom of the left hand side bar (on Ubuntu 18.04, you will need to click on “Other Locations” first), and enter the server address in the format:
 
-     smb://orebits2.mines.edu/[share name]  brackets removed
+     smb://orebits3.mines.edu/[share name]  brackets removed
 
 Enter. You will be asked to supply your ADIT username, domain name (ADIT), and ADIT password (these are highly likely to be the same login credentials as your MultiPass credentials). You will also specify how long the system should remember your ADIT password (choose “Remember forever” for maximum convenience). Then click Connect and your ADIT directory on Hornet will now be available to you via the Nautilus file manager.
 
