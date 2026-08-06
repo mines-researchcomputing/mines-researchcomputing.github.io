@@ -7,9 +7,9 @@
 | **Node Type** | **Rate per hour [USD]** | **CPU core** | **Memory per CPU core [GB]** | **GPU** |
 |---------------|-------------------------|--------------|------------------------------|---------|
 | CPU           | $0.005                   | 1            | 5 or 10*                     | NA      |
-| GPU enabled   | $0.03**                 | 6            | 48                           | 1 x NVIDIA V100  |
+| GPU enabled   | $0.018**                 | 6            | 48                           | 1 x NVIDIA V100  |
 
-*Last updated: 8/14/2024*
+*Last updated: 8/06/2026*
 
 *There are two types of CPU nodes on Wendian: (1) a "low" memory node of 192 GB, and (2) a "high" memory node of 384 GB node. Jobs will be routed to each of these nodes depending on requested resources.
 
@@ -48,10 +48,10 @@ The current storage rate policy is below:
 
 | Storage | Rate [USD/Terabyte/Month] |
 |-----------|------------|
-| Orebits, backed-up | $1.75 |
-| Orebits, no back-up | $1.00 |
+| Orebits, backed-up | $2.00 |
+| Orebits, no back-up | $1.25 |
 
-*Last updated: 08/14/2024*
+*Last updated: 08/06/2026*
 
 ## Data Guidelines
 
@@ -65,22 +65,24 @@ The following are only on Wendian & Mio:
 - `/scratch/projects` - Scratch research data used within a research project that shared with multiple users, also subject to 90 day data purge. The PI must request a projects directory with the list of authorized users.
 - `/sets` - Long term data storage available on HPC. The PI must request a sets directory with a list of authorized users.
 
-Note that all data on these directories have no redudancy, so please keep up with your own backups of active research data.
+**⚠️⚠️⚠️ Note that all data on /scratch, /sets, and /projects directories have no redundancy, i.e. NO BACKUPS, so please keep up with your own backups of active research data ⚠️⚠️⚠️**
 
 Your account privileges may be suspended if we detect any attempt to evade the data purge policies (i.e. scripting the touching of files to keep them current)
 
 The table below breaks down the purge policy and associated costs of each the data solutions:
 
-| Type | Purge Guidelines | Cost | Redunancy |
+| Type | Purge Guidelines | Cost | Backed Up |
 |-----------|------------|---------|-------|
 | Scratch (`/scratch`) | >90 days | Free | No
 | Projects (`/scratch/projects`) | >90 days | Free | No
 | Wendian Long-Term Storage (`/sets`) | None | Free | No |
-| Orebits | None | $1.75/TB/month | Yes |
+| Orebits | None | $1.75/TB/month | Yes* |
+
+\* Orebits projects must opt-in to back-ups when provisioning their share.
 
 > Your account privileges may be suspended if we detect any attempt to evade the data purge policies (i.e. scripting the touching of files to keep them current)
 
-*Last updated: 06/23/2025*
+*Last updated: 08/06/2026*
 
 ## HPC Etiquette
 
@@ -163,6 +165,8 @@ Every user has 20GB of data allocated to their `$HOME` directory. A common issue
 ### Scratch Guidelines
 
 Files on `/scratch` (e.g. `$SCRATCH`)  is a short-term shared filesystem for storing data currently necessary for active research projects. Subject to purge on a six-month (90 day) cycle. There are no limits (within reason) to amount of data.  
+
+**⚠️⚠️⚠️ Note that all data on /scratch, /sets, and /projects directories have no redundancy, i.e. NO BACKUPS, so please keep up with your own backups of active research data ⚠️⚠️⚠️**
 
 ### Slurm
 
@@ -282,6 +286,8 @@ HPC support is available to assist users with technical questions, software inst
 
 - Users are responsible for managing their own data, including backup and transfer of results. Regular data transfers and cleanup are encouraged to free up storage.  
 - [Data Management consultations](https://outlook.office365.com/book/ResearchComputingSupportTeamServices@mines0.onmicrosoft.com/?ae=true&login_hint) are available to learn how to use Globus & OnDemand
+
+**⚠️⚠️⚠️ Note that all data on /scratch, /sets, and /projects directories have no redundancy, i.e. NO BACKUPS, so please keep up with your own backups of active research data ⚠️⚠️⚠️**
 
 #### Termination of Access
 
