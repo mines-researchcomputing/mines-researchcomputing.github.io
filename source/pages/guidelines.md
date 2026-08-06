@@ -6,7 +6,7 @@
 
 | **Node Type** | **Rate per hour [USD]** | **CPU core** | **Memory per CPU core [GB]** | **GPU** |
 |---------------|-------------------------|--------------|------------------------------|---------|
-| CPU           | $0.005                   | 1            | 5 or 10*                     | NA      |
+| CPU           | $0.003                   | 1            | 5 or 10*                     | NA      |
 | GPU enabled   | $0.018**                 | 6            | 48                           | 1 x NVIDIA V100  |
 
 *Last updated: 8/06/2026*
