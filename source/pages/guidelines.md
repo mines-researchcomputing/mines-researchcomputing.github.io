@@ -9,7 +9,7 @@
 | CPU           | $0.003                   | 1            | 5 or 10*                     | NA      |
 | GPU enabled   | $0.018**                 | 6            | 48                           | 1 x NVIDIA V100  |
 
-*Last updated: 8/06/2026*
+*Last updated: 8/10/2026*
 
 *There are two types of CPU nodes on Wendian: (1) a "low" memory node of 192 GB, and (2) a "high" memory node of 384 GB node. Jobs will be routed to each of these nodes depending on requested resources.
 
@@ -82,7 +82,7 @@ The table below breaks down the purge policy and associated costs of each the da
 
 > Your account privileges may be suspended if we detect any attempt to evade the data purge policies (i.e. scripting the touching of files to keep them current)
 
-*Last updated: 08/06/2026*
+*Last updated: 08/10/2026*
 
 ## HPC Etiquette
 
