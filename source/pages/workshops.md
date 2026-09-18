@@ -1,5 +1,15 @@
 # Workshops
 
+## Fall 2026
+### Intro to Research Computing at Mines
+#### Workshop Materials
+
+ * Day 1: Overview of Research Computing & Cyberinfrastructure, Intro to Linux/Bash, Slurm/Job Schedulers and Data Management
+  *  [Slides (Google Slides, Mines Users Only)](https://docs.google.com/presentation/d/1Rw5TwOF8KEzD_zrGTwq1a-na-x9HZQv7qxopwj6g8xw/edit?usp=sharing)
+  * Lab #1: [Intro to Linux and Bash](./workshops/fall2026/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.md)
+  * Lab #2: [Intro to Slurm, Modules, and Python Environments](./workshops/fall2026/Intro_to_Slurm_and_Python_Lab.md)
+  * Lab #3: [Data Management on HPC](./workshops/fall2026/Data_Management_on_HPC_Lab_Handout.md)
+
 ## Spring 2026
 
 ### Intro to Research Computing at Mines
