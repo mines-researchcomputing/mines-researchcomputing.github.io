@@ -76,7 +76,7 @@ The table below breaks down the purge policy and associated costs of each the da
 | Scratch (`/scratch`) | >90 days | Free | No
 | Projects (`/scratch/projects`) | >90 days | Free | No
 | Wendian Long-Term Storage (`/sets`) | None | Free | No |
-| Orebits | None | $1.75/TB/month | Yes* |
+| Orebits | None | $2.00/TB/month | Yes* |
 
 \* Orebits projects must opt-in to back-ups when provisioning their share.
 
