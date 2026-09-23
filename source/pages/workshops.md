@@ -4,6 +4,8 @@
 ### Intro to Research Computing at Mines
 #### Workshop Materials
 
+* Day 2: Intro to Serial + Parallel Computing Concepts, PyTorch on HPC + Monitoring Performance & Budget Guidance for Researchers:
+   * [Slides](https://docs.google.com/presentation/d/12B9VSsPkxSvGB4GoAtOw7-H1lKuSI3bZiRQHuCyInV8/edit?usp=sharing)
  * Day 1: Overview of Research Computing & Cyberinfrastructure, Intro to Linux/Bash, Slurm/Job Schedulers and Data Management
   *  [Slides (Google Slides, Mines Users Only)](https://docs.google.com/presentation/d/1Rw5TwOF8KEzD_zrGTwq1a-na-x9HZQv7qxopwj6g8xw/edit?usp=sharing)
   * Lab #1: [Intro to Linux and Bash](./workshops/fall2026/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.md)
@@ -18,7 +20,6 @@
 * Day 2: Intro to Serial + Parallel Computing Concepts, PyTorch on HPC + Monitoring Performance & Budget Guidance for Researchers:
    * [Slides](https://docs.google.com/presentation/d/1DwPldAminPZf7zJqQnAOaRCFmjvobLn7qaoVwyi61VE/edit?usp=sharing)
 
-#### Workshop Materials
  * Day 1: Overview of Research Computing & Cyberinfrastructure, Intro to Linux/Bash, Slurm/Job Schedulers and Data Management
   *  [Slides (Google Slides, Mines Users Only)](https://docs.google.com/presentation/d/1_Wzrm1dOuuWwtqzmR3aU0mmh37tvK4ksFkRYBLT_ZRs/edit?usp=sharing)
   * Lab #1: [Intro to Linux and Bash](./workshops/spring2026/Intro_to_Linux_and_Bash_Lab_-_HPC_Workshop.md)
