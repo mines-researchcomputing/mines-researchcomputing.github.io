@@ -6,7 +6,7 @@ The OreBits Storage Platform is an on-premise storage appliance hosted by IT, an
 
 If you would like more information or have questions, please see the Memorandum of Understanding below, or contact the RC Team for assistance.
 
-If you are interested in purchasing additional storage for your group, please open a [help desk ticket](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/TicketRequests/NewForm?ID=4GCQlvW5OYk_&RequestorType=Service) by using the [Research Consultation Request](https://outlook.office365.com/owa/calendar/ResearchComputingSupportTeamServices@mines0.onmicrosoft.com/bookings/).
+If you are interested in purchasing additional storage for your group, please open a [help desk ticket](https://helpcenter.mines.edu/TDClient/1946/Portal/Requests/Service/52356/Research-Computing-RC-Services/Request) by using the [Research Consultation Request](https://outlook.office365.com/owa/calendar/ResearchComputingSupportTeamServices@mines0.onmicrosoft.com/bookings/).
 
 ## Features
 
