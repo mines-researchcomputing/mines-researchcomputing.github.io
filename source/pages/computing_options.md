@@ -10,7 +10,7 @@ If you have a specific use case, or have more questions, feel free to email us a
 
 Our primary HPC computing platform is Wendian, which started service at Mines for the Spring 2019 semester. We have extensive documentation on this system on this website, which you can read the details on our [Systems](./systems.md) page.
 
-Wendian uses a "core-hour" model to charge for computing usage. We charge $0.005 per core-hour, which details can be found on our [Guidelines](./guidelines.md) page. 
+Wendian uses a "core-hour" model to charge for computing usage. We charge $0.003 per core-hour, which details can be found on our [Guidelines](./guidelines.md) page. 
   
 
 ### AWS Cloud Computing
